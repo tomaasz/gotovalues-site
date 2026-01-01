@@ -11,10 +11,12 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.23",
+    "html-minifier-terser": "^7.2.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.2.8",
     "lucide": "^0.562.0"
   }
 }
