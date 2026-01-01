@@ -29,33 +29,8 @@
     <nav class="fixed w-full z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
             <!-- Logo - ORIGINAL SVG PRESERVED -->
-            <a href="#" class="flex items-center group cursor-pointer" aria-label="GoToValues Home">
-                <svg width="170" height="42" viewBox="0 0 170 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M55 2 C 55 2, 45 2, 40 8 C 35 14, 45 30, 50 35 L 55 38" stroke="url(#paint0_linear)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
-                    <path d="M55 38 L 75 10 C 78 5, 85 2, 90 2 C 95 2, 95 8, 92 12" stroke="url(#paint1_linear)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
-                    <circle cx="65" cy="25" r="15" fill="#3B82F6" fill-opacity="0.3" filter="url(#filter0_f)"></circle>
-                    <text x="0" y="28" fill="white" font-family="'Inter', sans-serif" font-weight="600" font-size="28" letter-spacing="-0.5">GoToValues</text>
-                    <path d="M45 34 C 45 34, 60 34, 75 34 C 95 34, 105 40, 100 48" stroke="url(#paint2_linear)" stroke-width="5" stroke-linecap="round"></path>
-                    <defs>
-                        <linearGradient id="paint0_linear" x1="40" y1="2" x2="55" y2="38" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#0EA5E9"></stop>
-                            <stop offset="1" stop-color="#2563EB"></stop>
-                        </linearGradient>
-                        <linearGradient id="paint1_linear" x1="55" y1="38" x2="90" y2="2" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#2563EB"></stop>
-                            <stop offset="1" stop-color="#0EA5E9"></stop>
-                        </linearGradient>
-                        <linearGradient id="paint2_linear" x1="45" y1="34" x2="100" y2="40" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#F97316"></stop>
-                            <stop offset="1" stop-color="#EA580C"></stop>
-                        </linearGradient>
-                        <filter id="filter0_f" x="40" y="0" width="50" height="50" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
-                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
-                            <feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur"></feGaussianBlur>
-                        </filter>
-                    </defs>
-                </svg>
+            <a href="#" class="flex items-center group cursor-pointer logo-target" aria-label="GoToValues Home">
+                <div class="logo-container w-[170px] h-[42px]"></div>
             </a>
 
             <!-- Desktop Menu -->
@@ -74,7 +49,7 @@
             </a>
 
             <!-- Mobile Menu Icon -->
-            <button class="md:hidden text-white">
+            <button id="mobile-menu-btn" class="md:hidden text-white" aria-label="Otwórz menu" aria-controls="mobile-menu-panel" aria-expanded="false">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
@@ -553,7 +528,7 @@
             </div>
 
             <!-- Case 2 -->
-            <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
+            <div class="flex flex-col md:flex-row-reverse gap-12 items-center mb-24 border-b border-slate-100 pb-12">
                 <div class="md:w-1/2 space-y-6">
                     <div class="text-blue-600 font-medium text-sm tracking-wide uppercase">Usługi B2B</div>
                     <h3 class="text-3xl font-semibold text-slate-900">Jasność, który projekt zarabia</h3>
@@ -588,6 +563,126 @@
                             <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
                                 <div class="bg-red-400 h-full w-full"></div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 3: Produkcja -->
+            <div class="flex flex-col md:flex-row gap-12 items-center mb-24 border-b border-slate-100 pb-12">
+                <div class="md:w-1/2 space-y-6">
+                    <div class="text-slate-500 font-medium text-sm tracking-wide uppercase">Produkcja</div>
+                    <h3 class="text-3xl font-semibold text-slate-900">Raport produkcji w 15 sekund</h3>
+                    <p class="text-xl text-slate-600">Mistrzowie zmian spisywali wyniki na kartkach, a biuro wklepywało je do Excela. Wdrożenie prostego formularza i automatyzacji dało wyniki w czasie rzeczywistym.</p>
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div>
+                            <div class="text-3xl font-bold text-slate-900">-10h</div>
+                            <div class="text-sm text-slate-500">Tygodniowo (biuro)</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-slate-900">100%</div>
+                            <div class="text-sm text-slate-500">Eliminacja pomyłek</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 w-full bg-slate-50 rounded-2xl border border-slate-200 p-4 shadow-sm">
+                    <div class="aspect-video bg-white rounded-xl border border-slate-100 p-6 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+                        <div class="flex flex-col items-center gap-4">
+                            <i data-lucide="factory" class="w-12 h-12 text-slate-700"></i>
+                            <div class="flex items-center gap-2 text-green-600 font-medium bg-green-50 px-3 py-1 rounded-full border border-green-100">
+                                <i data-lucide="check" class="w-4 h-4"></i> Raport gotowy
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 4: Finanse -->
+            <div class="flex flex-col md:flex-row-reverse gap-12 items-center mb-24 border-b border-slate-100 pb-12">
+                <div class="md:w-1/2 space-y-6">
+                    <div class="text-slate-500 font-medium text-sm tracking-wide uppercase">Finanse / Controlling</div>
+                    <h3 class="text-3xl font-semibold text-slate-900">Konsolidacja 5 spółek jednym klikiem</h3>
+                    <p class="text-xl text-slate-600">Dyrektor finansowy co miesiąc ręcznie scalał 5 plików Excel od księgowych. Power Query robi to teraz automatycznie w 3 minuty.</p>
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div>
+                            <div class="text-3xl font-bold text-slate-900">3 min</div>
+                            <div class="text-sm text-slate-500">Zamiast 2 dni pracy</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-slate-900">1 plik</div>
+                            <div class="text-sm text-slate-500">Źródło prawdy</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 w-full bg-slate-50 rounded-2xl border border-slate-200 p-4 shadow-sm">
+                    <div class="aspect-video bg-white rounded-xl border border-slate-100 p-6 flex items-center justify-center relative overflow-hidden">
+                        <div class="flex items-center gap-2">
+                            <div class="flex flex-col gap-1">
+                                <div class="w-8 h-10 bg-slate-200 rounded-sm border border-slate-300"></div>
+                                <div class="w-8 h-10 bg-slate-200 rounded-sm border border-slate-300"></div>
+                            </div>
+                            <i data-lucide="arrow-right" class="w-6 h-6 text-blue-500 animate-pulse"></i>
+                            <div class="w-20 h-24 bg-blue-50 rounded-lg border border-blue-200 flex items-center justify-center">
+                                <i data-lucide="pie-chart" class="w-8 h-8 text-blue-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 5: HR -->
+            <div class="flex flex-col md:flex-row gap-12 items-center mb-24 border-b border-slate-100 pb-12">
+                <div class="md:w-1/2 space-y-6">
+                    <div class="text-slate-500 font-medium text-sm tracking-wide uppercase">HR / Kadry</div>
+                    <h3 class="text-3xl font-semibold text-slate-900">Koszty zatrudnienia pod kontrolą</h3>
+                    <p class="text-xl text-slate-600">Dane o pracownikach były rozproszone (system kadrowy, ewidencja czasu, Excel). Połączenie ich dało jasny obraz kosztów per dział.</p>
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div>
+                            <div class="text-3xl font-bold text-slate-900">Auto</div>
+                            <div class="text-sm text-slate-500">Odświeżanie danych</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-slate-900">KPI</div>
+                            <div class="text-sm text-slate-500">Monitoring nadgodzin</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 w-full bg-slate-50 rounded-2xl border border-slate-200 p-4 shadow-sm">
+                    <div class="aspect-video bg-white rounded-xl border border-slate-100 p-6 flex items-center justify-center relative overflow-hidden">
+                        <div class="flex gap-4 items-end">
+                            <div class="w-8 bg-slate-200 h-12 rounded-t-sm"></div>
+                            <div class="w-8 bg-slate-300 h-20 rounded-t-sm"></div>
+                            <div class="w-8 bg-blue-500 h-32 rounded-t-sm"></div>
+                            <div class="w-8 bg-orange-500 h-24 rounded-t-sm"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 6: Transport -->
+            <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
+                <div class="md:w-1/2 space-y-6">
+                    <div class="text-slate-500 font-medium text-sm tracking-wide uppercase">Logistyka / Transport</div>
+                    <h3 class="text-3xl font-semibold text-slate-900">Rentowność tras "czarno na białym"</h3>
+                    <p class="text-xl text-slate-600">Firma transportowa działała "na czuja". Analiza danych z kart paliwowych i GPS pozwoliła wyciąć nierentowne zlecenia.</p>
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div>
+                            <div class="text-3xl font-bold text-slate-900">+15%</div>
+                            <div class="text-sm text-slate-500">Marży netto</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-slate-900">GPS</div>
+                            <div class="text-sm text-slate-500">Integracja danych</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 w-full bg-slate-50 rounded-2xl border border-slate-200 p-4 shadow-sm">
+                    <div class="aspect-video bg-white rounded-xl border border-slate-100 p-6 flex items-center justify-center relative overflow-hidden bg-slate-50">
+                        <i data-lucide="map" class="w-full h-full text-slate-200 absolute opacity-50"></i>
+                        <div class="relative z-10 bg-white p-3 rounded-lg shadow-md border border-slate-100 flex items-center gap-2">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <span class="text-sm font-medium text-slate-600">Koszt > Przychód</span>
                         </div>
                     </div>
                 </div>
@@ -773,14 +868,8 @@
 
         <div class="max-w-7xl mx-auto px-6 border-t border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-sm">
             <!-- ORIGINAL SVG PRESERVED IN FOOTER -->
-            <div class="flex items-center gap-2 opacity-50 hover:opacity-100 transition-opacity">
-                 <svg width="100" height="25" viewBox="0 0 170 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M55 2 C 55 2, 45 2, 40 8 C 35 14, 45 30, 50 35 L 55 38" stroke="url(#paint0_linear)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
-                    <path d="M55 38 L 75 10 C 78 5, 85 2, 90 2 C 95 2, 95 8, 92 12" stroke="url(#paint1_linear)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
-                    <circle cx="65" cy="25" r="15" fill="#3B82F6" fill-opacity="0.3" filter="url(#filter0_f)"></circle>
-                    <text x="0" y="28" fill="white" font-family="'Inter', sans-serif" font-weight="600" font-size="28" letter-spacing="-0.5">GoToValues</text>
-                    <path d="M45 34 C 45 34, 60 34, 75 34 C 95 34, 105 40, 100 48" stroke="url(#paint2_linear)" stroke-width="5" stroke-linecap="round"></path>
-                </svg>
+            <div class="flex items-center gap-2 opacity-50 hover:opacity-100 transition-opacity logo-target">
+                 <div class="logo-container w-[100px] h-[25px]"></div>
             </div>
             
             <div class="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
@@ -795,8 +884,132 @@
         </div>
     </footer>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 z-40 bg-slate-900/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300" aria-hidden="true"></div>
+
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu-panel" class="fixed top-0 right-0 z-50 w-full max-w-sm h-full bg-slate-900 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col" aria-hidden="true">
+        <div class="flex items-center justify-between p-6 border-b border-slate-800">
+            <span class="text-white font-semibold text-xl tracking-tight">Menu</span>
+            <button id="mobile-menu-close" class="text-slate-400 hover:text-white transition-colors p-2" aria-label="Zamknij menu">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div class="flex-1 overflow-y-auto py-8 px-6 space-y-6">
+            <a href="#problem" class="mobile-link block text-lg font-medium text-slate-300 hover:text-white transition-colors">Problemy</a>
+            <a href="#oferta" class="mobile-link block text-lg font-medium text-slate-300 hover:text-white transition-colors">Oferta</a>
+            <a href="#case-studies" class="mobile-link block text-lg font-medium text-slate-300 hover:text-white transition-colors">Efekty</a>
+            <a href="#faq" class="mobile-link block text-lg font-medium text-slate-300 hover:text-white transition-colors">Pytania</a>
+            <a href="#o-mnie" class="mobile-link block text-lg font-medium text-slate-300 hover:text-white transition-colors">O mnie</a>
+            <div class="pt-8 border-t border-slate-800">
+                <a href="#kontakt" class="mobile-link flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-lg font-medium px-6 py-4 rounded-lg transition-all shadow-lg shadow-orange-900/20 w-full">
+                    <span>Umów bezpłatny mini-audyt</span>
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <template id="logo-template">
+        <svg width="100%" height="100%" viewBox="0 0 170 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo GoToValues" role="img">
+            <title>Logo GoToValues</title>
+            <path d="M55 2 C 55 2, 45 2, 40 8 C 35 14, 45 30, 50 35 L 55 38" stroke="url(#paint0_linear)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
+            <path d="M55 38 L 75 10 C 78 5, 85 2, 90 2 C 95 2, 95 8, 92 12" stroke="url(#paint1_linear)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"></path>
+            <circle cx="65" cy="25" r="15" fill="#3B82F6" fill-opacity="0.3" filter="url(#filter0_f)"></circle>
+            <text x="0" y="28" fill="white" font-family="'Inter', sans-serif" font-weight="600" font-size="28" letter-spacing="-0.5">GoToValues</text>
+            <path d="M45 34 C 45 34, 60 34, 75 34 C 95 34, 105 40, 100 48" stroke="url(#paint2_linear)" stroke-width="5" stroke-linecap="round"></path>
+            <defs>
+                <linearGradient id="paint0_linear" x1="40" y1="2" x2="55" y2="38" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#0EA5E9"></stop>
+                    <stop offset="1" stop-color="#2563EB"></stop>
+                </linearGradient>
+                <linearGradient id="paint1_linear" x1="55" y1="38" x2="90" y2="2" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#2563EB"></stop>
+                    <stop offset="1" stop-color="#0EA5E9"></stop>
+                </linearGradient>
+                <linearGradient id="paint2_linear" x1="45" y1="34" x2="100" y2="40" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#F97316"></stop>
+                    <stop offset="1" stop-color="#EA580C"></stop>
+                </linearGradient>
+                <filter id="filter0_f" x="40" y="0" width="50" height="50" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+                    <feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur"></feGaussianBlur>
+                </filter>
+            </defs>
+        </svg>
+    </template>
+
     <script>
-        lucide.createIcons();
+        // Logo Injection
+        function injectLogos() {
+            const template = document.getElementById('logo-template');
+            if (!template) return;
+
+            const containers = document.querySelectorAll('.logo-container');
+            containers.forEach(container => {
+                const clone = template.content.cloneNode(true);
+                container.appendChild(clone);
+            });
+        }
+
+        // Mobile Menu Logic
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('mobile-menu-close');
+            const overlay = document.getElementById('mobile-menu-overlay');
+            const panel = document.getElementById('mobile-menu-panel');
+            const links = document.querySelectorAll('.mobile-link');
+
+            if (!btn || !panel || !overlay) return;
+
+            function openMenu() {
+                overlay.classList.remove('hidden');
+                // Force reflow for opacity transition
+                void overlay.offsetWidth;
+                overlay.classList.remove('opacity-0');
+
+                panel.classList.remove('translate-x-full');
+
+                btn.setAttribute('aria-expanded', 'true');
+                overlay.setAttribute('aria-hidden', 'false');
+                panel.setAttribute('aria-hidden', 'false');
+            }
+
+            function closeMenu() {
+                overlay.classList.add('opacity-0');
+                panel.classList.add('translate-x-full');
+
+                btn.setAttribute('aria-expanded', 'false');
+                overlay.setAttribute('aria-hidden', 'true');
+                panel.setAttribute('aria-hidden', 'true');
+
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                }, 300);
+            }
+
+            btn.addEventListener('click', openMenu);
+            if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+            overlay.addEventListener('click', closeMenu);
+
+            links.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !panel.classList.contains('translate-x-full')) {
+                    closeMenu();
+                }
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            injectLogos();
+            lucide.createIcons();
+            initMobileMenu();
+        });
     </script>
 
-</body></html>
+</body></html><!-- Updated: 2026-01-01 -->
