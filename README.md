@@ -9,8 +9,8 @@ Priorytety: **prostota, szybkość, bezpieczeństwo** (restrykcyjny CSP) i brak 
 - `assets/tailwind.css` – wygenerowany CSS (runtime)
 - `assets/app.js` – jedyny JS runtime (CSP-safe)
 - `assets/fonts/*.woff2` – lokalnie hostowany Inter
-- `favicon/` – favicony (bez PWA/manifestu)
-- `nginx/default.conf` – konfiguracja nginx (cache + typy)
+- `favicon/` – favicony (bez PWA / manifestu)
+- `nginx/default.conf` – konfiguracja nginx (cache + MIME)
 - `tools/` – narzędzia pomocnicze (nie runtime)
 
 ## Runtime JavaScript
@@ -22,7 +22,7 @@ Priorytety: **prostota, szybkość, bezpieczeństwo** (restrykcyjny CSP) i brak 
   - `.header-logo`
   - `.footer-logo`
 
-**Założenie:** brak inline JS w `index.html` (CSP).
+**Założenie:** brak inline JavaScript w `index.html` (zgodność z CSP).
 
 ## CSP i nagłówki bezpieczeństwa
 
@@ -36,41 +36,48 @@ Nagłówki są ustawiane na reverse-proxy (Caddy). Minimalny zestaw:
 - `Cross-Origin-Opener-Policy`
 - `Cross-Origin-Resource-Policy`
 
-Aktualna CSP (skrótowo): `default-src 'self'`, brak inline JS, `object-src 'none'`, `frame-ancestors 'none'`.
+Aktualna CSP (skrót):
+- `default-src 'self'`
+- brak inline JS
+- `object-src 'none'`
+- `frame-ancestors 'none'`
 
 ## Cache policy
 
-- HTML (`/` i `*.html`): krótki cache (np. `max-age=300`)
-- `/assets/*`: długi cache + `immutable`
+- HTML (`/` oraz `*.html`) → krótki cache (np. `max-age=300`)
+- `/assets/*` → długi cache + `immutable`
 
-## Sanity checks (PRZED/PO zmianie)
+## Sanity checks (PRZED / PO zmianie)
 
 Uruchom:
+
 ```bash
 ./tools/check.sh
-Sprawdza m.in.:
+```
 
-brak inline <script> w index.html
+Skrypt sprawdza m.in.:
+- brak inline `<script>` w `index.html`
+- poprawne targety dla wstrzyknięcia logo
+- nagłówki security + CSP
+- cache dla HTML i assets
+- porty 80/443 (docker-proxy) i kontener Caddy
 
-poprawne targety dla wstrzyknięcia logo
+Wyniki zapisywane są do:
+- `/tmp/gotovalues_check/<timestamp>/headers.txt`
+- `/tmp/gotovalues_check/<timestamp>/headers_filtered.txt`
 
-nagłówki security + CSP
+## Lighthouse
 
-cache dla HTML i assets
+Typowe wyniki:
+- Performance ≈ 99
+- Accessibility ≥ 95
+- Best Practices = 100
+- SEO = 100
 
-porty 80/443 (docker-proxy) i kontener Caddy
+Uwaga: Lighthouse może ostrzegać o wpływie rozszerzeń Chrome — najlepiej testować w trybie incognito lub czystym profilu.
 
-Wyniki zapisują się do:
+## Hosting
 
-/tmp/gotovalues_check/<timestamp>/headers.txt
-
-/tmp/gotovalues_check/<timestamp>/headers_filtered.txt
-
-Lighthouse
-Typowe wyniki są bardzo wysokie (np. ~99 Performance).
-Uwaga: Lighthouse może ostrzegać o wpływie rozszerzeń Chrome – najlepiej testować w trybie incognito / czystym profilu.
-
-Hosting
-Caddy działa w Dockerze jako reverse proxy, a treść serwuje nginx.
-Systemowy caddy.service jest wyłączony (żeby nie było konfliktu na 443).
-
+- Caddy działa w Dockerze jako reverse proxy
+- nginx serwuje statyczne pliki
+- systemowy `caddy.service` jest **wyłączony**, aby nie było konfliktu na porcie 443
