@@ -1,3 +1,13 @@
 
 # local backups
 *.bak
+
+# local backups
+index.html.bak.*
+*.bak.*
+
+# node
+node_modules/
+
+# temp
+/tmp/
