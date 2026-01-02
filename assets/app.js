@@ -4,9 +4,18 @@ function injectLogos() {
   const template = document.getElementById("logo-template");
   if (!template) return;
 
-  document.querySelectorAll(".logo-container").forEach(container => {
+  // Inject only into explicit targets (prevents accidental duplicates)
+  document.querySelectorAll(".header-logo, .footer-logo").forEach((container) => {
+    // idempotent guard
+    if (container.dataset.logoInjected === "1") return;
+
+    // ensure clean container (removes any manually embedded SVG/text)
+    while (container.firstChild) container.removeChild(container.firstChild);
+
     const clone = template.content.cloneNode(true);
     container.appendChild(clone);
+
+    container.dataset.logoInjected = "1";
   });
 }
 
@@ -44,9 +53,9 @@ function initMobileMenu() {
 
   if (closeBtn) closeBtn.addEventListener("click", closeMenu);
   overlay.addEventListener("click", closeMenu);
-  links.forEach(l => l.addEventListener("click", closeMenu));
+  links.forEach((l) => l.addEventListener("click", closeMenu));
 
-  document.addEventListener("keydown", e => {
+  document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && !panel.classList.contains("translate-x-full")) {
       closeMenu();
     }
@@ -55,6 +64,10 @@ function initMobileMenu() {
 
 document.addEventListener("DOMContentLoaded", () => {
   injectLogos();
-  if (window.lucide) lucide.createIcons();
+
+  if (window.lucide && typeof window.lucide.createIcons === "function") {
+    window.lucide.createIcons();
+  }
+
   initMobileMenu();
 });
