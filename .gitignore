@@ -14,3 +14,4 @@ node_modules/
 
 # html backups
 index.html.bak*
+_bak_archive/
