@@ -19,6 +19,8 @@ my $anchor1 = 'Kontrola jakości danych i procesów';
 my $anchor2 = 'Dashboardy wspierające codzienne decyzje';
 
 # Nowy tytuł (dla idempotencji / replace)
+return 1 if caller;
+
 my $new_title = q{Wydajność i dostępność bez przebudowy strony};
 for (my $i=0; $i<@ARGV; $i++) {
   my $a = $ARGV[$i];
