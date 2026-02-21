@@ -10,10 +10,8 @@ function injectLogos() {
     if (container.dataset.logoInjected === "1") return;
 
     // ensure clean container (removes any manually embedded SVG/text)
-    while (container.firstChild) container.removeChild(container.firstChild);
-
     const clone = template.content.cloneNode(true);
-    container.appendChild(clone);
+    container.replaceChildren(clone);
 
     container.dataset.logoInjected = "1";
   });
