@@ -22,6 +22,9 @@ my $anchor2 = 'Dashboardy wspierające codzienne decyzje';
 return 1 if caller;
 
 my $new_title = q{Wydajność i dostępność bez przebudowy strony};
+
+return 1 if caller;
+
 for (my $i=0; $i<@ARGV; $i++) {
   my $a = $ARGV[$i];
   if ($a eq '--file')        { $file = $ARGV[++$i] // die "--file wymaga wartości\n"; next; }
