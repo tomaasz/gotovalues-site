@@ -60,12 +60,18 @@ function initMobileMenu() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  injectLogos();
+if (typeof document !== 'undefined') {
+  document.addEventListener("DOMContentLoaded", () => {
+    injectLogos();
 
-  if (window.lucide && typeof window.lucide.createIcons === "function") {
-    window.lucide.createIcons();
-  }
+    if (window.lucide && typeof window.lucide.createIcons === "function") {
+      window.lucide.createIcons();
+    }
 
-  initMobileMenu();
-});
+    initMobileMenu();
+  });
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { injectLogos, initMobileMenu };
+}

@@ -1,0 +1,243 @@
+const { test, describe, beforeEach } = require('node:test');
+const assert = require('node:assert');
+
+// Simple DOM Mock implementation
+class DOMTokenList {
+  constructor() {
+    this.classes = new Set();
+  }
+  add(cls) {
+    this.classes.add(cls);
+  }
+  remove(cls) {
+    this.classes.delete(cls);
+  }
+  contains(cls) {
+    return this.classes.has(cls);
+  }
+  get value() {
+    return Array.from(this.classes).join(' ');
+  }
+}
+
+class MockElement {
+  constructor(tag = 'div', id = '', classes = []) {
+    this.tagName = tag.toUpperCase();
+    this.id = id;
+    this.classList = new DOMTokenList();
+    classes.forEach((c) => this.classList.add(c));
+    this.dataset = {};
+    this.attributes = {};
+    this.children = [];
+    this.eventListeners = {};
+    this.offsetWidth = 100; // Mock offsetWidth for reflow
+  }
+
+  setAttribute(name, value) {
+    this.attributes[name] = String(value);
+  }
+  getAttribute(name) {
+    return this.attributes[name] || null;
+  }
+
+  addEventListener(event, callback) {
+    if (!this.eventListeners[event]) this.eventListeners[event] = [];
+    this.eventListeners[event].push(callback);
+  }
+
+  dispatchEvent(event) {
+    const type = typeof event === 'string' ? event : event.type;
+    if (this.eventListeners[type]) {
+      this.eventListeners[type].forEach((cb) => cb(event));
+    }
+  }
+
+  replaceChildren(...children) {
+    this.children = children;
+  }
+
+  cloneNode(deep) {
+    const clone = new MockElement(this.tagName, this.id);
+    clone.dataset = { ...this.dataset };
+    clone.attributes = { ...this.attributes };
+    if (this.content) clone.content = this.content.cloneNode(true);
+    return clone;
+  }
+}
+
+class MockDocument {
+  constructor() {
+    this.elements = [];
+    this.eventListeners = {};
+  }
+
+  createElement(tag) {
+    const el = new MockElement(tag);
+    this.elements.push(el);
+    return el;
+  }
+
+  getElementById(id) {
+    return this.elements.find((el) => el.id === id) || null;
+  }
+
+  querySelectorAll(selector) {
+    // Simple support for multiple classes like ".header-logo, .footer-logo"
+    if (selector.includes(',')) {
+      const selectors = selector.split(',').map((s) => s.trim().slice(1));
+      return this.elements.filter((el) => selectors.some((s) => el.classList.contains(s)));
+    }
+    if (selector.startsWith('.')) {
+      const className = selector.slice(1);
+      return this.elements.filter((el) => el.classList.contains(className));
+    }
+    return [];
+  }
+
+  addEventListener(event, callback) {
+    if (!this.eventListeners[event]) this.eventListeners[event] = [];
+    this.eventListeners[event].push(callback);
+  }
+
+  dispatchEvent(event) {
+    const type = typeof event === 'string' ? event : event.type;
+    if (this.eventListeners[type]) {
+      this.eventListeners[type].forEach((cb) => cb(event));
+    }
+  }
+}
+
+// Global mocks
+global.document = new MockDocument();
+global.setTimeout = (cb) => cb(); // Instant timeout for tests
+
+const { injectLogos, initMobileMenu } = require('./app.js');
+
+describe('Client-side App Logic', () => {
+  beforeEach(() => {
+    global.document = new MockDocument();
+  });
+
+  describe('injectLogos()', () => {
+    test('should inject logos into targets using template', () => {
+      const template = document.createElement('template');
+      template.id = 'logo-template';
+      template.content = new MockElement('div');
+      template.content.innerHTML = '<svg>logo</svg>';
+
+      const headerLogo = document.createElement('div');
+      headerLogo.classList.add('header-logo');
+
+      const footerLogo = document.createElement('div');
+      footerLogo.classList.add('footer-logo');
+
+      injectLogos();
+
+      assert.strictEqual(headerLogo.dataset.logoInjected, '1');
+      assert.strictEqual(footerLogo.dataset.logoInjected, '1');
+      assert.strictEqual(headerLogo.children.length, 1);
+      assert.strictEqual(footerLogo.children.length, 1);
+    });
+
+    test('should be idempotent (not inject twice)', () => {
+      const template = document.createElement('template');
+      template.id = 'logo-template';
+      template.content = new MockElement('div');
+
+      const headerLogo = document.createElement('div');
+      headerLogo.classList.add('header-logo');
+
+      injectLogos();
+      assert.strictEqual(headerLogo.dataset.logoInjected, '1');
+      assert.strictEqual(headerLogo.children.length, 1);
+
+      // Manually change children to see if it replaces them again
+      headerLogo.children = [];
+
+      injectLogos();
+      // Should NOT have been re-injected because of data-logo-injected guard
+      assert.strictEqual(headerLogo.children.length, 0);
+    });
+
+    test('should do nothing if template is missing', () => {
+      const headerLogo = document.createElement('div');
+      headerLogo.classList.add('header-logo');
+
+      injectLogos();
+
+      assert.strictEqual(headerLogo.dataset.logoInjected, undefined);
+      assert.strictEqual(headerLogo.children.length, 0);
+    });
+  });
+
+  describe('initMobileMenu()', () => {
+    let openBtn, closeBtn, overlay, panel, link;
+
+    beforeEach(() => {
+      openBtn = document.createElement('button');
+      openBtn.id = 'mobile-menu-btn';
+
+      closeBtn = document.createElement('button');
+      closeBtn.id = 'mobile-menu-close';
+
+      overlay = document.createElement('div');
+      overlay.id = 'mobile-menu-overlay';
+      overlay.classList.add('hidden');
+      overlay.classList.add('opacity-0');
+
+      panel = document.createElement('div');
+      panel.id = 'mobile-menu-panel';
+      panel.classList.add('translate-x-full');
+
+      link = document.createElement('a');
+      link.classList.add('mobile-link');
+
+      initMobileMenu();
+    });
+
+    test('should open menu when clicking open button', () => {
+      openBtn.dispatchEvent('click');
+
+      assert.strictEqual(overlay.classList.contains('hidden'), false);
+      assert.strictEqual(overlay.classList.contains('opacity-0'), false);
+      assert.strictEqual(panel.classList.contains('translate-x-full'), false);
+      assert.strictEqual(openBtn.getAttribute('aria-expanded'), 'true');
+    });
+
+    test('should close menu when clicking close button', () => {
+      // Open first
+      openBtn.dispatchEvent('click');
+
+      // Then close
+      closeBtn.dispatchEvent('click');
+
+      assert.strictEqual(overlay.classList.contains('opacity-0'), true);
+      assert.strictEqual(panel.classList.contains('translate-x-full'), true);
+      assert.strictEqual(openBtn.getAttribute('aria-expanded'), 'false');
+      // Timeout is mocked as instant, so hidden should be added
+      assert.strictEqual(overlay.classList.contains('hidden'), true);
+    });
+
+    test('should close menu when clicking overlay', () => {
+      openBtn.dispatchEvent('click');
+      overlay.dispatchEvent('click');
+      assert.strictEqual(panel.classList.contains('translate-x-full'), true);
+    });
+
+    test('should close menu when clicking a link', () => {
+      openBtn.dispatchEvent('click');
+      link.dispatchEvent('click');
+      assert.strictEqual(panel.classList.contains('translate-x-full'), true);
+    });
+
+    test('should close menu when pressing Escape', () => {
+      openBtn.dispatchEvent('click');
+
+      // Mock Escape key event
+      const escapeEvent = { key: 'Escape', type: 'keydown' };
+      document.dispatchEvent(escapeEvent);
+
+      assert.strictEqual(panel.classList.contains('translate-x-full'), true);
+    });
+  });
+});
