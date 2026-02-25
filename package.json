@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "serve -l 5500 .",
-    "check": "node tools/check-inline-js.mjs"
+    "check": "node tools/check-inline-js.mjs",
+    "test": "node --test assets/app.test.js"
   }
 }
