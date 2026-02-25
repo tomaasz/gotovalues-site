@@ -37,20 +37,19 @@ else
   node tools/check-inline-js.mjs || true
 fi
 
-# 2) logo targets present
-if grep -q 'header-logo' index.html && grep -q 'footer-logo' index.html; then
-  ok "header-logo + footer-logo present in index.html"
+# 2) logo targets present and inlined
+if grep -q 'header-logo.*<svg' index.html && grep -q 'footer-logo.*<svg' index.html; then
+  ok "header-logo + footer-logo present and inlined in index.html"
 else
-  bad "missing header-logo/footer-logo in index.html"
-  grep -nE 'logo-container|header-logo|footer-logo' index.html || true
+  bad "missing or non-inlined header-logo/footer-logo in index.html"
+  grep -nE 'header-logo|footer-logo' index.html || true
 fi
 
-# 3) injectLogos targets explicit selectors
-if grep -n 'querySelectorAll' assets/app.js | grep -E 'header-logo|footer-logo' >/dev/null 2>&1; then
-  ok "injectLogos targets header/footer explicitly"
+# 3) no injectLogos in app.js (now inlined)
+if ! grep -q 'injectLogos' assets/app.js; then
+  ok "injectLogos removed from app.js (logos are inlined)"
 else
-  bad "app.js may still inject into .logo-container"
-  grep -n 'querySelectorAll' assets/app.js || true
+  bad "injectLogos still present in assets/app.js"
 fi
 
 say "REMOTE HEADERS SNAPSHOT"
