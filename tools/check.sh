@@ -30,11 +30,11 @@ git status --porcelain || true
 
 say "FRONTEND CHECKS"
 # 1) no inline <script> (except external)
-if grep -n '<script>' index.html | grep -v 'src=' >/dev/null 2>&1; then
-  bad "inline <script> found in index.html (CSP risk)"
-  grep -n '<script>' index.html | grep -v 'src=' || true
-else
+if node tools/check-inline-js.mjs >/dev/null 2>&1; then
   ok "no inline <script> in index.html"
+else
+  bad "inline <script> found in index.html (CSP risk)"
+  node tools/check-inline-js.mjs || true
 fi
 
 # 2) logo targets present and inlined

@@ -47,6 +47,18 @@ document.addEventListener("DOMContentLoaded", () => {
   if (window.lucide && typeof window.lucide.createIcons === "function") {
     window.lucide.createIcons();
   }
+if (typeof document !== 'undefined') {
+  document.addEventListener("DOMContentLoaded", () => {
+    injectLogos();
 
-  initMobileMenu();
-});
+    if (window.lucide && typeof window.lucide.createIcons === "function") {
+      window.lucide.createIcons();
+    }
+
+    initMobileMenu();
+  });
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { injectLogos, initMobileMenu };
+}
