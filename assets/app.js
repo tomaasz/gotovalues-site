@@ -1,22 +1,5 @@
 // assets/app.js
 
-function injectLogos() {
-  const template = document.getElementById("logo-template");
-  if (!template) return;
-
-  // Inject only into explicit targets (prevents accidental duplicates)
-  document.querySelectorAll(".header-logo, .footer-logo").forEach((container) => {
-    // idempotent guard
-    if (container.dataset.logoInjected === "1") return;
-
-    // ensure clean container (removes any manually embedded SVG/text)
-    const clone = template.content.cloneNode(true);
-    container.replaceChildren(clone);
-
-    container.dataset.logoInjected = "1";
-  });
-}
-
 function initMobileMenu() {
   const openBtn = document.getElementById("mobile-menu-btn");
   const closeBtn = document.getElementById("mobile-menu-close");
@@ -61,8 +44,6 @@ function initMobileMenu() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  injectLogos();
-
   if (window.lucide && typeof window.lucide.createIcons === "function") {
     window.lucide.createIcons();
   }
