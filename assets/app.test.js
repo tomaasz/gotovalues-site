@@ -171,31 +171,21 @@ describe('Client-side App Logic', () => {
   });
 
   describe('initMobileMenu()', () => {
-    let openBtn, closeBtn, overlay, panel, link;
-
-    beforeEach(() => {
-      openBtn = document.createElement('button');
+    test('should open menu when clicking open button', () => {
+      const openBtn = document.createElement('button');
       openBtn.id = 'mobile-menu-btn';
 
-      closeBtn = document.createElement('button');
-      closeBtn.id = 'mobile-menu-close';
-
-      overlay = document.createElement('div');
+      const overlay = document.createElement('div');
       overlay.id = 'mobile-menu-overlay';
       overlay.classList.add('hidden');
       overlay.classList.add('opacity-0');
 
-      panel = document.createElement('div');
+      const panel = document.createElement('div');
       panel.id = 'mobile-menu-panel';
       panel.classList.add('translate-x-full');
 
-      link = document.createElement('a');
-      link.classList.add('mobile-link');
-
       initMobileMenu();
-    });
 
-    test('should open menu when clicking open button', () => {
       openBtn.dispatchEvent('click');
 
       assert.strictEqual(overlay.classList.contains('hidden'), false);
@@ -205,6 +195,23 @@ describe('Client-side App Logic', () => {
     });
 
     test('should close menu when clicking close button', () => {
+      const openBtn = document.createElement('button');
+      openBtn.id = 'mobile-menu-btn';
+
+      const closeBtn = document.createElement('button');
+      closeBtn.id = 'mobile-menu-close';
+
+      const overlay = document.createElement('div');
+      overlay.id = 'mobile-menu-overlay';
+      overlay.classList.add('hidden');
+      overlay.classList.add('opacity-0');
+
+      const panel = document.createElement('div');
+      panel.id = 'mobile-menu-panel';
+      panel.classList.add('translate-x-full');
+
+      initMobileMenu();
+
       // Open first
       openBtn.dispatchEvent('click');
 
@@ -219,18 +226,60 @@ describe('Client-side App Logic', () => {
     });
 
     test('should close menu when clicking overlay', () => {
+      const openBtn = document.createElement('button');
+      openBtn.id = 'mobile-menu-btn';
+
+      const overlay = document.createElement('div');
+      overlay.id = 'mobile-menu-overlay';
+      overlay.classList.add('hidden');
+
+      const panel = document.createElement('div');
+      panel.id = 'mobile-menu-panel';
+      panel.classList.add('translate-x-full');
+
+      initMobileMenu();
+
       openBtn.dispatchEvent('click');
       overlay.dispatchEvent('click');
       assert.strictEqual(panel.classList.contains('translate-x-full'), true);
     });
 
     test('should close menu when clicking a link', () => {
+      const openBtn = document.createElement('button');
+      openBtn.id = 'mobile-menu-btn';
+
+      const overlay = document.createElement('div');
+      overlay.id = 'mobile-menu-overlay';
+      overlay.classList.add('hidden');
+
+      const panel = document.createElement('div');
+      panel.id = 'mobile-menu-panel';
+      panel.classList.add('translate-x-full');
+
+      const link = document.createElement('a');
+      link.classList.add('mobile-link');
+
+      initMobileMenu();
+
       openBtn.dispatchEvent('click');
       link.dispatchEvent('click');
       assert.strictEqual(panel.classList.contains('translate-x-full'), true);
     });
 
     test('should close menu when pressing Escape', () => {
+      const openBtn = document.createElement('button');
+      openBtn.id = 'mobile-menu-btn';
+
+      const overlay = document.createElement('div');
+      overlay.id = 'mobile-menu-overlay';
+      overlay.classList.add('hidden');
+
+      const panel = document.createElement('div');
+      panel.id = 'mobile-menu-panel';
+      panel.classList.add('translate-x-full');
+
+      initMobileMenu();
+
       openBtn.dispatchEvent('click');
 
       // Mock Escape key event
@@ -238,6 +287,27 @@ describe('Client-side App Logic', () => {
       document.dispatchEvent(escapeEvent);
 
       assert.strictEqual(panel.classList.contains('translate-x-full'), true);
+    });
+
+    test('should not throw if elements are missing', () => {
+      // Missing openBtn, overlay, panel
+      assert.doesNotThrow(() => {
+        initMobileMenu();
+      });
+    });
+
+    test('should not throw if only closeBtn is missing', () => {
+      // Create required elements but not closeBtn
+      const openBtn = document.createElement('button');
+      openBtn.id = 'mobile-menu-btn';
+      const overlay = document.createElement('div');
+      overlay.id = 'mobile-menu-overlay';
+      const panel = document.createElement('div');
+      panel.id = 'mobile-menu-panel';
+
+      assert.doesNotThrow(() => {
+        initMobileMenu();
+      });
     });
   });
 });
