@@ -4,6 +4,6 @@
   "scripts": {
     "dev": "serve -l 5500 .",
     "check": "node tools/check-inline-js.mjs",
-    "test": "node --test assets/app.test.js tools/check-inline-js.test.mjs"
+    "test": "node --test assets/*.test.js tools/check-inline-js.test.mjs"
   }
 }
