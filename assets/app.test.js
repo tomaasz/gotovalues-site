@@ -289,6 +289,38 @@ describe('Client-side App Logic', () => {
       assert.strictEqual(panel.classList.contains('translate-x-full'), true);
     });
 
+    test('should NOT close menu when pressing keys other than Escape', () => {
+      const openBtn = document.createElement('button');
+      openBtn.id = 'mobile-menu-btn';
+
+      const overlay = document.createElement('div');
+      overlay.id = 'mobile-menu-overlay';
+      overlay.classList.add('hidden');
+
+      const panel = document.createElement('div');
+      panel.id = 'mobile-menu-panel';
+      panel.classList.add('translate-x-full');
+
+      initMobileMenu();
+
+      // Otwórz menu
+      openBtn.dispatchEvent('click');
+
+      // Wciśnij inny klawisz (np. Enter)
+      const enterEvent = { key: 'Enter', type: 'keydown' };
+      document.dispatchEvent(enterEvent);
+
+      // Menu powinno pozostać otwarte (panel nie ma klasy translate-x-full)
+      assert.strictEqual(panel.classList.contains('translate-x-full'), false);
+
+      // Wciśnij jeszcze inny klawisz (np. Space)
+      const spaceEvent = { key: ' ', type: 'keydown' };
+      document.dispatchEvent(spaceEvent);
+
+      // Menu nadal powinno pozostać otwarte
+      assert.strictEqual(panel.classList.contains('translate-x-full'), false);
+    });
+
     test('should not throw if elements are missing', () => {
       // Missing openBtn, overlay, panel
       assert.doesNotThrow(() => {
