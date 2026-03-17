@@ -14,10 +14,8 @@ function injectLogos() {
 
 function initMobileMenu() {
   const openBtn = document.getElementById("mobile-menu-btn");
-  const closeBtn = document.getElementById("mobile-menu-close");
   const overlay = document.getElementById("mobile-menu-overlay");
   const panel = document.getElementById("mobile-menu-panel");
-  const links = document.querySelectorAll(".mobile-link");
 
   if (!openBtn || !overlay || !panel) return;
 
@@ -44,9 +42,12 @@ function initMobileMenu() {
     panel.setAttribute("aria-hidden", "false");
   });
 
-  if (closeBtn) closeBtn.addEventListener("click", closeMenu);
   overlay.addEventListener("click", closeMenu);
-  links.forEach((l) => l.addEventListener("click", closeMenu));
+  panel.addEventListener("click", (e) => {
+    if (e.target.closest(".mobile-link, #mobile-menu-close")) {
+      closeMenu();
+    }
+  });
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && !panel.classList.contains("translate-x-full")) {
