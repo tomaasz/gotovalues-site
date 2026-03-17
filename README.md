@@ -39,7 +39,25 @@ Bez `RESEND_API_KEY` i `CONTACT_TO_EMAIL` formularz zwróci odpowiedź `503`.
 npm test
 npm run lint
 npm run build
+npm run cf:build
 ```
+
+## Deployment Cloudflare
+
+Repo jest przygotowane pod `OpenNext` i `Cloudflare Workers`.
+
+Najważniejsze kroki:
+
+```bash
+npm run cf:build
+npm run cf:deploy
+```
+
+Przed deployem ustaw w Cloudflare / Wrangler sekrety:
+
+- `RESEND_API_KEY`
+- `CONTACT_TO_EMAIL`
+- `CONTACT_FROM_EMAIL`
 
 ## Uwagi
 
