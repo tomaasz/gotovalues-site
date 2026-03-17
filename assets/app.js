@@ -1,17 +1,5 @@
 // assets/app.js
 
-function injectLogos() {
-  const template = document.getElementById("logo-template");
-  if (!template) return;
-
-  const logos = document.querySelectorAll(".header-logo, .footer-logo");
-  logos.forEach((logo) => {
-    if (logo.dataset.logoInjected) return;
-    logo.replaceChildren(template.content.cloneNode(true));
-    logo.dataset.logoInjected = "1";
-  });
-}
-
 function initMobileMenu() {
   const openBtn = document.getElementById("mobile-menu-btn");
   const closeBtn = document.getElementById("mobile-menu-close");
@@ -57,8 +45,6 @@ function initMobileMenu() {
 
 if (typeof document !== 'undefined') {
   document.addEventListener("DOMContentLoaded", () => {
-    injectLogos();
-
     if (window.lucide && typeof window.lucide.createIcons === "function") {
       window.lucide.createIcons();
     }
@@ -68,5 +54,5 @@ if (typeof document !== 'undefined') {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { injectLogos, initMobileMenu };
+  module.exports = { initMobileMenu };
 }
