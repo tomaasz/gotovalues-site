@@ -111,63 +111,11 @@ class MockDocument {
 global.document = new MockDocument();
 global.setTimeout = (cb) => cb(); // Instant timeout for tests
 
-const { injectLogos, initMobileMenu } = require('./app.js');
+const { initMobileMenu } = require('./app.js');
 
 describe('Client-side App Logic', () => {
   beforeEach(() => {
     global.document = new MockDocument();
-  });
-
-  describe('injectLogos()', () => {
-    test('should inject logos into targets using template', () => {
-      const template = document.createElement('template');
-      template.id = 'logo-template';
-      template.content = new MockElement('div');
-      template.content.innerHTML = '<svg>logo</svg>';
-
-      const headerLogo = document.createElement('div');
-      headerLogo.classList.add('header-logo');
-
-      const footerLogo = document.createElement('div');
-      footerLogo.classList.add('footer-logo');
-
-      injectLogos();
-
-      assert.strictEqual(headerLogo.dataset.logoInjected, '1');
-      assert.strictEqual(footerLogo.dataset.logoInjected, '1');
-      assert.strictEqual(headerLogo.children.length, 1);
-      assert.strictEqual(footerLogo.children.length, 1);
-    });
-
-    test('should be idempotent (not inject twice)', () => {
-      const template = document.createElement('template');
-      template.id = 'logo-template';
-      template.content = new MockElement('div');
-
-      const headerLogo = document.createElement('div');
-      headerLogo.classList.add('header-logo');
-
-      injectLogos();
-      assert.strictEqual(headerLogo.dataset.logoInjected, '1');
-      assert.strictEqual(headerLogo.children.length, 1);
-
-      // Manually change children to see if it replaces them again
-      headerLogo.children = [];
-
-      injectLogos();
-      // Should NOT have been re-injected because of data-logo-injected guard
-      assert.strictEqual(headerLogo.children.length, 0);
-    });
-
-    test('should do nothing if template is missing', () => {
-      const headerLogo = document.createElement('div');
-      headerLogo.classList.add('header-logo');
-
-      injectLogos();
-
-      assert.strictEqual(headerLogo.dataset.logoInjected, undefined);
-      assert.strictEqual(headerLogo.children.length, 0);
-    });
   });
 
   describe('initMobileMenu()', () => {
