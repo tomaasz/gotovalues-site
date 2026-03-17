@@ -125,9 +125,34 @@ export const siteContent = {
   },
   about: {
     title: "O mnie",
-    body: "Łączę myślenie operacyjne, produktowe i techniczne. Pomagam firmom nazwać problem, zawęzić pierwszy sensowny zakres i wdrożyć narzędzie, które naprawdę odciąża ludzi w codziennej pracy.",
-    partnerNote:
-      "Nie działam jak duża agencja, która zaczyna od długiego procesu i listy modnych technologii. Pracuję bezpośrednio z klientem, upraszczam problem i proponuję tylko taki zakres, który ma sens dla codziennej pracy zespołu.",
+    headline:
+      "Łączę doświadczenie operacyjne, analityczne i techniczne, dlatego rozumiem nie tylko narzędzie, ale też proces, który ma działać po wdrożeniu.",
+    role: "Tomasz Gołaszewski, niezależny partner do porządkowania procesów operacyjnych i budowy dedykowanych narzędzi.",
+    profileLink: {
+      label: "Zobacz profil na LinkedIn",
+      href: "https://www.linkedin.com/in/tomasz-golaszewski/",
+    },
+    summary:
+      "Przez lata pracowałem przy remarketingu, wycenie środków technicznych, zarządzaniu aktywami i cyfryzacji procesów w firmach leasingowych oraz środowiskach, w których dane, dokumenty i decyzje operacyjne muszą się spinać w codziennej pracy.",
+    detail:
+      "Budowałem zespoły, standardy analityczne i wewnętrzne narzędzia IT. Projektowałem raportowanie, automatyzację, workflow i rozwiązania wspierające sprzedaż, wyceny, jakość danych oraz pracę operacyjną. Nie działam jak duża agencja: pracuję bezpośrednio z klientem i proponuję tylko taki zakres, który ma sens biznesowo.",
+    points: [
+      {
+        label: "Doświadczenie",
+        value:
+          "wieloletnia praca w leasingu, asset management, wycenie maszyn i cyfryzacji procesów.",
+      },
+      {
+        label: "Zakres",
+        value:
+          "od analizy problemu i wymagań po wdrożenie raportowania, automatyzacji i dedykowanego narzędzia.",
+      },
+      {
+        label: "Styl współpracy",
+        value:
+          "bezpośrednia praca z klientem, wąski i sensowny zakres, bez agencyjnego narzutu i zbędnej złożoności.",
+      },
+    ],
   },
   contact: {
     intro:

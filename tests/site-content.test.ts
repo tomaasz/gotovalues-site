@@ -47,7 +47,10 @@ describe("site content", () => {
   });
 
   test("keeps trust signals in about and contact content", () => {
-    assert.match(siteContent.about.partnerNote, /Nie działam jak duża agencja/i);
+    assert.match(siteContent.about.role, /Tomasz Gołaszewski/i);
+    assert.match(siteContent.about.profileLink.href, /linkedin\.com/i);
+    assert.match(siteContent.about.summary, /wycenie|aktywami|leasingowych/i);
+    assert.equal(siteContent.about.points.length, 3);
     assert.equal(siteContent.contact.signals[0]?.value, "kontakt@gotovalues.com");
     assert.match(siteContent.contact.signals[1]?.value ?? "", /24h/i);
   });

@@ -95,20 +95,31 @@ export default function HomePage() {
       <section className="section" id="o-mnie">
         <div className="section-heading">
           <p className="eyebrow">O mnie</p>
-          <h2>Nie zaczynam od technologii. Zaczynam od miejsca, w którym dziś gubi się czas, informacja albo odpowiedzialność.</h2>
+          <h2>{siteContent.about.headline}</h2>
         </div>
         <div className="surface about-card">
-          <p>{siteContent.about.body}</p>
-          <p>{siteContent.about.partnerNote}</p>
+          <p>
+            <strong>{siteContent.about.role}</strong>
+          </p>
+          <p>
+            <a
+              className="text-link"
+              href={siteContent.about.profileLink.href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {siteContent.about.profileLink.label}
+            </a>
+          </p>
+          <p>{siteContent.about.summary}</p>
+          <p>{siteContent.about.detail}</p>
           <div className="about-points">
-            <div>
-              <strong>Zakres</strong>
-              <span>od rozpoznania problemu po działające narzędzie i kolejne iteracje.</span>
-            </div>
-            <div>
-              <strong>Priorytet</strong>
-              <span>konkretne usprawnienie procesu zamiast szerokiego, rozlanego projektu.</span>
-            </div>
+            {siteContent.about.points.map((point) => (
+              <div key={point.label}>
+                <strong>{point.label}</strong>
+                <span>{point.value}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
