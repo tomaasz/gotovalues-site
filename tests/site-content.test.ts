@@ -1,7 +1,7 @@
 import { describe, test } from "node:test";
 import assert from "node:assert/strict";
 
-import { siteContent } from "../src/content/site";
+import { brandName, siteContent } from "../src/content/site";
 
 describe("site content", () => {
   test("exposes exactly two public products with approved URLs", () => {
@@ -25,5 +25,30 @@ describe("site content", () => {
       siteContent.offer.pillars.map((pillar) => pillar.title),
       ["Analityka i automatyzacja", "Aplikacje webowe i AI"],
     );
+  });
+
+  test("uses the approved lowercase brand in active content", () => {
+    assert.equal(brandName, "gotovalues");
+    assert.equal(siteContent.brand.name, "gotovalues");
+  });
+
+  test("keeps homepage CTA and framing focused on one concrete process", () => {
+    assert.match(siteContent.brand.cta.primary.label, /proces/i);
+    assert.match(siteContent.brand.eyebrow, /Excela i maila/);
+  });
+
+  test("defines a focused landing-page payload for production outreach", () => {
+    assert.match(siteContent.productionLanding.eyebrow, /produkcji/i);
+    assert.match(siteContent.productionLanding.headline, /jakość/i);
+    assert.equal(siteContent.productionLanding.symptoms.length, 3);
+    assert.equal(siteContent.productionLanding.solutions.length, 3);
+    assert.equal(siteContent.productionLanding.processSteps.length, 3);
+    assert.match(siteContent.productionLanding.cta.label, /proces/i);
+  });
+
+  test("keeps trust signals in about and contact content", () => {
+    assert.match(siteContent.about.partnerNote, /Nie działam jak duża agencja/i);
+    assert.equal(siteContent.contact.signals[0]?.value, "kontakt@gotovalues.com");
+    assert.match(siteContent.contact.signals[1]?.value ?? "", /24h/i);
   });
 });

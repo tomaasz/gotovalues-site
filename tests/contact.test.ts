@@ -9,7 +9,6 @@ describe("contact form", () => {
       name: "Jan",
       email: "not-an-email",
       message: "",
-      service: "apps",
     });
 
     assert.equal(result.success, false);
@@ -20,14 +19,15 @@ describe("contact form", () => {
       name: "Jan Kowalski",
       email: "jan@example.com",
       company: "Acme",
-      service: "apps",
       message: "Potrzebuję aplikacji do obiegu dokumentów.",
     });
 
     const email = buildContactEmail(parsed);
 
-    assert.match(email.subject, /Jan Kowalski/);
-    assert.match(email.subject, /Aplikacje webowe i AI/);
+    assert.match(email.subject, /\[gotovalues\]/);
+    assert.match(email.subject, /Nowe zgłoszenie od Jan Kowalski/);
+    assert.match(email.text, /gotovalues/);
+    assert.match(email.text, /Imię: Jan Kowalski/);
     assert.match(email.text, /Acme/);
     assert.match(email.text, /obiegu dokumentów/);
     assert.match(email.html, /jan@example.com/);

@@ -19,7 +19,6 @@ export function ContactForm() {
       name: String(formData.get("name") ?? ""),
       email: String(formData.get("email") ?? ""),
       company: String(formData.get("company") ?? ""),
-      service: String(formData.get("service") ?? ""),
       message: String(formData.get("message") ?? ""),
     };
 
@@ -41,7 +40,7 @@ export function ContactForm() {
       startTransition(() => {
         setState({
           status: "success",
-          message: result.message || "Dziękuję. Odpowiem możliwie szybko.",
+          message: result.message || "Dziękuję. Wrócę z oceną i propozycją następnego kroku.",
         });
       });
     } catch (error) {
@@ -68,44 +67,35 @@ export function ContactForm() {
     >
       <div className="field-grid">
         <label className="field">
-          <span>Imię i nazwisko</span>
-          <input name="name" type="text" placeholder="Tomasz Gołaszewski" required />
+          <span>Imię</span>
+          <input name="name" type="text" placeholder="Jan" required />
         </label>
         <label className="field">
           <span>E-mail</span>
-          <input name="email" type="email" placeholder="twoj@firma.pl" required />
+          <input name="email" type="email" placeholder="jan@firma.pl" required />
         </label>
         <label className="field">
           <span>Firma</span>
-          <input name="company" type="text" placeholder="Nazwa firmy" />
-        </label>
-        <label className="field">
-          <span>Obszar</span>
-          <select name="service" defaultValue="both" required>
-            <option value="analytics">Analityka i automatyzacja</option>
-            <option value="apps">Aplikacje webowe i AI</option>
-            <option value="both">Oba obszary</option>
-          </select>
+          <input name="company" type="text" placeholder="Nazwa firmy lub zakładu" />
         </label>
       </div>
 
       <label className="field">
-        <span>Krótki opis potrzeby</span>
+        <span>Co dziś dzieje się ręcznie albo chaotycznie</span>
         <textarea
           name="message"
           rows={6}
-          placeholder="Opisz problem, proces lub aplikację, którą chcesz zbudować."
+          placeholder="Wystarczą 2-4 zdania. Np. dokumenty przychodzą mailem, dane trafiają do Excela, a status trzeba ręcznie dopytywać."
           required
         />
       </label>
 
       <div className="form-actions">
         <button className="button button-primary" type="submit" disabled={pending}>
-          {pending ? "Wysyłanie..." : "Wyślij zgłoszenie"}
+          {pending ? "Wysyłanie..." : "Wyślij krótki opis"}
         </button>
         <p className="helper-text">
-          Formularz wysyła wiadomość bezpośrednio na skrzynkę kontaktową przez transakcyjny
-          provider e-mail.
+          Wystarczy kilka zdań. Wiadomość trafia bezpośrednio do mnie, bez żadnego automatu po drodze.
         </p>
       </div>
 

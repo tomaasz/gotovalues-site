@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Fraunces, Manrope } from "next/font/google";
 
+import { brandName } from "@/content/site";
+
 import "./globals.css";
 
 const displayFont = Fraunces({
@@ -15,11 +17,11 @@ const bodyFont = Manrope({
 
 export const metadata: Metadata = {
   title: {
-    default: "GoToValues",
-    template: "%s | GoToValues",
+    default: brandName,
+    template: `%s | ${brandName}`,
   },
   description:
-    "Analityka, automatyzacja oraz aplikacje webowe i AI dla firm, które chcą porządkować procesy i budować własne narzędzia.",
+    "Dedykowane aplikacje webowe i narzędzia AI dla firm, które chcą uporządkować dokumenty, workflow i ręczną pracę w procesach operacyjnych.",
   metadataBase: new URL("https://gotovalues.com"),
   icons: {
     icon: "/favicon/favicon.ico",

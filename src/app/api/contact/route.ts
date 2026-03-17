@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
+import { brandName } from "@/content/site";
 import { buildContactEmail, contactFormSchema } from "@/lib/contact";
 
 export async function POST(request: Request) {
@@ -19,7 +20,7 @@ export async function POST(request: Request) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL;
-  const from = process.env.CONTACT_FROM_EMAIL || "GoToValues <onboarding@resend.dev>";
+  const from = process.env.CONTACT_FROM_EMAIL || `${brandName} <onboarding@resend.dev>`;
 
   if (!apiKey || !to) {
     return NextResponse.json(
@@ -44,6 +45,6 @@ export async function POST(request: Request) {
   });
 
   return NextResponse.json({
-    message: "Dziękuję. Wiadomość została wysłana.",
+    message: "Dziękuję. Wrócę z krótką oceną i propozycją następnego kroku.",
   });
 }

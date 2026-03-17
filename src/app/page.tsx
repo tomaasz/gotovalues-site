@@ -6,12 +6,13 @@ import { ProductCard } from "@/components/product-card";
 
 export default function HomePage() {
   const featuredProducts = siteContent.products.public;
+  const contactSignals = siteContent.contact.signals;
 
   return (
     <main className="page-shell">
       <header className="site-header">
         <Link className="brand-mark" href="/">
-          GoToValues
+          {siteContent.brand.name}
         </Link>
         <nav className="site-nav" aria-label="Główna nawigacja">
           <a href="#oferta">Oferta</a>
@@ -38,18 +39,18 @@ export default function HomePage() {
 
         <div className="hero-panel">
           <div className="hero-panel-card">
-            <span className="hero-panel-label">Sposób pracy</span>
+            <span className="hero-panel-label">Typowe punkty wejścia</span>
             <ul>
-              <li>analiza problemu i przepływu pracy</li>
-              <li>prototyp lub MVP z jasnym zakresem</li>
-              <li>wdrożenie, pomiary i kolejne iteracje</li>
+              <li>dokumenty, statusy i decyzje rozrzucone między kilka miejsc</li>
+              <li>ręczne przepisywanie, sprawdzanie i pilnowanie wyjątków</li>
+              <li>proces, którego nie da się sensownie zamknąć w gotowym systemie</li>
             </ul>
           </div>
           <div className="hero-panel-grid">
-            <div className="hero-chip">dashboardy</div>
             <div className="hero-chip">workflow</div>
+            <div className="hero-chip">dokumenty</div>
             <div className="hero-chip">OCR</div>
-            <div className="hero-chip">AI tools</div>
+            <div className="hero-chip">custom tools</div>
           </div>
         </div>
       </section>
@@ -57,7 +58,7 @@ export default function HomePage() {
       <section className="section" id="oferta">
         <div className="section-heading">
           <p className="eyebrow">Oferta</p>
-          <h2>Dwa filary, jeden cel: mniej chaosu i lepsze narzędzia do pracy.</h2>
+          <h2>Najczęściej wchodzę tam, gdzie proces niby działa, ale codziennie kosztuje czas i uwagę zespołu.</h2>
         </div>
         <div className="pillar-grid">
           {siteContent.offer.pillars.map((pillar) => (
@@ -78,10 +79,10 @@ export default function HomePage() {
         <div className="section-heading section-heading-inline">
           <div>
             <p className="eyebrow">Produkty</p>
-            <h2>Publiczne projekty, które pokazują sposób myślenia i jakość wykonania.</h2>
+            <h2>Działające produkty i prywatne wdrożenia pokazują, jak przekładam problem operacyjny na konkretne narzędzie.</h2>
           </div>
           <Link className="text-link" href="/produkty">
-            Zobacz pełną stronę produktów
+            Przejdź do pełnej strony produktów
           </Link>
         </div>
         <div className="product-grid">
@@ -94,18 +95,19 @@ export default function HomePage() {
       <section className="section" id="o-mnie">
         <div className="section-heading">
           <p className="eyebrow">O mnie</p>
-          <h2>Łączę analitykę, produkt i realizację techniczną.</h2>
+          <h2>Nie zaczynam od technologii. Zaczynam od miejsca, w którym dziś gubi się czas, informacja albo odpowiedzialność.</h2>
         </div>
         <div className="surface about-card">
           <p>{siteContent.about.body}</p>
+          <p>{siteContent.about.partnerNote}</p>
           <div className="about-points">
             <div>
-              <strong>Klienci</strong>
-              <span>otrzymują konkretne wdrożenia zamiast slajdów i ogólników.</span>
+              <strong>Zakres</strong>
+              <span>od rozpoznania problemu po działające narzędzie i kolejne iteracje.</span>
             </div>
             <div>
-              <strong>Rekruterzy</strong>
-              <span>widzą realne produkty, stack i sposób rozwiązywania problemów.</span>
+              <strong>Priorytet</strong>
+              <span>konkretne usprawnienie procesu zamiast szerokiego, rozlanego projektu.</span>
             </div>
           </div>
         </div>
@@ -114,19 +116,24 @@ export default function HomePage() {
       <section className="section" id="kontakt">
         <div className="section-heading">
           <p className="eyebrow">Kontakt</p>
-          <h2>Jeśli chcesz uporządkować proces albo zbudować własną aplikację, napisz.</h2>
+          <h2>Opisz jeden proces, który dziś zabiera ludziom czas, a powiem Ci, czy warto porządkować go dedykowanym narzędziem.</h2>
         </div>
         <div className="surface contact-card">
           <div className="contact-copy">
-            <p>
-              Najlepiej sprawdzają się projekty, w których trzeba połączyć dane, workflow i
-              czytelny interfejs dla ludzi, którzy mają na co dzień zbyt dużo ręcznej pracy.
-            </p>
+            <p>{siteContent.contact.intro}</p>
             <ul className="contact-points">
-              <li>mini-audyt procesu lub istniejącego narzędzia</li>
-              <li>wycena MVP, dashboardu albo automatyzacji</li>
-              <li>kontakt bezpośrednio na skrzynkę e-mail</li>
+              <li>wystarczy jeden konkretny przykład z codziennej pracy</li>
+              <li>ocenię, czy problem nadaje się na lekki system, workflow albo funkcję AI</li>
+              <li>jeśli nie ma sensu budować customowego narzędzia, powiem to wprost</li>
             </ul>
+            <div className="about-points">
+              {contactSignals.map((signal) => (
+                <div key={signal.label}>
+                  <strong>{signal.label}</strong>
+                  {"href" in signal ? <a href={signal.href}>{signal.value}</a> : <span>{signal.value}</span>}
+                </div>
+              ))}
+            </div>
           </div>
           <ContactForm />
         </div>

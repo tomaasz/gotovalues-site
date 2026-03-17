@@ -7,7 +7,7 @@ import { siteContent } from "@/content/site";
 export const metadata: Metadata = {
   title: "Produkty",
   description:
-    "Publiczne produkty i prywatne wdrożenia GoToValues: aplikacje webowe, systemy dokumentowe, OCR i workflow automation.",
+    "Przykłady aplikacji webowych, systemów dokumentowych i prywatnych wdrożeń gotovalues pokazujących pracę z workflow, dokumentami i danymi.",
 };
 
 export default function ProductsPage() {
@@ -15,7 +15,7 @@ export default function ProductsPage() {
     <main className="page-shell">
       <header className="site-header">
         <Link className="brand-mark" href="/">
-          GoToValues
+          {siteContent.brand.name}
         </Link>
         <nav className="site-nav" aria-label="Główna nawigacja">
           <Link href="/#oferta">Oferta</Link>
@@ -25,20 +25,19 @@ export default function ProductsPage() {
         </nav>
       </header>
 
-      <section className="section-heading hero-copy products-hero">
+      <section className="section-heading hero-copy products-hero surface">
         <p className="eyebrow">Produkty</p>
-        <h1>Produkty publiczne i prywatne wdrożenia jako dowód sposobu pracy.</h1>
+        <h1>Przykłady rozwiązań i wdrożeń.</h1>
         <p className="lede">
-          Publicznie pokazuję te projekty, które można bezpiecznie odwiedzić. Pozostałe
-          wdrożenia traktuję jako prezentację możliwości: bez linków, z opisem problemu, stacku
-          i efektu.
+          Ta strona nie jest galerią portfolio. To zbiór przykładów, które pokazują, jak podchodzę
+          do budowy narzędzi wokół procesów, dokumentów, danych i pracy operacyjnej zespołu.
         </p>
       </section>
 
       <section className="section">
-        <div className="section-heading">
+        <div className="section-heading product-section-heading">
           <p className="eyebrow">Produkty publiczne</p>
-          <h2>Gotowe narzędzia, które można odwiedzić i ocenić na żywo.</h2>
+          <h2>Publiczne przykłady, które można odwiedzić i ocenić na żywo.</h2>
         </div>
         <div className="product-grid">
           {siteContent.products.public.map((product) => (
@@ -48,12 +47,13 @@ export default function ProductsPage() {
       </section>
 
       <section className="section">
-        <div className="section-heading">
+        <div className="section-heading product-section-heading">
           <p className="eyebrow">Prywatne wdrożenia</p>
-          <h2>Wybrane obszary, których nie publikuję jako otwarte live demo.</h2>
+          <h2>Wybrane obszary pracy, których nie pokazuję jako otwartego live demo.</h2>
           <p className="section-note">
-            Część wdrożeń wykorzystuje mechanizmy lub integracje, których nie chcę eksponować
-            publicznie. Pokazuję więc zakres możliwości bez ujawniania wrażliwych szczegółów.
+            Część wdrożeń dotyczy procesów wewnętrznych, dokumentów albo integracji, których nie
+            chcę ujawniać publicznie. Pokazuję więc typ problemu, stack i efekt biznesowy bez
+            odsłaniania wrażliwych szczegółów.
           </p>
         </div>
         <div className="product-grid">

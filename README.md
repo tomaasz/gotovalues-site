@@ -1,4 +1,4 @@
-# GoToValues
+# gotovalues
 
 Nowa wersja `gotovalues.com` zbudowana w `Next.js + TypeScript`.
 
