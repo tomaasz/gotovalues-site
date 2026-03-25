@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820" fill="none">
+  <rect width="1280" height="820" rx="36" fill="#F4F0E8"/>
+  <rect x="36" y="36" width="260" height="748" rx="28" fill="#FBF9F4" stroke="#D8D1C4"/>
+  <rect x="328" y="36" width="916" height="168" rx="32" fill="#FBF9F4" stroke="#D8D1C4"/>
+  <rect x="328" y="236" width="916" height="268" rx="32" fill="#FBF9F4" stroke="#D8D1C4"/>
+  <rect x="328" y="536" width="916" height="248" rx="32" fill="#FBF9F4" stroke="#D8D1C4"/>
+  <rect x="68" y="84" width="92" height="18" rx="9" fill="#1F2924"/>
+  <rect x="68" y="160" width="188" height="54" rx="18" fill="#4E8B76" fill-opacity="0.12"/>
+  <rect x="368" y="86" width="312" height="28" rx="14" fill="#1F2924"/>
+  <rect x="368" y="132" width="226" height="16" rx="8" fill="#8D978F"/>
+  <rect x="368" y="290" width="242" height="18" rx="9" fill="#1F2924"/>
+  <rect x="368" y="332" width="508" height="12" rx="6" fill="#8D978F"/>
+  <rect x="368" y="378" width="262" height="72" rx="22" fill="#4E8B76"/>
+  <rect x="664" y="378" width="240" height="72" rx="22" fill="#FBF9F4" stroke="#D8D1C4"/>
+  <rect x="946" y="378" width="252" height="72" rx="22" fill="#FBF9F4" stroke="#D8D1C4"/>
+  <text x="368" y="700" fill="#1F2924" font-family="Arial, sans-serif" font-size="46" font-weight="700">Cavi</text>
+</svg>

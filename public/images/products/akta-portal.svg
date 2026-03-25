@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820" fill="none">
+  <rect width="1280" height="820" rx="36" fill="#EEF0EA"/>
+  <rect x="40" y="40" width="1200" height="740" rx="28" fill="#FCFDFB" stroke="#D8DDD2"/>
+  <rect x="84" y="92" width="1112" height="84" rx="20" fill="#F5F7F2" stroke="#D8DDD2"/>
+  <rect x="84" y="216" width="350" height="508" rx="26" fill="#F7F8F5" stroke="#D8DDD2"/>
+  <rect x="470" y="216" width="726" height="508" rx="26" fill="#F7F8F5" stroke="#D8DDD2"/>
+  <rect x="118" y="126" width="168" height="18" rx="9" fill="#223229"/>
+  <rect x="118" y="274" width="206" height="20" rx="10" fill="#223229"/>
+  <rect x="118" y="316" width="270" height="12" rx="6" fill="#7B867C"/>
+  <rect x="118" y="362" width="274" height="132" rx="24" fill="#4E8B76" fill-opacity="0.15"/>
+  <rect x="510" y="258" width="178" height="18" rx="9" fill="#223229"/>
+  <rect x="510" y="300" width="612" height="12" rx="6" fill="#7B867C"/>
+  <rect x="510" y="346" width="642" height="72" rx="22" fill="#FFFFFF" stroke="#D8DDD2"/>
+  <rect x="510" y="442" width="642" height="72" rx="22" fill="#FFFFFF" stroke="#D8DDD2"/>
+  <rect x="510" y="538" width="642" height="72" rx="22" fill="#FFFFFF" stroke="#D8DDD2"/>
+  <text x="84" y="744" fill="#223229" font-family="Arial, sans-serif" font-size="46" font-weight="700">Akta</text>
+</svg>
