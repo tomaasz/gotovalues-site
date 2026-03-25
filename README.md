@@ -1,83 +1,66 @@
-# GoToValues – statyczna strona ofertowa (HTML + Tailwind + vanilla JS)
+# gotovalues
 
-Strona jest statyczna: **czysty HTML**, gotowy build **Tailwind CSS** i **vanilla JavaScript** bez frameworków i backendu.  
-Priorytety: **prostota, szybkość, bezpieczeństwo** (restrykcyjny CSP) i brak „martwego kodu”.
+Nowa wersja `gotovalues.com` zbudowana w `Next.js + TypeScript`.
 
-## Struktura projektu (kanoniczna)
+## Zakres etapu 1
 
-- `index.html` – jedyny entry point
-- `assets/tailwind.css` – wygenerowany CSS (runtime)
-- `assets/app.js` – jedyny JS runtime (CSP-safe)
-- `assets/fonts/*.woff2` – lokalnie hostowany Inter
-- `favicon/` – favicony (bez PWA / manifestu)
-- `nginx/default.conf` – konfiguracja nginx (cache + MIME)
-- `tools/` – narzędzia pomocnicze (nie runtime)
+- homepage z dwoma filarami oferty:
+  - `Analityka i automatyzacja`
+  - `Aplikacje webowe i AI`
+- osobna strona `/produkty`
+- publiczne produkty:
+  - `Cavi`
+  - `Akta`
+- sekcja `Prywatne wdrożenia` bez publicznych linków
+- działający formularz kontaktowy przez `Resend`
 
-## Runtime JavaScript
-
-`assets/app.js` wykonuje tylko:
-- inicjalizację ikon Lucide (`lucide.createIcons()`)
-- obsługę menu mobilnego
-- wstrzyknięcie SVG logo z `<template>` do kontenerów:
-  - `.header-logo`
-  - `.footer-logo`
-
-**Założenie:** brak inline JavaScript w `index.html` (zgodność z CSP).
-
-## CSP i nagłówki bezpieczeństwa
-
-Nagłówki są ustawiane na reverse-proxy (Caddy). Minimalny zestaw:
-- `Content-Security-Policy`
-- `Strict-Transport-Security`
-- `X-Content-Type-Options`
-- `X-Frame-Options`
-- `Referrer-Policy`
-- `Permissions-Policy`
-- `Cross-Origin-Opener-Policy`
-- `Cross-Origin-Resource-Policy`
-
-Aktualna CSP (skrót):
-- `default-src 'self'`
-- brak inline JS
-- `object-src 'none'`
-- `frame-ancestors 'none'`
-
-## Cache policy
-
-- HTML (`/` oraz `*.html`) → krótki cache (np. `max-age=300`)
-- `/assets/*` → długi cache + `immutable`
-
-## Sanity checks (PRZED / PO zmianie)
-
-Uruchom:
+## Uruchomienie lokalne
 
 ```bash
-./tools/check.sh
+npm install
+npm run dev
 ```
 
-Skrypt sprawdza m.in.:
-- brak inline `<script>` w `index.html`
-- poprawne targety dla wstrzyknięcia logo
-- nagłówki security + CSP
-- cache dla HTML i assets
-- porty 80/443 (docker-proxy) i kontener Caddy
+Aplikacja startuje domyślnie pod `http://localhost:3000`.
 
-Wyniki zapisywane są do:
-- `/tmp/gotovalues_check/<timestamp>/headers.txt`
-- `/tmp/gotovalues_check/<timestamp>/headers_filtered.txt`
+## Wymagane zmienne środowiskowe
 
-## Lighthouse
+Skopiuj `.env.example` do `.env.local` i ustaw:
 
-Typowe wyniki:
-- Performance ≈ 99
-- Accessibility ≥ 95
-- Best Practices = 100
-- SEO = 100
+- `RESEND_API_KEY`
+- `CONTACT_TO_EMAIL`
+- `CONTACT_FROM_EMAIL` opcjonalnie
 
-Uwaga: Lighthouse może ostrzegać o wpływie rozszerzeń Chrome — najlepiej testować w trybie incognito lub czystym profilu.
+Bez `RESEND_API_KEY` i `CONTACT_TO_EMAIL` formularz zwróci odpowiedź `503`.
 
-## Hosting
+## Skrypty
 
-- Caddy działa w Dockerze jako reverse proxy
-- nginx serwuje statyczne pliki
-- systemowy `caddy.service` jest **wyłączony**, aby nie było konfliktu na porcie 443
+```bash
+npm test
+npm run lint
+npm run build
+npm run cf:build
+```
+
+## Deployment Cloudflare
+
+Repo jest przygotowane pod `OpenNext` i `Cloudflare Workers`.
+
+Najważniejsze kroki:
+
+```bash
+npm run cf:build
+npm run cf:deploy
+```
+
+Przed deployem ustaw w Cloudflare / Wrangler sekrety:
+
+- `RESEND_API_KEY`
+- `CONTACT_TO_EMAIL`
+- `CONTACT_FROM_EMAIL`
+
+## Uwagi
+
+- backup starej wersji został zapisany w branchu `archive/pre-nextjs-migration-20260317`
+- punkt odniesienia przed migracją został zapisany tagiem `pre-nextjs-migration-20260317`
+- stare pliki statyczne nadal są w repo jako materiał referencyjny podczas migracji
