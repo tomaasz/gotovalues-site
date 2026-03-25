@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
 
-import { brandName } from "@/content/site";
-import { buildContactEmail, contactFormSchema } from "@/lib/contact";
+import { brandName } from '@/content/site';
+import { buildContactEmail, contactFormSchema } from '@/lib/contact';
 
 export async function POST(request: Request) {
   const payload = await request.json();
@@ -11,7 +11,7 @@ export async function POST(request: Request) {
   if (!parsed.success) {
     return NextResponse.json(
       {
-        message: "Uzupełnij poprawnie wszystkie wymagane pola formularza.",
+        message: 'Uzupełnij poprawnie wszystkie wymagane pola formularza.',
         issues: parsed.error.flatten(),
       },
       { status: 400 },
@@ -23,10 +23,12 @@ export async function POST(request: Request) {
   const from = process.env.CONTACT_FROM_EMAIL || `${brandName} <onboarding@resend.dev>`;
 
   if (!apiKey || !to) {
+    console.error(
+      'Formularz nie jest jeszcze skonfigurowany po stronie serwera. Ustaw RESEND_API_KEY i CONTACT_TO_EMAIL.',
+    );
     return NextResponse.json(
       {
-        message:
-          "Formularz nie jest jeszcze skonfigurowany po stronie serwera. Ustaw RESEND_API_KEY i CONTACT_TO_EMAIL.",
+        message: 'Serwer jest chwilowo niedostępny. Spróbuj ponownie później.',
       },
       { status: 503 },
     );
@@ -45,6 +47,6 @@ export async function POST(request: Request) {
   });
 
   return NextResponse.json({
-    message: "Dziękuję. Wrócę z krótką oceną i propozycją następnego kroku.",
+    message: 'Dziękuję. Wrócę z krótką oceną i propozycją następnego kroku.',
   });
 }
