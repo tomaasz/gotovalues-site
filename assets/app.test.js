@@ -139,6 +139,13 @@ class MockDocument {
 
 // Global mocks
 global.document = new MockDocument();
+
+// Mock requestAnimationFrame for tests that rely on it
+global.requestAnimationFrame = (callback) => {
+  // Execute callback immediately in test environment
+  callback();
+  return 1; // mock ID
+};
 global.setTimeout = (cb) => cb(); // Instant timeout for tests
 
 const { initMobileMenu } = require('./app.js');
