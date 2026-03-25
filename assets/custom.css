@@ -9,8 +9,7 @@ body {
   font-family: Inter, sans-serif;
 }
 .bg-grid-pattern {
-  background-image:
-    linear-gradient(to right, #1e293b 1px, transparent 1px),
+  background-image: linear-gradient(to right, #1e293b 1px, transparent 1px),
     linear-gradient(to bottom, #1e293b 1px, transparent 1px);
   background-size: 4rem 4rem;
   mask-image: radial-gradient(circle at center, black, transparent 80%);
