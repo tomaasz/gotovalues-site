@@ -1,6 +1,6 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
-import type { ProductCard as ProductCardType } from "@/content/site";
+import type { ProductCard as ProductCardType } from '@/content/site';
 
 type ProductCardProps = {
   product: ProductCardType;
@@ -8,16 +8,14 @@ type ProductCardProps = {
 };
 
 export function ProductCard({ product, compact = false }: ProductCardProps) {
-  const Wrapper = product.url ? "a" : "article";
+  const Wrapper = product.url ? 'a' : 'article';
 
   return (
     <Wrapper
-      className={clsx("product-card", compact && "product-card-compact")}
-      {...(product.url
-        ? { href: product.url, target: "_blank", rel: "noopener noreferrer" }
-        : {})}
+      className={clsx('product-card', compact && 'product-card-compact')}
+      {...(product.url ? { href: product.url, target: '_blank', rel: 'noopener noreferrer' } : {})}
     >
-      <div className="product-preview" aria-label={product.screenshot.alt}>
+      <div className="product-preview" role="img" aria-label={product.screenshot.alt}>
         <div className="product-preview-bar">
           <span />
           <span />
@@ -35,7 +33,7 @@ export function ProductCard({ product, compact = false }: ProductCardProps) {
       <div className="product-copy">
         <div className="product-meta">
           <span className="eyebrow eyebrow-inline">
-            {product.category === "public" ? "Produkt publiczny" : "Prywatne wdrożenie"}
+            {product.category === 'public' ? 'Produkt publiczny' : 'Prywatne wdrożenie'}
           </span>
           {product.url ? <span className="product-link-label">Live</span> : null}
         </div>
