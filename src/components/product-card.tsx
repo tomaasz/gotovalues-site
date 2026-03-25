@@ -14,7 +14,7 @@ export function ProductCard({ product, compact = false }: ProductCardProps) {
     <Wrapper
       className={clsx("product-card", compact && "product-card-compact")}
       {...(product.url
-        ? { href: product.url, target: "_blank", rel: "noreferrer" }
+        ? { href: product.url, target: "_blank", rel: "noopener noreferrer" }
         : {})}
     >
       <div className="product-preview" aria-label={product.screenshot.alt}>
