@@ -3,6 +3,7 @@ import Link from "next/link";
 import { siteContent } from "@/content/site";
 import { ContactForm } from "@/components/contact-form";
 import { ProductCard } from "@/components/product-card";
+import { SectionHeading } from "@/components/section-heading";
 
 export default function HomePage() {
   const featuredProducts = siteContent.products.public;
@@ -56,10 +57,10 @@ export default function HomePage() {
       </section>
 
       <section className="section" id="oferta">
-        <div className="section-heading">
-          <p className="eyebrow">Oferta</p>
-          <h2>Najczęściej wchodzę tam, gdzie proces niby działa, ale codziennie kosztuje czas i uwagę zespołu.</h2>
-        </div>
+        <SectionHeading
+          eyebrow="Oferta"
+          heading="Najczęściej wchodzę tam, gdzie proces niby działa, ale codziennie kosztuje czas i uwagę zespołu."
+        />
         <div className="pillar-grid">
           {siteContent.offer.pillars.map((pillar) => (
             <article className="surface pillar-card" key={pillar.title}>
@@ -76,15 +77,15 @@ export default function HomePage() {
       </section>
 
       <section className="section" id="produkty">
-        <div className="section-heading section-heading-inline">
-          <div>
-            <p className="eyebrow">Produkty</p>
-            <h2>Działające produkty i prywatne wdrożenia pokazują, jak przekładam problem operacyjny na konkretne narzędzie.</h2>
-          </div>
+        <SectionHeading
+          inline
+          eyebrow="Produkty"
+          heading="Działające produkty i prywatne wdrożenia pokazują, jak przekładam problem operacyjny na konkretne narzędzie."
+        >
           <Link className="text-link" href="/produkty">
             Przejdź do pełnej strony produktów
           </Link>
-        </div>
+        </SectionHeading>
         <div className="product-grid">
           {featuredProducts.map((product) => (
             <ProductCard compact key={product.name} product={product} />
@@ -93,10 +94,7 @@ export default function HomePage() {
       </section>
 
       <section className="section" id="o-mnie">
-        <div className="section-heading">
-          <p className="eyebrow">O mnie</p>
-          <h2>{siteContent.about.headline}</h2>
-        </div>
+        <SectionHeading eyebrow="O mnie" heading={siteContent.about.headline} />
         <div className="surface about-card">
           <p>
             <strong>{siteContent.about.role}</strong>
@@ -125,10 +123,10 @@ export default function HomePage() {
       </section>
 
       <section className="section" id="kontakt">
-        <div className="section-heading">
-          <p className="eyebrow">Kontakt</p>
-          <h2>Opisz jeden proces, który dziś zabiera ludziom czas, a powiem Ci, czy warto porządkować go dedykowanym narzędziem.</h2>
-        </div>
+        <SectionHeading
+          eyebrow="Kontakt"
+          heading="Opisz jeden proces, który dziś zabiera ludziom czas, a powiem Ci, czy warto porządkować go dedykowanym narzędziem."
+        />
         <div className="surface contact-card">
           <div className="contact-copy">
             <p>{siteContent.contact.intro}</p>
