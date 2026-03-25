@@ -1,65 +1,71 @@
 // assets/app.js
 
 function injectLogos() {
-  const template = document.getElementById("logo-template");
+  const template = document.getElementById('logo-template');
   if (!template) return;
 
-  const logos = document.querySelectorAll(".header-logo, .footer-logo");
+  const logos = document.querySelectorAll('.header-logo, .footer-logo');
   logos.forEach((logo) => {
     if (logo.dataset.logoInjected) return;
     logo.replaceChildren(template.content.cloneNode(true));
-    logo.dataset.logoInjected = "1";
+    logo.dataset.logoInjected = '1';
   });
 }
 
 function initMobileMenu() {
-  const openBtn = document.getElementById("mobile-menu-btn");
-  const closeBtn = document.getElementById("mobile-menu-close");
-  const overlay = document.getElementById("mobile-menu-overlay");
-  const panel = document.getElementById("mobile-menu-panel");
-  const links = document.querySelectorAll(".mobile-link");
+  const openBtn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('mobile-menu-close');
+  const overlay = document.getElementById('mobile-menu-overlay');
+  const panel = document.getElementById('mobile-menu-panel');
+  const links = document.querySelectorAll('.mobile-link');
 
   if (!openBtn || !overlay || !panel) return;
 
   function closeMenu() {
-    overlay.classList.add("opacity-0");
-    panel.classList.add("translate-x-full");
-    openBtn.setAttribute("aria-expanded", "false");
-    overlay.setAttribute("aria-hidden", "true");
-    panel.setAttribute("aria-hidden", "true");
+    overlay.classList.add('opacity-0');
+    panel.classList.add('translate-x-full');
+    openBtn.setAttribute('aria-expanded', 'false');
+    overlay.setAttribute('aria-hidden', 'true');
+    panel.setAttribute('aria-hidden', 'true');
 
     setTimeout(() => {
-      overlay.classList.add("hidden");
+      overlay.classList.add('hidden');
     }, 300);
   }
 
-  openBtn.addEventListener("click", () => {
-    overlay.classList.remove("hidden");
-    overlay.offsetWidth; // force reflow
-    overlay.classList.remove("opacity-0");
-    panel.classList.remove("translate-x-full");
+  openBtn.addEventListener('click', () => {
+    overlay.classList.remove('hidden');
 
-    openBtn.setAttribute("aria-expanded", "true");
-    overlay.setAttribute("aria-hidden", "false");
-    panel.setAttribute("aria-hidden", "false");
+    // Replace synchronous layout reflow with requestAnimationFrame for performance.
+    // Double rAF ensures the browser paints the "hidden" removal before starting the transition.
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        overlay.classList.remove('opacity-0');
+        panel.classList.remove('translate-x-full');
+
+        openBtn.setAttribute('aria-expanded', 'true');
+        overlay.setAttribute('aria-hidden', 'false');
+        panel.setAttribute('aria-hidden', 'false');
+      });
+    });
   });
 
-  if (closeBtn) closeBtn.addEventListener("click", closeMenu);
-  overlay.addEventListener("click", closeMenu);
-  links.forEach((l) => l.addEventListener("click", closeMenu));
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+  links.forEach((l) => l.addEventListener('click', closeMenu));
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !panel.classList.contains("translate-x-full")) {
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !panel.classList.contains('translate-x-full')) {
       closeMenu();
     }
   });
 }
 
 if (typeof document !== 'undefined') {
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener('DOMContentLoaded', () => {
     injectLogos();
 
-    if (window.lucide && typeof window.lucide.createIcons === "function") {
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
       window.lucide.createIcons();
     }
 
