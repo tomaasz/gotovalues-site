@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { ContactForm } from "@/components/contact-form";
 import { ProductCard } from "@/components/product-card";
+import { SectionHeading } from "@/components/section-heading";
 import { siteContent } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -62,10 +63,10 @@ export default function ProductionLandingPage() {
       </section>
 
       <section className="section">
-        <div className="section-heading">
-          <p className="eyebrow">Objawy</p>
-          <h2>Najczęściej problem nie polega na braku systemu. Polega na tym, że realna praca zakładu i tak wraca do maila, Excela i ręcznych obejść.</h2>
-        </div>
+        <SectionHeading
+          eyebrow="Objawy"
+          heading="Najczęściej problem nie polega na braku systemu. Polega na tym, że realna praca zakładu i tak wraca do maila, Excela i ręcznych obejść."
+        />
         <div className="pillar-grid">
           {content.symptoms.map((item) => (
             <article className="surface pillar-card" key={item.title}>
@@ -77,10 +78,10 @@ export default function ProductionLandingPage() {
       </section>
 
       <section className="section">
-        <div className="section-heading">
-          <p className="eyebrow">Co porządkuję</p>
-          <h2>Buduję lekkie narzędzia wokół procesu, zamiast proponować wymianę całego środowiska pracy.</h2>
-        </div>
+        <SectionHeading
+          eyebrow="Co porządkuję"
+          heading="Buduję lekkie narzędzia wokół procesu, zamiast proponować wymianę całego środowiska pracy."
+        />
         <div className="pillar-grid">
           {content.solutions.map((item) => (
             <article className="surface pillar-card" key={item.title}>
@@ -92,15 +93,11 @@ export default function ProductionLandingPage() {
       </section>
 
       <section className="section">
-        <div className="section-heading section-heading-inline">
-          <div>
-            <p className="eyebrow">Proof</p>
-            <h2>{content.proofHeading}</h2>
-          </div>
+        <SectionHeading inline eyebrow="Proof" heading={content.proofHeading}>
           <Link className="text-link" href="/produkty">
             Zobacz pełną stronę produktów
           </Link>
-        </div>
+        </SectionHeading>
         <div className="product-grid">
           {siteContent.products.public.map((product) => (
             <ProductCard compact key={product.name} product={product} />
@@ -109,10 +106,10 @@ export default function ProductionLandingPage() {
       </section>
 
       <section className="section" id="jak-pracuje">
-        <div className="section-heading">
-          <p className="eyebrow">Pierwszy krok</p>
-          <h2>Nie zaczynam od dużego wdrożenia. Zaczynam od jednego procesu, który dziś zjada czas ludziom operacyjnym.</h2>
-        </div>
+        <SectionHeading
+          eyebrow="Pierwszy krok"
+          heading="Nie zaczynam od dużego wdrożenia. Zaczynam od jednego procesu, który dziś zjada czas ludziom operacyjnym."
+        />
         <div className="surface about-card">
           <p>{content.closing}</p>
           <div className="about-points">
@@ -127,10 +124,10 @@ export default function ProductionLandingPage() {
       </section>
 
       <section className="section" id="kontakt">
-        <div className="section-heading">
-          <p className="eyebrow">Kontakt</p>
-          <h2>Jeśli widzisz taki problem u siebie, opisz go w kilku zdaniach. Wrócę z oceną, czy warto budować narzędzie pod ten proces.</h2>
-        </div>
+        <SectionHeading
+          eyebrow="Kontakt"
+          heading="Jeśli widzisz taki problem u siebie, opisz go w kilku zdaniach. Wrócę z oceną, czy warto budować narzędzie pod ten proces."
+        />
         <div className="surface contact-card">
           <div className="contact-copy">
             <p>

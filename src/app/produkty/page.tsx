@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ProductCard } from "@/components/product-card";
+import { SectionHeading } from "@/components/section-heading";
 import { siteContent } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -25,20 +26,25 @@ export default function ProductsPage() {
         </nav>
       </header>
 
-      <section className="section-heading hero-copy products-hero surface">
-        <p className="eyebrow">Produkty</p>
-        <h1>Przykłady rozwiązań i wdrożeń.</h1>
+      <SectionHeading
+        as="section"
+        level="h1"
+        className="hero-copy products-hero surface"
+        eyebrow="Produkty"
+        heading="Przykłady rozwiązań i wdrożeń."
+      >
         <p className="lede">
           Ta strona nie jest galerią portfolio. To zbiór przykładów, które pokazują, jak podchodzę
           do budowy narzędzi wokół procesów, dokumentów, danych i pracy operacyjnej zespołu.
         </p>
-      </section>
+      </SectionHeading>
 
       <section className="section">
-        <div className="section-heading product-section-heading">
-          <p className="eyebrow">Produkty publiczne</p>
-          <h2>Publiczne przykłady, które można odwiedzić i ocenić na żywo.</h2>
-        </div>
+        <SectionHeading
+          className="product-section-heading"
+          eyebrow="Produkty publiczne"
+          heading="Publiczne przykłady, które można odwiedzić i ocenić na żywo."
+        />
         <div className="product-grid">
           {siteContent.products.public.map((product) => (
             <ProductCard key={product.name} product={product} />
@@ -47,15 +53,17 @@ export default function ProductsPage() {
       </section>
 
       <section className="section">
-        <div className="section-heading product-section-heading">
-          <p className="eyebrow">Prywatne wdrożenia</p>
-          <h2>Wybrane obszary pracy, których nie pokazuję jako otwartego live demo.</h2>
+        <SectionHeading
+          className="product-section-heading"
+          eyebrow="Prywatne wdrożenia"
+          heading="Wybrane obszary pracy, których nie pokazuję jako otwartego live demo."
+        >
           <p className="section-note">
             Część wdrożeń dotyczy procesów wewnętrznych, dokumentów albo integracji, których nie
             chcę ujawniać publicznie. Pokazuję więc typ problemu, stack i efekt biznesowy bez
             odsłaniania wrażliwych szczegółów.
           </p>
-        </div>
+        </SectionHeading>
         <div className="product-grid">
           {siteContent.products.private.map((product) => (
             <ProductCard key={product.name} product={product} />
