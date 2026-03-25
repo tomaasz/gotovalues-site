@@ -106,7 +106,7 @@ export default function HomePage() {
               className="text-link"
               href={siteContent.about.profileLink.href}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               {siteContent.about.profileLink.label}
             </a>
