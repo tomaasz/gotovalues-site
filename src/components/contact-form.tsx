@@ -64,29 +64,35 @@ export function ContactForm() {
       }}
     >
       <div className="field-grid">
-        <label className="field">
-          <span>Imię</span>
-          <input name="name" type="text" placeholder="Jan" required />
-        </label>
-        <label className="field">
-          <span>E-mail</span>
-          <input name="email" type="email" placeholder="jan@firma.pl" required />
-        </label>
-        <label className="field">
-          <span>Firma</span>
-          <input name="company" type="text" placeholder="Nazwa firmy lub zakładu" />
-        </label>
+        <div className="field">
+          <label htmlFor="name-input">Imię</label>
+          <input id="name-input" name="name" type="text" placeholder="Jan" required />
+        </div>
+        <div className="field">
+          <label htmlFor="email-input">E-mail</label>
+          <input id="email-input" name="email" type="email" placeholder="jan@firma.pl" required />
+        </div>
+        <div className="field">
+          <label htmlFor="company-input">Firma</label>
+          <input
+            id="company-input"
+            name="company"
+            type="text"
+            placeholder="Nazwa firmy lub zakładu"
+          />
+        </div>
       </div>
 
-      <label className="field">
-        <span>Co dziś dzieje się ręcznie albo chaotycznie</span>
+      <div className="field">
+        <label htmlFor="message-input">Co dziś dzieje się ręcznie albo chaotycznie</label>
         <textarea
+          id="message-input"
           name="message"
           rows={6}
           placeholder="Wystarczą 2-4 zdania. Np. dokumenty przychodzą mailem, dane trafiają do Excela, a status trzeba ręcznie dopytywać."
           required
         />
-      </label>
+      </div>
 
       <div className="form-actions">
         <button className="button button-primary" type="submit" disabled={pending}>
