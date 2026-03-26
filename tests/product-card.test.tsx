@@ -1,4 +1,4 @@
-import "./setup"; // Must come before any React Testing Library imports
+import "global-jsdom/register"; // Must come before any React Testing Library imports
 
 import React from "react";
 import { describe, test } from "node:test";

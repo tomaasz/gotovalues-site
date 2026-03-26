@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { siteContent } from "@/content/site";
-import { ContactForm } from "@/components/contact-form";
+import { ContactFormLazy as ContactForm } from "@/components/contact-form-lazy";
 import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/section-heading";
 
