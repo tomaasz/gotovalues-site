@@ -4,7 +4,37 @@ import { Resend } from 'resend';
 import { brandName } from '@/content/site';
 import { buildContactEmail, contactFormSchema } from '@/lib/contact';
 
+// Prosty in-memory rate limiting map. Uwaga: Działa to na instancję V8 isolate w Cloudflare Workers / Node, resetuje się przy starcie, jednak jest wystarczające na podstawowy spam.
+const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
+const RATE_LIMIT_MAX = 3; // Max zgłoszeń
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minut
+
+
 export async function POST(request: Request) {
+  // --- Simple Rate Limiting ---
+  // Pozyskujemy IP, fall-back na generyczne 'unknown' dla testów/lokalnie.
+  const ip = request.headers.get('x-forwarded-for') || request.headers.get('cf-connecting-ip') || 'unknown';
+
+  const now = Date.now();
+  const rateLimitData = rateLimitMap.get(ip);
+
+  if (rateLimitData) {
+    if (now - rateLimitData.lastReset > RATE_LIMIT_WINDOW_MS) {
+      rateLimitMap.set(ip, { count: 1, lastReset: now });
+    } else {
+      rateLimitData.count += 1;
+      if (rateLimitData.count > RATE_LIMIT_MAX) {
+        return NextResponse.json(
+          { message: 'Przekroczono limit zapytań. Spróbuj ponownie później.' },
+          { status: 429 }
+        );
+      }
+    }
+  } else {
+    rateLimitMap.set(ip, { count: 1, lastReset: now });
+  }
+  // --- Rate Limiting End ---
+
   let payload;
   try {
     payload = await request.json();
