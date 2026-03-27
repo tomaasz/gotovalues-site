@@ -1,0 +1,3 @@
+## 2024-05-14 - Loading State Visibility & Textarea Layout
+**Learning:** For forms that trigger asynchronous actions (like sending an email or saving data), standard text changes like "Wysyłanie..." are often insufficient or easily overlooked. Users benefit from explicit visual feedback, such as a spinning loader icon. Additionally, unbounded `<textarea>` resizing can easily break a carefully crafted grid layout.
+**Action:** When creating or updating form components, always include a visual loading indicator (e.g., `<Loader2 className="animate-spin" />`) disabled on submission, and explicitly apply `resize: vertical;` to `textarea` elements in the global CSS to maintain layout integrity.

@@ -1,6 +1,7 @@
 'use client';
 
 import { startTransition, useState } from 'react';
+import { Loader2 } from 'lucide-react';
 
 const initialState = {
   status: 'idle' as 'idle' | 'success' | 'error',
@@ -96,7 +97,14 @@ export function ContactForm() {
 
       <div className="form-actions">
         <button className="button button-primary" type="submit" disabled={pending}>
-          {pending ? 'Wysyłanie...' : 'Wyślij krótki opis'}
+          {pending ? (
+            <>
+              <Loader2 className="w-5 h-5 mr-2 animate-spin" aria-hidden="true" />
+              Wysyłanie...
+            </>
+          ) : (
+            'Wyślij krótki opis'
+          )}
         </button>
         <p className="helper-text">
           Wystarczy kilka zdań. Wiadomość trafia bezpośrednio do mnie, bez żadnego automatu po

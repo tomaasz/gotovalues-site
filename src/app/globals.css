@@ -589,6 +589,10 @@ h3 {
     box-shadow 0.2s ease;
 }
 
+.field textarea {
+  resize: vertical;
+}
+
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
