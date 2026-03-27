@@ -4,6 +4,20 @@ import assert from "node:assert/strict";
 import { brandName, siteContent } from "../src/content/site";
 
 describe("site content", () => {
+  test("ensures all products have complete metadata", () => {
+    const allProducts = [...siteContent.products.public, ...siteContent.products.private];
+
+    for (const product of allProducts) {
+      assert.ok(product.name && product.name.trim().length > 0, 'Missing product name');
+      assert.ok(product.summary && product.summary.trim().length > 0, 'Missing product summary');
+      assert.ok(product.stack && Array.isArray(product.stack) && product.stack.length > 0, 'Missing product stack');
+      assert.ok(product.impact && product.impact.trim().length > 0, 'Missing product impact');
+      assert.ok(product.screenshot, 'Missing screenshot');
+      assert.ok(product.screenshot.src && product.screenshot.src.startsWith('/images/'), 'Invalid screenshot src');
+      assert.ok(product.screenshot.alt && product.screenshot.alt.trim().length > 0, 'Missing screenshot alt');
+    }
+  });
+
   test("exposes exactly two public products with approved URLs", () => {
     assert.equal(siteContent.products.public.length, 2);
 

@@ -16,6 +16,16 @@ export function ContactForm() {
     setPending(true);
     setState(initialState);
 
+
+    // honeypot check
+    const honeypot = String(formData.get('bot_field') ?? '');
+    if (honeypot.length > 0) {
+      // Silently fail for bots
+      setState({ status: 'error', message: 'Wystąpił problem podczas wysyłki formularza.' });
+      setPending(false);
+      return;
+    }
+
     const payload = {
       name: String(formData.get('name') ?? ''),
       email: String(formData.get('email') ?? ''),
@@ -64,6 +74,12 @@ export function ContactForm() {
         await handleSubmit(formData);
       }}
     >
+
+      <div style={{ display: 'none' }} aria-hidden="true">
+        <label htmlFor="bot_field">Do not fill this out if you are human:</label>
+        <input id="bot_field" name="bot_field" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <div className="field-grid">
         <div className="field">
           <label htmlFor="name-input">Imię</label>
