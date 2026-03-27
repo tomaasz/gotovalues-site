@@ -76,6 +76,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section" id="podejscie">
+        <SectionHeading
+          eyebrow={siteContent.approach.eyebrow}
+          heading={siteContent.approach.headline}
+        />
+        <div className="approach-grid">
+          {siteContent.approach.points.map((point) => (
+            <article className="approach-card" key={point.title}>
+              <h3>{point.title}</h3>
+              <p>{point.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="section" id="produkty">
         <SectionHeading
           inline

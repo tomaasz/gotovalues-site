@@ -34,10 +34,10 @@ describe("site content", () => {
     }
   });
 
-  test("defines two equal offer pillars for the homepage", () => {
+  test("defines three offer pillars for the homepage", () => {
     assert.deepEqual(
       siteContent.offer.pillars.map((pillar) => pillar.title),
-      ["Analityka i automatyzacja", "Aplikacje webowe i AI"],
+      ["Analityka i automatyzacja", "Aplikacje webowe i AI", "Gotowe produkty i platformy"],
     );
   });
 
@@ -48,7 +48,7 @@ describe("site content", () => {
 
   test("keeps homepage CTA and framing focused on one concrete process", () => {
     assert.match(siteContent.brand.cta.primary.label, /proces/i);
-    assert.match(siteContent.brand.eyebrow, /Excela i maila/);
+    assert.match(siteContent.brand.eyebrow, /aplikacje|rozwiązania/i);
   });
 
   test("defines a focused landing-page payload for production outreach", () => {
@@ -64,7 +64,7 @@ describe("site content", () => {
     assert.match(siteContent.about.role, /Tomasz Gołaszewski/i);
     assert.match(siteContent.about.profileLink.href, /linkedin\.com/i);
     assert.match(siteContent.about.summary, /wycenie|aktywami|leasingowych/i);
-    assert.equal(siteContent.about.points.length, 3);
+    assert.equal(siteContent.about.points.length, 4);
     assert.equal(siteContent.contact.signals[0]?.value, "kontakt@gotovalues.com");
     assert.match(siteContent.contact.signals[1]?.value ?? "", /24h/i);
   });

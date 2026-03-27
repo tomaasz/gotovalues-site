@@ -6,6 +6,11 @@ export type OfferPillar = {
   bullets: string[];
 };
 
+export type ApproachPoint = {
+  title: string;
+  description: string;
+};
+
 export type ProductCard = {
   name: string;
   category: "public" | "private";
@@ -23,11 +28,11 @@ export const siteContent = {
   brand: {
     name: brandName,
     eyebrow:
-      "Dedykowane aplikacje i narzędzia AI dla firm, w których procesy wyrosły z Excela i maila.",
+      "Nowoczesne aplikacje webowe i rozwiązania AI — bezpieczne, tanie w utrzymaniu i dopasowane do realnych procesów firmy.",
     headline:
       "Buduję narzędzia, które porządkują procesy tam, gdzie Excel, mail i gotowe systemy przestają wystarczać.",
     intro:
-      "Pomagam firmom produkcyjnym i operacyjnym uporządkować dokumenty, statusy i ręczną pracę. Projektuję lekkie aplikacje webowe i praktyczne wdrożenia AI pod konkretny proces, bez wymiany całego istniejącego środowiska pracy.",
+      "Pomagam firmom uporządkować dokumenty, statusy i ręczną pracę. Projektuję lekkie aplikacje webowe, kompletne platformy i praktyczne wdrożenia AI pod konkretny proces — bez wymiany całego istniejącego środowiska pracy.",
     cta: {
       primary: {
         label: "Opisz proces do uporządkowania",
@@ -54,11 +59,22 @@ export const siteContent = {
       {
         title: "Aplikacje webowe i AI",
         description:
-          "Buduję dedykowane aplikacje i narzędzia AI, które rozwiązują jeden konkretny problem operacyjny zamiast dokładania kolejnego arkusza, maila albo obejścia.",
+          "Buduję dedykowane aplikacje i narzędzia AI, które rozwiązują konkretne problemy operacyjne — od odczytu dokumentów po wieloetapowe pipeline'y przetwarzania danych z kontrolą jakości i optymalizacją kosztów.",
         bullets: [
-          "lekkie aplikacje webowe dla procesów wewnętrznych i pracy zespołu",
-          "narzędzia AI do ekstrakcji, klasyfikacji i wyszukiwania danych",
-          "systemy dokumentowe, OCR i workflow pod realne wyjątki procesu",
+          "lekkie aplikacje webowe z wyszukiwaniem, eksploracją i nawigacją po danych",
+          "wieloetapowe pipeline'y AI: klasyfikacja, ekstrakcja, normalizacja i walidacja",
+          "inteligentny dobór modeli AI pod zadanie — tani model do prostych zadań, precyzyjny do trudnych",
+          "systemy dokumentowe, OCR i workflow z monitoringiem i kontrolą jakości",
+        ],
+      },
+      {
+        title: "Gotowe produkty i platformy",
+        description:
+          "Buduję kompletne aplikacje — od logowania i panelu użytkownika po płatności, generowanie dokumentów i integracje zewnętrzne — gotowe do oddania użytkownikom bez dodatkowego zespołu.",
+        bullets: [
+          "kompletne aplikacje webowe z autoryzacją, rolami i panelem administracyjnym",
+          "integracja płatności, generowanie PDF/DOCX i eksport danych",
+          "rozszerzenia przeglądarki i automatyzacja pracy użytkownika",
         ],
       },
     ] satisfies OfferPillar[],
@@ -123,6 +139,32 @@ export const siteContent = {
       },
     ] satisfies ProductCard[],
   },
+  approach: {
+    eyebrow: "Podejście techniczne",
+    headline: "Nowoczesne, bezpieczne i tanie w utrzymaniu",
+    points: [
+      {
+        title: "Nowoczesny stack, niskie koszty",
+        description:
+          "Używam sprawdzonych technologii (React, Next.js, Python, PostgreSQL) i bezpłatnych warstw monitoringu, hostingu i AI — tak aby rozwiązanie było tanie w utrzymaniu bez kompromisu na jakości.",
+      },
+      {
+        title: "Bezpieczeństwo od pierwszego dnia",
+        description:
+          "Szyfrowanie, walidacja danych, kontrola dostępu i nagłówki bezpieczeństwa nie są dodatkiem — to standard każdego wdrożenia.",
+      },
+      {
+        title: "Monitoring i kontrola jakości",
+        description:
+          "Każde rozwiązanie ma wbudowane śledzenie błędów, metryki użytkowania i alerty — wiesz co działa, co wymaga uwagi i ile kosztuje.",
+      },
+      {
+        title: "Łatwe do rozbudowy",
+        description:
+          "Czytelny kod, testy i dokumentacja pozwalają rozbudowywać rozwiązanie bez przepisywania od zera — nawet jeśli nie ja będę je rozwijać dalej.",
+      },
+    ] satisfies ApproachPoint[],
+  },
   about: {
     title: "O mnie",
     headline:
@@ -151,6 +193,11 @@ export const siteContent = {
         label: "Styl współpracy",
         value:
           "bezpośrednia praca z klientem, wąski i sensowny zakres, bez agencyjnego narzutu i zbędnej złożoności.",
+      },
+      {
+        label: "Technologie",
+        value:
+          "React, Next.js, Python, FastAPI, Flask, PostgreSQL, wielomodelowe AI (Gemini, Claude, GPT), Cloudflare, Vercel, monitoring produkcyjny.",
       },
     ],
   },
