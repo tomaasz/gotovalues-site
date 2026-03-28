@@ -9,11 +9,13 @@ const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
 const RATE_LIMIT_MAX = 3; // Max zgłoszeń
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minut
 
-
 export async function POST(request: Request) {
   // --- Simple Rate Limiting ---
   // Pozyskujemy IP, fall-back na generyczne 'unknown' dla testów/lokalnie.
-  const ip = request.headers.get('x-forwarded-for') || request.headers.get('cf-connecting-ip') || 'unknown';
+  // Sentinel: Zawsze priorytetyzuj nagłówek cf-connecting-ip nad x-forwarded-for (który może zostać nadpisany przez klienta).
+  const forwardedFor = request.headers.get('x-forwarded-for');
+  const forwardedIp = forwardedFor ? forwardedFor.split(',')[0].trim() : null;
+  const ip = request.headers.get('cf-connecting-ip') || forwardedIp || 'unknown';
 
   const now = Date.now();
   const rateLimitData = rateLimitMap.get(ip);
@@ -26,7 +28,7 @@ export async function POST(request: Request) {
       if (rateLimitData.count > RATE_LIMIT_MAX) {
         return NextResponse.json(
           { message: 'Przekroczono limit zapytań. Spróbuj ponownie później.' },
-          { status: 429 }
+          { status: 429 },
         );
       }
     }
