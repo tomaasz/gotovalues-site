@@ -16,7 +16,6 @@ export function ContactForm() {
     setPending(true);
     setState(initialState);
 
-
     // honeypot check
     const honeypot = String(formData.get('bot_field') ?? '');
     if (honeypot.length > 0) {
@@ -74,7 +73,6 @@ export function ContactForm() {
         await handleSubmit(formData);
       }}
     >
-
       <div style={{ display: 'none' }} aria-hidden="true">
         <label htmlFor="bot_field">Do not fill this out if you are human:</label>
         <input id="bot_field" name="bot_field" type="text" tabIndex={-1} autoComplete="off" />
@@ -82,15 +80,27 @@ export function ContactForm() {
 
       <div className="field-grid">
         <div className="field">
-          <label htmlFor="name-input">Imię</label>
+          <label htmlFor="name-input">
+            Imię{' '}
+            <span className="required-indicator" aria-hidden="true">
+              *
+            </span>
+          </label>
           <input id="name-input" name="name" type="text" placeholder="Jan" required />
         </div>
         <div className="field">
-          <label htmlFor="email-input">E-mail</label>
+          <label htmlFor="email-input">
+            E-mail{' '}
+            <span className="required-indicator" aria-hidden="true">
+              *
+            </span>
+          </label>
           <input id="email-input" name="email" type="email" placeholder="jan@firma.pl" required />
         </div>
         <div className="field">
-          <label htmlFor="company-input">Firma</label>
+          <label htmlFor="company-input">
+            Firma <span className="optional-indicator">(opcjonalnie)</span>
+          </label>
           <input
             id="company-input"
             name="company"
@@ -101,7 +111,12 @@ export function ContactForm() {
       </div>
 
       <div className="field">
-        <label htmlFor="message-input">Co dziś dzieje się ręcznie albo chaotycznie</label>
+        <label htmlFor="message-input">
+          Co dziś dzieje się ręcznie albo chaotycznie{' '}
+          <span className="required-indicator" aria-hidden="true">
+            *
+          </span>
+        </label>
         <textarea
           id="message-input"
           name="message"
