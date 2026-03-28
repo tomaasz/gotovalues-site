@@ -12,10 +12,25 @@ const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minut
 
 export async function POST(request: Request) {
   // --- Simple Rate Limiting ---
-  // Pozyskujemy IP, fall-back na generyczne 'unknown' dla testów/lokalnie.
-  const ip = request.headers.get('x-forwarded-for') || request.headers.get('cf-connecting-ip') || 'unknown';
+  // Pozyskujemy IP, priorytetyzując 'cf-connecting-ip' przed 'x-forwarded-for' aby zapobiec spoofingowi.
+  const ip = request.headers.get('cf-connecting-ip') || request.headers.get('x-forwarded-for') || 'unknown';
 
   const now = Date.now();
+
+  // ⚡ Bolt: Prevent memory leaks in the rate limiter Map.
+  // 🎯 Why: An unbounded Map in a long-running V8 isolate causes linear memory growth if flooded with unique IPs, leading to GC pauses and OOM crashes.
+  // 📊 Impact: Bounds memory usage to a safe limit, reducing Garbage Collection pressure.
+  if (rateLimitMap.size > 1000) {
+    for (const [key, val] of rateLimitMap.entries()) {
+      if (now - val.lastReset > RATE_LIMIT_WINDOW_MS) {
+        rateLimitMap.delete(key);
+      }
+    }
+    if (rateLimitMap.size > 2000) {
+      rateLimitMap.clear();
+    }
+  }
+
   const rateLimitData = rateLimitMap.get(ip);
 
   if (rateLimitData) {
