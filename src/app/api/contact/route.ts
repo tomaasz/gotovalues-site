@@ -18,6 +18,24 @@ export async function POST(request: Request) {
   const ip = request.headers.get('cf-connecting-ip') || forwardedIp || 'unknown';
 
   const now = Date.now();
+
+  // ⚡ Bolt: Prevent memory leak/exhaustion in V8 isolate
+  // 🎯 Why: Unbounded Map growth from unique spoofed IPs can cause OOM crashes.
+  // We use a small random chance to sweep expired entries to avoid O(N) loops on every request when near the limit.
+  if (rateLimitMap.size > 2000 && Math.random() < 0.05) {
+    const expireTime = now - RATE_LIMIT_WINDOW_MS;
+    for (const [key, data] of rateLimitMap.entries()) {
+      if (data.lastReset < expireTime) {
+        rateLimitMap.delete(key);
+      }
+    }
+  }
+
+  // Aggressive clear if the map is critically large (e.g., ongoing volumetric attack)
+  if (rateLimitMap.size > 5000) {
+    rateLimitMap.clear();
+  }
+
   const rateLimitData = rateLimitMap.get(ip);
 
   if (rateLimitData) {
