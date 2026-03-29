@@ -60,6 +60,7 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body className={`${displayFont.variable} ${bodyFont.variable}`}>
+        <a href="#main" className="skip-link">Przejdź do głównej treści</a>
         {children}
         <script
           type="application/ld+json"

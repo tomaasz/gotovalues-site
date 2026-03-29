@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ProductsPage() {
   return (
-    <main className="page-shell">
+    <main id="main" className="page-shell" tabIndex={-1}>
       <header className="site-header">
         <Link className="brand-mark" href="/">
           {siteContent.brand.name}
