@@ -741,3 +741,28 @@ h3 {
     font-size: clamp(2.65rem, 11vw, 4rem);
   }
 }
+
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  padding: 14px 20px;
+  background-color: var(--panel);
+  color: var(--text);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 16px;
+  box-shadow: 0 0 0 4px rgba(78, 139, 118, 0.12);
+  outline: 2px solid var(--accent-strong);
+}
+
+#main:focus {
+  outline: none;
+}
