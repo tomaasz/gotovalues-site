@@ -46,6 +46,7 @@ export function ProductCard({ product, compact = false }: ProductCardProps) {
         </ul>
         <p className="product-impact">{product.impact}</p>
       </div>
+      {product.url ? <span className="sr-only"> (otwiera się w nowej karcie)</span> : null}
     </Wrapper>
   );
 }
