@@ -7,6 +7,8 @@ export const contactFormSchema = z.object({
   email: z.email('Podaj poprawny adres e-mail.'),
   company: z.string().trim().max(120).optional().default(''),
   message: z.string().trim().min(20, 'Opisz krótko, czego potrzebujesz.'),
+  // Sentinel: Server-side honeypot validation to prevent bots from bypassing client-side checks via direct API POSTs.
+  bot_field: z.string().max(0, 'Spam detected').optional().default(''),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
