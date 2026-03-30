@@ -30,6 +30,8 @@ export function ContactForm() {
       email: String(formData.get('email') ?? ''),
       company: String(formData.get('company') ?? ''),
       message: String(formData.get('message') ?? ''),
+      // Sentinel: Pass the honeypot field to the server so it can be securely validated by the Zod schema.
+      bot_field: String(formData.get('bot_field') ?? ''),
     };
 
     try {
