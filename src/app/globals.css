@@ -241,6 +241,16 @@ h3 {
   border-radius: 999px;
 }
 
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
 .button-primary {
   color: #f6f3ec;
   background: var(--accent-strong);
