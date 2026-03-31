@@ -140,15 +140,15 @@ export default function HomePage() {
       <section className="section" id="kontakt">
         <SectionHeading
           eyebrow="Kontakt"
-          heading="Opisz jeden proces, który dziś zabiera ludziom czas, a powiem Ci, czy warto porządkować go dedykowanym narzędziem."
+          heading="Opisz jeden proces, który dziś zabiera ludziom czas, a powiem Ci, czym go uporządkować — gotowym narzędziem, integracją albo dedykowanym rozwiązaniem."
         />
         <div className="surface contact-card">
           <div className="contact-copy">
             <p>{siteContent.contact.intro}</p>
             <ul className="contact-points">
               <li>wystarczy jeden konkretny przykład z codziennej pracy</li>
-              <li>ocenię, czy problem nadaje się na lekki system, workflow albo funkcję AI</li>
-              <li>jeśli nie ma sensu budować customowego narzędzia, powiem to wprost</li>
+              <li>ocenię, czy wystarczy gotowe narzędzie, integracja, czy trzeba budować coś dedykowanego</li>
+              <li>jeśli problem rozwiązuje darmowe lub tanie narzędzie z rynku — powiem to wprost</li>
             </ul>
             <div className="about-points">
               {contactSignals.map((signal) => (

@@ -32,7 +32,7 @@ export const siteContent = {
     headline:
       "Buduję narzędzia, które porządkują procesy tam, gdzie Excel, mail i gotowe systemy przestają wystarczać.",
     intro:
-      "Pomagam firmom uporządkować dokumenty, statusy i ręczną pracę. Projektuję lekkie aplikacje webowe, kompletne platformy i praktyczne wdrożenia AI pod konkretny proces — bez wymiany całego istniejącego środowiska pracy.",
+      "Pomagam firmom uporządkować dokumenty, statusy i ręczną pracę. Najpierw sprawdzam, czy problem rozwiąże gotowe narzędzie lub integracja. Dedykowaną aplikację buduję tylko wtedy, gdy to jedyna sensowna droga — bez wymiany całego istniejącego środowiska pracy.",
     cta: {
       primary: {
         label: "Opisz proces do uporządkowania",
@@ -187,7 +187,7 @@ export const siteContent = {
       {
         label: "Zakres",
         value:
-          "od analizy problemu i wymagań po wdrożenie raportowania, automatyzacji i dedykowanego narzędzia.",
+          "od analizy problemu, przez dobór gotowego narzędzia lub integracji, po wdrożenie raportowania, automatyzacji i dedykowanego rozwiązania.",
       },
       {
         label: "Styl współpracy",
@@ -203,7 +203,7 @@ export const siteContent = {
   },
   contact: {
     intro:
-      "Nie musisz mieć gotowej specyfikacji. Wystarczy krótki opis jednego procesu, wąskiego problemu albo miejsca, w którym dziś zespół robi za dużo ręcznie.",
+      "Nie musisz mieć gotowej specyfikacji. Wystarczy krótki opis jednego procesu, wąskiego problemu albo miejsca, w którym dziś zespół robi za dużo ręcznie. Nie zawsze odpowiedzią jest budowa od zera — często wystarczy gotowe narzędzie, integracja albo automatyzacja tego, co już macie.",
     signals: [
       {
         label: "E-mail",
