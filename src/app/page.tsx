@@ -109,7 +109,7 @@ export default function HomePage() {
       </section>
 
       <section className="section" id="o-mnie">
-        <SectionHeading eyebrow="O mnie" heading={siteContent.about.headline} />
+        <SectionHeading eyebrow={siteContent.about.title} heading={siteContent.about.headline} />
         <div className="surface about-card">
           <p>
             <strong>{siteContent.about.role}</strong>
