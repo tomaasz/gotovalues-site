@@ -1,7 +1,6 @@
 'use client';
 
 import { startTransition, useState } from 'react';
-import { Loader2 } from 'lucide-react';
 
 const initialState = {
   status: 'idle' as 'idle' | 'success' | 'error',
@@ -132,7 +131,21 @@ export function ContactForm() {
         <button className="button button-primary" type="submit" disabled={pending}>
           {pending ? (
             <>
-              <Loader2 className="w-5 h-5 mr-2 animate-spin" aria-hidden="true" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5 mr-2 animate-spin"
+                aria-hidden="true"
+              >
+                <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+              </svg>
               Wysyłanie...
             </>
           ) : (

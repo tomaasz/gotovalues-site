@@ -5,3 +5,4 @@
 ## 2026-03-29 - [Bounded Memory for Rate Limiting Maps]
 **Learning:** Using a simple JavaScript `Map` for rate limiting in memory-constrained environments like Cloudflare Workers/V8 isolates introduces a memory leak vulnerability. An attacker can easily spoof IPs or launch a distributed attack to fill the map and cause an Out-Of-Memory (OOM) crash.
 **Action:** Always implement a size threshold (e.g., `map.size > X`) to sweep expired entries or clear the map entirely when implementing in-memory rate limiting.
+- 2025-03-31: To optimize Next.js client component bundle sizes, prefer inlining simple SVGs over importing from icon libraries like `lucide-react` when only a single or very few icons are used.
