@@ -42,13 +42,13 @@ export async function POST(request: Request) {
     if (now - rateLimitData.lastReset > RATE_LIMIT_WINDOW_MS) {
       rateLimitMap.set(ip, { count: 1, lastReset: now });
     } else {
-      rateLimitData.count += 1;
-      if (rateLimitData.count > RATE_LIMIT_MAX) {
+      if (rateLimitData.count >= RATE_LIMIT_MAX) {
         return NextResponse.json(
           { message: 'Przekroczono limit zapytań. Spróbuj ponownie później.' },
           { status: 429 },
         );
       }
+      rateLimitData.count += 1;
     }
   } else {
     rateLimitMap.set(ip, { count: 1, lastReset: now });
