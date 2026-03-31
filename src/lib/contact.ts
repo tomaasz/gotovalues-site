@@ -43,11 +43,14 @@ export function buildContactEmail(data: ContactFormData): {
   return { subject, text, html };
 }
 
+const htmlMap: Record<string, string> = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;',
+};
+
 function escapeHtml(value: string): string {
-  return value
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#39;');
+  return value.replace(/[&<>"']/g, (s) => htmlMap[s]);
 }
