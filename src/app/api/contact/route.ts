@@ -19,30 +19,22 @@ export async function POST(request: Request) {
 
   const now = Date.now();
 
-  // ⚡ Bolt: Prevent memory leak/exhaustion in V8 isolate
+  // ⚡ Bolt: Prevent memory leak/exhaustion in V8 isolate using O(1) LRU strategy
   // 🎯 Why: Unbounded Map growth from unique spoofed IPs can cause OOM crashes.
-  // We use a small random chance to sweep expired entries to avoid O(N) loops on every request when near the limit.
-  if (rateLimitMap.size > 2000 && Math.random() < 0.05) {
-    const expireTime = now - RATE_LIMIT_WINDOW_MS;
-    for (const [key, data] of rateLimitMap.entries()) {
-      if (data.lastReset < expireTime) {
-        rateLimitMap.delete(key);
-      }
-    }
-  }
+  // By maintaining max 2000 entries and dropping the oldest via `keys().next().value` (Map insertion order),
+  // we ensure deterministic O(1) eviction without blocking the main thread during high traffic.
 
-  // Aggressive clear if the map is critically large (e.g., ongoing volumetric attack)
-  if (rateLimitMap.size > 5000) {
-    rateLimitMap.clear();
-  }
-
-  const rateLimitData = rateLimitMap.get(ip);
+  let rateLimitData = rateLimitMap.get(ip);
 
   if (rateLimitData) {
+    // Freshen entry to move it to the end of the Map (LRU behavior)
+    rateLimitMap.delete(ip);
+
     if (now - rateLimitData.lastReset > RATE_LIMIT_WINDOW_MS) {
-      rateLimitMap.set(ip, { count: 1, lastReset: now });
+      rateLimitData = { count: 1, lastReset: now };
     } else {
       if (rateLimitData.count >= RATE_LIMIT_MAX) {
+        rateLimitMap.set(ip, rateLimitData);
         return NextResponse.json(
           { message: 'Przekroczono limit zapytań. Spróbuj ponownie później.' },
           { status: 429 },
@@ -50,8 +42,14 @@ export async function POST(request: Request) {
       }
       rateLimitData.count += 1;
     }
+    rateLimitMap.set(ip, rateLimitData);
   } else {
     rateLimitMap.set(ip, { count: 1, lastReset: now });
+  }
+
+  // Enforce Map size limit (evict oldest)
+  if (rateLimitMap.size > 2000) {
+    rateLimitMap.delete(rateLimitMap.keys().next().value!);
   }
   // --- Rate Limiting End ---
 
