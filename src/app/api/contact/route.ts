@@ -21,34 +21,28 @@ export async function POST(request: Request) {
 
   // ⚡ Bolt: Prevent memory leak/exhaustion in V8 isolate
   // 🎯 Why: Unbounded Map growth from unique spoofed IPs can cause OOM crashes.
-  // We use a small random chance to sweep expired entries to avoid O(N) loops on every request when near the limit.
-  if (rateLimitMap.size > 2000 && Math.random() < 0.05) {
-    const expireTime = now - RATE_LIMIT_WINDOW_MS;
-    for (const [key, data] of rateLimitMap.entries()) {
-      if (data.lastReset < expireTime) {
-        rateLimitMap.delete(key);
-      }
-    }
-  }
-
-  // Aggressive clear if the map is critically large (e.g., ongoing volumetric attack)
-  if (rateLimitMap.size > 5000) {
-    rateLimitMap.clear();
+  // We use a deterministic FIFO eviction strategy to prevent OOM crashes, deleting oldest entries when max size is hit.
+  if (rateLimitMap.size >= 2000 && !rateLimitMap.has(ip)) {
+    rateLimitMap.delete(rateLimitMap.keys().next().value as string);
   }
 
   const rateLimitData = rateLimitMap.get(ip);
 
   if (rateLimitData) {
+    // LRU Freshening
+    rateLimitMap.delete(ip);
     if (now - rateLimitData.lastReset > RATE_LIMIT_WINDOW_MS) {
       rateLimitMap.set(ip, { count: 1, lastReset: now });
     } else {
       if (rateLimitData.count >= RATE_LIMIT_MAX) {
+        rateLimitMap.set(ip, rateLimitData); // restore it on hit max
         return NextResponse.json(
           { message: 'Przekroczono limit zapytań. Spróbuj ponownie później.' },
           { status: 429 },
         );
       }
       rateLimitData.count += 1;
+      rateLimitMap.set(ip, rateLimitData);
     }
   } else {
     rateLimitMap.set(ip, { count: 1, lastReset: now });
