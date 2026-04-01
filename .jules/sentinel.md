@@ -12,3 +12,8 @@
 **Vulnerability:** The honeypot form field (`bot_field`) intended to block bot submissions was only being checked on the client-side (`ContactForm.tsx`) but totally ignored by the server-side validation schema (`contactFormSchema` in `src/lib/contact.ts`).
 **Learning:** This is a classic client-side bypass pattern. Spam bots frequently submit payloads directly to the API (`/api/contact`), completely bypassing the frontend logic and generating spam emails.
 **Prevention:** Always enforce honeypot checks and any form constraint within the server-side parsing layer (e.g. Zod schemas) because client-side restrictions offer zero actual security against programmatic attacks.
+
+## 2024-05-25 - [Fix Fail-Open Rate Limit]
+**Vulnerability:** The in-memory rate limiter `rateLimitMap` used `map.clear()` when its size exceeded `5000` to prevent OOM errors. This caused a "fail-open" scenario where a volumetric attack of spoofed IPs would continually wipe the map, bypassing the rate limits entirely for legitimate attackers mixed in the flood.
+**Learning:** Security controls should never fail open under load.
+**Prevention:** Implement deterministic FIFO eviction for in-memory rate limiters (e.g., deleting `map.keys().next().value`) instead of clearing the entire state when size limits are reached. Refresh the LRU position of active IPs on every request.

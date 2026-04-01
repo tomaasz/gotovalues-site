@@ -8,6 +8,7 @@ import { buildContactEmail, contactFormSchema } from '@/lib/contact';
 const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
 const RATE_LIMIT_MAX = 3; // Max zgłoszeń
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minut
+const MAX_RATE_LIMIT_ENTRIES = 2000;
 
 export async function POST(request: Request) {
   // --- Simple Rate Limiting ---
@@ -21,34 +22,33 @@ export async function POST(request: Request) {
 
   // ⚡ Bolt: Prevent memory leak/exhaustion in V8 isolate
   // 🎯 Why: Unbounded Map growth from unique spoofed IPs can cause OOM crashes.
-  // We use a small random chance to sweep expired entries to avoid O(N) loops on every request when near the limit.
-  if (rateLimitMap.size > 2000 && Math.random() < 0.05) {
-    const expireTime = now - RATE_LIMIT_WINDOW_MS;
-    for (const [key, data] of rateLimitMap.entries()) {
-      if (data.lastReset < expireTime) {
-        rateLimitMap.delete(key);
-      }
-    }
-  }
-
-  // Aggressive clear if the map is critically large (e.g., ongoing volumetric attack)
-  if (rateLimitMap.size > 5000) {
-    rateLimitMap.clear();
+  // Sentinel: Zabezpieczono przed "fail-open" po przekroczeniu limitu wielkości mapy.
+  // Używamy deterministycznego usuwania FIFO (LRU via insertion order w Map),
+  // zamiast czyścić całą mapę, co pozwalało na ominięcie rate limitu.
+  if (rateLimitMap.size >= MAX_RATE_LIMIT_ENTRIES && !rateLimitMap.has(ip)) {
+    const firstKey = rateLimitMap.keys().next().value;
+    if (firstKey) rateLimitMap.delete(firstKey);
   }
 
   const rateLimitData = rateLimitMap.get(ip);
 
   if (rateLimitData) {
     if (now - rateLimitData.lastReset > RATE_LIMIT_WINDOW_MS) {
+      rateLimitMap.delete(ip); // Usuń i dodaj ponownie by odświeżyć pozycję LRU
       rateLimitMap.set(ip, { count: 1, lastReset: now });
     } else {
       if (rateLimitData.count >= RATE_LIMIT_MAX) {
+        // Przekroczono limit zapytań
+        rateLimitMap.delete(ip);
+        rateLimitMap.set(ip, rateLimitData); // Odśwież pozycję
         return NextResponse.json(
           { message: 'Przekroczono limit zapytań. Spróbuj ponownie później.' },
           { status: 429 },
         );
       }
       rateLimitData.count += 1;
+      rateLimitMap.delete(ip);
+      rateLimitMap.set(ip, rateLimitData); // Odśwież pozycję
     }
   } else {
     rateLimitMap.set(ip, { count: 1, lastReset: now });
