@@ -468,27 +468,16 @@ h3 {
   background: rgba(79, 88, 82, 0.28);
 }
 
-.product-preview-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+.product-preview-image {
+  display: block;
+  width: 100%;
+  height: auto;
   margin-top: 18px;
-}
-
-.product-preview-panel {
-  min-height: 68px;
   border: 1px solid rgba(78, 139, 118, 0.18);
-  border-radius: 16px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(225, 237, 232, 0.82));
-}
-
-.product-preview-panel-wide {
-  grid-column: span 2;
-  min-height: 76px;
-}
-
-.product-preview-panel-tall {
-  min-height: 122px;
+  border-radius: 12px;
+  background: white;
+  object-fit: cover;
+  margin-bottom: 24px;
 }
 
 .product-preview-label {
