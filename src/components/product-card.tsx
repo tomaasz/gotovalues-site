@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Image from 'next/image';
 
 import type { ProductCard as ProductCardType } from '@/content/site';
 
@@ -21,12 +22,14 @@ export function ProductCard({ product, compact = false }: ProductCardProps) {
           <span />
           <span />
         </div>
-        <div className="product-preview-grid">
-          <div className="product-preview-panel product-preview-panel-wide" />
-          <div className="product-preview-panel" />
-          <div className="product-preview-panel" />
-          <div className="product-preview-panel product-preview-panel-tall" />
-        </div>
+        <Image
+          src={product.screenshot.src}
+          alt=""
+          className="product-preview-image"
+          width={800}
+          height={600}
+          unoptimized
+        />
         <div className="product-preview-label">{product.name}</div>
       </div>
 
