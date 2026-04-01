@@ -3,6 +3,8 @@ import { Fraunces, Manrope } from "next/font/google";
 
 import { brandName } from "@/content/site";
 
+import { PostHogProvider } from "@/components/posthog-provider";
+
 import "./globals.css";
 
 const displayFont = Fraunces({
@@ -61,7 +63,9 @@ export default function RootLayout({
     <html lang="pl">
       <body className={`${displayFont.variable} ${bodyFont.variable}`}>
         <a href="#main" className="skip-link">Przejdź do głównej treści</a>
-        {children}
+        <PostHogProvider>
+          {children}
+        </PostHogProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
