@@ -129,4 +129,40 @@ test('POST /api/contact', async (t) => {
 
      global.fetch = originalFetch;
   });
+
+  await t.test('returns 500 when Resend API returns an error object', async () => {
+    process.env.RESEND_API_KEY = 'test_key';
+    process.env.CONTACT_TO_EMAIL = 'admin@example.com';
+    process.env.CONTACT_FROM_EMAIL = 'onboarding@resend.dev';
+
+    const originalFetch = global.fetch;
+    mock.method(global, 'fetch', async () => {
+      // Resend API returns an error object on failure (e.g., 400 Bad Request)
+      return new Response(JSON.stringify({
+        statusCode: 400,
+        name: 'validation_error',
+        message: 'Invalid domain'
+      }), { status: 400, headers: { 'Content-Type': 'application/json' } });
+    });
+
+    const payload = {
+      name: 'Bob',
+      email: 'bob@example.com',
+      message: 'Testing an error response from the Resend SDK via fetch mock.',
+    };
+
+    const request = new Request('http://localhost:3000/api/contact', {
+      method: 'POST',
+      headers: { 'cf-connecting-ip': '5.6.7.8' },
+      body: JSON.stringify(payload),
+    });
+
+    const response = await POST(request);
+    assert.strictEqual(response.status, 500);
+
+    const data = await response.json();
+    assert.strictEqual(data.message, 'Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później.');
+
+    global.fetch = originalFetch;
+  });
 });

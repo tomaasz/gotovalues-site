@@ -92,7 +92,7 @@ export async function POST(request: Request) {
   const email = buildContactEmail(parsed.data);
 
   try {
-    await resend.emails.send({
+    const { error: resendError } = await resend.emails.send({
       from,
       to,
       replyTo: parsed.data.email,
@@ -100,8 +100,16 @@ export async function POST(request: Request) {
       text: email.text,
       html: email.html,
     });
+
+    if (resendError) {
+      console.error('Błąd wysyłki e-maila:', resendError);
+      return NextResponse.json(
+        { message: 'Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później.' },
+        { status: 500 },
+      );
+    }
   } catch (error) {
-    console.error('Błąd wysyłki e-maila:', error);
+    console.error('Błąd wysyłki e-maila (wyjątek):', error);
     return NextResponse.json(
       { message: 'Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później.' },
       { status: 500 },
