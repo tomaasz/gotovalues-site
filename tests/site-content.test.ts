@@ -1,7 +1,7 @@
 import { describe, test } from "node:test";
 import assert from "node:assert/strict";
 
-import { brandName, siteContent } from "../src/content/site";
+import { brandName, siteContent, type ProductCard } from "../src/content/site";
 
 describe("site content", () => {
   test("ensures all products have complete metadata", () => {
@@ -28,7 +28,7 @@ describe("site content", () => {
   test("keeps private implementations unlinked", () => {
     assert.ok(siteContent.products.private.length >= 2);
 
-    for (const product of siteContent.products.private) {
+    for (const product of siteContent.products.private as ProductCard[]) {
       assert.equal(product.url, undefined);
       assert.ok(product.screenshot.alt.length > 0);
     }
