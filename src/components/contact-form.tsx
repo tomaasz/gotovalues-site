@@ -42,7 +42,12 @@ export function ContactForm() {
         body: JSON.stringify(payload),
       });
 
-      const result = (await response.json()) as { message?: string };
+      let result: { message?: string } = {};
+      try {
+        result = await response.json();
+      } catch {
+        // Ignore parsing errors (e.g. 502 Bad Gateway HTML) and fall back to generic error
+      }
 
       if (!response.ok) {
         throw new Error(result.message || 'Nie udało się wysłać formularza.');
