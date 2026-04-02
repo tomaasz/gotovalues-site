@@ -29,7 +29,7 @@ describe("site content", () => {
     assert.ok(siteContent.products.private.length >= 2);
 
     for (const product of siteContent.products.private) {
-      assert.equal(product.url, undefined);
+      assert.equal('url' in product ? product.url : undefined, undefined);
       assert.ok(product.screenshot.alt.length > 0);
     }
   });
