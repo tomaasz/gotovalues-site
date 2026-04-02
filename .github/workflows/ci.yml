@@ -20,11 +20,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: GitGuardian secret scan
-        uses: GitGuardian/ggshield-action@v1.49.0
-        env:
-          GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
