@@ -11,7 +11,7 @@ export const contactFormSchema = z.object({
   bot_field: z.string().max(0, 'Spam detected').optional().default(''),
 });
 
-export type ContactFormData = z.infer<typeof contactFormSchema>;
+type ContactFormData = z.infer<typeof contactFormSchema>;
 
 export function buildContactEmail(data: ContactFormData): {
   subject: string;
