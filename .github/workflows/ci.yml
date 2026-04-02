@@ -41,13 +41,11 @@ jobs:
 
       - name: Snyk dependency scan
         uses: snyk/actions/node@master
-        continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
       - name: Socket Security
         uses: SocketDev/action@v1.3.2
-        continue-on-error: true
 
       - name: Build
         run: pnpm build
