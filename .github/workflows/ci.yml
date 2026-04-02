@@ -18,7 +18,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: GitGuardian secret scan
         uses: GitGuardian/ggshield-action@v1.49.0
@@ -41,13 +41,11 @@ jobs:
 
       - name: Snyk dependency scan
         uses: snyk/actions/node@master
-        continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
       - name: Socket Security
         uses: SocketDev/action@v1.3.2
-        continue-on-error: true
 
       - name: Build
         run: pnpm build
