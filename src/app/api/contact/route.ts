@@ -56,7 +56,8 @@ export async function POST(request: Request) {
   let payload;
   try {
     payload = await request.json();
-  } catch {
+  } catch (error) {
+    console.error('Błąd parsowania JSON:', error);
     return NextResponse.json({ message: 'Nieprawidłowy format danych.' }, { status: 400 });
   }
 
