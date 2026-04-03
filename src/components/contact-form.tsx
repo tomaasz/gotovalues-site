@@ -42,10 +42,17 @@ export function ContactForm() {
         body: JSON.stringify(payload),
       });
 
-      const result = (await response.json()) as { message?: string };
+      const result = (await response.json()) as { message?: string; issues?: { fieldErrors?: Record<string, string[]> } };
 
       if (!response.ok) {
-        throw new Error(result.message || 'Nie udało się wysłać formularza.');
+        let errorMessage = result.message || 'Nie udało się wysłać formularza.';
+        if (result.issues?.fieldErrors) {
+          const firstFieldError = Object.values(result.issues.fieldErrors)[0]?.[0];
+          if (firstFieldError) {
+            errorMessage += ` ${firstFieldError}`;
+          }
+        }
+        throw new Error(errorMessage);
       }
 
       startTransition(() => {
