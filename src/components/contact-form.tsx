@@ -42,7 +42,13 @@ export function ContactForm() {
         body: JSON.stringify(payload),
       });
 
-      const result = (await response.json()) as { message?: string };
+      let result: { message?: string } = {};
+      try {
+        result = await response.json();
+      } catch (e) {
+        console.error('Błąd parsowania odpowiedzi z serwera', e);
+        throw new Error('Nie udało się wysłać formularza.');
+      }
 
       if (!response.ok) {
         throw new Error(result.message || 'Nie udało się wysłać formularza.');
