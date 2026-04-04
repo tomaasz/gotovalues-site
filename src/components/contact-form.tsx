@@ -5,6 +5,7 @@ import { startTransition, useState } from 'react';
 const initialState = {
   status: 'idle' as 'idle' | 'success' | 'error',
   message: '',
+  fieldErrors: {} as Record<string, string[]>,
 };
 
 export function ContactForm() {
@@ -19,7 +20,7 @@ export function ContactForm() {
     const honeypot = String(formData.get('bot_field') ?? '');
     if (honeypot.length > 0) {
       // Silently fail for bots
-      setState({ status: 'error', message: 'Wystąpił problem podczas wysyłki formularza.' });
+      setState({ status: 'error', message: 'Wystąpił problem podczas wysyłki formularza.', fieldErrors: {} });
       setPending(false);
       return;
     }
@@ -42,7 +43,7 @@ export function ContactForm() {
         body: JSON.stringify(payload),
       });
 
-      let result: { message?: string } = {};
+      let result: { message?: string; issues?: { fieldErrors?: Record<string, string[]> } } = {};
       try {
         result = await response.json();
       } catch (e) {
@@ -51,13 +52,16 @@ export function ContactForm() {
       }
 
       if (!response.ok) {
-        throw new Error(result.message || 'Nie udało się wysłać formularza.');
+        const error = new Error(result.message || 'Nie udało się wysłać formularza.') as Error & { fieldErrors?: Record<string, string[]> };
+        error.fieldErrors = result.issues?.fieldErrors;
+        throw error;
       }
 
       startTransition(() => {
         setState({
           status: 'success',
           message: result.message || 'Dziękuję. Wrócę z oceną i propozycją następnego kroku.',
+          fieldErrors: {},
         });
       });
     } catch (error) {
@@ -66,6 +70,7 @@ export function ContactForm() {
           status: 'error',
           message:
             error instanceof Error ? error.message : 'Wystąpił problem podczas wysyłki formularza.',
+          fieldErrors: (error as Error & { fieldErrors?: Record<string, string[]> }).fieldErrors || {},
         });
       });
     } finally {
@@ -93,7 +98,8 @@ export function ContactForm() {
               *
             </span>
           </label>
-          <input id="name-input" name="name" type="text" placeholder="Jan" required />
+          <input id="name-input" name="name" type="text" placeholder="Jan" required aria-invalid={!!state.fieldErrors?.name} aria-describedby={state.fieldErrors?.name ? "name-error" : undefined} />
+          {state.fieldErrors?.name && <div id="name-error" className="form-feedback-error text-sm mt-1">{state.fieldErrors.name[0]}</div>}
         </div>
         <div className="field">
           <label htmlFor="email-input">
@@ -102,7 +108,8 @@ export function ContactForm() {
               *
             </span>
           </label>
-          <input id="email-input" name="email" type="email" placeholder="jan@firma.pl" required />
+          <input id="email-input" name="email" type="email" placeholder="jan@firma.pl" required aria-invalid={!!state.fieldErrors?.email} aria-describedby={state.fieldErrors?.email ? "email-error" : undefined} />
+          {state.fieldErrors?.email && <div id="email-error" className="form-feedback-error text-sm mt-1">{state.fieldErrors.email[0]}</div>}
         </div>
         <div className="field">
           <label htmlFor="company-input">
@@ -113,7 +120,9 @@ export function ContactForm() {
             name="company"
             type="text"
             placeholder="Nazwa firmy lub zakładu"
+            aria-invalid={!!state.fieldErrors?.company} aria-describedby={state.fieldErrors?.company ? "company-error" : undefined}
           />
+          {state.fieldErrors?.company && <div id="company-error" className="form-feedback-error text-sm mt-1">{state.fieldErrors.company[0]}</div>}
         </div>
       </div>
 
@@ -130,7 +139,9 @@ export function ContactForm() {
           rows={6}
           placeholder="Wystarczą 2-4 zdania. Np. dokumenty przychodzą mailem, dane trafiają do Excela, a status trzeba ręcznie dopytywać."
           required
+          aria-invalid={!!state.fieldErrors?.message} aria-describedby={state.fieldErrors?.message ? "message-error" : undefined}
         />
+        {state.fieldErrors?.message && <div id="message-error" className="form-feedback-error text-sm mt-1">{state.fieldErrors.message[0]}</div>}
       </div>
 
       <div className="form-actions">
