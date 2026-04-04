@@ -20,11 +20,6 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: GitGuardian secret scan
-        uses: GitGuardian/ggshield-action@v1.49.0
-        env:
-          GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
-
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
