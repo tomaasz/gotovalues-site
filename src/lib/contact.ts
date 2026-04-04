@@ -3,10 +3,10 @@ import { z } from 'zod';
 import { brandName } from '@/content/site';
 
 export const contactFormSchema = z.object({
-  name: z.string().trim().min(2, 'Podaj imię.'),
-  email: z.string().email('Podaj poprawny adres e-mail.'),
+  name: z.string().trim().min(2, 'Podaj imię.').max(100, 'Imię jest za długie.'),
+  email: z.string().email('Podaj poprawny adres e-mail.').max(100, 'E-mail jest za długi.'),
   company: z.string().trim().max(120).optional().default(''),
-  message: z.string().trim().min(20, 'Opisz krótko, czego potrzebujesz.'),
+  message: z.string().trim().min(20, 'Opisz krótko, czego potrzebujesz.').max(2000, 'Wiadomość jest za długa.'),
   // Sentinel: Server-side honeypot validation to prevent bots from bypassing client-side checks via direct API POSTs.
   bot_field: z.string().max(0, 'Spam detected').optional().default(''),
 });
@@ -37,7 +37,7 @@ export function buildContactEmail(data: ContactFormData): {
     `<p><strong>E-mail:</strong> <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></p>`,
     `<p><strong>Firma:</strong> ${escapeHtml(data.company || 'nie podano')}</p>`,
     `<p><strong>Wiadomość:</strong></p>`,
-    `<p>${escapeHtml(data.message).replaceAll('\n', '<br />')}</p>`,
+    `<p>${escapeHtml(data.message).split('\n').join('<br />')}</p>`,
   ].join('');
 
   return { subject, text, html };

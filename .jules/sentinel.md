@@ -12,3 +12,8 @@
 **Vulnerability:** The honeypot form field (`bot_field`) intended to block bot submissions was only being checked on the client-side (`ContactForm.tsx`) but totally ignored by the server-side validation schema (`contactFormSchema` in `src/lib/contact.ts`).
 **Learning:** This is a classic client-side bypass pattern. Spam bots frequently submit payloads directly to the API (`/api/contact`), completely bypassing the frontend logic and generating spam emails.
 **Prevention:** Always enforce honeypot checks and any form constraint within the server-side parsing layer (e.g. Zod schemas) because client-side restrictions offer zero actual security against programmatic attacks.
+
+## 2024-05-24 - Unbounded Input Resources / Missing Rate Boundaries
+**Vulnerability:** The contact form's API schema (`contactFormSchema`) lacked maximum length constraints for string fields (e.g., `name`, `email`, `message`), leaving the server susceptible to resource exhaustion or OOM attacks by simply submitting a multi-megabyte string.
+**Learning:** Checking for the presence of a string and its *minimum* length ensures data validity, but failing to specify a *maximum* allows an attacker to allocate unbounded memory when the payload is parsed and validated in Node/V8.
+**Prevention:** Always set strict, sensible `.max()` boundaries on string inputs in Zod schemas (e.g., `z.string().max(100)`) directly aligning with your database limits or business logic expectations, even if a firewall provides general body size limits.
