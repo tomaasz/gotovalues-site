@@ -21,9 +21,7 @@ jobs:
           fetch-depth: 1
 
       - name: GitGuardian secret scan
-        uses: GitGuardian/ggshield-action@v1.49.0
-        with:
-          args: --scan-commit ${{ github.sha }}
+        uses: GitGuardian/ggshield-action@master
         env:
           GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
 
