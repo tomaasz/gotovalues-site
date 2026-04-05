@@ -42,7 +42,7 @@ export function ContactForm() {
         body: JSON.stringify(payload),
       });
 
-      let result: { message?: string } = {};
+      let result: { message?: string; issues?: { fieldErrors?: Record<string, string[]> } } = {};
       try {
         result = await response.json();
       } catch (e) {
@@ -51,7 +51,14 @@ export function ContactForm() {
       }
 
       if (!response.ok) {
-        throw new Error(result.message || 'Nie udało się wysłać formularza.');
+        let errorMessage = result.message || 'Nie udało się wysłać formularza.';
+        if (result.issues?.fieldErrors) {
+          const firstFieldError = Object.values(result.issues.fieldErrors).flat()[0];
+          if (firstFieldError) {
+            errorMessage += ` (${firstFieldError})`;
+          }
+        }
+        throw new Error(errorMessage);
       }
 
       startTransition(() => {
