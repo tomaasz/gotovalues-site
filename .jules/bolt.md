@@ -7,3 +7,7 @@
 **Action:** Always implement a size threshold (e.g., `map.size > X`) to sweep expired entries or clear the map entirely when implementing in-memory rate limiting.
 - 2026-03-31: Use deterministic O(1) LRU eviction strategy for rate limiting map. In bounded environments, random O(N) sweeping inside high-frequency endpoints can lead to main thread blocking. A `Map` preserves insertion order, so by freshening entries (`map.delete(key); map.set(key, value)`) on every access, the oldest LRU entry is always `map.keys().next().value`. We can safely enforce map limits with an O(1) delete (`map.delete(map.keys().next().value)`).
 - 2025-03-31: To optimize Next.js client component bundle sizes, prefer inlining simple SVGs over importing from icon libraries like `lucide-react` when only a single or very few icons are used.
+
+## 2026-04-01 - [Native Next.js Image Optimization with @opennextjs/cloudflare]
+**Learning:** Since the project uses `@opennextjs/cloudflare` which supports native Next.js image optimization, there is no need to use the `unoptimized` prop on `next/image` `<Image />` components. Removing it allows the images to be automatically compressed and resized for better performance.
+**Action:** Avoid using the `unoptimized` prop on `next/image` `<Image />` components in this project.
