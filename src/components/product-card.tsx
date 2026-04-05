@@ -28,7 +28,6 @@ export function ProductCard({ product, compact = false }: ProductCardProps) {
           className="product-preview-image"
           width={800}
           height={600}
-          unoptimized
         />
         <div className="product-preview-label">{product.name}</div>
       </div>
