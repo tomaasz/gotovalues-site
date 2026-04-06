@@ -1,12 +1,12 @@
 export const brandName = "gotovalues";
 
-export type OfferPillar = {
+type OfferPillar = {
   title: string;
   description: string;
   bullets: string[];
 };
 
-export type ApproachPoint = {
+type ApproachPoint = {
   title: string;
   description: string;
 };
@@ -287,5 +287,3 @@ export const siteContent = {
       "Jeśli w Twoim zakładzie część pracy dalej spina się ręcznie między dokumentami, Excelem i mailem, zacznijmy od jednego konkretnego procesu.",
   },
 } as const;
-
-export type SiteContent = typeof siteContent;
