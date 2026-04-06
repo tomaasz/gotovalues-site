@@ -2,6 +2,8 @@
 
 import { startTransition, useState } from 'react';
 
+import { logger } from '@/lib/logger';
+
 const initialState = {
   status: 'idle' as 'idle' | 'success' | 'error',
   message: '',
@@ -46,7 +48,7 @@ export function ContactForm() {
       try {
         result = await response.json();
       } catch (e) {
-        console.error('Błąd parsowania odpowiedzi z serwera', e);
+        logger.error('Błąd parsowania odpowiedzi z serwera', { error: e instanceof Error ? e.message : String(e) });
         throw new Error('Nie udało się wysłać formularza.');
       }
 

@@ -3,6 +3,7 @@ import { Resend } from 'resend';
 
 import { brandName } from '@/content/site';
 import { buildContactEmail, contactFormSchema } from '@/lib/contact';
+import { logger } from '@/lib/logger';
 
 // Prosty in-memory rate limiting map. Uwaga: Działa to na instancję V8 isolate w Cloudflare Workers / Node, resetuje się przy starcie, jednak jest wystarczające na podstawowy spam.
 const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
@@ -56,7 +57,7 @@ export async function POST(request: Request) {
   try {
     payload = await request.json();
   } catch (error) {
-    console.error('Błąd parsowania JSON:', error);
+    logger.error('Błąd parsowania JSON', { error: error instanceof Error ? error.message : String(error) });
     return NextResponse.json({ message: 'Nieprawidłowy format danych.' }, { status: 400 });
   }
 
@@ -77,7 +78,7 @@ export async function POST(request: Request) {
   const from = process.env.CONTACT_FROM_EMAIL || `${brandName} <onboarding@resend.dev>`;
 
   if (!apiKey || !to) {
-    console.error(
+    logger.error(
       'Formularz nie jest jeszcze skonfigurowany po stronie serwera. Ustaw RESEND_API_KEY i CONTACT_TO_EMAIL.',
     );
     return NextResponse.json(
@@ -102,14 +103,14 @@ export async function POST(request: Request) {
     });
 
     if (resendError) {
-      console.error('Błąd wysyłki e-maila:', resendError);
+      logger.error('Błąd wysyłki e-maila', { error: resendError });
       return NextResponse.json(
         { message: 'Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później.' },
         { status: 500 },
       );
     }
   } catch (error) {
-    console.error('Błąd wysyłki e-maila (wyjątek):', error);
+    logger.error('Błąd wysyłki e-maila (wyjątek)', { error: error instanceof Error ? error.message : String(error) });
     return NextResponse.json(
       { message: 'Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później.' },
       { status: 500 },
