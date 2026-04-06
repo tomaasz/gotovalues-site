@@ -12,10 +12,9 @@ const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minut
 export async function POST(request: Request) {
   // --- Simple Rate Limiting ---
   // Pozyskujemy IP, fall-back na generyczne 'unknown' dla testów/lokalnie.
-  // Sentinel: Zawsze priorytetyzuj nagłówek cf-connecting-ip nad x-forwarded-for (który może zostać nadpisany przez klienta).
-  const forwardedFor = request.headers.get('x-forwarded-for');
-  const forwardedIp = forwardedFor ? forwardedFor.split(',')[0].trim() : null;
-  const ip = request.headers.get('cf-connecting-ip') || forwardedIp || 'unknown';
+  // Sentinel: Zawsze priorytetyzuj nagłówek cf-connecting-ip.
+  // Usuwamy x-forwarded-for, ponieważ może on zostać podrobiony (spoofed) przez klienta w celu ominięcia limitu.
+  const ip = request.headers.get('cf-connecting-ip') || 'unknown';
 
   const now = Date.now();
 
