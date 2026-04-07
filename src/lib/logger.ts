@@ -1,30 +1,21 @@
 // Structured JSON logger replacing raw console.log calls
+function formatLog(level: string, message: string, context?: unknown) {
+  return JSON.stringify({
+    timestamp: new Date().toISOString(),
+    level,
+    message,
+    context,
+  });
+}
+
 export const logger = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  error: (message: string, context?: any) => {
-    console.error(JSON.stringify({
-      timestamp: new Date().toISOString(),
-      level: 'error',
-      message,
-      context,
-    }));
+  error: (message: string, context?: unknown) => {
+    console.error(formatLog('error', message, context));
   },
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  info: (message: string, context?: any) => {
-    console.info(JSON.stringify({
-      timestamp: new Date().toISOString(),
-      level: 'info',
-      message,
-      context,
-    }));
+  info: (message: string, context?: unknown) => {
+    console.info(formatLog('info', message, context));
   },
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  warn: (message: string, context?: any) => {
-    console.warn(JSON.stringify({
-      timestamp: new Date().toISOString(),
-      level: 'warn',
-      message,
-      context,
-    }));
+  warn: (message: string, context?: unknown) => {
+    console.warn(formatLog('warn', message, context));
   },
 };
