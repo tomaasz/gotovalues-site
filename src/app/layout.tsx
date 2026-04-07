@@ -10,11 +10,16 @@ import "./globals.css";
 const displayFont = Fraunces({
   subsets: ["latin", "latin-ext"],
   variable: "--font-display",
+  display: "swap",
+  preload: true,
+  axes: ["SOFT", "WONK"],
 });
 
 const bodyFont = Manrope({
   subsets: ["latin", "latin-ext"],
   variable: "--font-body",
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
