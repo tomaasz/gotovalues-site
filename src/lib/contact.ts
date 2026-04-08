@@ -49,8 +49,11 @@ const htmlMap: Record<string, string> = {
   '>': '&gt;',
   '"': '&quot;',
   "'": '&#39;',
+  '`': '&#x60;',
+  '=': '&#x3D;',
+  '/': '&#x2F;',
 };
 
 function escapeHtml(value: string): string {
-  return value.replace(/[&<>"']/g, (s) => htmlMap[s]);
+  return value.replace(/[&<>"'`=/]/g, (s) => htmlMap[s]);
 }
