@@ -77,4 +77,22 @@ describe("contact form", () => {
     assert.match(email.text, /obiegu dokumentów/);
     assert.match(email.html, /jan@example.com/);
   });
+
+  test("escapeHtml correctly escapes special characters", () => {
+    const parsed = contactFormSchema.parse({
+      name: "Attack <script>alert(1)</script>",
+      email: "test@example.com",
+      company: "BadCompany = 'bad'",
+      message: "Testing `backticks`, /slashes/, and & ampersands and = equals.",
+    });
+
+    const email = buildContactEmail(parsed);
+
+    // Verify name
+    assert.match(email.html, /Attack &lt;script&gt;alert\(1\)&lt;&#x2F;script&gt;/);
+    // Verify company
+    assert.match(email.html, /BadCompany &#x3D; &#39;bad&#39;/);
+    // Verify message
+    assert.match(email.html, /Testing &#x60;backticks&#x60;, &#x2F;slashes&#x2F;, and &amp; ampersands and &#x3D; equals\./);
+  });
 });
