@@ -20,6 +20,7 @@ const bodyFont = Manrope({
   variable: "--font-body",
   display: "swap",
   preload: true,
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -74,7 +75,14 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026'),
+            __html: JSON.stringify(jsonLd).replace(/[<>&]/g, (c) => {
+              switch (c) {
+                case '<': return '\\u003c';
+                case '>': return '\\u003e';
+                case '&': return '\\u0026';
+                default: return c;
+              }
+            }),
           }}
         />
       </body>
