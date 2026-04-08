@@ -23,7 +23,6 @@ jobs:
       - name: GitGuardian secret scan
         if: ${{ secrets.GITGUARDIAN_API_KEY != '' }}
         uses: GitGuardian/ggshield-action@v1.49.0
-        continue-on-error: true
         env:
           GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
 

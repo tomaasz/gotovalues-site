@@ -14,3 +14,8 @@
 **Prevention:** Always enforce honeypot checks and any form constraint within the server-side parsing layer (e.g. Zod schemas) because client-side restrictions offer zero actual security against programmatic attacks.
 When injecting JSON into a `<script>` tag via `dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}`, always escape HTML-sensitive characters (e.g., `.replace(/</g, '\u003c').replace(/>/g, '\u003e').replace(/&/g, '\u0026')`) to prevent XSS, as standard `JSON.stringify` does not inherently escape them.
 API route rate limiting (e.g., in Cloudflare Workers/Pages isolate) is implemented using an in-memory `Map` bounded to 2000 entries (`MAX_RATE_LIMIT_ENTRIES`). To prevent IP spoofing bypasses, it strictly relies on `cf-connecting-ip` and must NEVER fall back to the client-controlled `x-forwarded-for` header. It uses a deterministic FIFO eviction strategy (`rateLimitMap.delete(rateLimitMap.keys().next().value)`) to prevent OOM crashes, freshening entries on access for LRU behavior.
+
+## 2026-04-08 - Masked Security Scan Failures in CI
+**Vulnerability:** The GitGuardian secret scan job in `.github/workflows/ci.yml` used `continue-on-error: true`, meaning failures during the scan (such as discovered secrets) did not fail the CI build.
+**Learning:** Masking security scan failures undermines their purpose. A Security Hotspot is triggered if a step designed to catch vulnerabilities can silently fail, allowing sensitive data to leak or poor practices to merge.
+**Prevention:** Never use `continue-on-error: true` on critical security scanners unless strictly necessary and well-documented. To mitigate rate limits instead of masking failures, reduce scan depth (e.g., `fetch-depth: 1`).
