@@ -8,15 +8,13 @@ const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY || "phc_wvuRonMauXNxWV5L
 const POSTHOG_HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://t.gotovalues.com";
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const queue = useRef<[string, any[]][]>([]);
+  const queue = useRef<[string, unknown[]][]>([]);
 
   const [client, setClient] = useState<PostHog>(() =>
     new Proxy({} as PostHog, {
       get: (_, prop) => {
         if (typeof prop === "string") {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          return (...args: any[]) => {
+          return (...args: unknown[]) => {
             queue.current.push([prop, args]);
             return undefined;
           };
@@ -38,8 +36,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
         autocapture: true,
       });
       queue.current.forEach(([p, a]) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const targetMethod = (ph as any)[p];
+        const targetMethod = (ph as unknown as Record<string, unknown>)[p];
         if (typeof targetMethod === "function") {
           targetMethod.apply(ph, a);
         }
