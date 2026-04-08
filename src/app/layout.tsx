@@ -49,6 +49,12 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonEscapeMap: Record<string, string> = {
+  '<': '\\u003c',
+  '>': '\\u003e',
+  '&': '\\u0026',
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -75,14 +81,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/[<>&]/g, (c) => {
-              switch (c) {
-                case '<': return '\\u003c';
-                case '>': return '\\u003e';
-                case '&': return '\\u0026';
-                default: return c;
-              }
-            }),
+            __html: JSON.stringify(jsonLd).replace(/[<>&]/g, (c) => jsonEscapeMap[c]),
           }}
         />
       </body>
