@@ -13,6 +13,18 @@ describe("contact form", () => {
     assert.equal(result.success, true);
   });
 
+  test("trims whitespace from email and accepts it", () => {
+    const result = contactFormSchema.safeParse({
+      name: "Anna",
+      email: "  anna@example.com  ",
+      message: "To jest testowa wiadomosc, ktora ma ponad 20 znakow. Powinna przejsc poprawnie.",
+    });
+    assert.equal(result.success, true);
+    if (result.success) {
+      assert.equal(result.data.email, "anna@example.com");
+    }
+  });
+
   test("rejects short name", () => {
     const result = contactFormSchema.safeParse({
       name: "A",
