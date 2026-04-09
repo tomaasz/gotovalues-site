@@ -4,7 +4,7 @@ import { brandName } from '@/content/site';
 
 export const contactFormSchema = z.object({
   name: z.string().trim().min(2, 'Podaj imię.').max(100, 'Imię jest za długie.'),
-  email: z.string().email('Podaj poprawny adres e-mail.').max(255, 'E-mail jest za długi.'),
+  email: z.string().trim().email('Podaj poprawny adres e-mail.').max(255, 'E-mail jest za długi.'),
   company: z.string().trim().max(120).optional().default(''),
   message: z.string().trim().min(20, 'Opisz krótko, czego potrzebujesz.').max(5000, 'Wiadomość jest za długa.'),
   // Sentinel: Server-side honeypot validation to prevent bots from bypassing client-side checks via direct API POSTs.
