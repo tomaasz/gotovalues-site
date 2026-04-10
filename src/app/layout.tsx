@@ -48,12 +48,6 @@ export const metadata: Metadata = {
   },
 };
 
-const escapeMap: Record<string, string> = {
-  '<': '\\u003c',
-  '>': '\\u003e',
-  '&': '\\u0026',
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -69,6 +63,7 @@ export default function RootLayout({
     "inLanguage": "pl"
   };
 
+
   return (
     <html lang="pl">
       <body className={`${displayFont.variable} ${bodyFont.variable}`}>
@@ -79,7 +74,12 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/[<>&]/g, (c) => escapeMap[c] as string),
+            __html: JSON.stringify(jsonLd).replace(/[<>&]/g, (c) => {
+              if (c === '<') return '\\u003c';
+              if (c === '>') return '\\u003e';
+              if (c === '&') return '\\u0026';
+              return c;
+            }),
           }}
         />
       </body>
