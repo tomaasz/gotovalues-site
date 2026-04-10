@@ -64,6 +64,16 @@ export default function RootLayout({
   };
 
 
+  const jsonString = JSON.stringify(jsonLd);
+  let escapedHtml = '';
+  for (let i = 0; i < jsonString.length; i++) {
+    const char = jsonString[i];
+    if (char === '<') escapedHtml += '\\u003c';
+    else if (char === '>') escapedHtml += '\\u003e';
+    else if (char === '&') escapedHtml += '\\u0026';
+    else escapedHtml += char;
+  }
+
   return (
     <html lang="pl">
       <body className={`${displayFont.variable} ${bodyFont.variable}`}>
@@ -74,12 +84,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/[<>&]/g, (c) => {
-              if (c === '<') return '\\u003c';
-              if (c === '>') return '\\u003e';
-              if (c === '&') return '\\u0026';
-              return c;
-            }),
+            __html: escapedHtml,
           }}
         />
       </body>
