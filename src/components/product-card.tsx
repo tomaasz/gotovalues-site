@@ -9,12 +9,12 @@ type ProductCardProps = {
 };
 
 export function ProductCard({ product, compact = false }: ProductCardProps) {
-  const Wrapper = product.url ? 'a' : 'article';
+  const Wrapper = 'url' in product && product.url ? 'a' : 'article';
 
   return (
     <Wrapper
       className={clsx('product-card', compact && 'product-card-compact')}
-      {...(product.url ? { href: product.url, target: '_blank', rel: 'noopener noreferrer' } : {})}
+      {...('url' in product && product.url ? { href: product.url, target: '_blank', rel: 'noopener noreferrer' } : {})}
     >
       <div className="product-preview" role="img" aria-label={product.screenshot.alt}>
         <div className="product-preview-bar">
@@ -37,7 +37,7 @@ export function ProductCard({ product, compact = false }: ProductCardProps) {
           <span className="eyebrow eyebrow-inline">
             {product.category === 'public' ? 'Produkt publiczny' : 'Prywatne wdrożenie'}
           </span>
-          {product.url ? <span className="product-link-label">Live</span> : null}
+          {'url' in product && product.url ? <span className="product-link-label">Live</span> : null}
         </div>
         <h3>{product.name}</h3>
         <p>{product.summary}</p>
@@ -48,7 +48,7 @@ export function ProductCard({ product, compact = false }: ProductCardProps) {
         </ul>
         <p className="product-impact">{product.impact}</p>
       </div>
-      {product.url ? <span className="sr-only"> (otwiera się w nowej karcie)</span> : null}
+      {'url' in product && product.url ? <span className="sr-only"> (otwiera się w nowej karcie)</span> : null}
     </Wrapper>
   );
 }
