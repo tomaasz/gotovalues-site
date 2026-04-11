@@ -51,7 +51,12 @@ export const metadata: Metadata = {
 const escapeMap: Record<string, string> = {
   '<': '\\u003c',
   '>': '\\u003e',
-  '&': '\\u0026'
+  '&': '\\u0026',
+  '"': '\\u0022',
+  "'": '\\u0027',
+  '`': '\\u0060',
+  '=': '\\u003d',
+  '/': '\\u002f'
 };
 
 export default function RootLayout({
@@ -79,7 +84,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/[<>&]/g, (c) => escapeMap[c as keyof typeof escapeMap]),
+            __html: JSON.stringify(jsonLd).replace(/[<>&"'`=\/]/g, (c) => escapeMap[c as keyof typeof escapeMap]),
           }}
         />
       </body>
