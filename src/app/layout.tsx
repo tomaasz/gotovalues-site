@@ -22,6 +22,12 @@ const bodyFont = Manrope({
   preload: true,
 });
 
+const escapeMap: Record<string, string> = {
+  '<': '\\u003c',
+  '>': '\\u003e',
+  '&': '\\u0026'
+};
+
 export const metadata: Metadata = {
   title: {
     default: brandName,
@@ -48,12 +54,6 @@ export const metadata: Metadata = {
   },
 };
 
-const escapeMap: Record<string, string> = {
-  '<': '\\u003c',
-  '>': '\\u003e',
-  '&': '\\u0026'
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -69,6 +69,7 @@ export default function RootLayout({
     "inLanguage": "pl"
   };
 
+
   return (
     <html lang="pl">
       <body className={`${displayFont.variable} ${bodyFont.variable}`}>
@@ -79,7 +80,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/[<>&]/g, (c) => escapeMap[c as keyof typeof escapeMap]),
+            __html: JSON.stringify(jsonLd).split('\n').join('<br />').replace(/[<>&]/g, (c) => escapeMap[c]),
           }}
         />
       </body>
