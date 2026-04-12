@@ -44,10 +44,9 @@ describe("ContactForm component", () => {
     assert.equal(liveRegion.getAttribute('aria-atomic'), 'true');
   });
 
-  test('handles null JSON response correctly without leaking TypeErrors', async () => {
+  async function setupAndSubmit(mockResponse: Response) {
     const originalFetch = global.fetch;
-
-    global.fetch = async () => new Response("null", { status: 400 });
+    global.fetch = async () => mockResponse;
 
     const { getByLabelText, container } = render(<ContactForm />);
     const nameInput = getByLabelText(/Imię/i) as HTMLInputElement;
@@ -63,6 +62,12 @@ describe("ContactForm component", () => {
     await act(async () => {
       await submitFormAction(container, nameInput.value, emailInput.value, msgInput.value);
     });
+
+    return { container, originalFetch };
+  }
+
+  test('handles null JSON response correctly without leaking TypeErrors', async () => {
+    const { container, originalFetch } = await setupAndSubmit(new Response("null", { status: 400 }));
 
     try {
       await waitFor(() => {
@@ -78,31 +83,13 @@ describe("ContactForm component", () => {
   });
 
   test('handles formErrors correctly', async () => {
-    const originalFetch = global.fetch;
-
-    global.fetch = async () => new Response(JSON.stringify({
+    const { originalFetch } = await setupAndSubmit(new Response(JSON.stringify({
       message: 'Błąd walidacji.',
       issues: {
         formErrors: ['Ogólny błąd formularza.'],
         fieldErrors: { name: ['Imię jest wymagane.'] }
       }
-    }), { status: 400 });
-
-    const { getByLabelText, container } = render(<ContactForm />);
-    const nameInput = getByLabelText(/Imię/i) as HTMLInputElement;
-    const emailInput = getByLabelText(/E-mail/i) as HTMLInputElement;
-    const msgInput = getByLabelText(/Co dziś dzieje się/i) as HTMLTextAreaElement;
-
-    // Fill out form to pass HTML validation so we hit the custom fetch handler
-    await act(async () => {
-      nameInput.value = 'Test';
-      emailInput.value = 'test@example.com';
-      msgInput.value = 'This is a sufficiently long message to pass the required test.';
-    });
-
-    await act(async () => {
-      await submitFormAction(container, nameInput.value, emailInput.value, msgInput.value);
-    });
+    }), { status: 400 }));
 
     try {
       await waitFor(() => {
