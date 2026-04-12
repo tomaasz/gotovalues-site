@@ -7,6 +7,12 @@ import { PostHogProvider } from "@/components/posthog-provider";
 
 import "./globals.css";
 
+const escapeMap: Record<string, string> = {
+  '<': '\\u003c',
+  '>': '\\u003e',
+  '&': '\\u0026',
+};
+
 const displayFont = Fraunces({
   subsets: ["latin", "latin-ext"],
   variable: "--font-display",
@@ -74,7 +80,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).split('<').join('\\u003c').split('>').join('\\u003e').split('&').join('\\u0026'),
+            __html: JSON.stringify(jsonLd).replace(/[<>&]/g, (c) => escapeMap[c]!),
           }}
         />
       </body>
