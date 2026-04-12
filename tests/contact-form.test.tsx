@@ -5,6 +5,24 @@ import assert from "node:assert/strict";
 import { render, screen, cleanup, act, waitFor } from "@testing-library/react";
 import { ContactForm } from "../src/components/contact-form";
 
+async function submitFormAction(container: HTMLElement, name: string, email: string, message: string) {
+  const form = container.querySelector('form');
+  if (form) {
+    const reactPropsKey = Object.keys(form).find((key) => key.startsWith('__reactProps$'));
+    if (reactPropsKey) {
+      // @ts-expect-error - accessing internal react props for test
+      const props = form[reactPropsKey as keyof typeof form];
+      if (props && props.action) {
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('message', message);
+        await props.action(formData);
+      }
+    }
+  }
+}
+
 describe("ContactForm component", () => {
   test.afterEach(() => {
     cleanup();
@@ -43,21 +61,7 @@ describe("ContactForm component", () => {
     });
 
     await act(async () => {
-      const form = container.querySelector('form');
-      if (form) {
-        const reactPropsKey = Object.keys(form).find((key) => key.startsWith('__reactProps$'));
-        if (reactPropsKey) {
-          // @ts-expect-error - accessing internal react props for test
-          const props = form[reactPropsKey as keyof typeof form];
-          if (props && props.action) {
-            const formData = new FormData();
-            formData.append('name', nameInput.value);
-            formData.append('email', emailInput.value);
-            formData.append('message', msgInput.value);
-            await props.action(formData);
-          }
-        }
-      }
+      await submitFormAction(container, nameInput.value, emailInput.value, msgInput.value);
     });
 
     try {
@@ -97,29 +101,7 @@ describe("ContactForm component", () => {
     });
 
     await act(async () => {
-      // In Next.js App Router, the action prop handles form submission. To properly test this component
-      // without heavy Server Action mocking in JSDOM, we can trigger the action handler directly if we can access it,
-      // or we can test the handleSubmit function indirectly by mocking fetch as we did.
-      // But since Action is passed as a prop internally, testing library fireEvent.submit(form) often fails to trigger the transition.
-      // Let's directly invoke the fetch logic if possible, or trigger submit while properly awaited.
-
-      const form = container.querySelector('form');
-      if (form) {
-        // We can extract the action prop from the form's React fiber if needed, but simplest is to dispatch submit event
-        // with the right properties so Next.js internal action handler picks it up, or we can just call the action directly if we can grab it.
-        const reactPropsKey = Object.keys(form).find((key) => key.startsWith('__reactProps$'));
-        if (reactPropsKey) {
-          // @ts-expect-error accessing internal react props for test
-          const props = form[reactPropsKey as keyof typeof form];
-          if (props && props.action) {
-            const formData = new FormData();
-            formData.append('name', nameInput.value);
-            formData.append('email', emailInput.value);
-            formData.append('message', msgInput.value);
-            await props.action(formData);
-          }
-        }
-      }
+      await submitFormAction(container, nameInput.value, emailInput.value, msgInput.value);
     });
 
     try {
