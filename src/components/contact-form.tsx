@@ -71,7 +71,7 @@ export function ContactForm() {
       startTransition(() => {
         setState({
           status: 'success',
-          message: result.message || 'Dziękuję. Wrócę z oceną i propozycją następnego kroku.',
+          message: result?.message || 'Dziękuję. Wrócę z oceną i propozycją następnego kroku.',
         });
       });
     } catch (error) {
