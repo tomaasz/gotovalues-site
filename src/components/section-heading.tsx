@@ -29,17 +29,8 @@ export function SectionHeading({
 
   return (
     <Component className={clsx("section-heading", inline && "section-heading-inline", className)}>
-      {inline ? (
-        <>
-          <div>{content}</div>
-          {children}
-        </>
-      ) : (
-        <>
-          {content}
-          {children}
-        </>
-      )}
+      {inline ? <div>{content}</div> : content}
+      {children}
     </Component>
   );
 }
