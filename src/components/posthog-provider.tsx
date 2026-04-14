@@ -15,6 +15,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
   const [client, setClient] = useState<PostHog>(() =>
     new Proxy({} as PostHog, {
       get: (_, prop) => {
+        if (prop === "then") return undefined;
         if (typeof prop === "string") {
           return (...args: unknown[]) => {
             queue.current.push([prop, args]);
