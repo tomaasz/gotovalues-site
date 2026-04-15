@@ -9,6 +9,7 @@ import { logger } from '@/lib/logger';
 const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
 const RATE_LIMIT_MAX = 3; // Max zgłoszeń
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minut
+const MAX_RATE_LIMIT_ENTRIES = 2000;
 
 export async function POST(request: Request) {
   // --- Simple Rate Limiting ---
@@ -48,8 +49,11 @@ export async function POST(request: Request) {
   }
 
   // Enforce Map size limit (evict oldest)
-  if (rateLimitMap.size > 2000) {
-    rateLimitMap.delete(rateLimitMap.keys().next().value!);
+  if (rateLimitMap.size > MAX_RATE_LIMIT_ENTRIES) {
+    const oldestKey = rateLimitMap.keys().next().value;
+    if (oldestKey !== undefined) {
+      rateLimitMap.delete(oldestKey);
+    }
   }
   // --- Rate Limiting End ---
 
