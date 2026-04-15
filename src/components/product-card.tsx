@@ -28,6 +28,7 @@ export function ProductCard({ product, compact = false }: ProductCardProps) {
           className="product-preview-image"
           width={800}
           height={600}
+          unoptimized={typeof product.screenshot.src === 'string' ? product.screenshot.src.endsWith('.svg') : undefined}
         />
         <div className="product-preview-label">{product.name}</div>
       </div>
