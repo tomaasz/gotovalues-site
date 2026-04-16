@@ -67,7 +67,6 @@ test('POST /api/contact', async (t) => {
     // Instead of mocking the import we mock fetch since Resend uses it internally,
     // or we can test logic up to fetch if mock gets complicated.
     // Given Resend constructor uses global fetch internally in newer versions, let's mock fetch.
-    const originalFetch = global.fetch;
     mock.method(global, 'fetch', async () => {
       return new Response(JSON.stringify({ id: 'mocked_id' }), { status: 200, headers: { 'Content-Type': 'application/json' } });
     });
@@ -90,15 +89,12 @@ test('POST /api/contact', async (t) => {
 
     const data = await response.json();
     assert.strictEqual(data.message, 'Dziękuję. Wrócę z krótką oceną i propozycją następnego kroku.');
-
-    global.fetch = originalFetch;
   });
 
   await t.test('returns 429 when rate limit is exceeded', async () => {
      process.env.RESEND_API_KEY = 'test_key';
      process.env.CONTACT_TO_EMAIL = 'admin@example.com';
 
-     const originalFetch = global.fetch;
      mock.method(global, 'fetch', async () => new Response(JSON.stringify({ id: 'mocked_id' }), { status: 200, headers: { 'Content-Type': 'application/json' } }));
 
      const payload = {
@@ -126,8 +122,6 @@ test('POST /api/contact', async (t) => {
 
      const response = await POST(limitReq);
      assert.strictEqual(response.status, 429);
-
-     global.fetch = originalFetch;
   });
 
   await t.test('returns 500 when Resend API returns an error object', async () => {
@@ -135,7 +129,6 @@ test('POST /api/contact', async (t) => {
     process.env.CONTACT_TO_EMAIL = 'admin@example.com';
     process.env.CONTACT_FROM_EMAIL = 'onboarding@resend.dev';
 
-    const originalFetch = global.fetch;
     mock.method(global, 'fetch', async () => {
       // Resend API returns an error object on failure (e.g., 400 Bad Request)
       return new Response(JSON.stringify({
@@ -162,7 +155,5 @@ test('POST /api/contact', async (t) => {
 
     const data = await response.json();
     assert.strictEqual(data.message, 'Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później.');
-
-    global.fetch = originalFetch;
   });
 });
