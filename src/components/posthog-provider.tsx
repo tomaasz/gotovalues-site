@@ -1,13 +1,16 @@
 "use client";
 
-import { PostHogProvider as PHProvider } from "posthog-js/react";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, createContext, useContext } from "react";
 import type { PostHog } from "posthog-js";
 
 import { logger } from "@/lib/logger";
 
 const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
 const POSTHOG_HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST;
+
+export const PostHogContext = createContext<PostHog | undefined>(undefined);
+
+export const usePostHog = () => useContext(PostHogContext);
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   const queue = useRef<[string, unknown[]][]>([]);
@@ -53,5 +56,5 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
-  return <PHProvider client={client}>{children}</PHProvider>;
+  return <PostHogContext.Provider value={client}>{children}</PostHogContext.Provider>;
 }
