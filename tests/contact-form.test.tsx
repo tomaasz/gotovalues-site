@@ -1,6 +1,6 @@
 import '../tools/setup-jsdom.mjs';
 import React from "react";
-import { describe, test } from "node:test";
+import { describe, test, mock } from "node:test";
 import assert from "node:assert/strict";
 import { render, screen, cleanup, act, waitFor } from "@testing-library/react";
 import { ContactForm } from "../src/components/contact-form";
@@ -26,6 +26,7 @@ async function submitFormAction(container: HTMLElement, name: string, email: str
 describe("ContactForm component", () => {
   test.afterEach(() => {
     cleanup();
+    mock.restoreAll();
   });
 
   test('renders correctly and has a loading indicator pattern mapped to aria states', () => {
@@ -45,8 +46,7 @@ describe("ContactForm component", () => {
   });
 
   async function setupAndSubmit(mockResponse: Response) {
-    const originalFetch = global.fetch;
-    global.fetch = async () => mockResponse;
+    mock.method(global, 'fetch', async () => mockResponse);
 
     const { getByLabelText, container } = render(<ContactForm />);
     const nameInput = getByLabelText(/Imię/i) as HTMLInputElement;
@@ -63,27 +63,23 @@ describe("ContactForm component", () => {
       await submitFormAction(container, nameInput.value, emailInput.value, msgInput.value);
     });
 
-    return { container, originalFetch };
+    return { container };
   }
 
   test('handles null JSON response correctly without leaking TypeErrors', async () => {
-    const { container, originalFetch } = await setupAndSubmit(new Response("null", { status: 400 }));
+    const { container } = await setupAndSubmit(new Response("null", { status: 400 }));
 
-    try {
-      await waitFor(() => {
-        const errorElement = screen.getByText(/Nie udało się wysłać formularza\./);
-        assert.ok(errorElement);
-        // Verify it doesn't say "Cannot read properties of null"
-        const allText = container.textContent;
-        assert.equal(allText?.includes("Cannot read properties of null"), false);
-      });
-    } finally {
-      global.fetch = originalFetch;
-    }
+    await waitFor(() => {
+      const errorElement = screen.getByText(/Nie udało się wysłać formularza\./);
+      assert.ok(errorElement);
+      // Verify it doesn't say "Cannot read properties of null"
+      const allText = container.textContent;
+      assert.equal(allText?.includes("Cannot read properties of null"), false);
+    });
   });
 
   test('handles formErrors correctly', async () => {
-    const { originalFetch } = await setupAndSubmit(new Response(JSON.stringify({
+    await setupAndSubmit(new Response(JSON.stringify({
       message: 'Błąd walidacji.',
       issues: {
         formErrors: ['Ogólny błąd formularza.'],
@@ -91,12 +87,8 @@ describe("ContactForm component", () => {
       }
     }), { status: 400 }));
 
-    try {
-      await waitFor(() => {
-        assert.ok(screen.getByText(/Ogólny błąd formularza\. Imię jest wymagane\./));
-      });
-    } finally {
-      global.fetch = originalFetch;
-    }
+    await waitFor(() => {
+      assert.ok(screen.getByText(/Ogólny błąd formularza\. Imię jest wymagane\./));
+    });
   });
 });
