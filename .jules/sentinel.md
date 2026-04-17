@@ -20,3 +20,9 @@ API route rate limiting (e.g., in Cloudflare Workers/Pages isolate) is implement
 **Learning:** Masking security scan failures undermines their purpose. A Security Hotspot is triggered if a step designed to catch vulnerabilities can silently fail, allowing sensitive data to leak or poor practices to merge.
 **Prevention:** Never use `continue-on-error: true` on critical security scanners unless strictly necessary and well-documented. To mitigate rate limits instead of masking failures, reduce scan depth (e.g., `fetch-depth: 1`).
 - Masked Security Scan Failures in CI: The Snyk and Socket Security dependency scanning jobs in `.github/workflows/ci.yml` used `continue-on-error: true`, meaning failures during the scan would not fail the CI build. This masks critical security vulnerabilities. Removed `continue-on-error: true` from both jobs.
+
+## Security Audit (No Findings)
+- API route authorization guards: The primary API endpoint (`src/app/api/contact/route.ts`) is a public contact form and intentionally lacks authorization guards.
+- CORS configuration: No explicit CORS configuration in `next.config.ts` or middleware.
+- Cookie security flags: The codebase currently does not use HTTP cookies (`cookies()`, `setCookie`).
+- Data leakage in server actions: Server actions (`use server`) are not used in the project. The API route returns clean JSON responses without exposing internal errors or DB rows.
