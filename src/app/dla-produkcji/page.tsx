@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ContactFormLazy as ContactForm } from "@/components/contact-form-lazy";
+import { ContactSignals } from "@/components/contact-signals";
 import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/section-heading";
 import { siteContent } from "@/content/site";
@@ -14,7 +15,6 @@ export const metadata: Metadata = {
 
 export default function ProductionLandingPage() {
   const content = siteContent.productionLanding;
-  const contactSignals = siteContent.contact.signals;
 
   return (
     <main id="main" className="page-shell" tabIndex={-1}>
@@ -140,14 +140,7 @@ export default function ProductionLandingPage() {
               <li>nie potrzebujesz gotowej specyfikacji ani listy funkcji</li>
               <li>jeśli problem nie wymaga customowego narzędzia, powiem to wprost</li>
             </ul>
-            <div className="about-points">
-              {contactSignals.map((signal) => (
-                <div key={signal.label}>
-                  <strong>{signal.label}</strong>
-                  {"href" in signal ? <a href={signal.href}>{signal.value}</a> : <span>{signal.value}</span>}
-                </div>
-              ))}
-            </div>
+            <ContactSignals />
           </div>
           <ContactForm />
         </div>
