@@ -48,6 +48,15 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": brandName,
+  "url": "https://gotovalues.com",
+  "description": "Dedykowane aplikacje webowe i narzędzia AI dla firm, które chcą uporządkować dokumenty, workflow i ręczną pracę w procesach operacyjnych.",
+  "inLanguage": "pl"
+};
+
 const escapeMap: Record<string, string> = {
   '<': '\\u003c',
   '>': '\\u003e',
@@ -59,15 +68,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": brandName,
-    "url": "https://gotovalues.com",
-    "description": "Dedykowane aplikacje webowe i narzędzia AI dla firm, które chcą uporządkować dokumenty, workflow i ręczną pracę w procesach operacyjnych.",
-    "inLanguage": "pl"
-  };
 
 
   return (

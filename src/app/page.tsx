@@ -2,12 +2,12 @@ import Link from "next/link";
 
 import { siteContent } from "@/content/site";
 import { ContactFormLazy as ContactForm } from "@/components/contact-form-lazy";
+import { ContactSignals } from "@/components/contact-signals";
 import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/section-heading";
 
 export default function HomePage() {
   const featuredProducts = siteContent.products.public;
-  const contactSignals = siteContent.contact.signals;
 
   return (
     <main id="main" className="page-shell" tabIndex={-1}>
@@ -150,14 +150,7 @@ export default function HomePage() {
               <li>ocenię, czy wystarczy gotowe narzędzie, integracja, czy trzeba budować coś dedykowanego</li>
               <li>jeśli problem rozwiązuje darmowe lub tanie narzędzie z rynku — powiem to wprost</li>
             </ul>
-            <div className="about-points">
-              {contactSignals.map((signal) => (
-                <div key={signal.label}>
-                  <strong>{signal.label}</strong>
-                  {"href" in signal ? <a href={signal.href}>{signal.value}</a> : <span>{signal.value}</span>}
-                </div>
-              ))}
-            </div>
+            <ContactSignals />
           </div>
           <ContactForm />
         </div>
