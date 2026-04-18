@@ -53,19 +53,11 @@ export function ContactForm() {
       }
 
       if (!response.ok) {
-        let errorMsg = result?.message || 'Nie udało się wysłać formularza.';
-        let details = '';
-        if (result?.issues?.formErrors && result.issues.formErrors.length > 0) {
-          details += result.issues.formErrors.join(' ');
-        }
-        if (result?.issues?.fieldErrors) {
-          const fieldDetails = Object.values(result.issues.fieldErrors).flat().join(' ');
-          if (fieldDetails) {
-            details += (details ? ' ' : '') + fieldDetails;
-          }
-        }
-        if (details) errorMsg += ` Szczegóły: ${details}`;
-        throw new Error(errorMsg);
+        const errorMsg = result?.message || 'Nie udało się wysłać formularza.';
+        const formErrors = result?.issues?.formErrors?.join(' ') || '';
+        const fieldErrors = Object.values(result?.issues?.fieldErrors || {}).flat().join(' ');
+        const details = [formErrors, fieldErrors].filter(Boolean).join(' ');
+        throw new Error(details ? `${errorMsg} Szczegóły: ${details}` : errorMsg);
       }
 
       startTransition(() => {
