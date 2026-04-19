@@ -4,7 +4,7 @@ import { POST } from '../src/app/api/contact/route';
 
 // Wykorzystujemy mock z node:test z opcją na mockowanie modułów
 test('POST /api/contact', async (t) => {
-  const originalEnv = process.env;
+  const originalEnv = { ...process.env };
 
   afterEach(() => {
     process.env = originalEnv;
