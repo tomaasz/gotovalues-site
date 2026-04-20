@@ -1,0 +1,79 @@
+name: SonarQube
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: sonarqube-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sonarqube:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        continue-on-error: true
+        run: npm test
+
+      - name: Semgrep SARIF
+        continue-on-error: true
+        run: |
+          docker run --rm \
+            --user "$(id -u):$(id -g)" \
+            -e HOME=/tmp \
+            -v "$PWD:/src" -w /src \
+            semgrep/semgrep semgrep scan \
+              --config=p/security-audit \
+              --config=p/secrets \
+              --config=p/owasp-top-ten \
+              --sarif --output=semgrep.sarif
+
+      - name: Gitleaks SARIF
+        continue-on-error: true
+        run: |
+          docker run --rm \
+            --user "$(id -u):$(id -g)" \
+            -v "$PWD:/repo" -w /repo \
+            ghcr.io/gitleaks/gitleaks:latest \
+            detect --source=. --redact --no-banner \
+            --report-format sarif --report-path gitleaks.sarif
+
+      - name: Trivy SARIF
+        continue-on-error: true
+        run: |
+          docker run --rm \
+            --user "$(id -u):$(id -g)" \
+            -e HOME=/tmp -e TRIVY_CACHE_DIR=/tmp/.trivy \
+            -v "$PWD:/src" -w /src \
+            aquasec/trivy:latest \
+            fs --scanners vuln \
+               --skip-dirs ".next,node_modules,.vercel,out,dist,public,_bak_archive" \
+               --format sarif --output trivy.sarif .
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v6
+        with:
+          args: >
+            -Dsonar.sarifReportPaths=semgrep.sarif,gitleaks.sarif,trivy.sarif
+            -Dsonar.qualitygate.wait=true
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
