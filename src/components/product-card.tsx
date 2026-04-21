@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import Image from 'next/image';
+import { ElementType } from 'react';
 
 import type { ProductCard as ProductCardType } from '@/content/site';
 
@@ -9,7 +10,7 @@ type ProductCardProps = {
 };
 
 export function ProductCard({ product, compact = false }: ProductCardProps) {
-  const Wrapper = 'url' in product && product.url ? 'a' : 'article';
+  const Wrapper: ElementType = 'url' in product && product.url ? 'a' : 'article';
 
   return (
     <Wrapper
