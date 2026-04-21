@@ -6,6 +6,9 @@ dist/
 public/
 _bak_archive/
 tests/
+# Test file for inline-js detection — triggers Semgrep's own script-tag heuristic
+# on fixture snippets it's intended to catch.
+tools/
 
 .env.example
 .env.local.example
