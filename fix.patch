@@ -1,0 +1,27 @@
+--- a/tests/contact-api.test.ts
++++ b/tests/contact-api.test.ts
+@@ -101,15 +101,13 @@
+        name: 'Spammer',
+        email: 'spammer@example.com',
+        message: 'Spamming the API constantly without delay.',
+-     const uniqueIp = `spam_ip-${Date.now()}`;
+      };
+-     const uniqueIp = `spam_ip-${Date.now()}`;
+
+      // The limit is 3, so we send 4.
+      for (let i = 0; i < 3; i++) {
+        const req = new Request('http://localhost:3000/api/contact', {
+          method: 'POST',
+-         headers: { 'cf-connecting-ip': uniqueIp },
++         headers: { 'cf-connecting-ip': 'spam_ip' },
+          body: JSON.stringify(payload),
+        });
+        await POST(req);
+@@ -118,7 +116,7 @@
+      // 4th request should fail
+      const limitReq = new Request('http://localhost:3000/api/contact', {
+        method: 'POST',
+-       headers: { 'cf-connecting-ip': uniqueIp },
++       headers: { 'cf-connecting-ip': 'spam_ip' },
+        body: JSON.stringify(payload),
+      });
