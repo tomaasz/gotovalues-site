@@ -15,7 +15,7 @@ export async function POST(request: Request) {
   // Pozyskujemy IP, fall-back na generyczne 'unknown' dla testów/lokalnie.
   // Sentinel: Zawsze priorytetyzuj nagłówek cf-connecting-ip.
   // Usuwamy x-forwarded-for, ponieważ może on zostać podrobiony (spoofed) przez klienta w celu ominięcia limitu.
-  const ip = request.headers.get('cf-connecting-ip') || 'unknown';
+  const ip = request.headers.get('cf-connecting-ip') || crypto.randomUUID();
 
   const now = Date.now();
 
