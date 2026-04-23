@@ -22,13 +22,14 @@ const bodyFont = Manrope({
   preload: true,
 });
 
+const siteDescription = "Dedykowane aplikacje webowe i narzędzia AI dla firm, które chcą uporządkować dokumenty, workflow i ręczną pracę w procesach operacyjnych.";
+
 export const metadata: Metadata = {
   title: {
     default: brandName,
     template: `%s | ${brandName}`,
   },
-  description:
-    "Dedykowane aplikacje webowe i narzędzia AI dla firm, które chcą uporządkować dokumenty, workflow i ręczną pracę w procesach operacyjnych.",
+  description: siteDescription,
   metadataBase: new URL("https://gotovalues.com"),
   icons: {
     icon: "/favicon/favicon.ico",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: brandName,
-    description: "Dedykowane aplikacje webowe i narzędzia AI dla firm, które chcą uporządkować dokumenty, workflow i ręczną pracę w procesach operacyjnych.",
+    description: siteDescription,
     url: "https://gotovalues.com",
     siteName: brandName,
     locale: "pl_PL",
@@ -53,7 +54,7 @@ const jsonLd = {
   "@type": "WebSite",
   "name": brandName,
   "url": "https://gotovalues.com",
-  "description": "Dedykowane aplikacje webowe i narzędzia AI dla firm, które chcą uporządkować dokumenty, workflow i ręczną pracę w procesach operacyjnych.",
+  "description": siteDescription,
   "inLanguage": "pl"
 };
 
