@@ -80,7 +80,7 @@ test('POST /api/contact', async (t) => {
 
     const request = new Request('http://localhost:3000/api/contact', {
       method: 'POST',
-      headers: { 'cf-connecting-ip': '1.2.3.4' },
+      headers: { 'cf-connecting-ip': '127.0.0.1' },
       body: JSON.stringify(payload),
     });
 
@@ -146,7 +146,7 @@ test('POST /api/contact', async (t) => {
 
     const request = new Request('http://localhost:3000/api/contact', {
       method: 'POST',
-      headers: { 'cf-connecting-ip': '5.6.7.8' },
+      headers: { 'cf-connecting-ip': '127.0.0.2' },
       body: JSON.stringify(payload),
     });
 
