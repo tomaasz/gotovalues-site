@@ -10,12 +10,13 @@ type ProductCardProps = {
 };
 
 export function ProductCard({ product, compact = false }: ProductCardProps) {
-  const Wrapper: ElementType = 'url' in product && product.url ? 'a' : 'article';
+  const hasUrl = 'url' in product && product.url;
+  const Wrapper: ElementType = hasUrl ? 'a' : 'article';
 
   return (
     <Wrapper
       className={clsx('product-card', compact && 'product-card-compact')}
-      {...('url' in product && product.url ? { href: product.url, target: '_blank', rel: 'noopener noreferrer' } : {})}
+      {...(hasUrl ? { href: product.url, target: '_blank', rel: 'noopener noreferrer' } : {})}
     >
       <div className="product-preview" role="img" aria-label={product.screenshot.alt}>
         <div className="product-preview-bar">
@@ -39,7 +40,7 @@ export function ProductCard({ product, compact = false }: ProductCardProps) {
           <span className="eyebrow eyebrow-inline">
             {product.category === 'public' ? 'Produkt publiczny' : 'Prywatne wdrożenie'}
           </span>
-          {'url' in product && product.url ? <span className="product-link-label">Live</span> : null}
+          {hasUrl ? <span className="product-link-label">Live</span> : null}
         </div>
         <h3>{product.name}</h3>
         <p>{product.summary}</p>
@@ -50,7 +51,7 @@ export function ProductCard({ product, compact = false }: ProductCardProps) {
         </ul>
         <p className="product-impact">{product.impact}</p>
       </div>
-      {'url' in product && product.url ? <span className="sr-only"> (otwiera się w nowej karcie)</span> : null}
+      {hasUrl ? <span className="sr-only"> (otwiera się w nowej karcie)</span> : null}
     </Wrapper>
   );
 }
