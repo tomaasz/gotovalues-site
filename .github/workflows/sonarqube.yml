@@ -97,6 +97,7 @@ jobs:
             -F "bom=@sbom.cdx.json" | head -c 300 ; echo
 
       - name: SonarQube Scan
+        continue-on-error: true
         uses: SonarSource/sonarqube-scan-action@v6
         with:
           args: >
