@@ -12,7 +12,7 @@ const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minut
 
 export async function POST(request: Request) {
   // --- Simple Rate Limiting ---
-  // Pozyskujemy IP, fall-back na generyczne 'unknown' dla testów/lokalnie.
+  // Pozyskujemy IP, fall-back na crypto.randomUUID() dla testów/lokalnie.
   // Sentinel: Zawsze priorytetyzuj nagłówek cf-connecting-ip.
   // Usuwamy x-forwarded-for, ponieważ może on zostać podrobiony (spoofed) przez klienta w celu ominięcia limitu.
   const ip = request.headers.get('cf-connecting-ip') || crypto.randomUUID();
