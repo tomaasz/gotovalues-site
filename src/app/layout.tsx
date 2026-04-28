@@ -54,22 +54,20 @@ const escapeMap: Record<string, string> = {
   '&': '\\u0026',
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": brandName,
+  "url": "https://gotovalues.com",
+  "description": "Dedykowane aplikacje webowe i narzędzia AI dla firm, które chcą uporządkować dokumenty, workflow i ręczną pracę w procesach operacyjnych.",
+  "inLanguage": "pl"
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": brandName,
-    "url": "https://gotovalues.com",
-    "description": "Dedykowane aplikacje webowe i narzędzia AI dla firm, które chcą uporządkować dokumenty, workflow i ręczną pracę w procesach operacyjnych.",
-    "inLanguage": "pl"
-  };
-
-
   return (
     <html lang="pl">
       <body className={`${displayFont.variable} ${bodyFont.variable}`}>
