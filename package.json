@@ -27,7 +27,7 @@
     "posthog-js": "^1.364.4",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "resend": "^6.2.0",
+    "resend": "^6.12.2",
     "zod": "^4.1.11"
   },
   "devDependencies": {
@@ -43,6 +43,12 @@
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "wrangler": "^4.74.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "uuid": ">=14.0.0",
+      "postcss": ">=8.5.10"
+    }
   },
   "overrides": {
     "dompurify": ">=3.4.0",
