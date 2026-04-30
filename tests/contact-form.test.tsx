@@ -1,6 +1,6 @@
 import 'global-jsdom/register';
 import React from "react";
-import { describe, test, mock } from "node:test";
+import { describe, test, mock, afterEach } from "node:test";
 import assert from "node:assert/strict";
 import { render, screen, cleanup, act, waitFor } from "@testing-library/react";
 import { ContactForm } from "../src/components/contact-form";
@@ -24,7 +24,7 @@ async function submitFormAction(container: HTMLElement, name: string, email: str
 }
 
 describe("ContactForm component", () => {
-  test.afterEach(() => {
+  afterEach(() => {
     cleanup();
     mock.restoreAll();
   });
