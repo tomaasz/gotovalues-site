@@ -64,6 +64,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: 'Nieprawidłowy format danych.' }, { status: 400 });
   }
 
+  if (payload === null || typeof payload !== 'object') {
+    return NextResponse.json({ message: 'Nieprawidłowy format danych.' }, { status: 400 });
+  }
+
   const parsed = contactFormSchema.safeParse(payload);
 
   if (!parsed.success) {

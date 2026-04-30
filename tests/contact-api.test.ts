@@ -7,7 +7,8 @@ test('POST /api/contact', async (t) => {
   const originalEnv = { ...process.env };
 
   afterEach(() => {
-    process.env = originalEnv;
+    Object.keys(process.env).forEach(key => delete process.env[key]);
+    Object.assign(process.env, originalEnv);
     mock.restoreAll();
   });
 

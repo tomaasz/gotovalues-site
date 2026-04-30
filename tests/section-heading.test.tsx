@@ -1,12 +1,12 @@
 import 'global-jsdom/register';
 import React from "react";
-import { describe, test } from "node:test";
+import { describe, test, afterEach } from "node:test";
 import assert from "node:assert/strict";
 import { render, screen, cleanup } from "@testing-library/react";
 import { SectionHeading } from "../src/components/section-heading";
 
 describe("SectionHeading component", () => {
-  test.afterEach(() => {
+  afterEach(() => {
     cleanup();
   });
 

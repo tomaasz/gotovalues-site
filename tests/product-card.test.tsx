@@ -1,7 +1,7 @@
 import "global-jsdom/register"; // Must come before any React Testing Library imports
 
 import React from "react";
-import { describe, test } from "node:test";
+import { describe, test, afterEach } from "node:test";
 import assert from "node:assert/strict";
 
 import { render, screen, cleanup } from "@testing-library/react";
@@ -30,7 +30,7 @@ const mockPrivateProduct: ProductCardType = {
 
 describe("ProductCard component", () => {
   // Reset the DOM after each test to prevent bleed over
-  test.afterEach(() => {
+  afterEach(() => {
     cleanup();
   });
 
