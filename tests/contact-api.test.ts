@@ -156,4 +156,29 @@ test('POST /api/contact', async (t) => {
     const data = await response.json();
     assert.strictEqual(data.message, 'Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później.');
   });
+
+  await t.test('evicts oldest entries when rate limit map exceeds max size to prevent OOM', async () => {
+    process.env.RESEND_API_KEY = 'test_key';
+    process.env.CONTACT_TO_EMAIL = 'admin@example.com';
+    process.env.CONTACT_FROM_EMAIL = 'onboarding@resend.dev';
+
+    mock.method(global, 'fetch', async () => new Response(JSON.stringify({ id: 'mocked_id' }), { status: 200, headers: { 'Content-Type': 'application/json' } }));
+
+    const payload = {
+      name: 'EvictionTest',
+      email: 'evict@example.com',
+      message: 'Filling the map to trigger while loop eviction logic',
+    };
+
+    // Simulate 2005 unique IPs filling the rate limit map
+    for (let i = 0; i < 2005; i++) {
+      const req = new Request('http://localhost:3000/api/contact', {
+        method: 'POST',
+        headers: { 'cf-connecting-ip': `evict_ip_${i}` },
+        body: JSON.stringify(payload),
+      });
+      const response = await POST(req);
+      assert.strictEqual(response.status, 200);
+    }
+  });
 });

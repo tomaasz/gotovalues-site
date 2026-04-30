@@ -48,7 +48,7 @@ export async function POST(request: Request) {
   }
 
   // Enforce Map size limit (evict oldest)
-  if (rateLimitMap.size > 2000) {
+  while (rateLimitMap.size > 2000) {
     const oldestKey = rateLimitMap.keys().next().value;
     if (oldestKey !== undefined) {
       rateLimitMap.delete(oldestKey);
