@@ -8,7 +8,7 @@ describe("contact form", () => {
     const result = contactFormSchema.safeParse({
       name: "Anna",
       email: "anna@example.com",
-      message: "To jest testowa wiadomosc, ktora ma ponad 20 znakow. Powinna przejsc poprawnie.",
+      message: "To jest testowa wiadomość, która ma ponad 20 znaków. Powinna przejść poprawnie.",
     });
     assert.equal(result.success, true);
   });
@@ -17,7 +17,7 @@ describe("contact form", () => {
     const result = contactFormSchema.safeParse({
       name: "Anna",
       email: "  anna@example.com  ",
-      message: "To jest testowa wiadomosc, ktora ma ponad 20 znakow. Powinna przejsc poprawnie.",
+      message: "To jest testowa wiadomość, która ma ponad 20 znaków. Powinna przejść poprawnie.",
     });
     assert.equal(result.success, true);
     if (result.success) {
@@ -29,7 +29,7 @@ describe("contact form", () => {
     const result = contactFormSchema.safeParse({
       name: "A",
       email: "anna@example.com",
-      message: "To jest testowa wiadomosc, ktora ma ponad 20 znakow. Powinna przejsc poprawnie.",
+      message: "To jest testowa wiadomość, która ma ponad 20 znaków. Powinna przejść poprawnie.",
     });
     assert.equal(result.success, false);
     if (!result.success) {
@@ -41,7 +41,7 @@ describe("contact form", () => {
     const result = contactFormSchema.safeParse({
       name: "Anna",
       email: "anna@example",
-      message: "To jest testowa wiadomosc, ktora ma ponad 20 znakow. Powinna przejsc poprawnie.",
+      message: "To jest testowa wiadomość, która ma ponad 20 znaków. Powinna przejść poprawnie.",
     });
     assert.equal(result.success, false);
     if (!result.success) {
@@ -53,7 +53,7 @@ describe("contact form", () => {
     const result = contactFormSchema.safeParse({
       name: "Anna",
       email: "anna@example.com",
-      message: "Za krotko",
+      message: "Za krótko",
     });
     assert.equal(result.success, false);
     if (!result.success) {
