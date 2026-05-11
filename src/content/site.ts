@@ -156,7 +156,7 @@ export const siteContent = {
       {
         title: "Monitoring i kontrola jakości",
         description:
-          "Każde rozwiązanie ma wbudowane śledzenie błędów, metryki użytkowania i alerty — wiesz co działa, co wymaga uwagi i ile kosztuje.",
+          "Każde rozwiązanie ma wbudowane śledzenie błędów, metryki użytkowania i alerty — wiesz, co działa, co wymaga uwagi i ile kosztuje.",
       },
       {
         title: "Łatwe do rozbudowy",
