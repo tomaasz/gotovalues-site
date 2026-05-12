@@ -61,7 +61,7 @@ const timeline = [
 export default function SupportAIPage() {
   return (
     <main id="main" className="page-shell" tabIndex={-1}>
-      <SiteHeader />
+      <SiteHeader variant="support-ai" />
 
       {/* Hero */}
       <section className="hero surface">

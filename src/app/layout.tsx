@@ -3,6 +3,7 @@ import { Fraunces, Manrope } from "next/font/google";
 
 import { brandName } from "@/content/site";
 
+import { Footer } from "@/components/footer";
 import { PostHogProvider } from "@/components/posthog-provider";
 
 import "./globals.css";
@@ -77,6 +78,7 @@ export default function RootLayout({
         <PostHogProvider>
           {children}
         </PostHogProvider>
+        <Footer />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
