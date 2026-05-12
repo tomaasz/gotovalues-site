@@ -5,6 +5,7 @@ import { ContactFormLazy as ContactForm } from "@/components/contact-form-lazy";
 import { ContactSignals } from "@/components/contact-signals";
 import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/section-heading";
+import { SiteHeader } from "@/components/site-header";
 import { siteContent } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -18,16 +19,7 @@ export default function ProductionLandingPage() {
 
   return (
     <main id="main" className="page-shell" tabIndex={-1}>
-      <header className="site-header">
-        <Link className="brand-mark" href="/">
-          {siteContent.brand.name}
-        </Link>
-        <nav className="site-nav" aria-label="Główna nawigacja">
-          <Link href="/">Strona główna</Link>
-          <Link href="/produkty">Produkty</Link>
-          <Link href="#kontakt">Kontakt</Link>
-        </nav>
-      </header>
+      <SiteHeader variant="production" />
 
       <section className="hero surface">
         <div className="hero-copy">
@@ -121,6 +113,34 @@ export default function ProductionLandingPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="section surface" id="zobacz-tez">
+        <SectionHeading
+          eyebrow="Zobacz także"
+          heading="Automatyzacja supportu i obsługi klienta"
+        />
+        <p style={{ maxWidth: "var(--measure)", marginBottom: "var(--space-m)" }}>
+          Poza dokumentami produkcyjnymi zajmuję się też automatyzacją powtarzalnej pracy w
+          działach wsparcia. Sprawdź, jak agenci AI odciążają Twój helpdesk.
+        </p>
+        <Link className="button button-primary" href="/support-ai">
+          SupportFlow AI — automatyzacja wsparcia
+        </Link>
+      </section>
+
+      <section className="section surface" id="zobacz-tez">
+        <SectionHeading
+          eyebrow="Zobacz także"
+          heading="Automatyzacja supportu i obsługi klienta"
+        />
+        <p style={{ maxWidth: "var(--measure)", marginBottom: "var(--space-m)" }}>
+          Poza dokumentami produkcyjnymi zajmuję się też automatyzacją powtarzalnej pracy w
+          działach wsparcia. Sprawdź, jak agenci AI odciążają Twój helpdesk.
+        </p>
+        <Link className="button button-primary" href="/support-ai">
+          SupportFlow AI — automatyzacja wsparcia
+        </Link>
       </section>
 
       <section className="section" id="kontakt">
