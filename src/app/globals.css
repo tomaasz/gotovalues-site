@@ -459,6 +459,23 @@ h3 {
   padding: 26px;
 }
 
+/* karty w gridzie rozciągają się do tej samej wysokości — flex column pozwala
+   przykleić blok 'tagi + Czytaj dalej' do dołu, niezależnie od długości opisu */
+.pillar-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.pillar-card > .tag-list,
+.pillar-card > .text-link {
+  margin-top: auto;
+}
+
+/* gdy obecne są oba: tag-list dołuje, link siedzi tuż pod nim */
+.pillar-card > .tag-list + .text-link {
+  margin-top: 18px;
+}
+
 .pillar-card h3 + p {
   margin-top: 14px;
 }
@@ -495,9 +512,6 @@ h3 {
   padding-top: 0;
 }
 
-.pillar-card .tag-list {
-  margin-top: 18px;
-}
 
 .product-card {
   display: grid;
