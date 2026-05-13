@@ -49,31 +49,30 @@ export const siteContent = {
       {
         title: "Analityka i automatyzacja",
         description:
-          "Porządkuję dane, statusy i obieg informacji tam, gdzie zespół traci czas na ręczne przepisywanie, szukanie dokumentów i sprawdzanie wyjątków.",
+          "Porządkuję dane, statusy i obieg informacji tam, gdzie zespół traci czas na ręczne przepisywanie i sprawdzanie wyjątków.",
         bullets: [
           "dashboardy i raporty dla bieżącej pracy operacyjnej",
-          "automatyzacja pracy na dokumentach, plikach i danych",
-          "integracje między narzędziami bez dokładania kolejnej ręcznej pracy",
+          "automatyzacja pracy na dokumentach i danych",
+          "integracje między narzędziami bez dokładania ręcznej pracy",
         ],
       },
       {
         title: "Aplikacje webowe i AI",
         description:
-          "Buduję dedykowane aplikacje i narzędzia AI, które rozwiązują konkretne problemy operacyjne — od odczytu dokumentów po wieloetapowe pipeline'y przetwarzania danych z kontrolą jakości i optymalizacją kosztów.",
+          "Buduję dedykowane aplikacje i narzędzia AI pod konkretne problemy operacyjne — od odczytu dokumentów po wieloetapowe pipeline'y przetwarzania danych.",
         bullets: [
-          "lekkie aplikacje webowe z wyszukiwaniem, eksploracją i nawigacją po danych",
-          "wieloetapowe pipeline'y AI: klasyfikacja, ekstrakcja, normalizacja i walidacja",
-          "inteligentny dobór modeli AI pod zadanie — tani model do prostych zadań, precyzyjny do trudnych",
-          "systemy dokumentowe, OCR i workflow z monitoringiem i kontrolą jakości",
+          "lekkie aplikacje webowe z wyszukiwaniem i nawigacją po danych",
+          "pipeline'y AI: klasyfikacja, ekstrakcja, normalizacja, walidacja",
+          "OCR i systemy dokumentowe z monitoringiem i kontrolą kosztów",
         ],
       },
       {
         title: "Gotowe produkty i platformy",
         description:
-          "Buduję kompletne aplikacje — od logowania i panelu użytkownika po płatności, generowanie dokumentów i integracje zewnętrzne — gotowe do oddania użytkownikom bez dodatkowego zespołu.",
+          "Buduję kompletne aplikacje gotowe do oddania użytkownikom — od logowania i ról po płatności i eksport danych.",
         bullets: [
-          "kompletne aplikacje webowe z autoryzacją, rolami i panelem administracyjnym",
-          "integracja płatności, generowanie PDF/DOCX i eksport danych",
+          "aplikacje webowe z autoryzacją, rolami i panelem administracyjnym",
+          "płatności, generowanie PDF/DOCX i eksport danych",
           "rozszerzenia przeglądarki i automatyzacja pracy użytkownika",
         ],
       },

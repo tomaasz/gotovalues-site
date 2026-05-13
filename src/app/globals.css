@@ -459,6 +459,10 @@ h3 {
   padding: 26px;
 }
 
+.pillar-card h3 + p {
+  margin-top: 14px;
+}
+
 .pillar-card h3 + ul,
 .pillar-card h3 + ol {
   margin-top: 22px;
@@ -466,7 +470,15 @@ h3 {
 
 .pillar-card ul,
 .pillar-card ol {
-  margin-top: 18px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.pillar-card h3 + ul,
+.pillar-card h3 + ol {
+  border-top: none;
+  padding-top: 0;
 }
 
 .product-card {
