@@ -77,7 +77,7 @@ export default function SupportAIPage() {
             <a className="button button-primary" href="#pakiety">
               Zobacz pakiety
             </a>
-            <Link className="button button-secondary" href="/produkty">
+            <Link className="button button-secondary" href="/#produkty">
               Przykłady wdrożeń
             </Link>
           </div>

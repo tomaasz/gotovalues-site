@@ -40,7 +40,7 @@ export const siteContent = {
       },
       secondary: {
         label: "Zobacz działające przykłady",
-        href: "/produkty",
+        href: "#produkty",
       },
     },
   },

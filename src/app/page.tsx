@@ -86,14 +86,9 @@ export default function HomePage() {
 
       <section className="section" id="produkty">
         <SectionHeading
-          inline
           eyebrow="Produkty"
           heading="Działające produkty i prywatne wdrożenia pokazują, jak przekładam problem operacyjny na konkretne narzędzie."
-        >
-          <Link className="text-link" href="/produkty">
-            Przejdź do pełnej strony produktów
-          </Link>
-        </SectionHeading>
+        />
         <div className="product-grid">
           {featuredProducts.map((product) => (
             <ProductCard compact key={product.name} product={product} />

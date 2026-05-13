@@ -30,7 +30,7 @@ export default function ProductionLandingPage() {
             <a className="button button-primary" href={content.cta.href}>
               {content.cta.label}
             </a>
-            <Link className="button button-secondary" href="/produkty">
+            <Link className="button button-secondary" href="/#produkty">
               Zobacz przykłady wdrożeń
             </Link>
           </div>
@@ -85,11 +85,7 @@ export default function ProductionLandingPage() {
       </section>
 
       <section className="section">
-        <SectionHeading inline eyebrow="Proof" heading={content.proofHeading}>
-          <Link className="text-link" href="/produkty">
-            Zobacz pełną stronę produktów
-          </Link>
-        </SectionHeading>
+        <SectionHeading eyebrow="Proof" heading={content.proofHeading} />
         <div className="product-grid">
           {siteContent.products.public.map((product) => (
             <ProductCard compact key={product.name} product={product} />
