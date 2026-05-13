@@ -15,7 +15,7 @@ export function SiteHeader(_props: { variant?: "home" | "production" | "support-
       </Link>
       <nav className="site-nav" aria-label="Główna nawigacja">
         <Link href="/#oferta">Oferta</Link>
-        <Link href="/produkty">Produkty</Link>
+        <Link href="/#produkty">Produkty</Link>
         <Link href="/support-ai">SupportFlow AI</Link>
         <Link href="/blog">Blog</Link>
         <Link href="/#o-mnie">O mnie</Link>
