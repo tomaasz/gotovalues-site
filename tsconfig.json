@@ -33,6 +33,11 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "tests/**/*.ts",
+    "tests/**/*.tsx",
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx",
+    "vitest.config.ts",
+    "vitest.shims.d.ts",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],

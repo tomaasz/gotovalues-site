@@ -28,3 +28,6 @@ next-env.d.ts
 cloudflare-env.d.ts
 .wrangler/
 package-lock.json
+
+*storybook.log
+storybook-static
