@@ -1,27 +1,20 @@
 import Link from "next/link";
 
 import { siteContent } from "@/content/site";
+import { blogPosts } from "@/content/blog";
 import { ContactFormLazy as ContactForm } from "@/components/contact-form-lazy";
 import { ContactSignals } from "@/components/contact-signals";
 import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/section-heading";
+import { SiteHeader } from "@/components/site-header";
 
 export default function HomePage() {
   const featuredProducts = siteContent.products.public;
+  const recentPosts = blogPosts.slice(0, 3);
 
   return (
     <main id="main" className="page-shell" tabIndex={-1}>
-      <header className="site-header">
-        <Link className="brand-mark" href="/">
-          {siteContent.brand.name}
-        </Link>
-        <nav className="site-nav" aria-label="Główna nawigacja">
-          <a href="#oferta">Oferta</a>
-          <Link href="/produkty">Produkty</Link>
-          <a href="#o-mnie">O mnie</a>
-          <a href="#kontakt">Kontakt</a>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <section className="hero surface">
         <div className="hero-copy">
@@ -104,6 +97,64 @@ export default function HomePage() {
         <div className="product-grid">
           {featuredProducts.map((product) => (
             <ProductCard compact key={product.name} product={product} />
+          ))}
+        </div>
+      </section>
+
+      <section className="section" id="support-ai">
+        <SectionHeading
+          inline
+          eyebrow="SupportFlow AI"
+          heading="Gotowy pakiet dla zespołów wsparcia: agenty AI, które klasyfikują zgłoszenia, piszą robocze odpowiedzi i eskalują trudne sprawy."
+        >
+          <Link className="text-link" href="/support-ai">
+            Zobacz pakiety i proces wdrożenia →
+          </Link>
+        </SectionHeading>
+        <div className="approach-grid">
+          <article className="approach-card">
+            <h3>2 tygodnie wdrożenia</h3>
+            <p>Od warsztatu mapowania procesów do działającego agenta — bez agencyjnego narzutu.</p>
+          </article>
+          <article className="approach-card">
+            <h3>Od 4 000 PLN</h3>
+            <p>START z prototypem agenta triage, BUSINESS z trzema agentami i integracjami, ENTERPRISE z audytem i SLA.</p>
+          </article>
+          <article className="approach-card">
+            <h3>Działa z Twoim helpdeskiem</h3>
+            <p>Integracja z istniejącym systemem zgłoszeń, CRM-em i Slackiem — bez wymiany środowiska.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="section" id="blog">
+        <SectionHeading
+          inline
+          eyebrow="Blog"
+          heading="Praktycznie o aplikacjach, AI i procesach — bez marketingowych obietnic."
+        >
+          <Link className="text-link" href="/blog">
+            Wszystkie wpisy →
+          </Link>
+        </SectionHeading>
+        <div className="pillar-grid">
+          {recentPosts.map((post) => (
+            <article className="surface pillar-card" key={post.slug}>
+              <time className="eyebrow" dateTime={post.date}>
+                {new Date(post.date).toLocaleDateString("pl-PL", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </time>
+              <h3>
+                <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+              </h3>
+              <p>{post.description}</p>
+              <Link className="text-link" href={`/blog/${post.slug}`}>
+                Czytaj dalej →
+              </Link>
+            </article>
           ))}
         </div>
       </section>

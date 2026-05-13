@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { ContactFormLazy as ContactForm } from "@/components/contact-form-lazy";
 import { ContactSignals } from "@/components/contact-signals";
+import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
@@ -103,10 +104,10 @@ export default function SupportAIPage() {
 
       {/* Problem / Solution */}
       <section className="section" id="problem">
-        <div className="section-heading">
-          <p className="eyebrow">Problem</p>
-          <h2>Twój zespół supportu traci godziny na powtarzalne pytania</h2>
-        </div>
+        <SectionHeading
+          eyebrow="Problem"
+          heading="Twój zespół supportu traci godziny na powtarzalne pytania"
+        />
         <div className="pillar-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
           <div className="pillar-card">
             <h3>Bez automatyzacji</h3>
@@ -129,10 +130,10 @@ export default function SupportAIPage() {
 
       {/* Packages */}
       <section className="section" id="pakiety">
-        <div className="section-heading">
-          <p className="eyebrow">Pakiety</p>
-          <h2>Od prototypu do pełnego wdrożenia</h2>
-        </div>
+        <SectionHeading
+          eyebrow="Pakiety"
+          heading="Od prototypu do pełnego wdrożenia"
+        />
         <div className="pillar-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
           {packages.map((pkg) => (
             <div key={pkg.name} className={`pillar-card${pkg.recommended ? " pillar-card-featured" : ""}`}>
@@ -152,10 +153,10 @@ export default function SupportAIPage() {
 
       {/* Comparison */}
       <section className="section surface" id="porownanie">
-        <div className="section-heading">
-          <p className="eyebrow">Porównanie</p>
-          <h2>Dlaczego nie Intercom ani Zendesk</h2>
-        </div>
+        <SectionHeading
+          eyebrow="Porównanie"
+          heading="Dlaczego nie Intercom ani Zendesk"
+        />
         <div className="overflow-x">
           <table className="compare-table">
             <thead>
@@ -204,10 +205,10 @@ export default function SupportAIPage() {
 
       {/* Timeline */}
       <section className="section" id="proces">
-        <div className="section-heading">
-          <p className="eyebrow">Proces</p>
-          <h2>2 tygodnie od decyzji do działającego agenta</h2>
-        </div>
+        <SectionHeading
+          eyebrow="Proces"
+          heading="2 tygodnie od decyzji do działającego agenta"
+        />
         <div className="pillar-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
           {timeline.map((t) => (
             <div key={t.week} className="pillar-card">
@@ -224,10 +225,10 @@ export default function SupportAIPage() {
 
       {/* CTA */}
       <section className="section surface" id="kontakt">
-        <div className="section-heading">
-          <p className="eyebrow">Zacznijmy</p>
-          <h2>Opisz swój proces wsparcia — sprawdzę, co można zautomatyzować</h2>
-        </div>
+        <SectionHeading
+          eyebrow="Zacznijmy"
+          heading="Opisz swój proces wsparcia — sprawdzę, co można zautomatyzować"
+        />
         <div className="hero-actions" style={{ justifyContent: "center", marginBottom: "var(--space-l)" }}>
           <ContactSignals />
         </div>

@@ -7,28 +7,24 @@ interface SiteHeaderProps {
 }
 
 export function SiteHeader({ variant = "home" }: SiteHeaderProps) {
+  const isSupportAi = variant === "support-ai";
+
   return (
     <header className="site-header">
       <Link className="brand-mark" href="/">
         {siteContent.brand.name}
       </Link>
       <nav className="site-nav" aria-label="Główna nawigacja">
-        {variant === "support-ai" ? (
-          <Link href="/#pakiety">Pakiety</Link>
-        ) : variant === "production" ? (
-          <Link href="/">Strona główna</Link>
-        ) : (
-          <Link href="/#oferta">Oferta</Link>
-        )}
+        <Link href="/#oferta">Oferta</Link>
         <Link href="/produkty">Produkty</Link>
-        {variant !== "production" && variant !== "support-ai" && <Link href="/#serwisy">Serwisy</Link>}
-        {variant !== "production" && variant !== "support-ai" && <Link href="/#o-mnie">O mnie</Link>}
+        <Link href={isSupportAi ? "#pakiety" : "/support-ai"}>
+          SupportFlow AI
+        </Link>
         <Link href="/blog">Blog</Link>
-        {variant === "support-ai" ? (
-          <Link href="/#kontakt">Zapytaj o wycenę</Link>
-        ) : (
-          <Link href="/#kontakt">Kontakt</Link>
-        )}
+        <Link href="/#o-mnie">O mnie</Link>
+        <Link href={isSupportAi ? "#kontakt" : "/#kontakt"}>
+          {isSupportAi ? "Zapytaj o wycenę" : "Kontakt"}
+        </Link>
       </nav>
     </header>
   );
