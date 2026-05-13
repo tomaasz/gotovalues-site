@@ -346,6 +346,10 @@ h3 {
   list-style: none;
 }
 
+.contact-copy p + .contact-points {
+  margin-top: 18px;
+}
+
 .hero-panel-card li,
 .pillar-card li,
 .contact-points li {
