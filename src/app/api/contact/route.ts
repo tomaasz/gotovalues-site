@@ -77,10 +77,15 @@ export async function POST(request: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO_EMAIL;
+  const toRaw = process.env.CONTACT_TO_EMAIL;
   const from = process.env.CONTACT_FROM_EMAIL || `${brandName} <onboarding@resend.dev>`;
 
-  if (!apiKey || !to) {
+  // CONTACT_TO_EMAIL może być pojedynczym adresem albo listą rozdzieloną przecinkami
+  const to = toRaw
+    ? toRaw.split(',').map((s) => s.trim()).filter(Boolean)
+    : undefined;
+
+  if (!apiKey || !to || to.length === 0) {
     logger.error(
       'Formularz nie jest jeszcze skonfigurowany po stronie serwera. Ustaw RESEND_API_KEY i CONTACT_TO_EMAIL.',
     );
