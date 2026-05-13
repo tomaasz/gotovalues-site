@@ -602,6 +602,10 @@ h3 {
   margin-top: 24px;
 }
 
+.contact-copy .about-points {
+  grid-template-columns: 1fr;
+}
+
 .about-points div {
   display: grid;
   gap: 8px;
