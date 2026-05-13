@@ -10,7 +10,7 @@ import { SiteHeader } from "@/components/site-header";
 
 export default function HomePage() {
   const featuredProducts = siteContent.products.public;
-  const recentPosts = blogPosts.slice(0, 3);
+  const recentPosts = blogPosts.slice(0, 2);
 
   return (
     <main id="main" className="page-shell" tabIndex={-1}>
@@ -132,7 +132,7 @@ export default function HomePage() {
             Wszystkie wpisy →
           </Link>
         </SectionHeading>
-        <div className="pillar-grid">
+        <div className="product-grid">
           {recentPosts.map((post) => (
             <article className="surface pillar-card" key={post.slug}>
               <time className="eyebrow" dateTime={post.date}>

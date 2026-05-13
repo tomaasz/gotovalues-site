@@ -463,6 +463,20 @@ h3 {
   margin-top: 14px;
 }
 
+.pillar-card p + .text-link {
+  display: inline-block;
+  margin-top: 18px;
+}
+
+.pillar-card > h3 a {
+  color: inherit;
+}
+
+.pillar-card > h3 a:hover,
+.pillar-card > h3 a:focus-visible {
+  color: var(--accent-strong);
+}
+
 .pillar-card h3 + ul,
 .pillar-card h3 + ol {
   margin-top: 22px;

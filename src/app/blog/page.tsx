@@ -63,7 +63,7 @@ export default function BlogPage() {
           eyebrow="Wpisy"
           heading="Najnowsze artykuły"
         />
-        <div className="pillar-grid">
+        <div className="product-grid">
           {blogPosts.map((post) => (
             <article className="surface pillar-card" key={post.slug}>
               <time className="eyebrow" dateTime={post.date}>
