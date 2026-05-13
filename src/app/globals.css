@@ -476,6 +476,13 @@ h3 {
   margin-top: 18px;
 }
 
+/* karty wpisów blogowych: rezerwuj stałą wysokość na tytuł (max 5 linii @ line-height 0.98)
+   żeby opis w każdej karcie zaczynał się na tej samej wysokości, niezależnie
+   od tego, na ile linii rozpadnie się tytuł */
+.blog-card > h3 {
+  min-height: 4.9em;
+}
+
 .pillar-card h3 + p {
   margin-top: 14px;
 }

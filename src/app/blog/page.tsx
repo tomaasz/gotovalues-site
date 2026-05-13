@@ -65,7 +65,7 @@ export default function BlogPage() {
         />
         <div className="pillar-grid">
           {blogPosts.map((post) => (
-            <article className="surface pillar-card" key={post.slug}>
+            <article className="surface pillar-card blog-card" key={post.slug}>
               <time className="eyebrow" dateTime={post.date}>
                 {new Date(post.date).toLocaleDateString("pl-PL", {
                   year: "numeric",
