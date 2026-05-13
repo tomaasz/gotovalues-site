@@ -1,0 +1,13 @@
+{
+  "name": "@hermes/design-tokens",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shared design tokens for cavi + gotovalues — colors, spacing, typography, shadows",
+  "main": "./src/index.css",
+  "exports": {
+    ".": "./src/index.css",
+    "./css": "./src/index.css",
+    "./tokens": "./src/tokens.ts"
+  },
+  "files": ["src"]
+}

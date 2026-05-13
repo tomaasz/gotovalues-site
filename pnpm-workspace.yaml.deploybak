@@ -1,11 +1,9 @@
 packages:
   - '.'
-  - '../../packages/*'
+  - 'packages/*'
 allowBuilds:
   '@sentry/cli': false
-  core-js: false
   esbuild: false
-  protobufjs: false
+  msw: false
   sharp: false
-  unrs-resolver: false
   workerd: false
