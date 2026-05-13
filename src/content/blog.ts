@@ -18,10 +18,9 @@ export const blogPosts: BlogPost[] = [
       "W którym momencie warto odejść od arkuszy, maili i gotowych systemów na rzecz dedykowanej aplikacji? Praktyczne sygnały, koszty ukryte i jak ocenić, czy to już czas.",
     date: "2026-05-12",
     tags: [
-      "dedykowane aplikacje webowe",
-      "aplikacje AI dla firm",
-      "automatyzacja procesów",
-      "oprogramowanie na zamówienie",
+      "Aplikacje webowe",
+      "AI dla firm",
+      "Automatyzacja",
     ],
     body: `<p>
   Każda firma przechodzi przez ten moment: proces, który działał na Excelu
@@ -150,10 +149,9 @@ export const blogPosts: BlogPost[] = [
       "Automatyzacja procesów to nie wymiana ludzi na boty. To odciążenie zespołu z ręcznej, powtarzalnej pracy. Jak wygląda realna automatyzacja procesów z AI w 2026 roku.",
     date: "2026-05-12",
     tags: [
-      "konsultant AI",
-      "automatyzacja procesów",
-      "procesy operacyjne",
-      "aplikacje AI dla firm",
+      "AI dla firm",
+      "Automatyzacja",
+      "Procesy operacyjne",
     ],
     body: `<p>
   Automatyzacja procesów to jedno z najbardziej nadużywanych haseł w
