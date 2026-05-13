@@ -1,0 +1,86 @@
+{
+  "version": "1.0",
+  "description": "Text styles for Figma",
+  "styles": [
+    {
+      "name": "display/hero",
+      "family": "Fraunces",
+      "weight": 600,
+      "size": 80,
+      "lineHeight": "92%",
+      "letterSpacing": "-4.5%"
+    },
+    {
+      "name": "heading/h1",
+      "family": "Fraunces",
+      "weight": 600,
+      "size": 48,
+      "lineHeight": "98%",
+      "letterSpacing": "-4.5%"
+    },
+    {
+      "name": "heading/h2",
+      "family": "Fraunces",
+      "weight": 600,
+      "size": 36,
+      "lineHeight": "98%",
+      "letterSpacing": "-4.5%"
+    },
+    {
+      "name": "heading/h3",
+      "family": "Fraunces",
+      "weight": 600,
+      "size": 24,
+      "lineHeight": "98%",
+      "letterSpacing": "-4.5%"
+    },
+    {
+      "name": "body/large",
+      "family": "Manrope",
+      "weight": 400,
+      "size": 18,
+      "lineHeight": "150%",
+      "letterSpacing": "0%"
+    },
+    {
+      "name": "body/default",
+      "family": "Manrope",
+      "weight": 400,
+      "size": 16,
+      "lineHeight": "150%",
+      "letterSpacing": "0%"
+    },
+    {
+      "name": "body/small",
+      "family": "Manrope",
+      "weight": 400,
+      "size": 14,
+      "lineHeight": "150%",
+      "letterSpacing": "0%"
+    },
+    {
+      "name": "ui/label",
+      "family": "Manrope",
+      "weight": 700,
+      "size": 13,
+      "lineHeight": "130%",
+      "letterSpacing": "0%"
+    },
+    {
+      "name": "ui/eyebrow",
+      "family": "Manrope",
+      "weight": 700,
+      "size": 13,
+      "lineHeight": "130%",
+      "letterSpacing": "14%"
+    },
+    {
+      "name": "ui/caption",
+      "family": "Manrope",
+      "weight": 400,
+      "size": 12,
+      "lineHeight": "150%",
+      "letterSpacing": "0%"
+    }
+  ]
+}

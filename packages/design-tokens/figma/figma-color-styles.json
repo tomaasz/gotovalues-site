@@ -1,0 +1,108 @@
+{
+  "version": "1.0",
+  "description": "Paint styles for Figma",
+  "styles": [
+    {
+      "name": "semantic/background",
+      "type": "FILL",
+      "value": "#FAF8F5",
+      "description": "Page background"
+    },
+    {
+      "name": "semantic/foreground",
+      "type": "FILL",
+      "value": "#2A2623",
+      "description": "Primary text"
+    },
+    {
+      "name": "semantic/card",
+      "type": "FILL",
+      "value": "#FFFFFF",
+      "description": "Card surfaces"
+    },
+    {
+      "name": "semantic/card-foreground",
+      "type": "FILL",
+      "value": "#2A2623",
+      "description": "Card text"
+    },
+    {
+      "name": "semantic/primary",
+      "type": "FILL",
+      "value": "#4E8B76",
+      "description": "Brand accent"
+    },
+    {
+      "name": "semantic/primary-foreground",
+      "type": "FILL",
+      "value": "#FFFFFF",
+      "description": "On-accent text"
+    },
+    {
+      "name": "semantic/secondary",
+      "type": "FILL",
+      "value": "#E8E4DC",
+      "description": "Secondary surfaces"
+    },
+    {
+      "name": "semantic/secondary-foreground",
+      "type": "FILL",
+      "value": "#38322D",
+      "description": "Secondary text"
+    },
+    {
+      "name": "semantic/muted",
+      "type": "FILL",
+      "value": "#ECE9E4",
+      "description": "Muted backgrounds"
+    },
+    {
+      "name": "semantic/muted-foreground",
+      "type": "FILL",
+      "value": "#5E5A54",
+      "description": "Muted text (4.5:1)"
+    },
+    {
+      "name": "semantic/accent",
+      "type": "FILL",
+      "value": "#4E8B76",
+      "description": "Accent color"
+    },
+    {
+      "name": "semantic/accent-foreground",
+      "type": "FILL",
+      "value": "#FFFFFF",
+      "description": "On-accent text"
+    },
+    {
+      "name": "semantic/destructive",
+      "type": "FILL",
+      "value": "#DC2626",
+      "description": "Error/destructive"
+    },
+    {
+      "name": "semantic/destructive-foreground",
+      "type": "FILL",
+      "value": "#FFFFFF",
+      "description": "On-destructive text"
+    },
+    {
+      "name": "semantic/border",
+      "type": "FILL",
+      "value": "#D4CFC7",
+      "description": "Borders"
+    },
+    {
+      "name": "semantic/input",
+      "type": "FILL",
+      "value": "#D4CFC7",
+      "description": "Input borders"
+    },
+    {
+      "name": "semantic/ring",
+      "type": "FILL",
+      "value": "#4E8B76",
+      "description": "Focus rings"
+    }
+  ]
+}

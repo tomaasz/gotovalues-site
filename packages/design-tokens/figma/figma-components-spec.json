@@ -1,0 +1,136 @@
+{
+  "version": "1.0",
+  "description": "Component specifications for Figma construction",
+  "components": {
+    "button": {
+      "description": "Primary action button with 6 variants and 4 sizes",
+      "variants": {
+        "variant": [
+          "default",
+          "secondary",
+          "outline",
+          "destructive",
+          "ghost",
+          "link"
+        ],
+        "size": [
+          "sm (36px)",
+          "default (40px)",
+          "lg (44px)",
+          "icon (36px)"
+        ],
+        "state": [
+          "default",
+          "hover",
+          "focus",
+          "disabled",
+          "loading"
+        ]
+      },
+      "properties": {
+        "radius": "9999px (pill)",
+        "padding": "0 16px (default), 0 12px (sm), 0 32px (lg)",
+        "gap": "8px",
+        "fontSize": "14px",
+        "fontWeight": "500"
+      }
+    },
+    "input": {
+      "description": "Text input field",
+      "variants": {
+        "state": [
+          "default",
+          "focus",
+          "disabled",
+          "error"
+        ],
+        "type": [
+          "text",
+          "email",
+          "password",
+          "number"
+        ]
+      },
+      "properties": {
+        "height": "40px",
+        "padding": "8px 12px",
+        "radius": "8px",
+        "borderColor": "border",
+        "fontSize": "14px"
+      }
+    },
+    "card": {
+      "description": "Container with header, content, and footer slots",
+      "slots": [
+        "header",
+        "title",
+        "description",
+        "content",
+        "footer"
+      ],
+      "properties": {
+        "padding": "24px",
+        "radius": "16px",
+        "border": "1px solid border",
+        "background": "card"
+      }
+    },
+    "badge": {
+      "description": "Small label/chip",
+      "variants": {
+        "variant": [
+          "default",
+          "secondary",
+          "destructive",
+          "outline"
+        ]
+      },
+      "properties": {
+        "padding": "2px 10px",
+        "radius": "9999px",
+        "fontSize": "12px",
+        "fontWeight": "600"
+      }
+    },
+    "dialog": {
+      "description": "Modal overlay dialog",
+      "slots": [
+        "header",
+        "title",
+        "description",
+        "body",
+        "footer"
+      ],
+      "properties": {
+        "maxWidth": "512px",
+        "padding": "24px",
+        "radius": "16px",
+        "background": "card",
+        "backdrop": "rgba(0,0,0,0.5)"
+      }
+    },
+    "select": {
+      "description": "Dropdown select with trigger and content",
+      "properties": {
+        "height": "40px",
+        "padding": "8px 12px",
+        "radius": "8px"
+      }
+    },
+    "checkbox": {
+      "description": "Checkbox with label",
+      "variants": {
+        "state": [
+          "unchecked",
+          "checked",
+          "indeterminate",
+          "disabled"
+        ]
+      },
+      "properties": {
+        "size": "16px",
+        "radius": "4px"
+      }
+    }
+  }
+}

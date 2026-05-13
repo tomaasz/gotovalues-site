@@ -1,0 +1,527 @@
+{
+  "version": "1.0",
+  "description": "Design System variables for cavi + gotovalues",
+  "variables": [
+    {
+      "collection": "semantic/light",
+      "name": "background",
+      "type": "COLOR",
+      "value": "hsl(42, 26%, 96%)",
+      "hex": "#FAF8F5",
+      "description": "Page background"
+    },
+    {
+      "collection": "semantic/light",
+      "name": "foreground",
+      "type": "COLOR",
+      "value": "hsl(30, 10%, 15%)",
+      "hex": "#2A2623",
+      "description": "Primary text"
+    },
+    {
+      "collection": "semantic/light",
+      "name": "card",
+      "type": "COLOR",
+      "value": "hsl(0, 0%, 100%)",
+      "hex": "#FFFFFF",
+      "description": "Card surfaces"
+    },
+    {
+      "collection": "semantic/light",
+      "name": "card-foreground",
+      "type": "COLOR",
+      "value": "hsl(30, 10%, 15%)",
+      "hex": "#2A2623",
+      "description": "Card text"
+    },
+    {
+      "collection": "semantic/light",
+      "name": "primary",
+      "type": "COLOR",
+      "value": "hsl(162, 28%, 38%)",
+      "hex": "#4E8B76",
+      "description": "Brand accent"
+    },
+    {
+      "collection": "semantic/light",
+      "name": "primary-foreground",
+      "type": "COLOR",
+      "value": "hsl(0, 0%, 100%)",
+      "hex": "#FFFFFF",
+      "description": "On-accent text"
+    },
+    {
+      "collection": "semantic/light",
+      "name": "secondary",
+      "type": "COLOR",
+      "value": "hsl(42, 14%, 89%)",
+      "hex": "#E8E4DC",
+      "description": "Secondary surfaces"
+    },
+    {
+      "collection": "semantic/light",
+      "name": "secondary-foreground",
+      "type": "COLOR",
+      "value": "hsl(30, 10%, 20%)",
+      "hex": "#38322D",
+      "description": "Secondary text"
+    },
+    {
+      "collection": "semantic/light",
+      "name": "muted",
+      "type": "COLOR",
+      "value": "hsl(38, 12%, 91%)",
+      "hex": "#ECE9E4",
+      "description": "Muted backgrounds"
+    },
+    {
+      "collection": "semantic/light",
+      "name": "muted-foreground",
+      "type": "COLOR",
+      "value": "hsl(30, 8%, 38%)",
+      "hex": "#5E5A54",
+      "description": "Muted text (4.5:1)"
+    },
+    {
+      "collection": "semantic/light",
+      "name": "accent",
+      "type": "COLOR",
+      "value": "hsl(162, 28%, 38%)",
+      "hex": "#4E8B76",
+      "description": "Accent color"
+    },
+    {
+      "collection": "semantic/light",
+      "name": "accent-foreground",
+      "type": "COLOR",
+      "value": "hsl(0, 0%, 100%)",
+      "hex": "#FFFFFF",
+      "description": "On-accent text"
+    },
+    {
+      "collection": "semantic/light",
+      "name": "destructive",
+      "type": "COLOR",
+      "value": "hsl(0, 72%, 51%)",
+      "hex": "#DC2626",
+      "description": "Error/destructive"
+    },
+    {
+      "collection": "semantic/light",
+      "name": "destructive-foreground",
+      "type": "COLOR",
+      "value": "hsl(0, 0%, 100%)",
+      "hex": "#FFFFFF",
+      "description": "On-destructive text"
+    },
+    {
+      "collection": "semantic/light",
+      "name": "border",
+      "type": "COLOR",
+      "value": "hsl(35, 15%, 82%)",
+      "hex": "#D4CFC7",
+      "description": "Borders"
+    },
+    {
+      "collection": "semantic/light",
+      "name": "input",
+      "type": "COLOR",
+      "value": "hsl(35, 15%, 82%)",
+      "hex": "#D4CFC7",
+      "description": "Input borders"
+    },
+    {
+      "collection": "semantic/light",
+      "name": "ring",
+      "type": "COLOR",
+      "value": "hsl(162, 28%, 38%)",
+      "hex": "#4E8B76",
+      "description": "Focus rings"
+    },
+    {
+      "collection": "primitive/green",
+      "name": "50",
+      "type": "COLOR",
+      "value": "hsl(162, 40%, 96%)",
+      "hex": "#f0f8f5",
+      "description": "Green 50"
+    },
+    {
+      "collection": "primitive/green",
+      "name": "100",
+      "type": "COLOR",
+      "value": "hsl(162, 38%, 90%)",
+      "hex": "#d8f0e6",
+      "description": "Green 100"
+    },
+    {
+      "collection": "primitive/green",
+      "name": "200",
+      "type": "COLOR",
+      "value": "hsl(162, 35%, 80%)",
+      "hex": "#b3e0cd",
+      "description": "Green 200"
+    },
+    {
+      "collection": "primitive/green",
+      "name": "300",
+      "type": "COLOR",
+      "value": "hsl(162, 32%, 65%)",
+      "hex": "#7acca6",
+      "description": "Green 300"
+    },
+    {
+      "collection": "primitive/green",
+      "name": "400",
+      "type": "COLOR",
+      "value": "hsl(162, 30%, 50%)",
+      "hex": "#59b38c",
+      "description": "Green 400"
+    },
+    {
+      "collection": "primitive/green",
+      "name": "500",
+      "type": "COLOR",
+      "value": "hsl(162, 30%, 42%)",
+      "hex": "#4a9975",
+      "description": "Green 500"
+    },
+    {
+      "collection": "primitive/green",
+      "name": "600",
+      "type": "COLOR",
+      "value": "hsl(162, 32%, 35%)",
+      "hex": "#3c7d60",
+      "description": "Green 600"
+    },
+    {
+      "collection": "primitive/green",
+      "name": "700",
+      "type": "COLOR",
+      "value": "hsl(162, 34%, 28%)",
+      "hex": "#2e614a",
+      "description": "Green 700"
+    },
+    {
+      "collection": "primitive/green",
+      "name": "800",
+      "type": "COLOR",
+      "value": "hsl(162, 35%, 20%)",
+      "hex": "#1f4535",
+      "description": "Green 800"
+    },
+    {
+      "collection": "primitive/green",
+      "name": "900",
+      "type": "COLOR",
+      "value": "hsl(162, 38%, 14%)",
+      "hex": "#152e24",
+      "description": "Green 900"
+    },
+    {
+      "collection": "primitive/warm",
+      "name": "50",
+      "type": "COLOR",
+      "value": "hsl(42, 26%, 97%)",
+      "hex": "#faf9f5",
+      "description": "Warm 50"
+    },
+    {
+      "collection": "primitive/warm",
+      "name": "100",
+      "type": "COLOR",
+      "value": "hsl(42, 26%, 94%)",
+      "hex": "#f5f3eb",
+      "description": "Warm 100"
+    },
+    {
+      "collection": "primitive/warm",
+      "name": "200",
+      "type": "COLOR",
+      "value": "hsl(40, 20%, 88%)",
+      "hex": "#e6e2d8",
+      "description": "Warm 200"
+    },
+    {
+      "collection": "primitive/warm",
+      "name": "300",
+      "type": "COLOR",
+      "value": "hsl(38, 16%, 82%)",
+      "hex": "#d6d1c4",
+      "description": "Warm 300"
+    },
+    {
+      "collection": "primitive/warm",
+      "name": "400",
+      "type": "COLOR",
+      "value": "hsl(36, 14%, 72%)",
+      "hex": "#beb8a8",
+      "description": "Warm 400"
+    },
+    {
+      "collection": "primitive/warm",
+      "name": "500",
+      "type": "COLOR",
+      "value": "hsl(34, 12%, 60%)",
+      "hex": "#a09a8a",
+      "description": "Warm 500"
+    },
+    {
+      "collection": "primitive/warm",
+      "name": "600",
+      "type": "COLOR",
+      "value": "hsl(32, 10%, 45%)",
+      "hex": "#7a7467",
+      "description": "Warm 600"
+    },
+    {
+      "collection": "primitive/warm",
+      "name": "700",
+      "type": "COLOR",
+      "value": "hsl(30, 10%, 32%)",
+      "hex": "#57524a",
+      "description": "Warm 700"
+    },
+    {
+      "collection": "primitive/warm",
+      "name": "800",
+      "type": "COLOR",
+      "value": "hsl(30, 10%, 20%)",
+      "hex": "#38322d",
+      "description": "Warm 800"
+    },
+    {
+      "collection": "primitive/warm",
+      "name": "900",
+      "type": "COLOR",
+      "value": "hsl(30, 10%, 12%)",
+      "hex": "#22201c",
+      "description": "Warm 900"
+    },
+    {
+      "collection": "primitive/gray",
+      "name": "50",
+      "type": "COLOR",
+      "value": "hsl(210, 20%, 98%)",
+      "hex": "#f8fafb",
+      "description": "Gray 50"
+    },
+    {
+      "collection": "primitive/gray",
+      "name": "100",
+      "type": "COLOR",
+      "value": "hsl(210, 16%, 93%)",
+      "hex": "#ecf0f3",
+      "description": "Gray 100"
+    },
+    {
+      "collection": "primitive/gray",
+      "name": "200",
+      "type": "COLOR",
+      "value": "hsl(210, 14%, 86%)",
+      "hex": "#d9dfe4",
+      "description": "Gray 200"
+    },
+    {
+      "collection": "primitive/gray",
+      "name": "300",
+      "type": "COLOR",
+      "value": "hsl(210, 12%, 76%)",
+      "hex": "#bcc4cc",
+      "description": "Gray 300"
+    },
+    {
+      "collection": "primitive/gray",
+      "name": "400",
+      "type": "COLOR",
+      "value": "hsl(210, 10%, 62%)",
+      "hex": "#94a0ab",
+      "description": "Gray 400"
+    },
+    {
+      "collection": "primitive/gray",
+      "name": "500",
+      "type": "COLOR",
+      "value": "hsl(210, 8%, 50%)",
+      "hex": "#76828c",
+      "description": "Gray 500"
+    },
+    {
+      "collection": "primitive/gray",
+      "name": "600",
+      "type": "COLOR",
+      "value": "hsl(210, 10%, 38%)",
+      "hex": "#58636e",
+      "description": "Gray 600"
+    },
+    {
+      "collection": "primitive/gray",
+      "name": "700",
+      "type": "COLOR",
+      "value": "hsl(210, 12%, 26%)",
+      "hex": "#3d454f",
+      "description": "Gray 700"
+    },
+    {
+      "collection": "primitive/gray",
+      "name": "800",
+      "type": "COLOR",
+      "value": "hsl(210, 14%, 16%)",
+      "hex": "#262b31",
+      "description": "Gray 800"
+    },
+    {
+      "collection": "primitive/gray",
+      "name": "900",
+      "type": "COLOR",
+      "value": "hsl(210, 16%, 8%)",
+      "hex": "#14171a",
+      "description": "Gray 900"
+    },
+    {
+      "collection": "spacing",
+      "name": "0",
+      "value": 0
+    },
+    {
+      "collection": "spacing",
+      "name": "px",
+      "value": 1
+    },
+    {
+      "collection": "spacing",
+      "name": "0.5",
+      "value": 2
+    },
+    {
+      "collection": "spacing",
+      "name": "1",
+      "value": 4
+    },
+    {
+      "collection": "spacing",
+      "name": "1.5",
+      "value": 6
+    },
+    {
+      "collection": "spacing",
+      "name": "2",
+      "value": 8
+    },
+    {
+      "collection": "spacing",
+      "name": "2.5",
+      "value": 10
+    },
+    {
+      "collection": "spacing",
+      "name": "3",
+      "value": 12
+    },
+    {
+      "collection": "spacing",
+      "name": "3.5",
+      "value": 14
+    },
+    {
+      "collection": "spacing",
+      "name": "4",
+      "value": 16
+    },
+    {
+      "collection": "spacing",
+      "name": "5",
+      "value": 20
+    },
+    {
+      "collection": "spacing",
+      "name": "6",
+      "value": 24
+    },
+    {
+      "collection": "spacing",
+      "name": "7",
+      "value": 28
+    },
+    {
+      "collection": "spacing",
+      "name": "8",
+      "value": 32
+    },
+    {
+      "collection": "spacing",
+      "name": "9",
+      "value": 36
+    },
+    {
+      "collection": "spacing",
+      "name": "10",
+      "value": 40
+    },
+    {
+      "collection": "spacing",
+      "name": "11",
+      "value": 44
+    },
+    {
+      "collection": "spacing",
+      "name": "12",
+      "value": 48
+    },
+    {
+      "collection": "spacing",
+      "name": "14",
+      "value": 56
+    },
+    {
+      "collection": "spacing",
+      "name": "16",
+      "value": 64
+    },
+    {
+      "collection": "spacing",
+      "name": "20",
+      "value": 80
+    },
+    {
+      "collection": "spacing",
+      "name": "24",
+      "value": 96
+    },
+    {
+      "collection": "radius",
+      "name": "sm",
+      "value": 4
+    },
+    {
+      "collection": "radius",
+      "name": "md",
+      "value": 8
+    },
+    {
+      "collection": "radius",
+      "name": "lg",
+      "value": 12
+    },
+    {
+      "collection": "radius",
+      "name": "xl",
+      "value": 16
+    },
+    {
+      "collection": "radius",
+      "name": "2xl",
+      "value": 24
+    },
+    {
+      "collection": "radius",
+      "name": "3xl",
+      "value": 32
+    },
+    {
+      "collection": "radius",
+      "name": "full",
+      "value": 999
+    }
+  ]
+}
