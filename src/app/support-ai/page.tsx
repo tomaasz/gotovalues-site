@@ -231,6 +231,16 @@ export default function SupportAIPage() {
         />
         <div className="surface contact-card">
           <div className="contact-copy">
+            <p>
+              Nie musisz mieć gotowej specyfikacji. Wystarczą 2–4 zdania o
+              jednym konkretnym workflow, w którym zespół traci czas — sprawdzę,
+              czy agent AI ma sens, czy lepiej wzmocnić to, co już macie.
+            </p>
+            <ul className="contact-points">
+              <li>opisz proces obsługi 1 typu zgłoszeń (np. status zamówienia, reklamacja, FAQ)</li>
+              <li>powiedz, na jakim helpdesku pracujecie i ile zgłoszeń tygodniowo</li>
+              <li>jeśli problem rozwiąże gotowy dodatek do Waszego systemu — powiem to wprost</li>
+            </ul>
             <ContactSignals />
           </div>
           <ContactForm />

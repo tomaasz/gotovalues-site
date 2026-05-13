@@ -337,6 +337,7 @@ h3 {
 
 .hero-panel-card ul,
 .pillar-card ul,
+.pillar-card ol,
 .contact-points,
 .tag-list {
   margin: 0;
@@ -453,7 +454,13 @@ h3 {
   padding: 26px;
 }
 
-.pillar-card ul {
+.pillar-card h3 + ul,
+.pillar-card h3 + ol {
+  margin-top: 22px;
+}
+
+.pillar-card ul,
+.pillar-card ol {
   margin-top: 18px;
 }
 
