@@ -151,55 +151,33 @@ export default function SupportAIPage() {
         </div>
       </section>
 
-      {/* Comparison */}
-      <section className="section" id="porownanie">
+      {/* Dla kogo */}
+      <section className="section" id="dla-kogo">
         <SectionHeading
-          eyebrow="Porównanie"
-          heading="Dlaczego nie Intercom ani Zendesk"
+          eyebrow="Dla kogo"
+          heading="Kiedy SupportFlow AI ma sens, a kiedy lepiej nie"
         />
-        <div className="surface overflow-x">
-          <table className="compare-table">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Intercom Fin</th>
-                <th>Zendesk AI</th>
-                <th>SupportFlow AI</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Cena</td>
-                <td>$50–150/mies/os</td>
-                <td>$100+/mies/os</td>
-                <td><strong>4 000 PLN jednorazowo</strong></td>
-              </tr>
-              <tr>
-                <td>Konfiguracja</td>
-                <td>Gotowiec</td>
-                <td>Gotowiec</td>
-                <td><strong>Szyty na miarę</strong></td>
-              </tr>
-              <tr>
-                <td>Integracja z PL systemami</td>
-                <td>Nie</td>
-                <td>Nie</td>
-                <td><strong>Tak</strong></td>
-              </tr>
-              <tr>
-                <td>Język polski</td>
-                <td>Słaby</td>
-                <td>Brak</td>
-                <td><strong>Natywny</strong></td>
-              </tr>
-              <tr>
-                <td>Opieka</td>
-                <td>Support ticket</td>
-                <td>Support ticket</td>
-                <td><strong>Bezpośredni kontakt</strong></td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="approach-grid">
+          <div className="surface pillar-card">
+            <h3>Ma sens, gdy:</h3>
+            <ul>
+              <li>zespół traci 10+ h tygodniowo na powtarzalne pytania, których wzór już znacie</li>
+              <li>macie obecny helpdesk lub system zgłoszeń, do którego trzeba się wpiąć</li>
+              <li>baza wiedzy istnieje (instrukcje, FAQ, historia ticketów) i można z niej cytować</li>
+              <li>chcecie zachować kontrolę nad odpowiedziami — agent ma sugerować, człowiek zatwierdza</li>
+              <li>polskie systemy, polski język klientów i krótki dystans do osoby decyzyjnej</li>
+            </ul>
+          </div>
+          <div className="surface pillar-card">
+            <h3>Lepiej szukać dalej, gdy:</h3>
+            <ul>
+              <li>zapytań jest mniej niż ~50 tygodniowo — ręczna obsługa wychodzi taniej</li>
+              <li>nie macie jeszcze żadnego systemu zgłoszeń — najpierw warto uporządkować proces</li>
+              <li>szukacie chatbota na stronę WWW dla anonimowych gości — wystarczy standardowy widget</li>
+              <li>oczekujecie, że AI samo odpowie 100% spraw bez nadzoru człowieka — to nie ten produkt</li>
+              <li>budżet musi być rozliczony w modelu SaaS per-seat — pracuję projektowo, nie subskrypcyjnie</li>
+            </ul>
+          </div>
         </div>
       </section>
 
