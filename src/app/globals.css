@@ -482,17 +482,21 @@ h3 {
   margin-top: 22px;
 }
 
-.pillar-card ul,
+.pillar-card ul:not(.tag-list),
 .pillar-card ol {
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid var(--line);
 }
 
-.pillar-card h3 + ul,
+.pillar-card h3 + ul:not(.tag-list),
 .pillar-card h3 + ol {
   border-top: none;
   padding-top: 0;
+}
+
+.pillar-card .tag-list {
+  margin-top: 18px;
 }
 
 .product-card {
@@ -613,12 +617,26 @@ h3 {
 }
 
 .tag-list li {
-  padding: 7px 12px;
+  padding: 6px 14px;
   border: 1px solid rgba(42, 52, 46, 0.14);
   border-radius: 999px;
   color: var(--text-soft);
-  font-size: 0.86rem;
+  font-size: 0.82rem;
   background: rgba(255, 255, 255, 0.82);
+  line-height: 1.4;
+}
+
+/* tag-list pills nie powinny dziedziczyć kropkowych bulletów po pillar-card li */
+.pillar-card .tag-list li {
+  padding: 6px 14px;
+}
+
+.pillar-card .tag-list li::before {
+  content: none;
+}
+
+.pillar-card .tag-list li + li {
+  margin-top: 0;
 }
 
 .product-impact {
