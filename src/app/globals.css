@@ -1,22 +1,65 @@
+@import "tailwindcss";
+@import "@hermes/design-tokens";
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Tailwind v4 @theme — compiled at build time
+   References design tokens directly. Independent of :root variables.
+   ═══════════════════════════════════════════════════════════════════════════ */
+@theme {
+  --color-background:       hsl(var(--ds-background));
+  --color-foreground:       hsl(var(--ds-foreground));
+  --color-card:             hsl(var(--ds-card));
+  --color-card-foreground:  hsl(var(--ds-card-foreground));
+  --color-popover:          hsl(var(--ds-popover));
+  --color-popover-foreground: hsl(var(--ds-popover-foreground));
+  --color-primary:          hsl(var(--ds-primary));
+  --color-primary-foreground: hsl(var(--ds-primary-foreground));
+  --color-secondary:        hsl(var(--ds-secondary));
+  --color-secondary-foreground: hsl(var(--ds-secondary-foreground));
+  --color-muted:            hsl(var(--ds-muted));
+  --color-muted-foreground: hsl(var(--ds-muted-foreground));
+  --color-accent:           hsl(var(--ds-accent));
+  --color-accent-foreground: hsl(var(--ds-accent-foreground));
+  --color-destructive:      hsl(var(--ds-destructive));
+  --color-destructive-foreground: hsl(var(--ds-destructive-foreground));
+  --color-border:           hsl(var(--ds-border));
+  --color-input:            hsl(var(--ds-input));
+  --color-ring:             hsl(var(--ds-ring));
+  --radius:                 var(--ds-radius-xl);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   :root CSS variables — runtime values for shadcn/ui + gotovalues
+   ═══════════════════════════════════════════════════════════════════════════ */
 :root {
-  --bg: #f4f0e8;
-  --panel: rgba(255, 252, 246, 0.84);
+  /* ── shadcn/ui compatibility ───────────────────────────────────────────── */
+  --background: var(--ds-background); --foreground: var(--ds-foreground);
+  --card: var(--ds-card); --card-foreground: var(--ds-card-foreground);
+  --popover: var(--ds-popover); --popover-foreground: var(--ds-popover-foreground);
+  --primary: var(--ds-primary); --primary-foreground: var(--ds-primary-foreground);
+  --secondary: var(--ds-secondary); --secondary-foreground: var(--ds-secondary-foreground);
+  --muted: var(--ds-muted); --muted-foreground: var(--ds-muted-foreground);
+  --accent: var(--ds-accent); --accent-foreground: var(--ds-accent-foreground);
+  --destructive: var(--ds-destructive); --destructive-foreground: var(--ds-destructive-foreground);
+  --border: var(--ds-border); --input: var(--ds-input); --ring: var(--ds-ring);
+  --radius: var(--ds-radius-xl);
+
+  /* ── gotovalues backward compatibility ─────────────────────────────────── */
+  --bg: #f4f0e8; --panel: rgba(255, 252, 246, 0.84);
   --panel-strong: rgba(255, 252, 246, 0.97);
-  --line: rgba(42, 52, 46, 0.14);
-  --line-strong: rgba(42, 52, 46, 0.22);
-  --text: #1f2924;
-  --text-soft: #30403a;
-  --muted: #53645b;
-  --accent: #4e8b76;
-  --accent-strong: #376e5a;
-  --accent-soft: rgba(78, 139, 118, 0.1);
+  --line: rgba(42, 52, 46, 0.14); --line-strong: rgba(42, 52, 46, 0.22);
+  --text: #1f2924; --text-soft: #30403a;
+  --gv-muted: #53645b; --gv-accent: #4e8b76;
+  --accent-strong: #376e5a; --accent-soft: rgba(78, 139, 118, 0.1);
   --shadow: 0 22px 48px rgba(74, 69, 60, 0.11);
-  --radius-xl: 32px;
-  --radius-lg: 24px;
-  --radius-md: 18px;
+  --radius-xl: 32px; --radius-lg: 24px; --radius-md: 18px;
   --max-width: 1180px;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   gotovalues component styles (from original globals.css)
+   Uses --gv-muted and --gv-accent instead of --muted/--accent
+   ═══════════════════════════════════════════════════════════════════════════ */
 * {
   box-sizing: border-box;
 }
@@ -169,6 +212,7 @@ h3 {
   font-weight: 600;
   line-height: 0.98;
   letter-spacing: -0.045em;
+  text-wrap: balance;
 }
 
 h1 {
@@ -190,7 +234,7 @@ h3 {
 .product-copy p,
 .contact-copy p,
 .helper-text {
-  color: var(--muted);
+  color: var(--gv-muted);
   line-height: 1.7;
 }
 
@@ -284,7 +328,7 @@ h3 {
 .hero-panel-label {
   display: inline-flex;
   margin-bottom: 12px;
-  color: var(--muted);
+  color: var(--gv-muted);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -324,7 +368,7 @@ h3 {
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: var(--accent);
+  background: var(--gv-accent);
   transform: translateY(-50%);
 }
 
@@ -400,7 +444,7 @@ h3 {
 
 .approach-card p {
   margin: 10px 0 0;
-  color: var(--muted);
+  color: var(--gv-muted);
   line-height: 1.7;
 }
 
@@ -627,7 +671,7 @@ h3 {
 }
 
 .optional-indicator {
-  color: var(--muted);
+  color: var(--gv-muted);
   font-weight: 500;
   font-size: 0.9em;
   margin-left: 4px;
@@ -766,4 +810,137 @@ h3 {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SupportFlow AI — pricing card highlights
+   ═══════════════════════════════════════════════════════════════════════════ */
+.pillar-card-price {
+  margin: 4px 0 12px;
+  font-family: var(--font-display), serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.pillar-card-featured {
+  position: relative;
+  border-color: var(--gv-accent);
+  background: linear-gradient(180deg, var(--panel-strong), var(--accent-soft));
+  box-shadow: 0 28px 60px rgba(78, 139, 118, 0.16);
+}
+
+.pillar-card-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--accent-strong);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Comparison table
+   ═══════════════════════════════════════════════════════════════════════════ */
+.overflow-x {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 0.97rem;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.compare-table thead th {
+  font-family: var(--font-display), serif;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.compare-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--gv-muted);
+  width: 28%;
+}
+
+.compare-table tbody td:last-child {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.compare-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Site footer
+   ═══════════════════════════════════════════════════════════════════════════ */
+.site-footer {
+  margin-top: 64px;
+  padding: 32px 0 48px;
+  border-top: 1px solid var(--line);
+  color: var(--gv-muted);
+  font-size: 0.9rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: min(100% - 48px, var(--max-width));
+  margin: 0 auto;
+}
+
+.footer-copy {
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.footer-nav a {
+  color: var(--gv-muted);
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus-visible {
+  color: var(--accent-strong);
+}
+
+@media (max-width: 640px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

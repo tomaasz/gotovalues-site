@@ -108,8 +108,8 @@ export default function SupportAIPage() {
           eyebrow="Problem"
           heading="Twój zespół supportu traci godziny na powtarzalne pytania"
         />
-        <div className="pillar-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
-          <div className="pillar-card">
+        <div className="approach-grid">
+          <div className="surface pillar-card">
             <h3>Bez automatyzacji</h3>
             <ul>
               <li>10-20h tygodniowo na te same odpowiedzi</li>
@@ -117,7 +117,7 @@ export default function SupportAIPage() {
               <li>Brak danych — nie wiadomo, co zajmuje najwięcej czasu</li>
             </ul>
           </div>
-          <div className="pillar-card">
+          <div className="surface pillar-card">
             <h3>Z SupportFlow AI</h3>
             <ul>
               <li>Agent klasyfikuje i priorytetyzuje w kilka sekund</li>
@@ -134,9 +134,9 @@ export default function SupportAIPage() {
           eyebrow="Pakiety"
           heading="Od prototypu do pełnego wdrożenia"
         />
-        <div className="pillar-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+        <div className="pillar-grid">
           {packages.map((pkg) => (
-            <div key={pkg.name} className={`pillar-card${pkg.recommended ? " pillar-card-featured" : ""}`}>
+            <div key={pkg.name} className={`surface pillar-card${pkg.recommended ? " pillar-card-featured" : ""}`}>
               {pkg.recommended && <span className="pillar-card-badge">Najczęściej wybierany</span>}
               <h3>{pkg.name}</h3>
               <p className="pillar-card-price">{pkg.price}</p>
@@ -152,12 +152,12 @@ export default function SupportAIPage() {
       </section>
 
       {/* Comparison */}
-      <section className="section surface" id="porownanie">
+      <section className="section" id="porownanie">
         <SectionHeading
           eyebrow="Porównanie"
           heading="Dlaczego nie Intercom ani Zendesk"
         />
-        <div className="overflow-x">
+        <div className="surface overflow-x">
           <table className="compare-table">
             <thead>
               <tr>
@@ -209,9 +209,9 @@ export default function SupportAIPage() {
           eyebrow="Proces"
           heading="2 tygodnie od decyzji do działającego agenta"
         />
-        <div className="pillar-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
+        <div className="approach-grid">
           {timeline.map((t) => (
-            <div key={t.week} className="pillar-card">
+            <div key={t.week} className="surface pillar-card">
               <h3>{t.week}</h3>
               <ol>
                 {t.steps.map((s, i) => (
@@ -224,15 +224,17 @@ export default function SupportAIPage() {
       </section>
 
       {/* CTA */}
-      <section className="section surface" id="kontakt">
+      <section className="section" id="kontakt">
         <SectionHeading
           eyebrow="Zacznijmy"
           heading="Opisz swój proces wsparcia — sprawdzę, co można zautomatyzować"
         />
-        <div className="hero-actions" style={{ justifyContent: "center", marginBottom: "var(--space-l)" }}>
-          <ContactSignals />
+        <div className="surface contact-card">
+          <div className="contact-copy">
+            <ContactSignals />
+          </div>
+          <ContactForm />
         </div>
-        <ContactForm />
       </section>
     </main>
   );
