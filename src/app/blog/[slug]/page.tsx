@@ -5,12 +5,7 @@ import { notFound } from "next/navigation";
 
 import { blogPosts, getPost, getPostMetadata } from "@/content/blog";
 import { SiteHeader } from "@/components/site-header";
-
-const escapeMap: Record<string, string> = {
-  '<': '\\u003c',
-  '>': '\\u003e',
-  '&': '\\u0026',
-};
+import { escapeJsonLd } from "@/lib/utils";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -69,7 +64,7 @@ export default async function BlogPostPage({
       <Script
         id={`json-ld-${post.slug}`}
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/[<>&]/g, (c) => escapeMap[c]) }}
+        dangerouslySetInnerHTML={{ __html: escapeJsonLd(jsonLd) }}
       />
 
       <article

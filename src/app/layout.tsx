@@ -5,6 +5,7 @@ import { brandName } from "@/content/site";
 
 import { Footer } from "@/components/footer";
 import { PostHogProvider } from "@/components/posthog-provider";
+import { escapeJsonLd } from "@/lib/utils";
 
 import "./globals.css";
 
@@ -58,12 +59,6 @@ const jsonLd = {
   "inLanguage": "pl"
 };
 
-const escapeMap: Record<string, string> = {
-  '<': '\\u003c',
-  '>': '\\u003e',
-  '&': '\\u0026',
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -82,7 +77,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/[<>&]/g, (c) => escapeMap[c]),
+            __html: escapeJsonLd(jsonLd),
           }}
         />
       </body>
