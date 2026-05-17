@@ -6,6 +6,12 @@ import { notFound } from "next/navigation";
 import { blogPosts, getPost, getPostMetadata } from "@/content/blog";
 import { SiteHeader } from "@/components/site-header";
 
+const escapeMap: Record<string, string> = {
+  '<': '\\u003c',
+  '>': '\\u003e',
+  '&': '\\u0026',
+};
+
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
@@ -30,12 +36,6 @@ export default async function BlogPostPage({
   if (!post) {
     notFound();
   }
-
-  const escapeMap: Record<string, string> = {
-    '<': '\\u003c',
-    '>': '\\u003e',
-    '&': '\\u0026',
-  };
 
   const jsonLd = {
     "@context": "https://schema.org",
