@@ -17,6 +17,8 @@ jobs:
   stale-prs:
     name: Stale draft PRs
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/stale@v9
         with:
@@ -42,6 +44,8 @@ jobs:
   prune-orphan-branches:
     name: Prune branches with no PR
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
         with:
