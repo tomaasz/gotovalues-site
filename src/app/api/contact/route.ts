@@ -10,6 +10,12 @@ const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
 const RATE_LIMIT_MAX = 3; // Max zgłoszeń
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minut
 
+export const contactConfig = {
+  RESEND_API_KEY: process.env.RESEND_API_KEY,
+  CONTACT_TO_EMAIL: process.env.CONTACT_TO_EMAIL,
+  CONTACT_FROM_EMAIL: process.env.CONTACT_FROM_EMAIL,
+};
+
 export async function POST(request: Request) {
   // --- Simple Rate Limiting ---
   // Pozyskujemy IP, fall-back na crypto.randomUUID() dla testów/lokalnie.
@@ -76,9 +82,9 @@ export async function POST(request: Request) {
     );
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const toRaw = process.env.CONTACT_TO_EMAIL;
-  const from = process.env.CONTACT_FROM_EMAIL || `${brandName} <onboarding@resend.dev>`;
+  const apiKey = contactConfig.RESEND_API_KEY;
+  const toRaw = contactConfig.CONTACT_TO_EMAIL;
+  const from = contactConfig.CONTACT_FROM_EMAIL || `${brandName} <onboarding@resend.dev>`;
 
   // CONTACT_TO_EMAIL może być pojedynczym adresem albo listą rozdzieloną przecinkami
   const to = toRaw

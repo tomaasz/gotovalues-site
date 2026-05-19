@@ -1,13 +1,16 @@
 import { test, mock, afterEach } from 'node:test';
 import assert from 'node:assert';
-import { POST } from '../src/app/api/contact/route';
+import { POST, contactConfig } from '../src/app/api/contact/route';
 
 // Wykorzystujemy mock z node:test z opcją na mockowanie modułów
 test('POST /api/contact', async (t) => {
   const originalEnv = { ...process.env };
+  const originalConfig = { ...contactConfig };
 
   afterEach(() => {
-    process.env = originalEnv;
+    Object.keys(process.env).forEach(key => delete process.env[key]);
+    Object.assign(process.env, originalEnv);
+    Object.assign(contactConfig, originalConfig);
     mock.restoreAll();
   });
 
@@ -39,8 +42,8 @@ test('POST /api/contact', async (t) => {
   });
 
   await t.test('returns 503 when server config is missing', async () => {
-    process.env.RESEND_API_KEY = '';
-    process.env.CONTACT_TO_EMAIL = '';
+    contactConfig.RESEND_API_KEY = '';
+    contactConfig.CONTACT_TO_EMAIL = '';
 
     const payload = {
       name: 'John',
@@ -60,9 +63,9 @@ test('POST /api/contact', async (t) => {
   });
 
   await t.test('sends email and returns 200 on success', async () => {
-    process.env.RESEND_API_KEY = 'test_key';
-    process.env.CONTACT_TO_EMAIL = 'admin@example.com';
-    process.env.CONTACT_FROM_EMAIL = 'onboarding@resend.dev';
+    contactConfig.RESEND_API_KEY = 'test_key';
+    contactConfig.CONTACT_TO_EMAIL = 'admin@example.com';
+    contactConfig.CONTACT_FROM_EMAIL = 'onboarding@resend.dev';
 
     // Instead of mocking the import we mock fetch since Resend uses it internally,
     // or we can test logic up to fetch if mock gets complicated.
@@ -92,8 +95,8 @@ test('POST /api/contact', async (t) => {
   });
 
   await t.test('returns 429 when rate limit is exceeded', async () => {
-     process.env.RESEND_API_KEY = 'test_key';
-     process.env.CONTACT_TO_EMAIL = 'admin@example.com';
+     contactConfig.RESEND_API_KEY = 'test_key';
+     contactConfig.CONTACT_TO_EMAIL = 'admin@example.com';
 
      mock.method(global, 'fetch', async () => new Response(JSON.stringify({ id: 'mocked_id' }), { status: 200, headers: { 'Content-Type': 'application/json' } }));
 
@@ -125,9 +128,9 @@ test('POST /api/contact', async (t) => {
   });
 
   await t.test('returns 500 when Resend API returns an error object', async () => {
-    process.env.RESEND_API_KEY = 'test_key';
-    process.env.CONTACT_TO_EMAIL = 'admin@example.com';
-    process.env.CONTACT_FROM_EMAIL = 'onboarding@resend.dev';
+    contactConfig.RESEND_API_KEY = 'test_key';
+    contactConfig.CONTACT_TO_EMAIL = 'admin@example.com';
+    contactConfig.CONTACT_FROM_EMAIL = 'onboarding@resend.dev';
 
     mock.method(global, 'fetch', async () => {
       // Resend API returns an error object on failure (e.g., 400 Bad Request)
