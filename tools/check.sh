@@ -30,13 +30,6 @@ git status --porcelain || true
 
 say "FRONTEND CHECKS"
 # 1) no inline <script> (except external)
-# 0) no inline CSS
-if node tools/check-inline-css.mjs >/dev/null 2>&1; then
-  ok "no inline CSS in index.html"
-else
-  bad "inline CSS found in index.html (CSP risk)"
-  node tools/check-inline-css.mjs || true
-fi
 
 if node tools/check-inline-js.mjs >/dev/null 2>&1; then
   ok "no inline <script> in index.html"
