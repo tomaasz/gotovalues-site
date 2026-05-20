@@ -2,6 +2,7 @@
   "name": "gotovalues-site",
   "version": "2.0.0",
   "private": true,
+  "packageManager": "pnpm@10.30.3",
   "engines": {
     "node": ">=20.0.0"
   },
