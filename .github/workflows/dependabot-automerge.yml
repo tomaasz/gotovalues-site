@@ -17,7 +17,12 @@ jobs:
     name: Auto-merge dependabot PR
     if: github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Get update metadata
         id: meta
         uses: dependabot/fetch-metadata@v2
