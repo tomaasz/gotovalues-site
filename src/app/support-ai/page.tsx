@@ -55,7 +55,7 @@ const packages = [
 ];
 
 const timeline = [
-  { week: "Tydzień 1", steps: ["Warsztat mapowania procesów", "Prototyp agenta na danych historycznych", "Demo + feedback klienta"] },
+  { week: "Tydzień 1", steps: ["Warsztat mapowania procesów", "Prototyp agenta na danych historycznych", "Demo + opinie klienta"] },
   { week: "Tydzień 2", steps: ["Integracja z systemami + poprawki", "Testy na żywo + szkolenie", "Przekazanie"] },
 ];
 
@@ -68,7 +68,7 @@ export default function SupportAIPage() {
       <section className="hero surface">
         <div className="hero-copy">
           <p className="eyebrow">SupportFlow AI</p>
-          <h1>AI, które naprawdę odciąża Twój support</h1>
+          <h1>AI, które naprawdę odciąża Twój dział wsparcia</h1>
           <p className="lede">
             Nie chatbot — konkretne agenty, które klasyfikują zgłoszenia, piszą robocze odpowiedzi,{" "}
             a trudne sprawy eskalują do człowieka. Działa z Twoim obecnym helpdeskiem.
@@ -106,7 +106,7 @@ export default function SupportAIPage() {
       <section className="section" id="problem">
         <SectionHeading
           eyebrow="Problem"
-          heading="Twój zespół supportu traci godziny na powtarzalne pytania"
+          heading="Twój zespół wsparcia traci godziny na powtarzalne pytania"
         />
         <div className="approach-grid">
           <div className="surface pillar-card">

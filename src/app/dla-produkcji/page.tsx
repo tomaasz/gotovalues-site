@@ -114,7 +114,7 @@ export default function ProductionLandingPage() {
       <section className="section surface" id="zobacz-tez">
         <SectionHeading
           eyebrow="Zobacz także"
-          heading="Automatyzacja supportu i obsługi klienta"
+          heading="Automatyzacja wsparcia i obsługi klienta"
         />
         <p style={{ maxWidth: "var(--measure)", marginBottom: "var(--space-m)" }}>
           Poza dokumentami produkcyjnymi zajmuję się też automatyzacją powtarzalnej pracy w
@@ -128,7 +128,7 @@ export default function ProductionLandingPage() {
       <section className="section surface" id="zobacz-tez">
         <SectionHeading
           eyebrow="Zobacz także"
-          heading="Automatyzacja supportu i obsługi klienta"
+          heading="Automatyzacja wsparcia i obsługi klienta"
         />
         <p style={{ maxWidth: "var(--measure)", marginBottom: "var(--space-m)" }}>
           Poza dokumentami produkcyjnymi zajmuję się też automatyzacją powtarzalnej pracy w
@@ -154,7 +154,7 @@ export default function ProductionLandingPage() {
             <ul className="contact-points">
               <li>wystarczy jeden konkretny przykład z zakładu albo back office</li>
               <li>nie potrzebujesz gotowej specyfikacji ani listy funkcji</li>
-              <li>jeśli problem nie wymaga customowego narzędzia, powiem to wprost</li>
+              <li>jeśli problem nie wymaga dedykowanego narzędzia, powiem to wprost</li>
             </ul>
             <ContactSignals />
           </div>
