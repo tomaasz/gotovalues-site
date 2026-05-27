@@ -4,13 +4,12 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-resolutions:
+overrides:
   dompurify: '>=3.4.0'
   fast-xml-parser: '>=5.5.6'
   path-to-regexp: '>=8.4.0'
   picomatch: '>=4.0.4'
   undici: '>=7.24.0'
-  brace-expansion: '>=2.0.3'
   yaml: '>=2.8.3'
 
 importers:
@@ -4275,6 +4274,9 @@ packages:
   bowser@2.14.1:
     resolution: {integrity: sha512-tzPjzCxygAKWFOJP011oxFHs57HzIhOEracIgAePE4pqB3LikALKnSzUyU4MGs9/iCEUuHlAJTjTc5M+u7YEGg==}
 
+  brace-expansion@1.1.15:
+    resolution: {integrity: sha512-EwOCDEex4quD37XhqM3omwtMoJjr//isUZz1JopUNWms+4Z2ViyM/k1YIRePpoVNnQhENnxtFjLaxNHrT7xIUg==}
+
   brace-expansion@2.1.1:
     resolution: {integrity: sha512-WR1cURNjuvBLMZBMbqM0UoE+WAfdUcEV1ccD8PVBVOI+Z3ND4+SZbN8RsfT2bMuG1qwz5RFvPukSZm5fF2D5eA==}
 
@@ -4426,6 +4428,9 @@ packages:
 
   commondir@1.0.1:
     resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
+
+  concat-map@0.0.1:
+    resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
   content-disposition@1.1.0:
     resolution: {integrity: sha512-5jRCH9Z/+DRP7rkvY83B+yGIGX96OYdJmzngqnw2SBSxqCFPd0w2km3s5iawpGX8krnwSGmF0FW5Nhr0Hfai3g==}
@@ -6930,6 +6935,15 @@ packages:
 
   zod@4.4.3:
     resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
+
+resolutions:
+  dompurify: '>=3.4.0'
+  fast-xml-parser: '>=5.5.6'
+  path-to-regexp: '>=8.4.0'
+  picomatch: '>=4.0.4'
+  undici: '>=7.24.0'
+  brace-expansion: '>=2.0.3'
+  yaml: '>=2.8.3'
 
 snapshots:
 
@@ -11238,6 +11252,11 @@ snapshots:
 
   bowser@2.14.1: {}
 
+  brace-expansion@1.1.15:
+    dependencies:
+      balanced-match: 1.0.2
+      concat-map: 0.0.1
+
   brace-expansion@2.1.1:
     dependencies:
       balanced-match: 1.0.2
@@ -11368,6 +11387,8 @@ snapshots:
       esprima: 4.0.1
 
   commondir@1.0.1: {}
+
+  concat-map@0.0.1: {}
 
   content-disposition@1.1.0: {}
 
@@ -12755,7 +12776,7 @@ snapshots:
 
   minimatch@3.1.5:
     dependencies:
-      brace-expansion: 5.0.6
+      brace-expansion: 1.1.15
 
   minimatch@8.0.7:
     dependencies:
