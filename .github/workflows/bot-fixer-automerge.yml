@@ -33,6 +33,8 @@ jobs:
       - name: Identify candidate PR
         id: pr
         uses: actions/github-script@v7
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         with:
           script: |
             const pr = context.payload.pull_request;
