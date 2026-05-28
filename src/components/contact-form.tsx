@@ -99,7 +99,7 @@ export function ContactForm() {
               *
             </span>
           </label>
-          <input id="name-input" name="name" type="text" placeholder="Jan" required />
+          <input id="name-input" name="name" type="text" placeholder="Jan" autoComplete="name" required />
         </div>
         <div className="field">
           <label htmlFor="email-input">
@@ -108,7 +108,7 @@ export function ContactForm() {
               *
             </span>
           </label>
-          <input id="email-input" name="email" type="email" placeholder="jan@firma.pl" required />
+          <input id="email-input" name="email" type="email" placeholder="jan@firma.pl" autoComplete="email" required />
         </div>
         <div className="field">
           <label htmlFor="company-input">
@@ -119,6 +119,7 @@ export function ContactForm() {
             name="company"
             type="text"
             placeholder="Nazwa firmy lub zakładu"
+            autoComplete="organization"
           />
         </div>
       </div>
