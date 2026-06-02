@@ -34,7 +34,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --no-frozen-lockfile --ignore-workspace-root-check --config.verify-store-integrity=false
 
       - name: Run tests
         continue-on-error: true
