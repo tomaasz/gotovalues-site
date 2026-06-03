@@ -201,6 +201,18 @@ button:focus-visible {
   background: currentColor;
 }
 
+.angle-tag {
+  display: inline-block;
+  margin: 0 0 14px;
+  padding: 6px 14px;
+  border: 1px solid rgba(78, 139, 118, 0.2);
+  border-radius: 999px;
+  color: var(--accent-strong);
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(78, 139, 118, 0.06);
+}
+
 .eyebrow-inline::before {
   width: 18px;
 }
