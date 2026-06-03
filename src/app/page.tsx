@@ -19,6 +19,7 @@ export default function HomePage() {
       <section className="hero surface">
         <div className="hero-copy">
           <p className="eyebrow">{siteContent.brand.eyebrow}</p>
+          <p className="angle-tag">{siteContent.brand.angle}</p>
           <h1>{siteContent.brand.headline}</h1>
           <p className="lede">{siteContent.brand.intro}</p>
           <div className="hero-actions">

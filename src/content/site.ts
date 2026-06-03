@@ -27,12 +27,14 @@ export type ProductCard = {
 export const siteContent = {
   brand: {
     name: brandName,
+    angle:
+      "Boutique AI & Web App Partner — demokratyzuję technologię, którą wielkie agencje wdrażają tylko dla korporacji.",
     eyebrow:
       "Nowoczesne aplikacje webowe i rozwiązania AI — bezpieczne, tanie w utrzymaniu i dopasowane do realnych procesów firmy.",
     headline:
-      "Buduję narzędzia, które porządkują procesy tam, gdzie Excel, mail i gotowe systemy przestają wystarczać.",
+      "Zbuduję dla Ciebie dedykowaną aplikację z AI i zautomatyzuję Twój biznes. Bez korporacyjnych cenników i miesięcy czekania.",
     intro:
-      "Pomagam firmom uporządkować dokumenty, statusy i ręczną pracę. Najpierw sprawdzam, czy problem rozwiąże gotowe narzędzie lub integracja. Dedykowaną aplikację buduję tylko wtedy, gdy to jedyna sensowna droga — bez wymiany całego istniejącego środowiska pracy.",
+      "Nie jestem zwykłym koderem do wynajęcia. Pomagam firmom uporządkować dokumenty, statusy i ręczną pracę. Najpierw sprawdzam, czy problem rozwiąże gotowe narzędzie lub integracja. Dedykowaną aplikację buduję tylko wtedy, gdy to jedyna sensowna droga — bez wymiany całego istniejącego środowiska pracy.",
     cta: {
       primary: {
         label: "Opisz proces do uporządkowania",
@@ -146,6 +148,11 @@ export const siteContent = {
         title: "Nowoczesny stack, niskie koszty",
         description:
           "Używam sprawdzonych technologii (React, Next.js, Python, PostgreSQL) i bezpłatnych warstw monitoringu, hostingu i AI — tak aby rozwiązanie było tanie w utrzymaniu bez kompromisu na jakości.",
+      },
+      {
+        title: "Od automatyzacji do własnej aplikacji",
+        description:
+          "Automatyzacje w Make i Zapier to początek, nie koniec. Gdy proces wymaga własnego interfejsu, logiki AI i skalowania — buduję to jako lekką aplikację webową, a nie kolejną warstwę automatyzacji.",
       },
       {
         title: "Bezpieczeństwo od pierwszego dnia",
