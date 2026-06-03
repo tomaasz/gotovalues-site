@@ -32,7 +32,7 @@ export const siteContent = {
     eyebrow:
       "Nowoczesne aplikacje webowe i rozwiązania AI — bezpieczne, tanie w utrzymaniu i dopasowane do realnych procesów firmy.",
     headline:
-      "Zbuduję dla Ciebie dedykowaną aplikację z AI i zautomatyzuję Twój biznes. Bez korporacyjnych cenników i miesięcy czekania.",
+      "Buduję narzędzia wokół Twoich danych i procesów. Z AI lub bez — zawsze bez korporacyjnych cenników.",
     intro:
       "Nie jestem zwykłym koderem do wynajęcia. Pomagam firmom uporządkować dokumenty, statusy i ręczną pracę. Najpierw sprawdzam, czy problem rozwiąże gotowe narzędzie lub integracja. Dedykowaną aplikację buduję tylko wtedy, gdy to jedyna sensowna droga — bez wymiany całego istniejącego środowiska pracy.",
     cta: {
