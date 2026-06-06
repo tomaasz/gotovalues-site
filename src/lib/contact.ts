@@ -37,7 +37,7 @@ export function buildContactEmail(data: ContactFormData): {
     `<p><strong>E-mail:</strong> <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></p>`,
     `<p><strong>Firma:</strong> ${escapeHtml(data.company || 'nie podano')}</p>`,
     `<p><strong>Wiadomość:</strong></p>`,
-    `<p>${escapeHtml(data.message).split('\n').join('<br />')}</p>`,
+    `<p>${escapeHtml(data.message).replace(/\n/g, '<br />')}</p>`,
   ].join('');
 
   return { subject, text, html };
