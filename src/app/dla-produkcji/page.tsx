@@ -125,20 +125,6 @@ export default function ProductionLandingPage() {
         </Link>
       </section>
 
-      <section className="section surface" id="zobacz-tez">
-        <SectionHeading
-          eyebrow="Zobacz także"
-          heading="Automatyzacja supportu i obsługi klienta"
-        />
-        <p style={{ maxWidth: "var(--measure)", marginBottom: "var(--space-m)" }}>
-          Poza dokumentami produkcyjnymi zajmuję się też automatyzacją powtarzalnej pracy w
-          działach wsparcia. Sprawdź, jak agenci AI odciążają Twój helpdesk.
-        </p>
-        <Link className="button button-primary" href="/support-ai">
-          SupportFlow AI — automatyzacja wsparcia
-        </Link>
-      </section>
-
       <section className="section" id="kontakt">
         <SectionHeading
           eyebrow="Kontakt"
