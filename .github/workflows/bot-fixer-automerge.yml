@@ -74,9 +74,10 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.pr.outputs.number }}
           IS_DRAFT: ${{ steps.pr.outputs.is_draft }}
+          REPO: ${{ github.repository }}
         run: |
           set -eu
           if [ "$IS_DRAFT" = "true" ]; then
-            gh pr ready "$PR_NUMBER"
+            gh pr ready "$PR_NUMBER" --repo "$REPO"
           fi
-          gh pr merge "$PR_NUMBER" --squash --auto --delete-branch
+          gh pr merge "$PR_NUMBER" --squash --auto --delete-branch --repo "$REPO"
