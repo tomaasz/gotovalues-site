@@ -11,7 +11,8 @@ name: Auto-merge small bot-fixer PRs
 #   - changed lines: ≤ 50 (additions + deletions)
 #   - PR not labeled needs-review / blocked / major-upgrade
 #
-# `gh pr merge --auto` waits for required checks to pass (or merges
+# `git init
+          gh pr merge --auto` waits for required checks to pass (or merges
 # immediately if no protections are configured), so we don't need a
 # workflow_run trigger here — the pull_request_target event is enough.
 #
@@ -79,4 +80,5 @@ jobs:
           if [ "$IS_DRAFT" = "true" ]; then
             gh pr ready "$PR_NUMBER"
           fi
+          git init
           gh pr merge "$PR_NUMBER" --squash --auto --delete-branch
