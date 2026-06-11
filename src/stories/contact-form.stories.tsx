@@ -8,7 +8,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: "Formularz kontaktowy. W Storybooku renderowany bez wysyłki do prawdziwego endpointu, dopóki użytkownik go nie submituje.",
+        component: "Formularz kontaktowy. W Storybooku renderowany bez wysyłki do prawdziwego endpointu, dopóki użytkownik go nie wyśle.",
       },
     },
   },
