@@ -403,6 +403,117 @@ h3 {
   color: var(--text);
 }
 
+.blog-content table {
+  width: 100%;
+  margin: 24px 0;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.blog-content thead th {
+  text-align: left;
+  padding: 10px 14px;
+  background: var(--accent-soft);
+  color: var(--text);
+  font-weight: 700;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.blog-content tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.blog-content tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.blog-content tbody td:first-child {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ── kalkulator ROI ─────────────────────────────────────────────────────── */
+.roi-calc {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.roi-calc-inputs,
+.roi-calc-results {
+  padding: 28px;
+}
+
+.roi-calc-inputs .field-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.roi-calc-results {
+  position: sticky;
+  top: 96px;
+  display: grid;
+  gap: 18px;
+}
+
+.roi-result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.roi-result {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.roi-result-accent {
+  background: var(--accent-soft);
+  border-color: rgba(78, 139, 118, 0.25);
+}
+
+.roi-result-value {
+  font-family: var(--font-display), serif;
+  font-size: 1.6rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.roi-result-label {
+  font-size: 0.85rem;
+  color: var(--gv-muted);
+  line-height: 1.4;
+}
+
+.roi-payback {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  background: rgba(78, 139, 118, 0.08);
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.roi-disclaimer {
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .roi-calc {
+    grid-template-columns: 1fr;
+  }
+  .roi-calc-results {
+    position: static;
+  }
+}
+
 .hero-actions,
 .form-actions {
   display: flex;
