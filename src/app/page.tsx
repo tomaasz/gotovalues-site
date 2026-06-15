@@ -103,7 +103,7 @@ export default function HomePage() {
           eyebrow="SupportFlow AI"
           heading="Gotowy pakiet dla zespołów wsparcia: agenty AI, które klasyfikują zgłoszenia, piszą robocze odpowiedzi i eskalują trudne sprawy."
         >
-          <Link className="text-link" href="/support-ai">
+          <Link className="text-link" href="/supportflow">
             Zobacz pakiety i proces wdrożenia →
           </Link>
         </SectionHeading>

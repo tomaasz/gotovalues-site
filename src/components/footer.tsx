@@ -12,7 +12,7 @@ export function Footer() {
           &copy; {year} {brandName}
         </span>
         <nav className="footer-nav" aria-label="Stopka">
-          <Link href="/support-ai">SupportFlow AI</Link>
+          <Link href="/supportflow">SupportFlow AI</Link>
           <Link href="/polityka-prywatnosci">Polityka prywatności</Link>
           <a href="mailto:kontakt@gotovalues.com">kontakt@gotovalues.com</a>
         </nav>

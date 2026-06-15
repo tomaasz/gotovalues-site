@@ -120,7 +120,7 @@ export default function ProductionLandingPage() {
           Poza dokumentami produkcyjnymi zajmuję się też automatyzacją powtarzalnej pracy w
           działach wsparcia. Sprawdź, jak agenci AI odciążają Twój helpdesk.
         </p>
-        <Link className="button button-primary" href="/support-ai">
+        <Link className="button button-primary" href="/supportflow">
           SupportFlow AI — automatyzacja wsparcia
         </Link>
       </section>
@@ -134,7 +134,7 @@ export default function ProductionLandingPage() {
           Poza dokumentami produkcyjnymi zajmuję się też automatyzacją powtarzalnej pracy w
           działach wsparcia. Sprawdź, jak agenci AI odciążają Twój helpdesk.
         </p>
-        <Link className="button button-primary" href="/support-ai">
+        <Link className="button button-primary" href="/supportflow">
           SupportFlow AI — automatyzacja wsparcia
         </Link>
       </section>

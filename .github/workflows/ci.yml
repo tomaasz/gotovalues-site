@@ -40,6 +40,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Run pre-commit hooks on all files
+        uses: pre-commit/action@v3.0.1
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Lint
+        run: pnpm lint
+
       - name: Snyk dependency scan
         uses: snyk/actions/node@master
         env:

@@ -9,12 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: 'https://gotovalues.com/support-ai',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
       url: 'https://gotovalues.com/blog',
       lastModified: new Date(),
       changeFrequency: 'weekly',
@@ -22,6 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: 'https://gotovalues.com/dla-produkcji',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://gotovalues.com/supportflow',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,

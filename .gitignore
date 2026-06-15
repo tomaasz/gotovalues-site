@@ -31,3 +31,4 @@ package-lock.json
 
 *storybook.log
 storybook-static
+static-fallback/

@@ -36,7 +36,7 @@ describe("SEO config", () => {
     assert.ok(root, "Must include root url");
     assert.equal(root.priority, 1);
 
-    const produkty = config.find(item => item.url === "https://gotovalues.com/produkty");
-    assert.ok(produkty, "Must include produkty url");
+    const supportflow = config.find(item => item.url === "https://gotovalues.com/supportflow");
+    assert.ok(supportflow, "Must include supportflow url");
   });
 });
