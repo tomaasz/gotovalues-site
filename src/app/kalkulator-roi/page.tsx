@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Kalkulator ROI automatyzacji procesów",
+  alternates: { canonical: "/kalkulator-roi" },
   description:
     "Policz, ile czasu i pieniędzy odzyskasz dzięki automatyzacji procesu. Wpisz liczbę wykonań, czas i koszt godziny — wynik liczy się na żywo.",
   openGraph: {
