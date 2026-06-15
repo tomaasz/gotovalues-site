@@ -74,37 +74,15 @@ export default async function BlogPostPage({
         }}
       />
 
-      <article
-        className="surface"
-        style={{
-          maxWidth: "720px",
-          margin: "0 auto",
-          padding: "48px 24px",
-        }}
-      >
-        <nav style={{ marginBottom: "32px" }}>
-          <Link
-            href="/blog"
-            style={{
-              fontSize: "14px",
-              color: "var(--accent, #58a6ff)",
-              textDecoration: "none",
-            }}
-          >
+      <article className="surface blog-post">
+        <nav className="blog-post-nav">
+          <Link href="/blog" className="text-link">
             ← Blog
           </Link>
         </nav>
 
-        <header style={{ marginBottom: "32px" }}>
-          <time
-            dateTime={post.date}
-            style={{
-              fontSize: "13px",
-              color: "var(--grey, #6e7681)",
-              display: "block",
-              marginBottom: "8px",
-            }}
-          >
+        <header className="blog-post-header">
+          <time dateTime={post.date} className="blog-post-date">
             {new Date(post.date).toLocaleDateString("pl-PL", {
               year: "numeric",
               month: "long",
@@ -112,42 +90,17 @@ export default async function BlogPostPage({
             })}
           </time>
 
-          <h1
-            style={{
-              fontSize: "32px",
-              fontWeight: 600,
-              lineHeight: 1.3,
-              margin: "0 0 12px 0",
-            }}
-          >
-            {post.title}
-          </h1>
+          <h1>{post.title}</h1>
 
-          <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+          <ul className="tag-list">
             {post.tags.map((tag) => (
-              <span
-                key={tag}
-                style={{
-                  fontSize: "11px",
-                  padding: "2px 8px",
-                  background: "var(--surface-2, #21262d)",
-                  borderRadius: "10px",
-                  color: "var(--fg-dim, #8b949e)",
-                }}
-              >
-                {tag}
-              </span>
+              <li key={tag}>{tag}</li>
             ))}
-          </div>
+          </ul>
         </header>
 
         <div
           className="blog-content"
-          style={{
-            fontSize: "16px",
-            lineHeight: 1.8,
-            color: "var(--fg, #c9d1d9)",
-          }}
           dangerouslySetInnerHTML={{ __html: post.body }}
         />
       </article>

@@ -15,7 +15,7 @@
     "lint": "eslint src tests next.config.ts",
     "test": "tsx --test tests/*.test.ts tests/*.test.tsx",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "rm -rf .next .open-next; mv pnpm-lock.yaml pnpm-lock.yaml.deploybak 2>/dev/null; mv pnpm-workspace.yaml pnpm-workspace.yaml.deploybak 2>/dev/null; opennextjs-cloudflare build && opennextjs-cloudflare deploy; status=$?; [ -f pnpm-lock.yaml.deploybak ] && mv pnpm-lock.yaml.deploybak pnpm-lock.yaml; [ -f pnpm-workspace.yaml.deploybak ] && mv pnpm-workspace.yaml.deploybak pnpm-workspace.yaml; exit $status",
+    "deploy": "rm -rf .next .open-next; mv instrumentation.ts instrumentation.ts.deploybak 2>/dev/null; opennextjs-cloudflare build && opennextjs-cloudflare deploy; status=$?; [ -f instrumentation.ts.deploybak ] && mv instrumentation.ts.deploybak instrumentation.ts; exit $status",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "storybook": "storybook dev -p 6006",
@@ -66,23 +66,9 @@
     "storybook": "^10.4.5",
     "tailwindcss": "^4.3.1",
     "tsx": "^4.22.4",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "vite": "^8.0.16",
     "vitest": "^4.1.9",
     "wrangler": "^4.100.0"
-  },
-  "overrides": {
-    "dompurify": ">=3.4.0",
-    "fast-xml-parser": ">=5.5.6",
-    "path-to-regexp": ">=8.4.0",
-    "picomatch": ">=4.0.4",
-    "undici": ">=7.24.0",
-    "brace-expansion": ">=2.0.3",
-    "yaml": ">=2.8.3"
-  },
-  "pnpm": {
-    "overrides": {
-      "postcss": ">=8.5.10"
-    }
   }
 }
