@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         destination: "/#produkty",
         permanent: true,
       },
+      {
+        source: "/support-ai",
+        destination: "/supportflow",
+        permanent: true,
+      },
     ];
   },
 };
