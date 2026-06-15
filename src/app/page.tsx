@@ -42,6 +42,7 @@ export default function HomePage() {
             </ul>
           </div>
           <div className="hero-panel-grid">
+            <div className="hero-chip">agenci AI</div>
             <div className="hero-chip">workflow</div>
             <div className="hero-chip">dokumenty</div>
             <div className="hero-chip">OCR</div>
