@@ -5,6 +5,8 @@ import { brandName } from '@/content/site';
 import { buildContactEmail, contactFormSchema } from '@/lib/contact';
 import { logger } from '@/lib/logger';
 
+import { contactConfig } from './config';
+
 // Prosty in-memory rate limiting map. Uwaga: Działa to na instancję V8 isolate w Cloudflare Workers / Node, resetuje się przy starcie, jednak jest wystarczające na podstawowy spam.
 const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
 const RATE_LIMIT_MAX = 3; // Max zgłoszeń
@@ -76,9 +78,9 @@ export async function POST(request: Request) {
     );
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const toRaw = process.env.CONTACT_TO_EMAIL;
-  const from = process.env.CONTACT_FROM_EMAIL || `${brandName} <onboarding@resend.dev>`;
+  const apiKey = contactConfig.resendApiKey;
+  const toRaw = contactConfig.contactToEmail;
+  const from = contactConfig.contactFromEmail || `${brandName} <onboarding@resend.dev>`;
 
   // CONTACT_TO_EMAIL może być pojedynczym adresem albo listą rozdzieloną przecinkami
   const to = toRaw
