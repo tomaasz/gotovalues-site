@@ -8,6 +8,7 @@ import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "SupportFlow AI — automatyzacja wsparcia B2B",
+  alternates: { canonical: "/supportflow" },
   description:
     "Nie chatbot — konkretne agenty AI, które klasyfikują zgłoszenia, piszą robocze odpowiedzi i eskalują trudne sprawy do człowieka. 2 tygodnie wdrożenia, od 4 000 PLN. Polski język, bezpośredni kontakt z founderem.",
   openGraph: {

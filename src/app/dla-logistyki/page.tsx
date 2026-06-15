@@ -10,6 +10,7 @@ import { siteContent } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Dla logistyki i spedycji",
+  alternates: { canonical: "/dla-logistyki" },
   description:
     "Dedykowane narzędzia dla firm logistycznych i spedycyjnych: statusy przesyłek, dokumenty przewozowe, rozliczenia z przewoźnikami i integracja systemów bez wymiany środowiska.",
   openGraph: {
