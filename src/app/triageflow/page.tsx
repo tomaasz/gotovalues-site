@@ -8,6 +8,7 @@ import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "TriageFlow — automatyczny triage zgłoszeń (GitHub, e-mail)",
+  alternates: { canonical: "/triageflow" },
   description:
     "Agent AI, który automatycznie kategoryzuje, priorytetyzuje i przypisuje zgłoszenia — GitHub Issues, e-mail, fora. Działa na Twojej infrastrukturze, reguły konfigurowalne per projekt.",
   openGraph: {

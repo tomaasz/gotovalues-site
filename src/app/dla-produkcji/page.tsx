@@ -10,6 +10,7 @@ import { siteContent } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Dla produkcji",
+  alternates: { canonical: "/dla-produkcji" },
   description:
     "Dedykowane narzędzia dla firm produkcyjnych i przetwórczych: dokumenty jakościowe, reklamacje, statusy i wyjątki operacyjne bez dokładania kolejnego Excela.",
 };
