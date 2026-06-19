@@ -22,6 +22,12 @@ export const metadata: Metadata = {
   },
 };
 
+const escapeMap: Record<string, string> = {
+  '<': '\\u003c',
+  '>': '\\u003e',
+  '&': '\\u0026',
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -345,7 +351,7 @@ export default function TriageFlowPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd),
+          __html: JSON.stringify(jsonLd).replace(/[<>&]/g, (c) => escapeMap[c]),
         }}
       />
     </main>
