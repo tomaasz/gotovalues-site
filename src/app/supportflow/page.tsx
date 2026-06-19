@@ -5,6 +5,7 @@ import { ContactFormLazy as ContactForm } from "@/components/contact-form-lazy";
 import { ContactSignals } from "@/components/contact-signals";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
+import { escapeMap } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "SupportFlow AI — automatyzacja wsparcia B2B",
@@ -20,12 +21,6 @@ export const metadata: Metadata = {
     locale: "pl_PL",
     type: "website",
   },
-};
-
-const escapeMap: Record<string, string> = {
-  '<': '\\u003c',
-  '>': '\\u003e',
-  '&': '\\u0026',
 };
 
 const jsonLd = {
