@@ -20,7 +20,7 @@ export default function ProductionLandingPage() {
 
   return (
     <main id="main" className="page-shell" tabIndex={-1}>
-      <SiteHeader />
+      <SiteHeader variant="production" />
 
       <section className="hero surface">
         <div className="hero-copy">
