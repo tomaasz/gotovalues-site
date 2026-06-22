@@ -132,7 +132,7 @@ const pilotBenefits = [
 export default function SupportFlowPage() {
   return (
     <main id="main" className="page-shell" tabIndex={-1}>
-      <SiteHeader variant="support-ai" />
+      <SiteHeader />
 
       {/* Hero */}
       <section className="hero surface">
