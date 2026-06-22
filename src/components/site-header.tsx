@@ -4,10 +4,9 @@ import { siteContent } from "@/content/site";
 
 /**
  * Stała, jednolita nawigacja na wszystkich podstronach.
- * Wszystkie linki prowadzą do tego samego miejsca, niezależnie od bieżącej strony —
- * `variant` jest przyjmowany dla kompatybilności wstecznej, ale obecnie ignorowany.
+ * Wszystkie linki prowadzą do tego samego miejsca, niezależnie od bieżącej strony.
  */
-export function SiteHeader(_props: { variant?: "home" | "production" | "support-ai" } = {}) {
+export function SiteHeader() {
   return (
     <header className="site-header">
       <Link className="brand-mark" href="/">
