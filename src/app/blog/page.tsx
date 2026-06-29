@@ -7,7 +7,6 @@ import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Blog — dedykowane aplikacje webowe, AI i automatyzacja procesów",
-  alternates: { canonical: "/blog" },
   description:
     "Praktyczne artykuły o budowie dedykowanych aplikacji webowych, automatyzacji procesów z AI, pipeline'ach przetwarzania dokumentów i porządkowaniu pracy operacyjnej w firmach.",
   openGraph: {

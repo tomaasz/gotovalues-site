@@ -5,7 +5,6 @@ import { brandName } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Polityka prywatności",
-  alternates: { canonical: "/polityka-prywatnosci" },
   description: `Polityka prywatności serwisu ${brandName} — informacje o przetwarzaniu danych osobowych zgodnie z RODO.`,
 };
 

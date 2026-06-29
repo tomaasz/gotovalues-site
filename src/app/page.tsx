@@ -42,7 +42,6 @@ export default function HomePage() {
             </ul>
           </div>
           <div className="hero-panel-grid">
-            <div className="hero-chip">agenci AI</div>
             <div className="hero-chip">workflow</div>
             <div className="hero-chip">dokumenty</div>
             <div className="hero-chip">OCR</div>
@@ -104,7 +103,7 @@ export default function HomePage() {
           eyebrow="SupportFlow AI"
           heading="Gotowy pakiet dla zespołów wsparcia: agenty AI, które klasyfikują zgłoszenia, piszą robocze odpowiedzi i eskalują trudne sprawy."
         >
-          <Link className="text-link" href="/supportflow">
+          <Link className="text-link" href="/support-ai">
             Zobacz pakiety i proces wdrożenia →
           </Link>
         </SectionHeading>

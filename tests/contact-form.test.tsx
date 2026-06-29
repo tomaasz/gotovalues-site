@@ -10,6 +10,7 @@ async function submitFormAction(container: HTMLElement, name: string, email: str
   if (form) {
     const reactPropsKey = Object.keys(form).find((key) => key.startsWith('__reactProps$'));
     if (reactPropsKey) {
+      // @ts-expect-error - accessing internal react props for test
       const props = form[reactPropsKey as keyof typeof form];
       if (props && props.action) {
         const formData = new FormData();

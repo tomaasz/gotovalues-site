@@ -1,51 +1,9 @@
 packages:
   - '.'
   - 'packages/*'
-# Pinned wyłącznie do realnych podatności z `pnpm audit` (tylko patche/minory).
-# NIE wymuszać tu nowych majorów „na zapas" — forsowanie undici 7.24/brace-expansion 5
-# psuło konsumentów (jsdom@29, minimatch@8) sięgających po wewnętrzne API / inny
-# kształt eksportu. jsdom sam ciągnie poprawne undici ^7.25, więc go nie pinujemy.
-# Dodawaj override tylko gdy `pnpm audit` zgłasza paczkę i pin nie psuje builda.
-overrides:
-  esbuild: '>=0.28.1'
-  form-data: '>=4.0.6'
-  js-yaml: '>=4.1.2'
-  next: '>=16.2.9'
-  postcss: '>=8.5.10'
-  qs: '>=6.15.2'
-  ws: '>=8.21.0'
 allowBuilds:
   '@sentry/cli': false
-  core-js: true
   esbuild: false
   msw: false
-  protobufjs: true
   sharp: false
-  unrs-resolver: true
   workerd: false
-minimumReleaseAgeExclude:
-  - '@storybook/addon-a11y@10.4.5'
-  - '@storybook/addon-docs@10.4.5'
-  - '@storybook/addon-onboarding@10.4.5'
-  - '@storybook/addon-vitest@10.4.5'
-  - '@storybook/builder-vite@10.4.5'
-  - '@storybook/csf-plugin@10.4.5'
-  - '@storybook/nextjs-vite@10.4.5'
-  - '@storybook/react-dom-shim@10.4.5'
-  - '@storybook/react-vite@10.4.5'
-  - '@storybook/react@10.4.5'
-  - '@vitest/browser-playwright@4.1.9'
-  - '@vitest/browser@4.1.9'
-  - '@vitest/coverage-v8@4.1.9'
-  - '@vitest/expect@4.1.9'
-  - '@vitest/mocker@4.1.9'
-  - '@vitest/pretty-format@4.1.9'
-  - '@vitest/runner@4.1.9'
-  - '@vitest/snapshot@4.1.9'
-  - '@vitest/spy@4.1.9'
-  - '@vitest/utils@4.1.9'
-  - eslint-plugin-storybook@10.4.5
-  - playwright-core@1.61.0
-  - playwright@1.61.0
-  - storybook@10.4.5
-  - vitest@4.1.9

@@ -8,8 +8,14 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: "Główna nawigacja gotovalues.com.",
+        component: "Główna nawigacja gotovalues.com z wariantami używanymi na stronach landingowych.",
       },
+    },
+  },
+  argTypes: {
+    variant: {
+      control: "select",
+      options: ["home", "production", "support-ai"],
     },
   },
 } satisfies Meta<typeof SiteHeader>;
@@ -17,4 +23,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Home: Story = {
+  args: { variant: "home" },
+};
+
+export const Production: Story = {
+  args: { variant: "production" },
+};
+
+export const SupportAi: Story = {
+  args: { variant: "support-ai" },
+};

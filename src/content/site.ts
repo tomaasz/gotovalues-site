@@ -28,13 +28,13 @@ export const siteContent = {
   brand: {
     name: brandName,
     angle:
-      "Agentic AI i aplikacje webowe dla MŚP — gotowe wdrożenie zamiast drogich warsztatów i korporacyjnych cenników.",
+      "Boutique AI & Web App Partner — demokratyzuję technologię, którą wielkie agencje wdrażają tylko dla korporacji.",
     eyebrow:
       "Nowoczesne aplikacje webowe i rozwiązania AI — bezpieczne, tanie w utrzymaniu i dopasowane do realnych procesów firmy.",
     headline:
       "Buduję narzędzia wokół Twoich danych i procesów. Z AI lub bez — zawsze bez korporacyjnych cenników.",
     intro:
-      "Nie jestem zwykłym koderem do wynajęcia. Pomagam firmom uporządkować dokumenty, statusy i ręczną pracę. Najpierw sprawdzam, czy problem rozwiąże gotowe narzędzie lub integracja. Dedykowaną aplikację albo agenta AI buduję tylko wtedy, gdy to jedyna sensowna droga — bez wymiany całego istniejącego środowiska pracy. Dostarczam działające wdrożenie w tygodnie, nie miesiące — bez budowania zespołu i bez budżetu liczonego w dziesiątkach tysięcy na sam start.",
+      "Nie jestem zwykłym koderem do wynajęcia. Pomagam firmom uporządkować dokumenty, statusy i ręczną pracę. Najpierw sprawdzam, czy problem rozwiąże gotowe narzędzie lub integracja. Dedykowaną aplikację buduję tylko wtedy, gdy to jedyna sensowna droga — bez wymiany całego istniejącego środowiska pracy.",
     cta: {
       primary: {
         label: "Opisz proces do uporządkowania",
@@ -291,71 +291,5 @@ export const siteContent = {
     ],
     closing:
       "Jeśli w Twoim zakładzie część pracy dalej spina się ręcznie między dokumentami, Excelem i mailem, zacznijmy od jednego konkretnego procesu.",
-  },
-  logisticsLanding: {
-    eyebrow: "Dla logistyki i spedycji",
-    headline:
-      "Porządkuję statusy zleceń, dokumenty przewozowe i wymianę danych tam, gdzie TMS i ERP nie domykają realnej pracy spedycji.",
-    intro:
-      "Jeśli statusy przesyłek, awizacje, dokumenty przewozowe i rozliczenia z przewoźnikami żyją między Excelem, mailem i portalami kurierskimi, projektuję lekkie narzędzie, które porządkuje ten fragment procesu i łączy istniejące systemy — bez wymiany środowiska.",
-    cta: {
-      label: "Opisz proces w spedycji",
-      href: "#kontakt",
-    },
-    symptoms: [
-      {
-        title: "Statusy przesyłek trzeba sprawdzać ręcznie",
-        description:
-          "Gdzie jest zlecenie, czy doszło, czy jest opóźnione — odpowiedź wymaga zaglądania do kilku portali kurierskich i dopytywania kierowców albo magazynu.",
-      },
-      {
-        title: "Dane przepisywane między systemami",
-        description:
-          "Zlecenia, awizacje i dane do faktur wędrują ręcznie między ERP, arkuszem, mailem i portalami przewoźników — każdy przeskok to czas i ryzyko błędu.",
-      },
-      {
-        title: "Dokumenty przewozowe rozsiane i trudne do odnalezienia",
-        description:
-          "Listy przewozowe, potwierdzenia dostawy (POD), zlecenia i reklamacje leżą w mailach i na dyskach, więc skompletowanie historii zlecenia zajmuje za długo.",
-      },
-    ],
-    solutions: [
-      {
-        title: "Jeden widok statusów zleceń i przesyłek",
-        description:
-          "Buduję panel, który zbiera statusy z różnych źródeł w jedno miejsce — bez ręcznego sprawdzania portali i telefonów do kierowców.",
-      },
-      {
-        title: "Integracja przewoźników, ERP i magazynu",
-        description:
-          "Spinam systemy i portale kurierskie, żeby dane wpisywać raz i żeby same przepływały między spedycją, magazynem i fakturowaniem.",
-      },
-      {
-        title: "AI do dokumentów przewozowych",
-        description:
-          "OCR i ekstrakcja danych z listów przewozowych, POD-ów i faktur od przewoźników wdrażam tam, gdzie realnie skracają ręczną pracę i kontrolę rozliczeń.",
-      },
-    ],
-    proofHeading:
-      "Przykłady pokazują kierunek: statusy, dokumenty i dane spedycyjne da się uporządkować lekkim narzędziem zamiast kolejnym arkuszem i przeklejaniem.",
-    processSteps: [
-      {
-        title: "Rozpoznanie jednego procesu",
-        description:
-          "Zaczynamy od konkretnego obszaru: statusy przesyłek, awizacje, dokumenty przewozowe albo rozliczenia z przewoźnikami.",
-      },
-      {
-        title: "Pierwsza wersja z jasnym zakresem",
-        description:
-          "Proponuję pierwszy sensowny zakres, który da się sprawdzić na żywej pracy zespołu, zamiast planować duży projekt od razu.",
-      },
-      {
-        title: "Wdrożenie pod codzienną operację",
-        description:
-          "Narzędzie ma odciążać spedytorów i back office, a nie być kolejnym miejscem do ręcznego uzupełniania.",
-      },
-    ],
-    closing:
-      "Jeśli w Twojej spedycji statusy i dokumenty dalej spina się ręcznie między portalami, Excelem i mailem, zacznijmy od jednego konkretnego procesu.",
   },
 } as const;

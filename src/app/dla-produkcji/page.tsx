@@ -10,7 +10,6 @@ import { siteContent } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Dla produkcji",
-  alternates: { canonical: "/dla-produkcji" },
   description:
     "Dedykowane narzędzia dla firm produkcyjnych i przetwórczych: dokumenty jakościowe, reklamacje, statusy i wyjątki operacyjne bez dokładania kolejnego Excela.",
 };
@@ -20,7 +19,7 @@ export default function ProductionLandingPage() {
 
   return (
     <main id="main" className="page-shell" tabIndex={-1}>
-      <SiteHeader />
+      <SiteHeader variant="production" />
 
       <section className="hero surface">
         <div className="hero-copy">
@@ -121,7 +120,21 @@ export default function ProductionLandingPage() {
           Poza dokumentami produkcyjnymi zajmuję się też automatyzacją powtarzalnej pracy w
           działach wsparcia. Sprawdź, jak agenci AI odciążają Twój helpdesk.
         </p>
-        <Link className="button button-primary" href="/supportflow">
+        <Link className="button button-primary" href="/support-ai">
+          SupportFlow AI — automatyzacja wsparcia
+        </Link>
+      </section>
+
+      <section className="section surface" id="zobacz-tez">
+        <SectionHeading
+          eyebrow="Zobacz także"
+          heading="Automatyzacja supportu i obsługi klienta"
+        />
+        <p style={{ maxWidth: "var(--measure)", marginBottom: "var(--space-m)" }}>
+          Poza dokumentami produkcyjnymi zajmuję się też automatyzacją powtarzalnej pracy w
+          działach wsparcia. Sprawdź, jak agenci AI odciążają Twój helpdesk.
+        </p>
+        <Link className="button button-primary" href="/support-ai">
           SupportFlow AI — automatyzacja wsparcia
         </Link>
       </section>

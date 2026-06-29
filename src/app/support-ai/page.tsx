@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-
+import Link from "next/link";
 
 import { ContactFormLazy as ContactForm } from "@/components/contact-form-lazy";
 import { ContactSignals } from "@/components/contact-signals";
@@ -8,61 +8,9 @@ import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "SupportFlow AI — automatyzacja wsparcia B2B",
-  alternates: { canonical: "/supportflow" },
   description:
-    "Nie chatbot — konkretne agenty AI, które klasyfikują zgłoszenia, piszą robocze odpowiedzi i eskalują trudne sprawy do człowieka. 2 tygodnie wdrożenia, od 4 000 PLN. Polski język, bezpośredni kontakt z founderem.",
-  openGraph: {
-    title: "SupportFlow AI — automatyzacja wsparcia B2B",
-    description:
-      "Nie chatbot — konkretne agenty AI, które klasyfikują zgłoszenia, piszą robocze odpowiedzi i eskalują trudne sprawy do człowieka. 2 tygodnie wdrożenia, od 4 000 PLN.",
-    url: "https://gotovalues.com/supportflow",
-    siteName: "gotovalues",
-    locale: "pl_PL",
-    type: "website",
-  },
+    "Nie chatbot — konkretne agenty AI, które klasyfikują zgłoszenia, piszą robocze odpowiedzi i eskalują trudne sprawy do człowieka. 2 tygodnie wdrożenia, od 4 000 PLN.",
 };
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  name: "SupportFlow AI",
-  description:
-    "Agenci AI do automatyzacji wsparcia B2B — klasyfikacja zgłoszeń, robocze odpowiedzi, eskalacja. Wdrożenie w 2 tygodnie, od 4 000 PLN.",
-  offers: {
-    "@type": "AggregateOffer",
-    lowPrice: "4000",
-    highPrice: "18000",
-    priceCurrency: "PLN",
-    offerCount: "3",
-  },
-};
-
-const features = [
-  {
-    title: "Klasyfikacja zgłoszeń",
-    desc: "Agent automatycznie kategoryzuje zgłoszenia i wykrywa pilność — zespół widzi od razu, od czego zacząć.",
-  },
-  {
-    title: "Robocze odpowiedzi",
-    desc: "AI pisze propozycje odpowiedzi z cytowaniem bazy wiedzy — człowiek tylko zatwierdza lub koryguje.",
-  },
-  {
-    title: "Eskalacja do człowieka",
-    desc: "Trudne sprawy trafiają do właściwej osoby z kontekstem — bez przeklejania i gubienia wątku.",
-  },
-  {
-    title: "Integracja z helpdeskiem",
-    desc: "Działa z Twoim obecnym systemem zgłoszeń — Freshdesk, Zendesk, Jira, a nawet mailbox. Bez migracji danych.",
-  },
-  {
-    title: "Dashboard z metrykami",
-    desc: "Ile spraw załatwia agent, ile trafia do eskalacji, średni czas odpowiedzi — wszystko na jednym ekranie.",
-  },
-  {
-    title: "Baza wiedzy z cytowaniem",
-    desc: "Agent cytuje źródła z Waszej dokumentacji, FAQ i historii ticketów. Odpowiedzi są weryfikowalne, nie zmyślone.",
-  },
-];
 
 const packages = [
   {
@@ -106,32 +54,15 @@ const packages = [
   },
 ];
 
-const competition = [
-  { label: "Cena", them: "$50–150/mies/os", us: "4 000 PLN jednorazowo" },
-  { label: "Konfiguracja", them: "Gotowiec", us: "Szyty na miarę" },
-  { label: "Integracja z PL systemami", them: "Nie", us: "Tak" },
-  { label: "Język polski", them: "Słaby / brak", us: "Natywny" },
-  { label: "Opieka człowieka", them: "Support ticket", us: "Bezpośredni kontakt" },
-];
-
 const timeline = [
   { week: "Tydzień 1", steps: ["Warsztat mapowania procesów", "Prototyp agenta na danych historycznych", "Demo + feedback klienta"] },
   { week: "Tydzień 2", steps: ["Integracja z systemami + poprawki", "Testy na żywo + szkolenie", "Przekazanie"] },
 ];
 
-const pilotBenefits = [
-  "Priorytetowe wdrożenie w 2 tygodnie — Twój workflow jako pierwszy",
-  "Bezpośredni kontakt z founderem przez cały proces (Slack / mail / telefon)",
-  "Możliwość wpływania na roadmapę — Twoje potrzeby kształtują kolejne funkcje",
-  "Rabat 25% na pakiet BUSINESS lub ENTERPRISE dla pierwszych 3 klientów",
-  "Case study z Twoją nazwą (lub anonimowe) do celów marketingowych za zgodą",
-  "Gwarancja: jeśli po 30 dniach agent nie odciąża zespołu — zwracam pieniądze",
-];
-
-export default function SupportFlowPage() {
+export default function SupportAIPage() {
   return (
     <main id="main" className="page-shell" tabIndex={-1}>
-      <SiteHeader />
+      <SiteHeader variant="support-ai" />
 
       {/* Hero */}
       <section className="hero surface">
@@ -140,16 +71,15 @@ export default function SupportFlowPage() {
           <h1>AI, które naprawdę odciąża Twój support</h1>
           <p className="lede">
             Nie chatbot — konkretne agenty, które klasyfikują zgłoszenia, piszą robocze odpowiedzi,{" "}
-            a trudne sprawy eskalują do człowieka. Działa z Twoim obecnym helpdeskiem.{" "}
-            <strong>🇵🇱 Polski język, polski rynek, bezpośredni kontakt z founderem.</strong>
+            a trudne sprawy eskalują do człowieka. Działa z Twoim obecnym helpdeskiem.
           </p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#kontakt">
-              Opisz proces wsparcia
-            </a>
-            <a className="button button-secondary" href="#pakiety">
+            <a className="button button-primary" href="#pakiety">
               Zobacz pakiety
             </a>
+            <Link className="button button-secondary" href="/#produkty">
+              Przykłady wdrożeń
+            </Link>
           </div>
         </div>
         <div className="hero-panel">
@@ -172,22 +102,6 @@ export default function SupportFlowPage() {
         </div>
       </section>
 
-      {/* Features — 6 cards */}
-      <section className="section" id="jak-dziala">
-        <SectionHeading
-          eyebrow="Jak działa"
-          heading="Agent, który naprawdę odciąża zespół"
-        />
-        <div className="pillar-grid">
-          {features.map((f) => (
-            <div key={f.title} className="surface pillar-card">
-              <h3>{f.title}</h3>
-              <p>{f.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Problem / Solution */}
       <section className="section" id="problem">
         <SectionHeading
@@ -198,7 +112,7 @@ export default function SupportFlowPage() {
           <div className="surface pillar-card">
             <h3>Bez automatyzacji</h3>
             <ul>
-              <li>10–20h tygodniowo na te same odpowiedzi</li>
+              <li>10-20h tygodniowo na te same odpowiedzi</li>
               <li>Brak priorytetyzacji — pilne zgłoszenia czekają</li>
               <li>Brak danych — nie wiadomo, co zajmuje najwięcej czasu</li>
             </ul>
@@ -237,34 +151,6 @@ export default function SupportFlowPage() {
         </div>
       </section>
 
-      {/* Competition */}
-      <section className="section" id="konkurencja">
-        <SectionHeading
-          eyebrow="Konkurencja"
-          heading="Szyty na miarę, a nie gotowiec"
-        />
-        <div className="surface pillar-card overflow-x">
-          <table className="compare-table">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Intercom / Zendesk AI</th>
-                <th>SupportFlow AI</th>
-              </tr>
-            </thead>
-            <tbody>
-              {competition.map((row) => (
-                <tr key={row.label}>
-                  <td>{row.label}</td>
-                  <td>{row.them}</td>
-                  <td>{row.us}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
       {/* Dla kogo */}
       <section className="section" id="dla-kogo">
         <SectionHeading
@@ -292,30 +178,6 @@ export default function SupportFlowPage() {
               <li>budżet musi być rozliczony w modelu SaaS per-seat — pracuję projektowo, nie subskrypcyjnie</li>
             </ul>
           </div>
-        </div>
-      </section>
-
-      {/* Pilot program */}
-      <section className="section" id="program-pilotazowy">
-        <SectionHeading
-          eyebrow="Program pilotażowy"
-          heading="Zostań pierwszym klientem referencyjnym"
-        />
-        <div className="surface pillar-card">
-          <p>
-            Szukam 3 firm, które chcą jako pierwsze wdrożyć SupportFlow AI w swoim zespole.
-            W zamian za feedback i zgodę na wykorzystanie wdrożenia jako case study (z nazwą lub anonimowo){" "}
-            oferuję warunki, jakich później już nie będzie:
-          </p>
-          <ul style={{ marginTop: "22px" }}>
-            {pilotBenefits.map((b) => (
-              <li key={b}>{b}</li>
-            ))}
-          </ul>
-          <p style={{ marginTop: "22px", color: "var(--gv-muted)", fontSize: "0.92rem" }}>
-            <em>Program pilotażowy jest ograniczony do pierwszych 3 klientów. Po ich wdrożeniu{" "}
-            standardowe ceny i warunki wracają bez rabatu.</em>
-          </p>
         </div>
       </section>
 
@@ -358,22 +220,10 @@ export default function SupportFlowPage() {
               <li>jeśli problem rozwiąże gotowy dodatek do Waszego systemu — powiem to wprost</li>
             </ul>
             <ContactSignals />
-            <p className="helper-text" style={{ marginTop: "18px" }}>
-              <strong>🇵🇱 Pracuję bezpośrednio z klientami z Polski.</strong>{" "}
-              Nie ma account managerów, salesów ani call center — piszesz do mnie,{" "}
-              odpowiadam ja.
-            </p>
           </div>
           <ContactForm />
         </div>
       </section>
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd),
-        }}
-      />
     </main>
   );
 }
