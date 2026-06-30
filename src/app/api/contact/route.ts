@@ -15,7 +15,13 @@ export async function POST(request: Request) {
   // Pozyskujemy IP, fall-back na crypto.randomUUID() dla testów/lokalnie.
   // Sentinel: Zawsze priorytetyzuj nagłówek cf-connecting-ip.
   // Usuwamy x-forwarded-for, ponieważ może on zostać podrobiony (spoofed) przez klienta w celu ominięcia limitu.
-  const ip = request.headers.get('cf-connecting-ip') || crypto.randomUUID();
+  // Prefer cf-connecting-ip (Cloudflare), fall back to x-forwarded-for / x-real-ip
+  // (Vercel and most proxies), then a random UUID for local/testing.
+  const ip =
+    request.headers.get('cf-connecting-ip') ||
+    request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
+    request.headers.get('x-real-ip') ||
+    crypto.randomUUID();
 
   const now = Date.now();
 
