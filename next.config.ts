@@ -36,4 +36,9 @@ const nextConfig: NextConfig = {
 
 export default nextConfig;
 
-import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev());
+// Cloudflare/OpenNext local-dev binding shim — only relevant under `next dev` on the
+// Cloudflare adapter. Skip it on Vercel and in production builds so they don't pull in
+// wrangler/miniflare during the build.
+if (process.env.NODE_ENV === "development" && !process.env.VERCEL) {
+  import("@opennextjs/cloudflare").then((m) => m.initOpenNextCloudflareForDev());
+}
