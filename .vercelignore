@@ -1,0 +1,9 @@
+.env*
+.dev.vars
+.open-next
+.next
+.wrangler
+node_modules
+static-fallback
+storybook-static
+_bak_archive
