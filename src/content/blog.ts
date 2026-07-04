@@ -9,6 +9,9 @@ export type BlogPost = {
   body: string; // HTML content
 };
 
+
+const CONTACT_CTA = `<p>Jeśli masz proces, który zżera czas albo generuje błędy, i chcesz wiedzieć, ile realnie kosztowałaby jego automatyzacja &mdash; <a href="/#kontakt">napisz do mnie</a>. Zacznę od pytań o Twój proces, nie od cennika, i uczciwie powiem, czy lepsze będzie rozwiązanie dedykowane, czy gotowiec.</p>`;
+
 export const blogPosts: BlogPost[] = [
   {
     slug: "automatyzacja-procesow-w-firmie-przewodnik",
@@ -2222,7 +2225,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Podsumowanie</h2>
 <p>Koszt aplikacji webowej w 2026 dla polskiego MŚP to najczęściej przedział od kilkunastu do kilkudziesięciu tysięcy złotych za rozwiązanie z prawdziwą wartością, plus utrzymanie rzędu 15&ndash;25% rocznie. Szerokie widełki nie są wymówką &mdash; wynikają z tego, że płacisz za rozwiązanie swojego konkretnego problemu, a nie za produkt z półki.</p>
-<p>Jeśli masz proces, który zżera czas albo generuje błędy, i chcesz wiedzieć, ile realnie kosztowałaby jego automatyzacja &mdash; <a href="/#kontakt">napisz do mnie</a>. Zacznę od pytań o Twój proces, nie od cennika, i uczciwie powiem, czy lepsze będzie rozwiązanie dedykowane, czy gotowiec.</p>`,
+${CONTACT_CTA}`,
   },
   {
     slug: "integracja-systemow-it-w-firmie",
