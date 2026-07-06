@@ -5,6 +5,7 @@ import { brandName } from "@/content/site";
 
 import { Footer } from "@/components/footer";
 import { PostHogProvider } from "@/components/posthog-provider";
+import { escapeMap } from "@/lib/utils";
 
 import "./globals.css";
 
@@ -102,12 +103,6 @@ const jsonLd = {
       }
     }
   ]
-};
-
-const escapeMap: Record<string, string> = {
-  '<': '\\u003c',
-  '>': '\\u003e',
-  '&': '\\u0026',
 };
 
 export default function RootLayout({
