@@ -8,15 +8,15 @@ import { SiteHeader } from "@/components/site-header";
 import { siteContent } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "gotovalues vs freelancer i automatyzator — AI, web apps, procesy",
-  alternates: { canonical: "/vs-freelancer-automatyzator" },
+  title: "gotovalues — jak pracuję: AI, web apps, procesy",
+  alternates: { canonical: "/jak-pracuje" },
   description:
-    "Porównanie gotovalues z freelancerem i automatyzatorem low-code. Kiedy potrzebujesz analizy procesu, własnego UI, integracji i praktycznego AI zamiast samego kodu albo samego Make/Zapier.",
+    "Jak gotovalues prowadzi wdrożenia AI i aplikacji webowych: najpierw proces i gotowe narzędzia, potem integracje, automatyzacja albo dedykowana aplikacja, jeśli ma to sens biznesowy.",
   openGraph: {
-    title: "gotovalues vs freelancer i automatyzator",
+    title: "gotovalues — jak pracuję",
     description:
-      "Kiedy freelancer to za mało, a software house to za dużo: lekka aplikacja webowa, automatyzacja i AI wokół realnego procesu firmy.",
-    url: "https://gotovalues.com/vs-freelancer-automatyzator",
+      "Proces, gotowe narzędzia, automatyzacja i dedykowane aplikacje — bez sztucznego przeciwstawiania freelancerów, low-code i software house'ów.",
+    url: "https://gotovalues.com/jak-pracuje",
     siteName: "gotovalues",
     locale: "pl_PL",
     type: "website",
@@ -34,7 +34,7 @@ const jsonLd = {
   },
   areaServed: "PL",
   serviceType: "AI automation and lightweight web applications for SMEs",
-  url: "https://gotovalues.com/vs-freelancer-automatyzator",
+  url: "https://gotovalues.com/jak-pracuje",
 };
 
 export default function ComparisonLandingPage() {
@@ -55,17 +55,17 @@ export default function ComparisonLandingPage() {
               {landing.cta.label}
             </a>
             <Link className="button button-secondary" href="/#produkty">
-              Zobacz proof of competence
+              Zobacz przykłady
             </Link>
           </div>
         </div>
         <div className="hero-panel">
           <div className="hero-panel-card">
-            <span className="hero-panel-label">Największa różnica</span>
+            <span className="hero-panel-label">Zasada pracy</span>
             <ul>
               <li>nie zaczynam od kodu, tylko od procesu</li>
               <li>nie wciskam automatyzacji, gdy wystarczy gotowe narzędzie</li>
-              <li>buduję własny UI i integracje, gdy low-code dochodzi do ściany</li>
+              <li>buduję własny UI i integracje, gdy proces tego wymaga</li>
             </ul>
           </div>
           <div className="hero-panel-grid">
@@ -80,8 +80,8 @@ export default function ComparisonLandingPage() {
 
       <section className="section" id="porownanie">
         <SectionHeading
-          eyebrow="Porównanie"
-          heading="Dwa najczęstsze zamienniki — i gdzie zwykle pękają"
+          eyebrow="Decyzja"
+          heading="Nie chodzi o etykietę dostawcy — chodzi o dobór właściwego poziomu rozwiązania"
         />
         <div className="pillar-grid">
           {landing.audiences.map((audience) => (
@@ -122,28 +122,28 @@ export default function ComparisonLandingPage() {
       <section className="section" id="faq">
         <SectionHeading
           eyebrow="FAQ"
-          heading="Kiedy wybrać gotovalues zamiast freelancera, automatyzatora lub agencji?"
+          heading="Jak zdecydować: gotowiec, automatyzacja, dedykowana aplikacja czy większy zespół?"
         />
         <div className="faq-grid">
           <article className="surface pillar-card">
-            <h3>Kiedy freelancer wystarczy?</h3>
+            <h3>Kiedy wystarczy sam wykonawca?</h3>
             <p>
               Gdy masz gotową specyfikację, niewielki zakres i potrzebujesz tylko wykonania. Jeśli trzeba
-              dopiero ustalić proces, ograniczyć zakres i dobrać narzędzie, zwykłe „napisz kod” zwykle nie wystarcza.
+              dopiero ustalić proces, ograniczyć zakres i dobrać narzędzie, zaczynam od tej pracy przed kodem.
             </p>
           </article>
           <article className="surface pillar-card">
-            <h3>Kiedy automatyzator low-code wystarczy?</h3>
+            <h3>Kiedy wystarczy low-code?</h3>
             <p>
               Gdy proces to proste przeniesienie danych między znanymi narzędziami. Jeśli potrzebujesz własnego
-              interfejsu, kontroli kosztów AI, wyjątków i walidacji, lepsza jest lekka aplikacja webowa.
+              interfejsu, kontroli kosztów AI, wyjątków i walidacji, dokładam kod tylko tam, gdzie daje przewagę.
             </p>
           </article>
           <article className="surface pillar-card">
-            <h3>Kiedy software house ma sens?</h3>
+            <h3>Kiedy potrzebny jest większy zespół?</h3>
             <p>
               Przy dużym projekcie, wielu zespołach i budżecie enterprise. gotovalues jest dla firm, które chcą
-              rozwiązać konkretny proces szybciej, taniej i bez nadmiarowej organizacji.
+              rozwiązać konkretny proces w wąskim zakresie, szybciej i bez nadmiarowej organizacji.
             </p>
           </article>
         </div>
@@ -152,7 +152,7 @@ export default function ComparisonLandingPage() {
       <section className="section" id="kontakt">
         <SectionHeading
           eyebrow="Kontakt"
-          heading="Opisz jeden proces — porównam, czy lepszy będzie gotowiec, automatyzacja czy dedykowana aplikacja."
+          heading="Opisz jeden proces — pomogę dobrać najprostsze rozwiązanie, które faktycznie odciąży zespół."
         />
         <div className="surface contact-card">
           <div className="contact-copy">

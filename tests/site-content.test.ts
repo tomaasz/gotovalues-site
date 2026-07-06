@@ -51,13 +51,14 @@ describe("site content", () => {
     assert.match(siteContent.brand.eyebrow, /aplikacje|rozwiązania/i);
   });
 
-  test("turns Obsidian competitor research into comparison landing payload", () => {
+  test("turns Obsidian competitor research into non-antagonistic positioning payload", () => {
     assert.equal(siteContent.comparisonLanding.audiences.length, 2);
     assert.deepEqual(
       siteContent.comparisonLanding.audiences.map((audience) => audience.slug),
-      ["vs-freelancer", "vs-automatyzator"],
+      ["proces-przed-kodem", "automatyzacja-i-aplikacja"],
     );
-    assert.match(siteContent.comparisonLanding.headline, /freelancer|automatyzator/i);
+    assert.match(siteContent.comparisonLanding.headline, /Proces|gotowiec|dedykowane/i);
+    assert.match(siteContent.comparisonLanding.intro, /Nie chcę stawiać gotovalues w kontrze/i);
     assert.ok(
       siteContent.comparisonLanding.audiences.every((audience) => audience.gotovaluesAdvantage.length >= 3),
     );

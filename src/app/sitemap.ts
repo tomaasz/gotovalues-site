@@ -16,6 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE_URL}/vs-freelancer-automatyzator`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/jak-pracuje`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
       priority: 0.85,
     },
     {

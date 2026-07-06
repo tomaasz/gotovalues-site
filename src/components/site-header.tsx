@@ -14,7 +14,7 @@ export function SiteHeader() {
       </Link>
       <nav className="site-nav" aria-label="Główna nawigacja">
         <Link href="/#oferta">Oferta</Link>
-        <Link href="/vs-freelancer-automatyzator">Porównanie</Link>
+        <Link href="/vs-freelancer-automatyzator">Jak pracuję</Link>
         <Link href="/#produkty">Produkty</Link>
         <Link href="/supportflow">SupportFlow AI</Link>
         <Link href="/blog">Blog</Link>

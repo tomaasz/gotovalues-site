@@ -104,7 +104,7 @@ export default function HomePage() {
           heading={siteContent.proofOfCompetence.headline}
         >
           <Link className="text-link" href="/vs-freelancer-automatyzator#dowody">
-            Zobacz porównanie →
+            Przeczytaj, jak pracuję
           </Link>
         </SectionHeading>
         <div className="approach-grid">

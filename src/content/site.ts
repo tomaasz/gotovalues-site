@@ -270,15 +270,15 @@ export const siteContent = {
     ],
   },
   comparisonLanding: {
-    eyebrow: "gotovalues vs alternatywy",
-    headline: "Kiedy freelancer lub automatyzator to za mało, a software house to za dużo",
+    eyebrow: "Jak pracuję",
+    headline: "Proces, gotowiec albo dedykowane narzędzie — wybór zależy od problemu, nie etykiety dostawcy",
     intro:
-      "Z Obsidianowego researchu konkurencji wynika prosta luka: freelancerzy często dowożą tylko wskazaną specyfikację, automatyzatorzy low-code spinają narzędzia bez własnego UI, a agencje celują w większe budżety. gotovalues jest środkiem: analiza procesu, lekka aplikacja, integracje i AI tam, gdzie faktycznie skracają pracę.",
+      "Nie chcę stawiać gotovalues w kontrze do freelancerów, automatyzatorów ani software house'ów — sam pracuję bezpośrednio i projektowo. Różnica, którą chcę pokazać, dotyczy sposobu pracy: zaczynam od zrozumienia procesu, potem wybieram najprostsze rozwiązanie — gotowe narzędzie, integrację, automatyzację albo dedykowaną aplikację.",
     audiences: [
       {
-        slug: "vs-freelancer",
-        title: "Zamiast samego freelancera",
-        pain: "Freelancer napisze kod, ale często nie zakwestionuje błędnej specyfikacji ani nie zaproponuje prostszego procesu.",
+        slug: "proces-przed-kodem",
+        title: "Najpierw proces, dopiero potem kod",
+        pain: "Jeśli specyfikacja opisuje obejście zamiast problemu, samo wykonanie kodu może tylko utrwalić ręczną pracę w nowej formie.",
         gotovaluesAdvantage: [
           "najpierw sprawdzam, czy w ogóle trzeba budować dedykowaną aplikację",
           "łączę analizę biznesową, UX, kod, automatyzację i utrzymanie",
@@ -286,9 +286,9 @@ export const siteContent = {
         ],
       },
       {
-        slug: "vs-automatyzator",
-        title: "Zamiast samego automatyzatora Make/Zapier/n8n",
-        pain: "Automatyzacja przenosi dane między narzędziami, ale przy własnym interfejsie, logice AI i wyjątkach szybko dochodzi do ściany.",
+        slug: "automatyzacja-i-aplikacja",
+        title: "Automatyzacja, gdy wystarczy. Aplikacja, gdy jest potrzebna.",
+        pain: "Make, Zapier i n8n są świetne do wielu przepływów. Problem zaczyna się wtedy, gdy zespół potrzebuje własnego widoku pracy, obsługi wyjątków albo kontroli kosztów AI.",
         gotovaluesAdvantage: [
           "buduję własny UI tam, gdzie zespół potrzebuje jednego miejsca pracy",
           "dopinam brakujące integracje kodem, gdy gotowy moduł nie istnieje",
@@ -297,7 +297,7 @@ export const siteContent = {
       },
     ],
     cta: {
-      label: "Opisz proces do porównania",
+      label: "Opisz proces do uporządkowania",
       href: "#kontakt",
     },
   },

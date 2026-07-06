@@ -25,7 +25,7 @@ ${proof}
 
 ## Key pages
 - Homepage: https://gotovalues.com
-- Comparison: https://gotovalues.com/vs-freelancer-automatyzator
+- Comparison: https://gotovalues.com/jak-pracuje
 - TriageFlow: https://gotovalues.com/triageflow
 - SupportFlow AI: https://gotovalues.com/supportflow
 - Production workflows: https://gotovalues.com/dla-produkcji

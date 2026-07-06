@@ -44,6 +44,10 @@ describe("SEO config", () => {
     const comparison = config.find(item => item.url === "https://gotovalues.com/vs-freelancer-automatyzator");
     assert.ok(comparison, "Must include competitor-comparison landing page");
 
+    const howIWork = config.find(item => item.url === "https://gotovalues.com/jak-pracuje");
+    assert.ok(howIWork, "Must include non-antagonistic how-I-work landing page");
+    assert.ok((howIWork.priority ?? 0) > (comparison.priority ?? 0));
+
     const llms = config.find(item => item.url === "https://gotovalues.com/llms.txt");
     assert.ok(llms, "Must include llms.txt for AI crawlers");
   });
@@ -58,6 +62,7 @@ describe("SEO config", () => {
     assert.match(llms, /gotovalues/i);
     assert.match(llms, /AI|automatyzacja|aplikacje/i);
     assert.match(llms, /https:\/\/gotovalues\.com\/sitemap\.xml/);
+    assert.match(llms, /https:\/\/gotovalues\.com\/jak-pracuje/);
     assert.match(ai, /AI crawling: allow/);
     assert.match(ai, /AI indexing: allow/);
     assert.match(ai, /https:\/\/gotovalues\.com\/llms\.txt/);
