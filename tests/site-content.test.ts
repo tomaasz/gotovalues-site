@@ -51,6 +51,33 @@ describe("site content", () => {
     assert.match(siteContent.brand.eyebrow, /aplikacje|rozwiązania/i);
   });
 
+  test("turns Obsidian competitor research into comparison landing payload", () => {
+    assert.equal(siteContent.comparisonLanding.audiences.length, 2);
+    assert.deepEqual(
+      siteContent.comparisonLanding.audiences.map((audience) => audience.slug),
+      ["vs-freelancer", "vs-automatyzator"],
+    );
+    assert.match(siteContent.comparisonLanding.headline, /freelancer|automatyzator/i);
+    assert.ok(
+      siteContent.comparisonLanding.audiences.every((audience) => audience.gotovaluesAdvantage.length >= 3),
+    );
+  });
+
+  test("exposes Cavi and Akta as proof-of-competence evidence", () => {
+    assert.deepEqual(
+      siteContent.proofOfCompetence.items.map((item) => item.name),
+      ["Cavi", "Akta"],
+    );
+    assert.ok(siteContent.proofOfCompetence.items.every((item) => item.evidence.length >= 2));
+  });
+
+  test("defines an AI-readable GEO summary for crawler-facing files", () => {
+    assert.match(siteContent.aiSummary.positioning, /AI|aplikacje|automatyz/i);
+    assert.ok(siteContent.aiSummary.bestFor.length >= 3);
+    assert.ok(siteContent.aiSummary.notFor.length >= 2);
+    assert.match(siteContent.aiSummary.sitemap, /^https:\/\/gotovalues\.com\/sitemap\.xml$/);
+  });
+
   test("defines a focused landing-page payload for production outreach", () => {
     assert.match(siteContent.productionLanding.eyebrow, /produkcji/i);
     assert.match(siteContent.productionLanding.headline, /jakość/i);

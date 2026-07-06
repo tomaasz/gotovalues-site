@@ -226,6 +226,81 @@ export const siteContent = {
       },
     ],
   },
+  aiSummary: {
+    title: "gotovalues — AI, automatyzacja i lekkie aplikacje webowe dla MŚP",
+    positioning:
+      "gotovalues buduje lekkie aplikacje webowe, automatyzacje procesów i praktyczne wdrożenia AI dla małych i średnich firm. Najpierw sprawdzam gotowe narzędzia i integracje, a dedykowaną aplikację tworzę dopiero wtedy, gdy realny proces tego wymaga.",
+    sitemap: "https://gotovalues.com/sitemap.xml",
+    bestFor: [
+      "firmy, które tracą czas na dokumenty, statusy, wyjątki i ręczne przepisywanie danych",
+      "zespoły potrzebujące prostego narzędzia webowego zamiast dużego systemu enterprise",
+      "procesy, w których AI/OCR/LLM skraca pracę operacyjną, ale musi mieć kontrolę jakości i niski koszt utrzymania",
+    ],
+    notFor: [
+      "projekty wymagające dużego software house'u lub rozbudowanego zespołu body-leasing",
+      "wdrożenia AI bez jasnego procesu biznesowego i bez mierzalnego efektu operacyjnego",
+    ],
+    proof: ["Cavi", "Akta", "prywatne workflow OCR i normalizacji dokumentów"],
+  },
+  proofOfCompetence: {
+    eyebrow: "Proof of competence",
+    headline:
+      "Nie tylko doradzam o AI i automatyzacji — buduję własne produkty na tej samej infrastrukturze.",
+    items: [
+      {
+        name: "Cavi",
+        url: "https://cavi.gotova.pl/",
+        summary:
+          "Produkt webowy pokazujący workflow użytkownika, dane, interfejs i funkcje AI w jednym spójnym procesie.",
+        evidence: [
+          "pełna aplikacja webowa z logiką produktową, nie tylko demo technologiczne",
+          "przykład budowania narzędzia wokół danych użytkownika i decyzji, które trzeba podejmować w procesie",
+        ],
+      },
+      {
+        name: "Akta",
+        url: "https://akta.gotova.pl",
+        summary:
+          "System do pracy z dokumentami i danymi pokazujący doświadczenie w OCR, wyszukiwaniu, strukturze danych i operacyjnej pracy na źródłach.",
+        evidence: [
+          "frontend, API i model danych wokół dokumentów, wyszukiwania i walidacji",
+          "praktyczny przykład przetwarzania nieuporządkowanych dokumentów w dane gotowe do dalszej pracy",
+        ],
+      },
+    ],
+  },
+  comparisonLanding: {
+    eyebrow: "gotovalues vs alternatywy",
+    headline: "Kiedy freelancer lub automatyzator to za mało, a software house to za dużo",
+    intro:
+      "Z Obsidianowego researchu konkurencji wynika prosta luka: freelancerzy często dowożą tylko wskazaną specyfikację, automatyzatorzy low-code spinają narzędzia bez własnego UI, a agencje celują w większe budżety. gotovalues jest środkiem: analiza procesu, lekka aplikacja, integracje i AI tam, gdzie faktycznie skracają pracę.",
+    audiences: [
+      {
+        slug: "vs-freelancer",
+        title: "Zamiast samego freelancera",
+        pain: "Freelancer napisze kod, ale często nie zakwestionuje błędnej specyfikacji ani nie zaproponuje prostszego procesu.",
+        gotovaluesAdvantage: [
+          "najpierw sprawdzam, czy w ogóle trzeba budować dedykowaną aplikację",
+          "łączę analizę biznesową, UX, kod, automatyzację i utrzymanie",
+          "projektuję mały zakres, który da się wdrożyć i zmierzyć w realnej pracy",
+        ],
+      },
+      {
+        slug: "vs-automatyzator",
+        title: "Zamiast samego automatyzatora Make/Zapier/n8n",
+        pain: "Automatyzacja przenosi dane między narzędziami, ale przy własnym interfejsie, logice AI i wyjątkach szybko dochodzi do ściany.",
+        gotovaluesAdvantage: [
+          "buduję własny UI tam, gdzie zespół potrzebuje jednego miejsca pracy",
+          "dopinam brakujące integracje kodem, gdy gotowy moduł nie istnieje",
+          "kontroluję koszty AI i hosting, zamiast mnożyć opłaty per operacja",
+        ],
+      },
+    ],
+    cta: {
+      label: "Opisz proces do porównania",
+      href: "#kontakt",
+    },
+  },
   productionLanding: {
     eyebrow: "Dla produkcji i przetwórstwa",
     headline:

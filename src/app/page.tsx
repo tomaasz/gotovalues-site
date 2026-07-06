@@ -98,6 +98,30 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section" id="proof-of-competence">
+        <SectionHeading
+          eyebrow={siteContent.proofOfCompetence.eyebrow}
+          heading={siteContent.proofOfCompetence.headline}
+        >
+          <Link className="text-link" href="/vs-freelancer-automatyzator#dowody">
+            Zobacz porównanie →
+          </Link>
+        </SectionHeading>
+        <div className="approach-grid">
+          {siteContent.proofOfCompetence.items.map((item) => (
+            <article className="approach-card" key={item.name}>
+              <h3>{item.name}</h3>
+              <p>{item.summary}</p>
+              <ul>
+                {item.evidence.map((evidence) => (
+                  <li key={evidence}>{evidence}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="section" id="support-ai">
         <SectionHeading
           inline

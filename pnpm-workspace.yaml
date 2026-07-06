@@ -35,17 +35,30 @@ minimumReleaseAgeExclude:
   - '@storybook/react-vite@10.4.5'
   - '@storybook/react@10.4.5'
   - '@vitest/browser-playwright@4.1.9'
+  - '@vitest/browser-playwright@4.1.10'
   - '@vitest/browser@4.1.9'
+  - '@vitest/browser@4.1.10'
   - '@vitest/coverage-v8@4.1.9'
+  - '@vitest/coverage-v8@4.1.10'
   - '@vitest/expect@4.1.9'
+  - '@vitest/expect@4.1.10'
   - '@vitest/mocker@4.1.9'
+  - '@vitest/mocker@4.1.10'
   - '@vitest/pretty-format@4.1.9'
+  - '@vitest/pretty-format@4.1.10'
   - '@vitest/runner@4.1.9'
+  - '@vitest/runner@4.1.10'
   - '@vitest/snapshot@4.1.9'
+  - '@vitest/snapshot@4.1.10'
   - '@vitest/spy@4.1.9'
+  - '@vitest/spy@4.1.10'
   - '@vitest/utils@4.1.9'
+  - '@vitest/utils@4.1.10'
+  - caniuse-lite@1.0.30001802
+  - posthog-js@1.396.7
   - eslint-plugin-storybook@10.4.5
   - playwright-core@1.61.0
   - playwright@1.61.0
   - storybook@10.4.5
   - vitest@4.1.9
+  - vitest@4.1.10
