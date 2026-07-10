@@ -59,8 +59,12 @@ export default function PrivacyPolicyPage() {
             <li>
               <strong>Microsoft Clarity</strong> (Microsoft) — mapy ciepła (heatmapy) oraz nagrania
               sesji, które mogą rejestrować ruch kursora, kliknięcia i przewijanie strony (treść pól
-              oznaczonych jako wrażliwe jest maskowana). Clarity jest zintegrowany z Google
-              Analytics 4 — zbiorcze statystyki mogą trafiać do usługi Google.
+              oznaczonych jako wrażliwe jest maskowana).
+            </li>
+            <li>
+              <strong>Google Analytics 4</strong> (Google) — statystyki ruchu i zdarzeń (odsłony,
+              źródła wizyt, urządzenia). Działa w trybie zgody (Consent Mode) — ładuje się dopiero po
+              Twojej akceptacji.
             </li>
           </ul>
 
@@ -80,9 +84,9 @@ export default function PrivacyPolicyPage() {
               strony, m.in. do zapamiętania Twojej decyzji dotyczącej cookies. Nie wymagają zgody.
             </li>
             <li>
-              <strong>Analityczne</strong> — PostHog i Microsoft Clarity (opisane w pkt 2).
-              Uruchamiają się dopiero po wyrażeniu zgody w banerze cookie. Jeśli nie wyrazisz zgody,
-              narzędzia te w ogóle się nie ładują.
+              <strong>Analityczne</strong> — PostHog, Microsoft Clarity i Google Analytics 4
+              (opisane w pkt 2). Uruchamiają się dopiero po wyrażeniu zgody w banerze cookie. Jeśli
+              nie wyrazisz zgody, narzędzia te w ogóle się nie ładują.
             </li>
           </ul>
           <p>
@@ -114,8 +118,7 @@ export default function PrivacyPolicyPage() {
               <strong>Microsoft</strong> — mapy ciepła i nagrania sesji w Microsoft Clarity (za zgodą)
             </li>
             <li>
-              <strong>Google</strong> — zbiorcze statystyki z Google Analytics 4 (za zgodą, przez
-              integrację z Microsoft Clarity)
+              <strong>Google</strong> — statystyki ruchu w Google Analytics 4 (za zgodą)
             </li>
           </ul>
           <p>
