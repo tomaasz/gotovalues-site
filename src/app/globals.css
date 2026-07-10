@@ -326,6 +326,24 @@ h3 {
   color: var(--gv-accent);
 }
 
+/* Inline "change cookie settings" trigger — matches legal-page links. */
+.legal-inline-button {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--accent-strong);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.legal-inline-button:hover {
+  color: var(--gv-accent);
+}
+
 /* ── blog post (artykuł) ────────────────────────────────────────────────── */
 .blog-post {
   max-width: 760px;
@@ -1286,6 +1304,23 @@ h3 {
 
 .footer-nav a:hover,
 .footer-nav a:focus-visible {
+  color: var(--accent-strong);
+}
+
+/* "Ustawienia cookies" re-opens the consent banner — styled like a footer link. */
+.footer-nav button {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--gv-muted);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.footer-nav button:hover,
+.footer-nav button:focus-visible {
   color: var(--accent-strong);
 }
 

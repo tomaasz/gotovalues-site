@@ -1,11 +1,12 @@
 "use client";
 
-import { useCallback, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import {
   CONSENT_CHANGED_EVENT,
+  CONSENT_REOPEN_EVENT,
   DEFAULT_CONSENT,
   getCookieConsent,
   saveCookieConsent,
@@ -30,14 +31,28 @@ export function CookieConsent() {
     getServerSnapshot,
   );
   const [expanded, setExpanded] = useState(false);
+  // Lets visitors re-open the banner later (from the footer / privacy policy)
+  // to change or withdraw consent, even after a decision is stored.
+  const [reopened, setReopened] = useState(false);
+
+  useEffect(() => {
+    const onReopen = () => setReopened(true);
+    window.addEventListener(CONSENT_REOPEN_EVENT, onReopen);
+    return () => window.removeEventListener(CONSENT_REOPEN_EVENT, onReopen);
+  }, []);
 
   const respond = useCallback((analytics: boolean) => {
+    const previous = getCookieConsent();
     saveCookieConsent(
       analytics ? { necessary: true, analytics: true } : DEFAULT_CONSENT,
     );
+    setReopened(false);
+    // Withdrawing a prior analytics consent: reload so already-initialised
+    // trackers (PostHog / Clarity) stop for the rest of the session.
+    if (!analytics && previous?.analytics) window.location.reload();
   }, []);
 
-  if (!needsConsent) return null;
+  if (!needsConsent && !reopened) return null;
 
   return (
     <section

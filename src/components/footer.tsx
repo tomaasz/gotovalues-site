@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { brandName } from "@/content/site";
+import { CookieSettingsButton } from "@/components/cookie-settings-button";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -17,6 +18,7 @@ export function Footer() {
           <Link href="/kalkulator-roi">Kalkulator ROI</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/polityka-prywatnosci">Polityka prywatności</Link>
+          <CookieSettingsButton />
           <a href="mailto:kontakt@gotovalues.com">kontakt@gotovalues.com</a>
         </nav>
       </div>

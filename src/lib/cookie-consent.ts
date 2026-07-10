@@ -11,6 +11,7 @@
 
 export const CONSENT_KEY = "gotovalues-cookie-consent";
 export const CONSENT_CHANGED_EVENT = "cookie-consent-changed";
+export const CONSENT_REOPEN_EVENT = "cookie-consent-reopen";
 
 export type CookieConsent = {
   necessary: true;
@@ -40,6 +41,12 @@ export function saveCookieConsent(consent: CookieConsent): void {
   window.dispatchEvent(
     new CustomEvent<CookieConsent>(CONSENT_CHANGED_EVENT, { detail: consent }),
   );
+}
+
+/** Re-open the consent banner so a visitor can change or withdraw consent. */
+export function reopenCookieBanner(): void {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(new CustomEvent(CONSENT_REOPEN_EVENT));
 }
 
 /**
