@@ -5,6 +5,7 @@ import { ContactFormLazy as ContactForm } from "@/components/contact-form-lazy";
 import { ContactSignals } from "@/components/contact-signals";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
+import { escapeMap } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "TriageFlow — automatyczny triage zgłoszeń (GitHub, e-mail)",
@@ -345,7 +346,7 @@ export default function TriageFlowPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd),
+          __html: JSON.stringify(jsonLd).replace(/[<>&]/g, (c) => escapeMap[c]),
         }}
       />
     </main>
