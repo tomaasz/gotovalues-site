@@ -5,6 +5,8 @@ import { brandName } from "@/content/site";
 
 import { Footer } from "@/components/footer";
 import { PostHogProvider } from "@/components/posthog-provider";
+import { ClarityProvider } from "@/components/clarity-provider";
+
 import { escapeMap } from "@/lib/utils";
 
 import "./globals.css";
@@ -119,6 +121,7 @@ export default function RootLayout({
         <PostHogProvider>
           {children}
         </PostHogProvider>
+        <ClarityProvider />
         <Footer />
         <script
           type="application/ld+json"
