@@ -6,6 +6,7 @@ import { ContactSignals } from "@/components/contact-signals";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
 import { siteContent } from "@/content/site";
+import { escapeMap } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "gotovalues — jak pracuję: AI, web apps, procesy",
@@ -170,7 +171,7 @@ export default function ComparisonLandingPage() {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/[<>&]/g, (c) => escapeMap[c]) }}
       />
     </main>
   );

@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 
 import { blogPosts, getPost, getPostMetadata } from "@/content/blog";
 import { SiteHeader } from "@/components/site-header";
+import { escapeMap } from "@/lib/utils";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -63,7 +64,7 @@ export default async function BlogPostPage({
       <Script
         id={`json-ld-${post.slug}`}
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/[<>&]/g, (c) => escapeMap[c]) }}
       />
 
       <article className="surface blog-post">
