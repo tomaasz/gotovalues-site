@@ -60,19 +60,62 @@ curl -so /dev/null -w '%{http_code}' 'http://127.0.0.1:8888/search?q=test&format
 
 Hermes Agent must have:
 
-1. `SEARXNG_URL` set to `http://127.0.0.1:8888` (config env or shell env)
+1. `SEARXNG_URL` set to `https://searxng.gotova.pl` (public URL) or `http://127.0.0.1:8888` (local only)
 2. `web.search_backend: searxng` in `config.yaml`
+
+**Current config** (verified 2026-07-10):
+- `~/.hermes/.env`: `SEARXNG_URL=https://searxng.gotova.pl`
+- `~/.hermes/config.yaml`: `search_backend: searxng`
+- `~/.hermes/profiles/hermes-worker/config.yaml`: `search_backend: searxng`
 
 Set via:
 ```bash
-export SEARXNG_URL=http://127.0.0.1:8888
+export SEARXNG_URL=https://searxng.gotova.pl
 ```
 Or add to Hermes config's environment section.
 
+## Verification
+
+```bash
+# JSON API test (local)
+curl -s 'http://127.0.0.1:8888/search?q=test&format=json' | jq '.results | length'
+
+# JSON API test (public)
+curl -s 'https://searxng.gotova.pl/search?q=test&format=json' | jq '.results | length'
+# Expect: ≥1 result, HTTP 200
+
+# Hermes search routing
+hermes chat -q 'search: python programming language'
+# Expect: search tool shows 🔍 icon, routes through SearXNG
+```
+
+## Known issues
+
+### Engine availability (2026-07-10)
+
+| Engine | Status | Detail |
+|--------|--------|--------|
+| Wikipedia | ✅ Works | Always available, no API key needed |
+| Google CSE | ✅ Works | May have rate limits |
+| Brave | ❌ Suspended | `too many requests` — free tier exhausted |
+| DuckDuckGo | ❌ CAPTCHA | Requires CAPTCHA bypass |
+| Startpage | ❌ Suspended | CAPTCHA lock |
+
+### web_search tool format mismatch
+
+Hermes' `web_search` tool (used internally by the agent) returns empty results even though SearXNG's raw API returns full results. The raw API call works when curl'd directly. The tool may expect a different JSON schema. This means SearXNG-backed searches in Hermes may appear empty unless the agent falls back to manual API calls.
+
+**Workaround**: Hermes agents that encounter empty SearXNG results can curl the API directly:
+```python
+import requests, json
+r = requests.get('https://searxng.gotova.pl/search', params={'q': query, 'format': 'json'})
+results = r.json().get('results', [])
+```
+
 ## Troubleshooting
 
-- **Engine suspension**: All default upstream engines (Brave, DuckDuckGo, Startpage, Google CSE) are currently blocked — Brave is suspended (`too many requests`), DuckDuckGo/Startpage require CAPTCHA. This means **no search results** reach Hermes even though the SearXNG API responds HTTP 200.
-- **Fix — Brave Search API key**: The most reliable fix is to add a Brave Search API key to SearXNG's settings. Brave's paid API (https://api.search.brave.com) has no rate limits and bypasses the free-tier suspension. Add to `settings.yml` under `outgoing:`:
+- **Engine suspension**: See table above. Most likely cause of empty search results.
+- **Fix — Brave Search API key**: Add a Brave Search API key to SearXNG's settings. Brave's paid API (https://api.search.brave.com) has no rate limits. Add to `settings.yml` under `outgoing:`:
   ```yaml
   outgoing:
     # existing settings...
