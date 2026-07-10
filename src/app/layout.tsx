@@ -6,6 +6,7 @@ import { brandName } from "@/content/site";
 import { Footer } from "@/components/footer";
 import { PostHogProvider } from "@/components/posthog-provider";
 import { ClarityProvider } from "@/components/clarity-provider";
+import { CookieConsent } from "@/components/cookie-consent";
 
 import { escapeMap } from "@/lib/utils";
 
@@ -122,6 +123,7 @@ export default function RootLayout({
           {children}
         </PostHogProvider>
         <ClarityProvider />
+        <CookieConsent />
         <Footer />
         <script
           type="application/ld+json"
