@@ -66,4 +66,3 @@ close $of;
 
 print "✅ Wstawiono nowy case study\n";
 print "🧷 Backup: $bak\n";
-
