@@ -60,6 +60,8 @@ jobs:
 
       - name: Socket Security
         uses: SocketDev/action@v1.3.2
+        with:
+          mode: firewall
 
       - name: Build
         run: pnpm build
