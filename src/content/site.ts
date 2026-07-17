@@ -28,11 +28,11 @@ export const siteContent = {
   brand: {
     name: brandName,
     angle:
-      "Agentic AI i aplikacje webowe dla MŚP — gotowe wdrożenie zamiast drogich warsztatów i korporacyjnych cenników.",
+      "Agentic AI i aplikacje webowe dla MŚP — gotowe wdrożenie zamiast drogich warsztatów.",
     eyebrow:
       "Nowoczesne aplikacje webowe i rozwiązania AI — bezpieczne, tanie w utrzymaniu i dopasowane do realnych procesów firmy.",
     headline:
-      "Buduję narzędzia wokół Twoich danych i procesów. Z AI lub bez — zawsze bez korporacyjnych cenników.",
+      "Buduję narzędzia wokół Twoich danych i procesów — z AI lub bez. Działające wdrożenie w tygodnie, nie miesiące.",
     intro:
       "Nie jestem zwykłym koderem do wynajęcia. Pomagam firmom uporządkować dokumenty, statusy i ręczną pracę. Najpierw sprawdzam, czy problem rozwiąże gotowe narzędzie lub integracja. Dedykowaną aplikację albo agenta AI buduję tylko wtedy, gdy to jedyna sensowna droga — bez wymiany całego istniejącego środowiska pracy. Dostarczam działające wdrożenie w tygodnie, nie miesiące — bez budowania zespołu i bez budżetu liczonego w dziesiątkach tysięcy na sam start.",
     cta: {
