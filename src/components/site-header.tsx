@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { siteContent } from "@/content/site";
@@ -10,6 +11,14 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <Link className="brand-mark" href="/">
+        <Image
+          className="brand-mark-icon"
+          src="/images/mark.png"
+          alt=""
+          width={19}
+          height={27}
+          priority
+        />
         {siteContent.brand.name}
       </Link>
       <nav className="site-nav" aria-label="Główna nawigacja">

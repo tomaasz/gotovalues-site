@@ -129,10 +129,18 @@ textarea {
 }
 
 .brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-body), sans-serif;
   font-size: 1.38rem;
   font-weight: 800;
   letter-spacing: -0.05em;
+}
+
+.brand-mark-icon {
+  height: 27px;
+  width: 19px;
 }
 
 .site-nav {
