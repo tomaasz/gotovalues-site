@@ -141,7 +141,7 @@ export default function ProductionLandingPage() {
             <ul className="contact-points">
               <li>wystarczy jeden konkretny przykład z zakładu albo back office</li>
               <li>nie potrzebujesz gotowej specyfikacji ani listy funkcji</li>
-              <li>jeśli problem nie wymaga customowego narzędzia, powiem to wprost</li>
+              <li>jeśli problem nie wymaga dedykowanego narzędzia, powiem to wprost</li>
             </ul>
             <ContactSignals />
           </div>

@@ -46,7 +46,7 @@ export default function HomePage() {
             <div className="hero-chip">workflow</div>
             <div className="hero-chip">dokumenty</div>
             <div className="hero-chip">OCR</div>
-            <div className="hero-chip">custom tools</div>
+            <div className="hero-chip">dedykowane narzędzia</div>
           </div>
         </div>
       </section>

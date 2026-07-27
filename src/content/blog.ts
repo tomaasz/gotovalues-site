@@ -13,7 +13,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "automatyzacja-procesow-w-firmie-przewodnik",
     title: "Automatyzacja procesów w firmie — praktyczny przewodnik od czego zacząć",
-    description: "Automatyzacja procesów krok po kroku: rodzaje (RPA, workflow, AI), kiedy się opłaca, jak liczyć ROI, no-code vs custom i najczęstsze błędy MŚP.",
+    description: "Automatyzacja procesów krok po kroku: rodzaje (RPA, workflow, AI), kiedy się opłaca, jak liczyć ROI, no-code vs rozwiązania dedykowane i najczęstsze błędy MŚP.",
     date: "2026-06-15",
     tags: ["Automatyzacja", "AI dla firm", "Procesy"],
     body: `<p>
@@ -171,13 +171,13 @@ export const blogPosts: BlogPost[] = [
 
 <p>
   Tu mam zasadę, której trzymam się konsekwentnie: <strong>najpierw sprawdzam,
-  czy gotowe narzędzie rozwiąże problem &mdash; custom buduję tylko wtedy, gdy
+  czy gotowe narzędzie rozwiąże problem &mdash; rozwiązania dedykowane buduję tylko wtedy, gdy
   jest to konieczne.</strong> Jeśli Make albo gotowy moduł w Twoim systemie
   załatwia sprawę, to jest właściwa odpowiedź. Płacenie za dedykowane
   oprogramowanie tam, gdzie wystarczy konfiguracja, to marnowanie budżetu.
 </p>
 
-<h2>No-code (Make, Zapier, n8n) vs rozwiązanie custom</h2>
+<h2>No-code (Make, Zapier, n8n) vs rozwiązanie dedykowane</h2>
 
 <p>
   To pytanie wraca w każdej rozmowie, więc rozłożę je na czynniki. Narzędzia
@@ -667,7 +667,7 @@ export const blogPosts: BlogPost[] = [
   w tygodnie, nie miesiące, a jeśli coś nie zadziała &mdash; tracisz mało.
 </p>
 <p>
-  Tu wchodzi moje stałe pozycjonowanie: <strong>najpierw gotowiec, custom
+  Tu wchodzi moje stałe pozycjonowanie: <strong>najpierw gotowiec, dedykowane rozwiązanie
   gdy konieczne</strong>. Zanim zaproponuję cokolwiek pisanego od zera,
   sprawdzam, czy procesu nie da się złożyć z istniejących narzędzi.
   Dedykowaną aplikację buduję dopiero, gdy gotowe klocki naprawdę nie
@@ -1240,7 +1240,7 @@ export const blogPosts: BlogPost[] = [
   <li>
     <strong>Dedykowany dashboard, gdy gotowiec zaczyna boleć.</strong> Kiedy
     integracji robi się za dużo, ręczne sklejanie zajmuje godziny tygodniowo,
-    a maszyny mogłyby oddawać dane automatycznie &mdash; wtedy custom się
+    a maszyny mogłyby oddawać dane automatycznie &mdash; wtedy dedykowane rozwiązanie się
     zwraca. Wcześniej zwykle nie.
   </li>
 </ul>
@@ -1348,7 +1348,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "workflow-automation-narzedzia-strategie",
     title: "Workflow automation: Make, Zapier czy n8n — i kiedy potrzebujesz czegoś innego",
-    description: "Porównanie Make, Zapier i n8n do automatyzacji przepływów pracy. Mocne i słabe strony, pułapka cenowa per-operacja i kiedy warto przejść na custom.",
+    description: "Porównanie Make, Zapier i n8n do automatyzacji przepływów pracy. Mocne i słabe strony, pułapka cenowa per-operacja i kiedy warto przejść na dedykowane rozwiązanie.",
     date: "2026-06-09",
     tags: ["Automatyzacja", "Workflow", "Integracje"],
     body: `<p>Słowo &bdquo;workflow automation&rdquo; brzmi jak coś, co wymaga działu IT i pół roku wdrożenia. W praktyce pierwszy działający przepływ pracy potrafię postawić w popołudnie &ndash; na gotowym narzędziu, bez jednej linijki kodu. Problem zaczyna się później: gdy ten sam przepływ obsługuje nie 50, a 5000 zdarzeń miesięcznie, gdy ktoś z zespołu pyta &bdquo;a gdzie to podejrzeć?&rdquo;, albo gdy rachunek za narzędzie nagle przebija pensję juniora. W tym tekście rozkładam na części trzy najpopularniejsze narzędzia &ndash; Make, Zapier i n8n &ndash; pokazuję, gdzie każde się sprawdza, a gdzie pęka, i kiedy ma sens przejście na rozwiązanie szyte na miarę.</p>
@@ -1387,7 +1387,7 @@ export const blogPosts: BlogPost[] = [
 <p>To najczęstsze zaskoczenie u moich klientów. Model per-operacja wygląda świetnie na starcie: kilkadziesiąt złotych miesięcznie. Ale jeden przepływ z 6 krokami to 6 operacji na jedno zdarzenie. Przy 5000 zdarzeń miesięcznie to już 30&nbsp;000 operacji &ndash; i nagle jesteś w wyższym, droższym planie.</p>
 <ul>
 <li><strong>Policz operacje, nie zdarzenia.</strong> Pomnóż liczbę kroków przez przewidywany wolumen, zanim wybierzesz plan.</li>
-<li><strong>Sprawdź próg, przy którym custom się zwraca.</strong> Z mojego doświadczenia, gdy rachunek za no-code przekracza ~500&ndash;800&nbsp;zł/mies. i rośnie, warto policzyć alternatywę &mdash; pomoże w tym <a href="/kalkulator-roi">kalkulator ROI</a>.</li>
+<li><strong>Sprawdź próg, przy którym dedykowane rozwiązanie się zwraca.</strong> Z mojego doświadczenia, gdy rachunek za no-code przekracza ~500&ndash;800&nbsp;zł/mies. i rośnie, warto policzyć alternatywę &mdash; pomoże w tym <a href="/kalkulator-roi">kalkulator ROI</a>.</li>
 <li><strong>Dolicz ukryte koszty.</strong> Czas na obchodzenie ograniczeń narzędzia też kosztuje.</li>
 </ul>
 
@@ -1404,16 +1404,16 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Obsługa wyjątków.</strong> Najważniejsze i najczęściej pomijane. Co się dzieje, gdy API nie odpowie? Gdy dane są niekompletne? Bez tego &bdquo;działający&rdquo; przepływ cicho gubi zdarzenia.</li>
 <li><strong>Logowanie.</strong> Musisz wiedzieć, co się wydarzyło. Inaczej debugowanie to zgadywanie.</li>
 </ul>
-<p>Ta sama dyscyplina dotyczy zarówno no-code, jak i custom. Różnica jest taka, że w custom obsługę wyjątków i logowanie kontrolujesz w pełni.</p>
+<p>Ta sama dyscyplina dotyczy zarówno no-code, jak i rozwiązania dedykowane. Różnica jest taka, że w dedykowanych rozwiązaniach obsługę wyjątków i logowanie kontrolujesz w pełni.</p>
 
 <h2>Kiedy dołożyć AI</h2>
 <p>AI w workflow ma sens tam, gdzie wcześniej potrzebny był człowiek do <strong>oceny lub interpretacji</strong>, a nie do prostego przeklejania danych. Dobre przypadki: klasyfikacja zgłoszeń (do którego działu trafia mail), wyciąganie danych z nieustrukturyzowanych dokumentów, wstępna odpowiedź na powtarzalne pytania, streszczanie długich treści.</p>
 <p>Przestroga: nie wkładaj AI tam, gdzie wystarczy zwykły warunek. To droższe i mniej przewidywalne. AI dokładam świadomie, w jednym&ndash;dwóch punktach przepływu, gdzie realnie zastępuje decyzję człowieka. Dokładnie tak działa <a href="/supportflow">SupportFlow AI</a> &ndash; AI klasyfikuje i wstępnie odpowiada na zgłoszenia, ale całość ma własny panel, w którym zespół zachowuje kontrolę.</p>
 
-<h2>Moje podejście: najpierw gotowiec, custom gdy konieczne</h2>
-<p>Nie zaczynam od pisania kodu. Jeśli Make albo Zapier rozwiązują problem w rozsądnej cenie &ndash; rekomenduję je i koniec. Custom proponuję dopiero, gdy widać konkretny powód: pułapkę cenową przy skali, potrzebę własnego interfejsu dla zespołu, złożoną logikę, której no-code nie udźwignie, albo wymagania wokół danych i bezpieczeństwa.</p>
+<h2>Moje podejście: najpierw gotowiec, dedykowane rozwiązanie gdy konieczne</h2>
+<p>Nie zaczynam od pisania kodu. Jeśli Make albo Zapier rozwiązują problem w rozsądnej cenie &ndash; rekomenduję je i koniec. Rozwiązania dedykowane proponuję dopiero, gdy widać konkretny powód: pułapkę cenową przy skali, potrzebę własnego interfejsu dla zespołu, złożoną logikę, której no-code nie udźwignie, albo wymagania wokół danych i bezpieczeństwa.</p>
 <p>Gdy ten próg zostaje przekroczony, buduję <strong>end-to-end</strong> &ndash; od wyzwalacza, przez logikę i integracje, po własny ekran, na którym zespół realnie pracuje. Jedno rozwiązanie, jeden właściciel, przewidywalny koszt utrzymania.</p>
-<p>Nie wiesz, po której stronie tej granicy jesteś? <a href="/#kontakt">Napisz do mnie</a> &ndash; przejdziemy przez twój proces i powiem wprost, czy wystarczy gotowiec, czy warto policzyć custom.</p>`,
+<p>Nie wiesz, po której stronie tej granicy jesteś? <a href="/#kontakt">Napisz do mnie</a> &ndash; przejdziemy przez twój proces i powiem wprost, czy wystarczy gotowiec, czy warto policzyć rozwiązanie dedykowane.</p>`,
   },
   {
     slug: "automatyzacja-obiegu-dokumentow",
@@ -1467,13 +1467,13 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Integracja z tym, co już macie &mdash; bez wymiany ERP</h2>
 
-<p>Najczęstsza obawa, jaką słyszę: &bdquo;to znaczy, że musimy zmienić system?&rdquo;. Nie. Moje podejście jest odwrotne: <strong>najpierw gotowiec, custom dopiero gdy konieczne</strong>, i bez wymiany środowiska.</p>
+<p>Najczęstsza obawa, jaką słyszę: &bdquo;to znaczy, że musimy zmienić system?&rdquo;. Nie. Moje podejście jest odwrotne: <strong>najpierw gotowiec, dedykowane rozwiązanie dopiero gdy konieczne</strong>, i bez wymiany środowiska.</p>
 
 <p>Jeśli macie ERP (Comarch, enova, Subiekt, cokolwiek), to on zostaje sercem firmy. Warstwa automatyzacji obiegu dokumentów wpina się <em>obok</em> &mdash; przez API, import/eksport plików albo gotowy łącznik &mdash; i podaje do ERP gotowe, sprawdzone dane zamiast kazać ludziom je przepisywać. Kolejność, którą stosuję:</p>
 
 <ul>
 <li><strong>Najpierw narzędzia gotowe</strong> &mdash; jeśli istnieje sprawdzony moduł DMS lub usługa, która pokrywa 80% potrzeb, zaczynamy od niej. Szybciej i taniej.</li>
-<li><strong>Custom tam, gdzie gotowiec nie sięga</strong> &mdash; nietypowa ścieżka akceptacji, specyficzne dopasowanie do zamówień, integracja z systemem branżowym. Wtedy dedykowana aplikacja ma sens.</li>
+<li><strong>Dedykowane rozwiązania tam, gdzie gotowiec nie sięga</strong> &mdash; nietypowa ścieżka akceptacji, specyficzne dopasowanie do zamówień, integracja z systemem branżowym. Wtedy dedykowana aplikacja ma sens.</li>
 <li><strong>Zero wymiany środowiska</strong> &mdash; ludzie pracują dalej w narzędziach, które znają. Automatyzacja działa w tle.</li>
 </ul>
 
@@ -1951,7 +1951,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Aplikacje webowe", "Procesy", "MŚP"],
     body: `<p>W większości firm, z którymi pracuję, nie zaczyna się od pytania &bdquo;potrzebujemy aplikacji&rdquo;. Zaczyna się od konkretnego bólu: arkusz, który ma piętnaście zakładek i nikt nie wie, która jest aktualna; raport robiony ręcznie co poniedziałek przez dwie godziny; cztery osoby wpisujące te same dane do czterech różnych miejsc. Dopiero później pojawia się myśl, że może da się to zrobić inaczej. Ten przewodnik ma pomóc Ci ocenić, kiedy dedykowana aplikacja webowa rzeczywiście ma sens, a kiedy to przerost formy &mdash; i jak podejść do tematu tak, żeby nie wydać 80 tysięcy na coś, co miało kosztować 20.</p>
 
-<p>Od razu zaznaczę swoje podejście, bo różni mnie ono od typowego software house&rsquo;u: <strong>najpierw sprawdzam, czy gotowe narzędzie rozwiąże Twój problem. Custom buduję tylko wtedy, gdy to naprawdę konieczne.</strong> Jeśli istnieje gotowiec za 200 zł miesięcznie, który załatwi sprawę, powiem Ci o tym &mdash; nawet jeśli oznacza to, że nie wystawię Ci faktury za projekt.</p>
+<p>Od razu zaznaczę swoje podejście, bo różni mnie ono od typowego software house&rsquo;u: <strong>najpierw sprawdzam, czy gotowe narzędzie rozwiąże Twój problem. Dedykowane rozwiązania buduję tylko wtedy, gdy to naprawdę konieczne.</strong> Jeśli istnieje gotowiec za 200 zł miesięcznie, który załatwi sprawę, powiem Ci o tym &mdash; nawet jeśli oznacza to, że nie wystawię Ci faktury za projekt.</p>
 
 <h2>Kiedy Excel albo gotowiec przestaje wystarczać</h2>
 
@@ -1975,7 +1975,7 @@ export const blogPosts: BlogPost[] = [
 <p>Jedno miejsce, w którym widzisz najważniejsze liczby z różnych źródeł &mdash; sprzedaż, marże, stany magazynowe, lejki. Zamiast składać raport ręcznie, dane spływają automatycznie i są zawsze aktualne. To temat na tyle obszerny, że opisałem go osobno w przewodniku o <a href="/blog/dashboardy-analityczne-dla-firm-przewodnik">dashboardach analitycznych</a>.</p>
 
 <h3>Mini-CRM dopasowany do procesu</h3>
-<p>Nie każda firma potrzebuje pełnego CRM-a z setką pól, których nigdy nie wypełni. Czasem wystarczy lekkie narzędzie zbudowane wokół tego, jak naprawdę prowadzisz sprzedaż &mdash; z Twoimi etapami, Twoim słownictwem, bez balastu. Tu custom potrafi wygrać z gotowcem, bo gotowiec narzuca swój proces, a Ty narzucasz swój.</p>
+<p>Nie każda firma potrzebuje pełnego CRM-a z setką pól, których nigdy nie wypełni. Czasem wystarczy lekkie narzędzie zbudowane wokół tego, jak naprawdę prowadzisz sprzedaż &mdash; z Twoimi etapami, Twoim słownictwem, bez balastu. Tu rozwiązanie dedykowane potrafi wygrać z gotowcem, bo gotowiec narzuca swój proces, a Ty narzucasz swój.</p>
 
 <h3>Narzędzia workflow</h3>
 <p>Aplikacje, które prowadzą zadanie przez kolejne kroki: zgłoszenie &rarr; akceptacja &rarr; realizacja &rarr; rozliczenie. Pilnują, kto co ma zrobić i kiedy, i nie pozwalają pominąć etapu. To bliski kuzyn <a href="/blog/automatyzacja-procesow-w-firmie-przewodnik">automatyzacji procesów</a> &mdash; różnica jest taka, że workflow ma własny interfejs dla ludzi, a czysta automatyzacja działa w tle.</p>
@@ -1988,10 +1988,10 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Build vs buy: jak ja to rozstrzygam</h2>
 
-<p>To najważniejsza decyzja w całym procesie i najczęściej podejmowana po omacku. Mam prosty framework, który stosuję, zanim w ogóle zacznę rozmawiać o budowaniu. Rozwinąłem go w tekście <a href="/blog/customowa-aplikacja-czy-gotowe-narzedzie">customowa aplikacja czy gotowiec</a>, tutaj jest esencja.</p>
+<p>To najważniejsza decyzja w całym procesie i najczęściej podejmowana po omacku. Mam prosty framework, który stosuję, zanim w ogóle zacznę rozmawiać o budowaniu. Rozwinąłem go w tekście <a href="/blog/customowa-aplikacja-czy-gotowe-narzedzie">dedykowana aplikacja czy gotowiec</a>, tutaj jest esencja.</p>
 
 <table>
-<tr><th>Pytanie</th><th>Jeśli TAK &rarr; raczej gotowiec</th><th>Jeśli TAK &rarr; raczej custom</th></tr>
+<tr><th>Pytanie</th><th>Jeśli TAK &rarr; raczej gotowiec</th><th>Jeśli TAK &rarr; raczej dedykowane rozwiązanie</th></tr>
 <tr><td>Czy proces jest standardowy (księgowość, fakturowanie, mailing)?</td><td>&check;</td><td></td></tr>
 <tr><td>Czy istnieje dojrzały gotowiec pokrywający 80% potrzeb?</td><td>&check;</td><td></td></tr>
 <tr><td>Czy proces jest Twoją przewagą konkurencyjną?</td><td></td><td>&check;</td></tr>
@@ -1999,7 +1999,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td>Czy musisz spiąć kilka systemów, których nikt nie spina?</td><td></td><td>&check;</td></tr>
 </table>
 
-<p>Reguła, którą się kieruję: <strong>jeśli gotowiec pokrywa 80% potrzeb i te 20% to nie jest Twoja przewaga, kup gotowiec.</strong> Custom budujemy dla tych 20%, które naprawdę odróżniają Twoją firmę &mdash; albo dla sytuacji, gdy na rynku po prostu nie ma niczego sensownego. Często najlepsze rozwiązanie jest hybrydowe: gotowce do standardu, mała dedykowana aplikacja, która je spina i dokłada brakujący kawałek.</p>
+<p>Reguła, którą się kieruję: <strong>jeśli gotowiec pokrywa 80% potrzeb i te 20% to nie jest Twoja przewaga, kup gotowiec.</strong> Dedykowane rozwiązania budujemy dla tych 20%, które naprawdę odróżniają Twoją firmę &mdash; albo dla sytuacji, gdy na rynku po prostu nie ma niczego sensownego. Często najlepsze rozwiązanie jest hybrydowe: gotowce do standardu, mała dedykowana aplikacja, która je spina i dokłada brakujący kawałek.</p>
 
 <h2>Podejście MVP: jak ograniczyć ryzyko</h2>
 
@@ -2070,25 +2070,25 @@ export const blogPosts: BlogPost[] = [
 
 <p><strong>Platformy low-code i automatyzatory</strong> świetnie sprawdzają się w łączeniu narzędzi i automatyzacji w tle. Ich granica to własny interfejs &mdash; gdy potrzebujesz dopracowanego ekranu dla zespołu czy klienta, dochodzą do ściany albo robi się to droższe i mniej elastyczne niż dedykowane rozwiązanie. Sam zresztą korzystam z low-code tam, gdzie to ma sens &mdash; ale wiem, kiedy przestaje wystarczać.</p>
 
-<p>Moje miejsce jest pośrodku: <strong>najpierw architekt, który kwestionuje zakres i sprawdza gotowce, a dopiero potem wykonawca, który buduje custom tylko tam, gdzie to konieczne.</strong> Mniej kodu, mniej kosztu, mniej rzeczy do utrzymania.</p>
+<p>Moje miejsce jest pośrodku: <strong>najpierw architekt, który kwestionuje zakres i sprawdza gotowce, a dopiero potem wykonawca, który buduje dedykowane rozwiązania tylko tam, gdzie to konieczne.</strong> Mniej kodu, mniej kosztu, mniej rzeczy do utrzymania.</p>
 
 <h2>Od czego zacząć</h2>
 
 <p>Jeśli po tej lekturze widzisz u siebie konkretny ból &mdash; arkusz, który pęka w szwach, raport robiony ręcznie, dane przepisywane między systemami &mdash; nie zaczynaj od pytania &bdquo;ile kosztuje aplikacja&rdquo;. Zacznij od opisania problemu. Pierwsza rzecz, którą zrobię, to sprawdzę, czy nie da się go rozwiązać taniej gotowcem albo prostą automatyzacją. Jeśli da się &mdash; powiem Ci to wprost. Jeśli nie &mdash; zaproponuję najmniejszą sensowną wersję dedykowanej aplikacji, która zwróci się najszybciej.</p>
 
-<p>Napisz, z czym się mierzysz, a wspólnie ocenimy, czy custom w ogóle ma sens w Twoim przypadku. <a href="/#kontakt">Skontaktuj się i opisz swój problem</a> &mdash; bez zobowiązań, zaczynamy od rozmowy o tym, co naprawdę boli.</p>`,
+<p>Napisz, z czym się mierzysz, a wspólnie ocenimy, czy rozwiązanie dedykowane w ogóle ma sens w Twoim przypadku. <a href="/#kontakt">Skontaktuj się i opisz swój problem</a> &mdash; bez zobowiązań, zaczynamy od rozmowy o tym, co naprawdę boli.</p>`,
   },
   {
     slug: "customowa-aplikacja-czy-gotowe-narzedzie",
-    title: "Customowa aplikacja czy gotowe narzędzie? Framework decyzyjny dla MŚP",
-    description: "Customowa aplikacja vs gotowe narzędzie — kiedy wystarczy SaaS, a kiedy opłaca się dedykowana aplikacja. Framework decyzyjny, ukryte koszty i model hybrydowy.",
+    title: "Dedykowana aplikacja czy gotowe narzędzie? Framework decyzyjny dla MŚP",
+    description: "Dedykowana aplikacja vs gotowe narzędzie — kiedy wystarczy SaaS, a kiedy opłaca się dedykowana aplikacja. Framework decyzyjny, ukryte koszty i model hybrydowy.",
     date: "2026-06-03",
     tags: ["Aplikacje webowe", "Procesy", "MŚP"],
-    body: `<p>To jedno z najczęstszych pytań, jakie dostaję od właścicieli małych i średnich firm: &bdquo;Mamy proces, który nas boli &ndash; kupić gotowe narzędzie czy zlecić dedykowaną aplikację?&rdquo;. Odpowiedź, której zwykle nie chcą słyszeć, brzmi: <strong>w większości przypadków najpierw gotowiec</strong>. Custom robi się wtedy, gdy gotowiec realnie zaczyna przeszkadzać, a nie wtedy, gdy ktoś ma ochotę na &bdquo;coś swojego&rdquo;. W tym artykule daję Ci konkretny framework, po którym sam podejmuję tę decyzję &mdash; z liczbami i bez wciskania customu na siłę.</p>
+    body: `<p>To jedno z najczęstszych pytań, jakie dostaję od właścicieli małych i średnich firm: &bdquo;Mamy proces, który nas boli &ndash; kupić gotowe narzędzie czy zlecić dedykowaną aplikację?&rdquo;. Odpowiedź, której zwykle nie chcą słyszeć, brzmi: <strong>w większości przypadków najpierw gotowiec</strong>. Dedykowane rozwiązanie robi się wtedy, gdy gotowiec realnie zaczyna przeszkadzać, a nie wtedy, gdy ktoś ma ochotę na &bdquo;coś swojego&rdquo;. W tym artykule daję Ci konkretny framework, po którym sam podejmuję tę decyzję &mdash; z liczbami i bez wciskania dedykowanych rozwiązań na siłę.</p>
 
 <h2>Build vs buy &mdash; o czym tak naprawdę decydujesz</h2>
-<p>&bdquo;Gotowe narzędzie&rdquo; (buy) to SaaS lub pudełkowy program, za który płacisz abonament i dostajesz gotowy produkt &mdash; CRM, system do faktur, narzędzie do projektów. &bdquo;Customowa aplikacja&rdquo; (build) to oprogramowanie zbudowane pod Twój konkretny proces, którego jesteś właścicielem. To nie jest wybór &bdquo;tanio kontra drogo&rdquo;, tylko wybór <strong>kompromisów</strong>.</p>
-<p>Gotowiec kupujesz szybko i tanio na start, ale dopasowujesz <em>swoją firmę do narzędzia</em>. Custom dopasowuje <em>narzędzie do firmy</em>, ale kosztuje więcej z góry i wymaga utrzymania. Większość decyzji &bdquo;build vs buy&rdquo; rozbija się o to, jak bardzo Twój proces odbiega od standardu &mdash; i ile Cię kosztuje to odbieganie. Jeśli dopiero zaczynasz temat aplikacji, zacznij od mojego <a href="/blog/aplikacje-webowe-dla-firm-przewodnik">przewodnika po aplikacjach webowych</a>.</p>
+<p>&bdquo;Gotowe narzędzie&rdquo; (buy) to SaaS lub pudełkowy program, za który płacisz abonament i dostajesz gotowy produkt &mdash; CRM, system do faktur, narzędzie do projektów. &bdquo;Dedykowana aplikacja&rdquo; (build) to oprogramowanie zbudowane pod Twój konkretny proces, którego jesteś właścicielem. To nie jest wybór &bdquo;tanio kontra drogo&rdquo;, tylko wybór <strong>kompromisów</strong>.</p>
+<p>Gotowiec kupujesz szybko i tanio na start, ale dopasowujesz <em>swoją firmę do narzędzia</em>. Dedykowane rozwiązanie dopasowuje <em>narzędzie do firmy</em>, ale kosztuje więcej z góry i wymaga utrzymania. Większość decyzji &bdquo;build vs buy&rdquo; rozbija się o to, jak bardzo Twój proces odbiega od standardu &mdash; i ile Cię kosztuje to odbieganie. Jeśli dopiero zaczynasz temat aplikacji, zacznij od mojego <a href="/blog/aplikacje-webowe-dla-firm-przewodnik">przewodnika po aplikacjach webowych</a>.</p>
 
 <h2>Kiedy wybrać gotowe narzędzie</h2>
 <p>Domyślnie zaczynam właśnie tutaj. Gotowiec jest racjonalnym wyborem, gdy spełniasz większość z poniższych:</p>
@@ -2101,8 +2101,8 @@ export const blogPosts: BlogPost[] = [
 </ul>
 <p>Uczciwie: dla typowej firmy 80&ndash;90% potrzeb obsłuży dobrze dobrany zestaw gotowych narzędzi. Zanim cokolwiek zlecisz, sprawdź, czy istnieje SaaS, który robi to w 90%.</p>
 
-<h2>Kiedy customowa aplikacja zaczyna się opłacać</h2>
-<p>Custom przestaje być fanaberią, a staje się racjonalną inwestycją, gdy pojawia się przynajmniej kilka z tych sygnałów:</p>
+<h2>Kiedy dedykowana aplikacja zaczyna się opłacać</h2>
+<p>Dedykowane rozwiązanie przestaje być fanaberią, a staje się racjonalną inwestycją, gdy pojawia się przynajmniej kilka z tych sygnałów:</p>
 <ul>
 <li><strong>Proces jest specyficzny dla Twojej firmy</strong> i stanowi realną przewagę &mdash; np. autorski sposób wyceny, planowania produkcji albo obsługi klienta, którego żaden gotowiec nie odwzorowuje.</li>
 <li><strong>Gotowiec wymaga obejść.</strong> Eksporty do Excela, &bdquo;rób tak, ale to pole nazwij inaczej&rdquo;, kopiowanie danych między systemami. Każde obejście to ukryty koszt i miejsce na błąd.</li>
@@ -2110,7 +2110,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Potrzebujesz integracji i własnego UI.</strong> Gdy aplikacja ma spinać ERP, magazyn i sklep w jednym, sensownym ekranie, gotowce zwykle nie współpracują ze sobą tak, jak chcesz.</li>
 <li><strong>Pracujesz na danych wrażliwych.</strong> Czasem wymóg trzymania danych u siebie albo zgodności branżowej przeważa szalę.</li>
 </ul>
-<p>Custom daje Ci dwie rzeczy, których gotowiec nie da: <strong>własność</strong> (nie zależysz od cudzego roadmapu ani podwyżek) i <strong>dopasowanie 1:1</strong> do tego, jak naprawdę pracujesz.</p>
+<p>Dedykowane rozwiązanie daje Ci dwie rzeczy, których gotowiec nie da: <strong>własność</strong> (nie zależysz od cudzego roadmapu ani podwyżek) i <strong>dopasowanie 1:1</strong> do tego, jak naprawdę pracujesz.</p>
 
 <h2>Ukryty koszt gotowca, o którym mało kto mówi</h2>
 <p>Najczęstszy błąd to porównywanie samej ceny abonamentu z ceną aplikacji. To pułapka, bo gotowiec ma koszty, których nie widać na fakturze:</p>
@@ -2122,9 +2122,9 @@ export const blogPosts: BlogPost[] = [
 </ul>
 <p>Policz to uczciwie: koszt licencji w skali 3&ndash;5 lat plus czas tracony na obejścia. Czasem dedykowana aplikacja zwraca się szybciej, niż się wydaje. Pomocne będą tu <a href="/blog/ile-kosztuje-aplikacja-webowa-dla-firmy">widełki kosztów aplikacji webowej</a> oraz <a href="/kalkulator-roi">kalkulator ROI</a>, w którym podstawisz własne liczby.</p>
 
-<h2>Tabela: gotowiec vs custom w skrócie</h2>
+<h2>Tabela: gotowiec vs dedykowane rozwiązanie w skrócie</h2>
 <table>
-<tr><th>Kryterium</th><th>Gotowe narzędzie</th><th>Customowa aplikacja</th></tr>
+<tr><th>Kryterium</th><th>Gotowe narzędzie</th><th>Dedykowana aplikacja</th></tr>
 <tr><td>Koszt na start</td><td>Niski (abonament)</td><td>Wysoki (projekt)</td></tr>
 <tr><td>Czas wdrożenia</td><td>Dni</td><td>Tygodnie / miesiące</td></tr>
 <tr><td>Dopasowanie do procesu</td><td>Częściowe, obejścia</td><td>1:1</td></tr>
@@ -2134,19 +2134,19 @@ export const blogPosts: BlogPost[] = [
 </table>
 
 <h2>Model hybrydowy &mdash; często najlepsza odpowiedź</h2>
-<p>Build vs buy to nie jest wybór zero-jedynkowy. W praktyce najczęściej polecam <strong>hybrydę: gotowiec jako fundament plus cienka warstwa custom</strong> tam, gdzie naprawdę boli.</p>
-<p>Przykład: zostawiasz CRM i księgowość w gotowych narzędziach, a budujesz <em>tylko</em> jeden dedykowany moduł &mdash; np. konfigurator wycen specyficznych dla Twojej branży &mdash; który spina się z nimi przez API. Płacisz za custom ułamek tego, co kosztowałby cały system, a dostajesz dopasowanie tam, gdzie ma to znaczenie. To często najlepszy stosunek kosztu do efektu dla MŚP.</p>
+<p>Build vs buy to nie jest wybór zero-jedynkowy. W praktyce najczęściej polecam <strong>hybrydę: gotowiec jako fundament plus cienka warstwa dedykowanego rozwiązania</strong> tam, gdzie naprawdę boli.</p>
+<p>Przykład: zostawiasz CRM i księgowość w gotowych narzędziach, a budujesz <em>tylko</em> jeden dedykowany moduł &mdash; np. konfigurator wycen specyficznych dla Twojej branży &mdash; który spina się z nimi przez API. Płacisz za dedykowane rozwiązanie ułamek tego, co kosztowałby cały system, a dostajesz dopasowanie tam, gdzie ma to znaczenie. To często najlepszy stosunek kosztu do efektu dla MŚP.</p>
 
 <h2>Jak ja podejmuję tę decyzję &mdash; framework w pięciu pytaniach</h2>
 <p>Kiedy klient pyta mnie &bdquo;build czy buy&rdquo;, przechodzę przez pięć pytań:</p>
 <ul>
 <li><strong>1. Czy istnieje gotowiec, który robi to w 90%?</strong> Jeśli tak &mdash; kup go i nie kombinuj.</li>
-<li><strong>2. Czy ten proces daje Ci przewagę konkurencyjną?</strong> Jeśli tak &mdash; custom zaczyna mieć sens.</li>
+<li><strong>2. Czy ten proces daje Ci przewagę konkurencyjną?</strong> Jeśli tak &mdash; dedykowane rozwiązanie zaczyna mieć sens.</li>
 <li><strong>3. Ile kosztują Cię obejścia i licencje w skali 3 lat?</strong> Policz, nie zgaduj.</li>
 <li><strong>4. Czy potrzebne są integracje, których gotowce nie ogarniają?</strong> To częsty wyzwalacz hybrydy.</li>
-<li><strong>5. Czy możesz zacząć od cienkiej warstwy custom zamiast całego systemu?</strong> Prawie zawsze tak.</li>
+<li><strong>5. Czy możesz zacząć od cienkiej warstwy dedykowanego rozwiązania zamiast całego systemu?</strong> Prawie zawsze tak.</li>
 </ul>
-<p>Moja domyślna rekomendacja jest jasna: <strong>najpierw gotowiec, custom dopiero gdy konieczny</strong>. Nie zarabiam na wciskaniu Ci aplikacji, której nie potrzebujesz &mdash; zarabiam na tym, że rozwiązanie realnie się zwraca.</p>
+<p>Moja domyślna rekomendacja jest jasna: <strong>najpierw gotowiec, dedykowane rozwiązanie dopiero gdy konieczny</strong>. Nie zarabiam na wciskaniu Ci aplikacji, której nie potrzebujesz &mdash; zarabiam na tym, że rozwiązanie realnie się zwraca.</p>
 <p>Jeśli nie masz pewności, po której stronie jesteś, <a href="/#kontakt">napisz do mnie</a> &mdash; przejdziemy przez te pięć pytań na Twoim konkretnym procesie i powiem wprost, czy w ogóle warto cokolwiek budować.</p>`,
   },
   {
@@ -2215,14 +2215,14 @@ export const blogPosts: BlogPost[] = [
 <p>Moja kolejność jest zawsze taka sama:</p>
 <ul>
 <li><strong>Najpierw policz ROI.</strong> Ile godzin albo ile błędów miesięcznie kosztuje Cię obecny proces? Bez tej liczby nie wiesz, czy aplikacja w ogóle się opłaca. Pomoże <a href="/kalkulator-roi">kalkulator ROI</a>.</li>
-<li><strong>Potem sprawdź gotowca.</strong> Jeśli istnieje narzędzie z półki, które robi 80% tego, czego potrzebujesz, często warto z niego skorzystać. Rozkładam to w tekście <a href="/blog/customowa-aplikacja-czy-gotowe-narzedzie">customowa aplikacja czy gotowiec</a>.</li>
-<li><strong>Dopiero na końcu custom.</strong> Dedykowaną aplikację warto budować tam, gdzie Twój proces jest przewagą, a gotowiec by go spłaszczył.</li>
+<li><strong>Potem sprawdź gotowca.</strong> Jeśli istnieje narzędzie z półki, które robi 80% tego, czego potrzebujesz, często warto z niego skorzystać. Rozkładam to w tekście <a href="/blog/customowa-aplikacja-czy-gotowe-narzedzie">dedykowana aplikacja czy gotowiec</a>.</li>
+<li><strong>Dopiero na końcu dedykowane rozwiązanie.</strong> Dedykowaną aplikację warto budować tam, gdzie Twój proces jest przewagą, a gotowiec by go spłaszczył.</li>
 </ul>
-<p>Custom wyceniam po zrozumieniu procesu, nie z cennika. Dwie firmy z &bdquo;tym samym&rdquo; pomysłem dostają różne wyceny, bo mają różne procesy &mdash; i tak właśnie powinno być.</p>
+<p>Dedykowane rozwiązania wyceniam po zrozumieniu procesu, nie z cennika. Dwie firmy z &bdquo;tym samym&rdquo; pomysłem dostają różne wyceny, bo mają różne procesy &mdash; i tak właśnie powinno być.</p>
 
 <h2>Podsumowanie</h2>
 <p>Koszt aplikacji webowej w 2026 dla polskiego MŚP to najczęściej przedział od kilkunastu do kilkudziesięciu tysięcy złotych za rozwiązanie z prawdziwą wartością, plus utrzymanie rzędu 15&ndash;25% rocznie. Szerokie widełki nie są wymówką &mdash; wynikają z tego, że płacisz za rozwiązanie swojego konkretnego problemu, a nie za produkt z półki.</p>
-<p>Jeśli masz proces, który zżera czas albo generuje błędy, i chcesz wiedzieć, ile realnie kosztowałaby jego automatyzacja &mdash; <a href="/#kontakt">napisz do mnie</a>. Zacznę od pytań o Twój proces, nie od cennika, i uczciwie powiem, czy lepszy będzie custom, czy gotowiec.</p>`,
+<p>Jeśli masz proces, który zżera czas albo generuje błędy, i chcesz wiedzieć, ile realnie kosztowałaby jego automatyzacja &mdash; <a href="/#kontakt">napisz do mnie</a>. Zacznę od pytań o Twój proces, nie od cennika, i uczciwie powiem, czy lepsze będzie dedykowane rozwiązanie, czy gotowiec.</p>`,
   },
   {
     slug: "integracja-systemow-it-w-firmie",
@@ -2290,9 +2290,9 @@ export const blogPosts: BlogPost[] = [
 </ul>
 <p>Nikt niczego nie przepisuje, a każdy krok zostawia ślad. Jeśli chcesz wejść głębiej w samo projektowanie takich przepływów, rozwijam ten temat przy okazji <a href="/blog/workflow-automation-narzedzia-strategie">workflow automation &ndash; narzędzi i strategii</a>.</p>
 
-<h2>Najpierw gotowe konektory, custom dopiero gdy trzeba</h2>
+<h2>Najpierw gotowe konektory, dedykowane rozwiązania dopiero gdy trzeba</h2>
 <p>Tu jest mój uczciwy kompromis, bo nie chcę sprzedawać Ci więcej, niż potrzebujesz. Sporo połączeń między popularnymi systemami &ndash; znane ERP, znane sklepy, znane platformy &ndash; ma już gotowe konektory. Jeśli taki istnieje i robi to, czego potrzebujesz, to go używam. Jest tańszy, szybszy do wdrożenia i ktoś go utrzymuje za mnie.</p>
-<p>Po dedykowaną integrację sięgam dopiero wtedy, gdy gotowiec nie istnieje albo nie obejmuje Twojej logiki &ndash; bo masz nietypowy proces, starszy system bez API albo reguły, których żaden uniwersalny konektor nie zna. Wtedy custom ma sens, bo robi dokładnie to, co Twoja firma, a nie &bdquo;średnią dla wszystkich&rdquo;. Kolejność jest zawsze ta sama: <strong>najpierw sprawdzam, czy da się gotowcem, dopiero potem proponuję pisanie od zera</strong>.</p>
+<p>Po dedykowaną integrację sięgam dopiero wtedy, gdy gotowiec nie istnieje albo nie obejmuje Twojej logiki &ndash; bo masz nietypowy proces, starszy system bez API albo reguły, których żaden uniwersalny konektor nie zna. Wtedy dedykowane rozwiązanie ma sens, bo robi dokładnie to, co Twoja firma, a nie &bdquo;średnią dla wszystkich&rdquo;. Kolejność jest zawsze ta sama: <strong>najpierw sprawdzam, czy da się gotowcem, dopiero potem proponuję pisanie od zera</strong>.</p>
 
 <h2>Kiedy integrować, a kiedy wymienić system</h2>
 <p>Najważniejsza wiadomość całego wpisu: w większości przypadków <strong>nie musisz wymieniać niczego &ndash; wystarczy połączyć to, co już masz</strong>. Wymiana środowiska to projekt na miesiące, ryzyko paraliżu firmy i koszt liczony w dziesiątkach tysięcy. Integracja jest tańsza, szybsza i mniej ryzykowna, bo ludzie pracują dalej w narzędziach, które znają.</p>
