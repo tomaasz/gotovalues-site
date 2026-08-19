@@ -7,6 +7,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   build:
     name: Build & Security Scan
@@ -17,32 +20,33 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: GitGuardian secret scan
         if: ${{ env.GITGUARDIAN_API_KEY != '' }}
-        uses: GitGuardian/ggshield-action@v1.53.0
+        uses: GitGuardian/ggshield-action@2002482fb5990b486be5598ebcf48a8eba393fce # v1.53.0
         env:
           GITGUARDIAN_API_KEY: ${{ env.GITGUARDIAN_API_KEY }}
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
         with:
           version: latest
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --ignore-scripts
 
       - name: Run pre-commit hooks on all files
-        uses: pre-commit/action@v3.0.1
+        uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1
 
       - name: Run tests
         run: pnpm test
@@ -54,12 +58,12 @@ jobs:
         # Snyk account quota failures are external service errors, not code failures.
         # Keep the signal in logs, but do not block CI/auto-merge when quota is exhausted.
         continue-on-error: true
-        uses: snyk/actions/node@master
+        uses: snyk/actions/node@12140f4059e244892ae643824a95459a102120dd # master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
       - name: Socket Security
-        uses: SocketDev/action@v1.3.2
+        uses: SocketDev/action@ba6de6cc0565af1f42295590380973573297e31f # v1.3.2
         with:
           mode: firewall
 

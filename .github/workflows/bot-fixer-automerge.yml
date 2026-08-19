@@ -28,11 +28,13 @@ permissions:
 jobs:
   small-bot-fix:
     name: Promote & merge small bot fix
+    # pull_request_target has write credentials; never run this for a fork.
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Identify candidate PR
         id: pr
-        uses: actions/github-script@v9
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
         with:
           script: |
             const pr = context.payload.pull_request;
