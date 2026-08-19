@@ -30,6 +30,9 @@ export function ContactForm() {
       name: String(formData.get('name') ?? ''),
       email: String(formData.get('email') ?? ''),
       company: String(formData.get('company') ?? ''),
+      supportSystem: String(formData.get('support_system') ?? ''),
+      weeklyTicketVolume: String(formData.get('weekly_ticket_volume') ?? ''),
+      pilotInterest: String(formData.get('pilot_interest') ?? ''),
       message: String(formData.get('message') ?? ''),
       // Sentinel: Pass the honeypot field to the server so it can be securely validated by the Zod schema.
       bot_field: String(formData.get('bot_field') ?? ''),
@@ -121,6 +124,43 @@ export function ContactForm() {
             placeholder="Nazwa firmy lub zakładu"
             autoComplete="organization"
           />
+        </div>
+      </div>
+
+      <div className="field">
+        <label htmlFor="support-system-input">
+          System wsparcia <span className="optional-indicator">(opcjonalnie)</span>
+        </label>
+        <input
+          id="support-system-input"
+          name="support_system"
+          type="text"
+          placeholder="Np. Zendesk, Freshdesk, HubSpot, e-mail"
+        />
+      </div>
+      <div className="field-grid">
+        <div className="field">
+          <label htmlFor="weekly-ticket-volume-input">
+            Zgłoszenia tygodniowo <span className="optional-indicator">(orientacyjnie)</span>
+          </label>
+          <select id="weekly-ticket-volume-input" name="weekly_ticket_volume" defaultValue="">
+            <option value="">Wybierz zakres</option>
+            <option value="mniej niż 50">mniej niż 50</option>
+            <option value="50-100">50–100</option>
+            <option value="101-300">101–300</option>
+            <option value="powyżej 300">powyżej 300</option>
+          </select>
+        </div>
+        <div className="field">
+          <label htmlFor="pilot-interest-input">
+            Program pilotażowy <span className="optional-indicator">(opcjonalnie)</span>
+          </label>
+          <select id="pilot-interest-input" name="pilot_interest" defaultValue="">
+            <option value="">Wybierz odpowiedź</option>
+            <option value="Tak, rozważam pilotaż">Tak, rozważam pilotaż</option>
+            <option value="Chcę najpierw krótką konsultację">Chcę najpierw krótką konsultację</option>
+            <option value="Pytam orientacyjnie">Pytam orientacyjnie</option>
+          </select>
         </div>
       </div>
 

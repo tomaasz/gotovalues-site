@@ -71,6 +71,24 @@ describe("contact form", () => {
     assert.equal(result.success, false);
   });
 
+  test("includes SupportFlow pilot qualification fields in the email", () => {
+    const parsed = contactFormSchema.parse({
+      name: "Jan Kowalski",
+      email: "jan@example.com",
+      company: "Acme",
+      message: "Potrzebuję aplikacji do obiegu dokumentów.",
+      supportSystem: "Zendesk",
+      weeklyTicketVolume: "50-100",
+      pilotInterest: "Tak, rozważam pilotaż",
+    });
+
+    const email = buildContactEmail(parsed);
+    assert.match(email.text, /System wsparcia: Zendesk/);
+    assert.match(email.text, /Zgłoszenia tygodniowo: 50-100/);
+    assert.match(email.text, /Program pilotażowy: Tak, rozważam pilotaż/);
+    assert.match(email.html, /System wsparcia:/);
+  });
+
   test("builds a readable email payload for valid submissions", () => {
     const parsed = contactFormSchema.parse({
       name: "Jan Kowalski",
