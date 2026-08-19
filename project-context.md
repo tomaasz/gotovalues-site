@@ -10,7 +10,7 @@
 | Framework | Next.js 16.2.4 (App Router, typedRoutes) |
 | UI | React 19.2.3 |
 | Język | TypeScript (strict) |
-| Hosting | Cloudflare Workers (wrangler + opennextjs-cloudflare ^1.17.1) |
+| Hosting | Vercel production deployment (Next.js project `gotovalues`) |
 | Monitoring | Sentry (@sentry/nextjs ^10.49.0) |
 | Analityka | PostHog (posthog-js ^1.364.4) |
 | Email | Resend (^6.2.0) |
@@ -23,7 +23,7 @@
 ```
 src/
 ├── app/                    # Next.js App Router
-│   ├── api/               # API routes (Cloudflare Workers)
+│   ├── api/               # API routes (Next.js route handlers)
 │   ├── dla-produkcji/     # /dla-produkcji
 │   ├── produkty/           # /produkty
 │   ├── polityka-prywatnosci/ # /polityka-prywatnosci
@@ -44,11 +44,11 @@ tools/                     # Narzędzia
 
 ## Deployment
 
-- **Produkcja:** Cloudflare Workers (`wrangler.jsonc`)
-- **Build:** `opennextjs-cloudflare build && opennextjs-cloudflare deploy`
-- **CI/CD:** GitHub Actions (`.github/workflows/ci.yml`)
-- **Preview:** `opennextjs-cloudflare preview`
-- **Worker name:** `gotovalues-site`
+- **Produkcja:** Vercel, projekt `gotovalues`
+- **Build:** `pnpm build`
+- **CI:** GitHub Actions (`.github/workflows/ci.yml`) — waliduje, nie publikuje
+- **Deploy:** ręczny Vercel deploy z czystego, zmergowanego `main`
+- **Runbook:** `docs/deployment.md` — 1Password, weryfikacja lazy-loaded UI i rollback
 
 ## Konwencje
 

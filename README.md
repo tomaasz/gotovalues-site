@@ -36,28 +36,16 @@ Bez `RESEND_API_KEY` i `CONTACT_TO_EMAIL` formularz zwróci odpowiedź `503`.
 ## Skrypty
 
 ```bash
-npm test
-npm run lint
-npm run build
-npm run cf:build
+pnpm test
+pnpm lint
+pnpm build
 ```
 
-## Deployment Cloudflare
+## Deployment Vercel
 
-Repo jest przygotowane pod `OpenNext` i `Cloudflare Workers`.
+Produkcja `gotovalues.com` jest obecnie publikowana przez **Vercel**. GitHub Actions uruchamia testy i build, ale nie wdraża strony.
 
-Najważniejsze kroki:
-
-```bash
-npm run cf:build
-npm run cf:deploy
-```
-
-Przed deployem ustaw w Cloudflare / Wrangler sekrety:
-
-- `RESEND_API_KEY`
-- `CONTACT_TO_EMAIL`
-- `CONTACT_FROM_EMAIL`
+Przed ręcznym wdrożeniem przejdź na aktualny `main` i uruchom testy, lint oraz build. Token Vercel pozostaje w 1Password; szczegółowa procedura, weryfikacja klientowego UI i rollback są w [`docs/deployment.md`](docs/deployment.md).
 
 ## Uwagi
 
