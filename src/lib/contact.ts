@@ -6,6 +6,9 @@ export const contactFormSchema = z.object({
   name: z.string().trim().min(2, 'Podaj imię.').max(100, 'Imię jest za długie.'),
   email: z.string().trim().email('Podaj poprawny adres e-mail.').max(255, 'E-mail jest za długi.'),
   company: z.string().trim().max(120).optional().default(''),
+  supportSystem: z.string().trim().max(120).optional().default(''),
+  weeklyTicketVolume: z.string().trim().max(60).optional().default(''),
+  pilotInterest: z.string().trim().max(120).optional().default(''),
   message: z.string().trim().min(20, 'Opisz krótko, czego potrzebujesz.').max(5000, 'Wiadomość jest za długa.'),
   // Sentinel: Server-side honeypot validation to prevent bots from bypassing client-side checks via direct API POSTs.
   bot_field: z.string().max(0, 'Spam detected').optional().default(''),
@@ -19,6 +22,9 @@ export function buildContactEmail(data: ContactFormData): {
   html: string;
 } {
   const companyLine = data.company ? `Firma: ${data.company}` : 'Firma: nie podano';
+  const supportSystemLine = data.supportSystem ? `System wsparcia: ${data.supportSystem}` : 'System wsparcia: nie podano';
+  const volumeLine = data.weeklyTicketVolume ? `Zgłoszenia tygodniowo: ${data.weeklyTicketVolume}` : 'Zgłoszenia tygodniowo: nie podano';
+  const pilotLine = data.pilotInterest ? `Program pilotażowy: ${data.pilotInterest}` : 'Program pilotażowy: nie podano';
   const subject = `[${brandName}] Nowe zgłoszenie od ${data.name}`;
   const text = [
     `Nowe zgłoszenie ze strony ${brandName}`,
@@ -26,6 +32,9 @@ export function buildContactEmail(data: ContactFormData): {
     `Imię: ${data.name}`,
     `E-mail: ${data.email}`,
     companyLine,
+    supportSystemLine,
+    volumeLine,
+    pilotLine,
     '',
     'Wiadomość:',
     data.message,
@@ -36,6 +45,9 @@ export function buildContactEmail(data: ContactFormData): {
     `<p><strong>Imię:</strong> ${escapeHtml(data.name)}</p>`,
     `<p><strong>E-mail:</strong> <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></p>`,
     `<p><strong>Firma:</strong> ${escapeHtml(data.company || 'nie podano')}</p>`,
+    `<p><strong>System wsparcia:</strong> ${escapeHtml(data.supportSystem || 'nie podano')}</p>`,
+    `<p><strong>Zgłoszenia tygodniowo:</strong> ${escapeHtml(data.weeklyTicketVolume || 'nie podano')}</p>`,
+    `<p><strong>Program pilotażowy:</strong> ${escapeHtml(data.pilotInterest || 'nie podano')}</p>`,
     `<p><strong>Wiadomość:</strong></p>`,
     `<p>${escapeHtml(data.message).replaceAll('\n', '<br />')}</p>`,
   ].join('');
