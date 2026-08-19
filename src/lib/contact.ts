@@ -21,20 +21,19 @@ export function buildContactEmail(data: ContactFormData): {
   text: string;
   html: string;
 } {
-  const companyLine = data.company ? `Firma: ${data.company}` : 'Firma: nie podano';
-  const supportSystemLine = data.supportSystem ? `System wsparcia: ${data.supportSystem}` : 'System wsparcia: nie podano';
-  const volumeLine = data.weeklyTicketVolume ? `Zgłoszenia tygodniowo: ${data.weeklyTicketVolume}` : 'Zgłoszenia tygodniowo: nie podano';
-  const pilotLine = data.pilotInterest ? `Program pilotażowy: ${data.pilotInterest}` : 'Program pilotażowy: nie podano';
+  const fields = [
+    { label: 'Imię', value: data.name },
+    { label: 'E-mail', value: data.email, isEmail: true },
+    { label: 'Firma', value: data.company || 'nie podano' },
+    { label: 'System wsparcia', value: data.supportSystem || 'nie podano' },
+    { label: 'Zgłoszenia tygodniowo', value: data.weeklyTicketVolume || 'nie podano' },
+    { label: 'Program pilotażowy', value: data.pilotInterest || 'nie podano' },
+  ];
   const subject = `[${brandName}] Nowe zgłoszenie od ${data.name}`;
   const text = [
     `Nowe zgłoszenie ze strony ${brandName}`,
     '',
-    `Imię: ${data.name}`,
-    `E-mail: ${data.email}`,
-    companyLine,
-    supportSystemLine,
-    volumeLine,
-    pilotLine,
+    ...fields.map(({ label, value }) => `${label}: ${value}`),
     '',
     'Wiadomość:',
     data.message,
@@ -42,12 +41,11 @@ export function buildContactEmail(data: ContactFormData): {
 
   const html = [
     `<h1>Nowe zgłoszenie ze strony ${brandName}</h1>`,
-    `<p><strong>Imię:</strong> ${escapeHtml(data.name)}</p>`,
-    `<p><strong>E-mail:</strong> <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></p>`,
-    `<p><strong>Firma:</strong> ${escapeHtml(data.company || 'nie podano')}</p>`,
-    `<p><strong>System wsparcia:</strong> ${escapeHtml(data.supportSystem || 'nie podano')}</p>`,
-    `<p><strong>Zgłoszenia tygodniowo:</strong> ${escapeHtml(data.weeklyTicketVolume || 'nie podano')}</p>`,
-    `<p><strong>Program pilotażowy:</strong> ${escapeHtml(data.pilotInterest || 'nie podano')}</p>`,
+    ...fields.map(({ label, value, isEmail }) => {
+      const escapedValue = escapeHtml(value);
+      const content = isEmail ? `<a href="mailto:${escapedValue}">${escapedValue}</a>` : escapedValue;
+      return `<p><strong>${label}:</strong> ${content}</p>`;
+    }),
     `<p><strong>Wiadomość:</strong></p>`,
     `<p>${escapeHtml(data.message).replaceAll('\n', '<br />')}</p>`,
   ].join('');
