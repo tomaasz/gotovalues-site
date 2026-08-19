@@ -36,10 +36,7 @@ src/
 ├── lib/                    # Biblioteki pomocnicze
 tests/                     # Testy (tsx --test)
 public/                    # Statyczne assety
-assets/                    # Dodatkowe assety
 docs/                      # Dokumentacja
-scripts/                   # Skrypty pomocnicze
-tools/                     # Narzędzia
 ```
 
 ## Deployment
