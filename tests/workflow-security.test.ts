@@ -52,6 +52,7 @@ test('Dependency-Track upload passes repository metadata through the shell envir
   const source = workflow('sonarqube.yml');
   assert.match(source, /PROJECT_NAME:\s*\$\{\{ github\.event\.repository\.name \}\}/);
   assert.match(source, /PROJECT_VERSION:\s*\$\{\{ github\.sha \}\}/);
+  assert.match(source, /-H "X-Api-Key: \$DEPTRACK_API_KEY"/);
   assert.match(source, /-F "projectName=\$PROJECT_NAME"/);
   assert.match(source, /-F "projectVersion=\$PROJECT_VERSION"/);
   assert.doesNotMatch(source, /-F "projectName=\$\{\{/);
