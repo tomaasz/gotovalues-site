@@ -6,20 +6,29 @@ name: Auto-merge small bot-fixer PRs
 # change is small enough that a focused glance at CI is sufficient.
 #
 # Promotion criteria:
+#   - head branch lives in this repository, never a fork
 #   - branch name matches one of the bot prefixes below
 #   - changed files: ≤ 2
 #   - changed lines: ≤ 50 (additions + deletions)
 #   - PR not labeled needs-review / blocked / major-upgrade
+#   - every check run on the head commit has finished, and none failed
 #
-# `gh pr merge --auto` waits for required checks to pass (or merges
-# immediately if no protections are configured), so we don't need a
-# workflow_run trigger here — the pull_request_target event is enough.
+# This triggers on workflow_run, not pull_request_target. `gh pr merge
+# --auto` only defers to CI when the base branch has required status
+# checks configured; with no branch protection on main it merged PRs the
+# instant they were opened, before a single check had started. Reacting
+# to a finished CI run and then re-reading every check on the head commit
+# gates the merge on CI itself rather than on repository settings.
 #
-# Anything bigger than the threshold stays draft for human eyes.
+# If some checks are still in flight the job exits without merging — the
+# next workflow to finish raises another workflow_run event and the PR is
+# re-evaluated then. When a third-party check is the last to report, the
+# PR just stays open for a human. That is the safe direction to fail in.
 
 on:
-  pull_request_target:
-    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_run:
+    workflows: [CI, CodeQL Security Analysis]
+    types: [completed]
 
 permissions:
   pull-requests: write
@@ -28,57 +37,103 @@ permissions:
 jobs:
   small-bot-fix:
     name: Promote & merge small bot fix
-    # pull_request_target has write credentials; never run this for a fork.
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Identify candidate PR
         id: pr
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        env:
+          REPO_FULL_NAME: ${{ github.repository }}
         with:
           script: |
-            const pr = context.payload.pull_request;
-            if (!pr) {
+            // This job's own check run, excluded when tallying the head
+            // commit's checks so it never waits on itself.
+            const SELF = 'Promote & merge small bot fix';
+            const PASSING = ['success', 'skipped', 'neutral'];
+
+            const run = context.payload.workflow_run;
+            const skip = (reason) => {
+              core.notice(reason);
               core.setOutput('skip', 'true');
-              return;
+            };
+
+            // Restricting the head filter to this repository's owner keeps
+            // fork branches out of the candidate list to begin with.
+            const { data: candidates } = await github.rest.pulls.list({
+              ...context.repo,
+              state: 'open',
+              head: `${context.repo.owner}:${run.head_branch}`,
+            });
+            const candidate = candidates.find((p) => p.head.sha === run.head_sha);
+            if (!candidate) {
+              return skip(`No open pull request at ${run.head_sha} — skip.`);
             }
 
-            const branch = pr.head.ref;
+            // pulls.list omits additions/deletions/changed_files.
+            const { data: pr } = await github.rest.pulls.get({
+              ...context.repo,
+              pull_number: candidate.number,
+            });
+
+            // workflow_run carries this repository's write token, so never
+            // act on a pull request whose head lives in a fork.
+            if (pr.head.repo.full_name !== process.env.REPO_FULL_NAME) {
+              return skip(`Head ${pr.head.repo.full_name} is a fork — skip.`);
+            }
+
             const botPrefix = /^(claude\/|auditor-|sentinel-|architect-|palette-|janitor-|bolt-|doctor-|jules-)/;
-            if (!botPrefix.test(branch)) {
-              core.notice(`Branch ${branch} is not a bot-fixer branch — skip.`);
-              core.setOutput('skip', 'true');
-              return;
+            if (!botPrefix.test(pr.head.ref)) {
+              return skip(`Branch ${pr.head.ref} is not a bot-fixer branch — skip.`);
             }
 
-            const labels = pr.labels.map(l => l.name);
+            const labels = pr.labels.map((l) => l.name);
             if (labels.includes('needs-review') || labels.includes('blocked') || labels.includes('major-upgrade')) {
-              core.notice('PR carries human-review label — skip.');
-              core.setOutput('skip', 'true');
-              return;
+              return skip('PR carries human-review label — skip.');
             }
 
             const totalLines = (pr.additions || 0) + (pr.deletions || 0);
             const filesChanged = pr.changed_files || 0;
             if (filesChanged > 2 || totalLines > 50) {
-              core.notice(`Too large for auto-merge: ${filesChanged} files, ${totalLines} lines.`);
-              core.setOutput('skip', 'true');
-              return;
+              return skip(`Too large for auto-merge: ${filesChanged} files, ${totalLines} lines.`);
             }
 
+            const { data: checks } = await github.rest.checks.listForRef({
+              ...context.repo,
+              ref: pr.head.sha,
+              per_page: 100,
+            });
+            const others = checks.check_runs.filter((c) => c.name !== SELF);
+
+            const failed = others.filter(
+              (c) => c.status === 'completed' && !PASSING.includes(c.conclusion),
+            );
+            if (failed.length > 0) {
+              return skip(`Checks not passing: ${failed.map((c) => c.name).join(', ')} — skip.`);
+            }
+
+            const running = others.filter((c) => c.status !== 'completed');
+            if (running.length > 0) {
+              return skip(`Checks still running: ${running.map((c) => c.name).join(', ')} — re-evaluated when they finish.`);
+            }
+
+            core.info(`All ${others.length} checks on ${pr.head.sha} passed.`);
             core.setOutput('skip', 'false');
             core.setOutput('number', pr.number.toString());
             core.setOutput('is_draft', pr.draft.toString());
 
-      - name: Mark ready and enable auto-merge
+      - name: Mark ready and merge
         if: steps.pr.outputs.skip == 'false'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
           PR_NUMBER: ${{ steps.pr.outputs.number }}
           IS_DRAFT: ${{ steps.pr.outputs.is_draft }}
         run: |
           set -eu
           if [ "$IS_DRAFT" = "true" ]; then
-            gh pr ready "$PR_NUMBER" --repo "${{ github.repository }}"
+            gh pr ready "$PR_NUMBER"
           fi
-          gh pr merge "$PR_NUMBER" --repo "${{ github.repository }}" --squash --auto --delete-branch
+          gh pr merge "$PR_NUMBER" --squash --delete-branch
