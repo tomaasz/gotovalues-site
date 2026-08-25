@@ -65,6 +65,13 @@ test('CI dependency installation prevents lifecycle scripts from running', () =>
   }
 });
 
+test('Snyk scans the whole pnpm workspace', () => {
+  const source = workflow('ci.yml');
+  // Without --all-projects Snyk exits 422 on a repo that has both
+  // pnpm-lock.yaml and pnpm-workspace.yaml, scanning nothing at all.
+  assert.match(source, /args:\s*--all-projects/);
+});
+
 test('self-hosted SonarQube job never runs code from a fork', () => {
   assert.match(
     workflow('sonarqube.yml'),
