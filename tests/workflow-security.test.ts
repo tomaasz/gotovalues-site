@@ -35,6 +35,12 @@ test('dependabot merge uses the trusted numeric pull request identifier', () => 
   assert.doesNotMatch(source, /github\.event\.pull_request\.html_url/);
 });
 
+test('dependabot merge resolves the repository from the workflow environment', () => {
+  const source = workflow('dependabot-automerge.yml');
+  assert.match(source, /GH_REPO:\s*\$\{\{\s*github\.repository\s*\}\}/);
+  assert.doesNotMatch(source, /gh pr merge[^\n]*\$\{\{/);
+});
+
 test('CI dependency installation prevents lifecycle scripts from running', () => {
   for (const name of ['ci.yml', 'sonarqube.yml']) {
     assert.match(workflow(name), /pnpm install --frozen-lockfile --ignore-scripts/);
