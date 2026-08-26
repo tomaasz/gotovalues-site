@@ -52,14 +52,25 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Delete merged & orphan claude/* branches
+      - name: Delete merged & orphan bot branches
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -eu
 
+          # Branch families opened by bots, matched as a prefix whitelist and
+          # kept in one variable so the two loops below cannot drift apart.
+          #
+          # Humans branch with conventional prefixes (feat/ fix/ ci/ chore/
+          # docs/ refactor/). Those are deliberately absent: this job has
+          # contents: write and deletes what it matches, so a prefix broad
+          # enough to catch someone's work in progress does not belong here.
+          #
+          # janitor[-/] because that bot has used both separators.
+          bot_branches='origin/(claude/|auditor-|sentinel-|architect-|palette-|janitor[-/]|bolt-|doctor-|jules-|korektor-|snyk-fix-|triage-stale-prs-|weekly-security-audit-|fix-security-weekly-audit-)'
+
           # 1. Branches already merged to main → delete
-          for b in $(git branch -r --merged origin/main | grep -E 'origin/(claude/|auditor-|sentinel-|architect-|palette-|janitor-|bolt-|doctor-)' | sed 's|origin/||' | tr -d ' '); do
+          for b in $(git branch -r --merged origin/main | grep -E "$bot_branches" | sed 's|origin/||' | tr -d ' '); do
             if [ "$b" != "main" ] && [ "$b" != "HEAD" ]; then
               echo "Deleting merged branch: $b"
               git push origin --delete "$b" || true
@@ -69,7 +80,7 @@ jobs:
           # 2. Branches with no associated open PR + older than 30 days → delete
           all_open_prs=$(gh pr list --state open --json headRefName --jq '.[].headRefName' | sort -u)
           cutoff=$(date -u -d '30 days ago' +%s)
-          for b in $(git branch -r | grep -E 'origin/(claude/|auditor-|sentinel-|architect-|palette-|janitor-|bolt-|doctor-)' | sed 's|origin/||' | tr -d ' '); do
+          for b in $(git branch -r | grep -E "$bot_branches" | sed 's|origin/||' | tr -d ' '); do
             if echo "$all_open_prs" | grep -qx "$b"; then
               continue
             fi
