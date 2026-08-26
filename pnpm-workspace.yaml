@@ -12,6 +12,11 @@ packages:
 # paczki w górę, taka podłoga działa jak przypięcie do dokładnie tej wersji —
 # i starzeje się w podatną. Dlatego po każdym `pnpm audit` podnoś tu floor do
 # wersji faktycznie załatanej, nie zostawiaj starego progu.
+#
+# Górna granica `<major+1` działa tak samo mocno: zatrzyma paczkę na obecnym
+# majorze nawet wtedy, gdy `package.json` prosi o wyższy. Przy CELOWYM majorze
+# (np. bump z Dependabota) podnieś tutaj obie granice razem — inaczej bump
+# wjedzie do package.json, a zainstalowana zostanie stara wersja.
 overrides:
   esbuild: '>=0.28.1'
   form-data: '>=4.0.6'
