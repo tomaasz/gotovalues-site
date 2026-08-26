@@ -6,12 +6,23 @@ packages:
 # psuło konsumentów (jsdom@29, minimatch@8) sięgających po wewnętrzne API / inny
 # kształt eksportu. jsdom sam ciągnie poprawne undici ^7.25, więc go nie pinujemy.
 # Dodawaj override tylko gdy `pnpm audit` zgłasza paczkę i pin nie psuje builda.
+#
+# UWAGA: override podmienia specyfikator w KAŻDYM pakiecie, a pnpm rozwiązuje
+# goły zakres `>=x` do NAJNIŻSZEJ pasującej wersji. Tam, gdzie nic nie ciągnie
+# paczki w górę, taka podłoga działa jak przypięcie do dokładnie tej wersji —
+# i starzeje się w podatną. Dlatego po każdym `pnpm audit` podnoś tu floor do
+# wersji faktycznie załatanej, nie zostawiaj starego progu.
+#
+# Górna granica `<major+1` działa tak samo mocno: zatrzyma paczkę na obecnym
+# majorze nawet wtedy, gdy `package.json` prosi o wyższy. Przy CELOWYM majorze
+# (np. bump z Dependabota) podnieś tutaj obie granice razem — inaczej bump
+# wjedzie do package.json, a zainstalowana zostanie stara wersja.
 overrides:
   esbuild: '>=0.28.1'
   form-data: '>=4.0.6'
-  js-yaml: '>=4.1.2'
-  next: '>=16.2.9'
-  postcss: '>=8.5.10'
+  js-yaml: '>=4.3.1 <5'
+  next: '>=16.3.2 <17'
+  postcss: '>=8.5.23 <9'
   qs: '>=6.15.2'
   ws: '>=8.21.0'
 allowBuilds:
