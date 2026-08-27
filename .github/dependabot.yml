@@ -11,6 +11,17 @@ updates:
         update-types:
           - minor
           - patch
+    ignore:
+      # @types/node must track the Node the project actually runs, not the
+      # newest release. package.json sets engines.node ">=20" and CI builds on
+      # node-version 22, so a major bump puts the type definitions several
+      # majors ahead of every runtime in use and TypeScript starts accepting
+      # APIs that are not there. Reopened and closed on every version tick
+      # (#293, #290, #278, #271, #265, #262, #253, #244, #222, #207) until
+      # this rule existed. Raise engines.node first, then drop this entry.
+      - dependency-name: "@types/node"
+        update-types:
+          - version-update:semver-major
 
   - package-ecosystem: github-actions
     directory: "/"

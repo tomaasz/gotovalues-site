@@ -13,6 +13,38 @@ test('stale workflow limits contents write to the branch-pruning job', () => {
   assert.match(source, /prune-orphan-branches:[\s\S]*?permissions:\n      contents: write/);
 });
 
+test('branch pruning matches bot families from a single whitelist', () => {
+  const source = workflow('stale.yml');
+  // One definition, referenced by both loops — two copies is how the janitor/
+  // vs janitor- mismatch survived unnoticed.
+  const definitions = source.match(/^\s*bot_branches=/gm) ?? [];
+  assert.equal(definitions.length, 1, 'bot_branches must be defined exactly once');
+  assert.equal((source.match(/grep -E "\$bot_branches"/g) ?? []).length, 2);
+
+  const whitelist = /bot_branches='([^']+)'/.exec(source)?.[1];
+  assert.ok(whitelist, 'bot_branches must be a single-quoted regex literal');
+  for (const family of ['claude/', 'janitor[-/]', 'jules-', 'korektor-', 'snyk-fix-']) {
+    assert.ok(whitelist.includes(family), `whitelist must cover ${family}`);
+  }
+});
+
+test('branch pruning never matches human branch prefixes', () => {
+  const whitelist = /bot_branches='([^']+)'/.exec(workflow('stale.yml'))?.[1] ?? '';
+  // This job runs with contents: write and deletes what it matches, so a
+  // conventional-commit prefix here would eat someone's work in progress.
+  for (const human of ['feat/', 'fix/', 'ci/', 'chore/', 'docs/', 'refactor/']) {
+    assert.ok(!whitelist.includes(human), `whitelist must not cover ${human}`);
+  }
+});
+
+test('dependabot does not reopen @types/node major bumps', () => {
+  const config = readFileSync(path.join(root, '.github', 'dependabot.yml'), 'utf8');
+  assert.match(
+    config,
+    /- dependency-name: "@types\/node"\n\s+update-types:\n\s+- version-update:semver-major/,
+  );
+});
+
 test('dependabot automerge rejects pull requests from forks', () => {
   assert.match(
     workflow('dependabot-automerge.yml'),
