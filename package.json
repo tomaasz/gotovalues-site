@@ -21,10 +21,10 @@
     "clsx": "^2.1.1",
     "lucide-react": "^1.33.0",
     "next": "16.3.2",
-    "posthog-js": "^1.418.7",
+    "posthog-js": "^1.418.10",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "resend": "^6.21.0",
+    "resend": "^6.22.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
@@ -36,7 +36,7 @@
     "@storybook/nextjs-vite": "^10.5.10",
     "@tailwindcss/postcss": "^4.3.3",
     "@testing-library/react": "^16.3.2",
-    "@types/node": "^20.19.17",
+    "@types/node": "^20.19.43",
     "@types/react": "^19.2.18",
     "@vitest/browser-playwright": "^4.1.11",
     "@vitest/coverage-v8": "^4.1.11",
