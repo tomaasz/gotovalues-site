@@ -58,6 +58,21 @@ jobs:
         run: |
           set -eu
 
+          # checkout runs with persist-credentials: false, so the local git has
+          # no push credentials and a delete via git dies with "could not read
+          # Username for 'https://github.com'". Every attempt was also followed
+          # by `|| true`, so the job reported success while removing nothing.
+          # Delete through the API instead, which authenticates with GH_TOKEN.
+          # Do not "fix" this by persisting credentials — a workflow holding
+          # contents: write should not leave a pushable token in the checkout.
+          delete_branch() {
+            if gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$1" >/dev/null; then
+              echo "Deleted: $1"
+            else
+              echo "::warning::Could not delete $1"
+            fi
+          }
+
           # Branch families opened by bots, matched as a prefix whitelist and
           # kept in one variable so the two loops below cannot drift apart.
           #
@@ -73,7 +88,7 @@ jobs:
           for b in $(git branch -r --merged origin/main | grep -E "$bot_branches" | sed 's|origin/||' | tr -d ' '); do
             if [ "$b" != "main" ] && [ "$b" != "HEAD" ]; then
               echo "Deleting merged branch: $b"
-              git push origin --delete "$b" || true
+              delete_branch "$b"
             fi
           done
 
@@ -87,6 +102,6 @@ jobs:
             last_commit_ts=$(git log -1 --format=%ct "origin/$b" 2>/dev/null || echo 0)
             if [ "$last_commit_ts" -gt 0 ] && [ "$last_commit_ts" -lt "$cutoff" ]; then
               echo "Deleting orphan stale branch: $b (last commit $(date -u -d @$last_commit_ts +%Y-%m-%d))"
-              git push origin --delete "$b" || true
+              delete_branch "$b"
             fi
           done

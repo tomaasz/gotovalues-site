@@ -13,6 +13,21 @@ test('stale workflow limits contents write to the branch-pruning job', () => {
   assert.match(source, /prune-orphan-branches:[\s\S]*?permissions:\n      contents: write/);
 });
 
+test('branch pruning deletes through the API, not through git', () => {
+  const source = workflow('stale.yml');
+  // checkout keeps persist-credentials: false (asserted below), so the
+  // checkout has no pushable token and a git-based delete silently fails.
+  // Pairing that with `|| true` is how this job reported success for months
+  // while deleting nothing.
+  const code = source
+    .split('\n')
+    .filter((line) => !line.trimStart().startsWith('#'))
+    .join('\n');
+  assert.doesNotMatch(code, /git push origin --delete/);
+  assert.match(source, /gh api -X DELETE "repos\/\$GITHUB_REPOSITORY\/git\/refs\/heads\/\$1"/);
+  assert.doesNotMatch(code, /delete_branch "\$b" \|\| true/);
+});
+
 test('branch pruning matches bot families from a single whitelist', () => {
   const source = workflow('stale.yml');
   // One definition, referenced by both loops — two copies is how the janitor/
