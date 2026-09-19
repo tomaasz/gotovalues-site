@@ -41,6 +41,9 @@ export function VibeCodingHeroSection() {
   const [activeTab, setActiveTab] = useState<'terminal' | 'code' | 'preview'>('terminal');
   const [copied, setCopied] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [selectedFaqCategory, setSelectedFaqCategory] = useState<
+    'Wszystkie' | 'Współpraca i Koszty' | 'Bezpieczeństwo i RODO' | 'Technologia i Realizacja'
+  >('Wszystkie');
 
   // Formularz kontaktowy i wyceny
   const [formData, setFormData] = useState({
@@ -122,43 +125,79 @@ export default async function B2BCustomerPortal() {
     }
   };
 
+  type FaqCategory =
+    | 'Wszystkie'
+    | 'Współpraca i Koszty'
+    | 'Bezpieczeństwo i RODO'
+    | 'Technologia i Realizacja';
+
+  const faqCategories: FaqCategory[] = [
+    'Wszystkie',
+    'Współpraca i Koszty',
+    'Bezpieczeństwo i RODO',
+    'Technologia i Realizacja',
+  ];
+
   const faqs = [
+    // KATEGORIA 1: WSPÓŁPRACA I KOSZTY
     {
       q: 'Czym dokładnie jest Vibe Coding i dlaczego opłaca się to mojej firmie?',
       a: "Vibe Coding to nowoczesny proces tworzenia oprogramowania, w którym opisujesz wymagania w języku naturalnym, a my przy wsparciu autonomicznych agentów AI błyskawicznie zamieniamy je w działający kod. Dla Twojej firmy oznacza to dostarczenie gotowej aplikacji lub strony w kilka dni (zamiast miesięcy) oraz spadek kosztów realizacji nawet o 70% w porównaniu do tradycyjnych software house'ów.",
       badge: 'Metodologia i ROI',
-    },
-    {
-      q: 'Kto posiada prawa autorskie do stworzonego kodu i aplikacji?',
-      a: '100% praw autorskich oraz pełna własność intelektualna (IP) do wygenerowanego kodu, infrastruktury i baz danych przechodzi na Ciebie od razu po zakończeniu projektu. Nie nakładamy żadnych ograniczeń licencyjnych ani ukrytych opłat.',
-      badge: '100% IP & Własność',
-    },
-    {
-      q: 'Czy kod tworzony przez AI jest bezpieczny, czysty i skalowalny?',
-      a: 'Tak. Każda linijka kodu generowana przez AI jest nadzorowana, audytowana i optymalizowana przez naszego Senior Developera. Używamy sprawdzonych, nowoczesnych technologii (React, Next.js, Node.js, Python, PostgreSQL), co gwarantuje wysoką wydajność, brak podatności na zagrożenia oraz łatwą skalowalność w przyszłości.',
-      badge: 'Jakość & Bezpieczeństwo',
-    },
-    {
-      q: 'Co z poufnością moich danych biznesowych i zgodnością z RODO/GDPR?',
-      a: 'Bezpieczeństwo Twoich danych to nasz priorytet. Pracujemy na zabezpieczonych środowiskach i korzystamy z komercyjnych instancji modeli AI, które prawnie gwarantują, że Twoje dane biznesowe NIE SĄ wykorzystywane do trenowania modeli. Na życzenie podpisujemy również umowę o poufności (NDA) przed rozpoczęciem jakichkolwiek rozmów.',
-      badge: 'Poufność & RODO',
-    },
-    {
-      q: 'Co się stanie, jeśli w przyszłości będę chciał rozbudować aplikację z innym zespołem?',
-      a: 'Zero vendor lock-in. Przekazujemy Ci czyste, udokumentowane repozytorium kodu (np. na GitHub/GitLab). Ponieważ budujemy rozwiązania w oparciu o branżowe standardy, dowolny inny programista na świecie będzie mógł bez problemu kontynuować rozwój Twojego systemu.',
-      badge: 'Zero Vendor Lock-in',
+      category: 'Współpraca i Koszty' as const,
     },
     {
       q: 'Ile kosztuje realizacja projektu i jak rozliczamy współpracę?',
       a: 'Wyceniamy projekty w oparciu o stałą stawkę za etap (Fixed Price) lub elastyczny budżet iteracyjny. Zanim wydasz złotówkę, otrzymujesz dokładny kosztorys i harmonogram. Dzięki automatyzacji AI płacisz za realnie dostarczoną wartość biznesową, a nie za bezkońcowe roboczogodziny.',
       badge: 'Przejrzysty kosztorys',
+      category: 'Współpraca i Koszty' as const,
     },
     {
       q: 'Nie mam specyfikacji technicznej – czy to problem?',
       a: 'Zupełnie nie. Wystarczy, że podczas krótkiej rozmowy (Vibe Session) opowiesz nam o swoim problemie biznesowym lub wizji w zwykłych słowach. My przekształcimy to w architekturę systemu i przygotujemy pierwszy działający prototyp.',
       badge: 'Brak specyfikacji? OK',
+      category: 'Współpraca i Koszty' as const,
+    },
+
+    // KATEGORIA 2: BEZPIECZEŃSTWO I RODO
+    {
+      q: 'Kto posiada prawa autorskie do stworzonego kodu i aplikacji?',
+      a: '100% praw autorskich oraz pełna własność intelektualna (IP) do wygenerowanego kodu, infrastruktury i baz danych przechodzi na Ciebie od razu po zakończeniu projektu. Nie nakładamy żadnych ograniczeń licencyjnych ani ukrytych opłat.',
+      badge: '100% IP & Własność',
+      category: 'Bezpieczeństwo i RODO' as const,
+    },
+    {
+      q: 'Co z poufnością moich danych biznesowych i zgodnością z RODO/GDPR?',
+      a: 'Bezpieczeństwo Twoich danych to nasz priorytet. Pracujemy na zabezpieczonych środowiskach i korzystamy z komercyjnych instancji modeli AI, które prawnie gwarantują, że Twoje dane biznesowe NIE SĄ wykorzystywane do trenowania modeli. Na życzenie podpisujemy również umowę o poufności (NDA) przed rozpoczęciem rozmów.',
+      badge: 'Poufność & RODO',
+      category: 'Bezpieczeństwo i RODO' as const,
+    },
+
+    // KATEGORIA 3: TECHNOLOGIA I REALIZACJA
+    {
+      q: 'Czy kod tworzony przez AI jest bezpieczny, czysty i skalowalny?',
+      a: 'Tak. Każda linijka kodu generowana przez AI jest nadzorowana, audytowana i optymalizowana przez naszego Senior Developera. Używamy sprawdzonych, nowoczesnych technologii (React, Next.js, Node.js, Python, PostgreSQL), co gwarantuje wysoką wydajność, brak podatności na zagrożenia oraz łatwą skalowalność.',
+      badge: 'Jakość & Architektura',
+      category: 'Technologia i Realizacja' as const,
+    },
+    {
+      q: 'Jak szybko otrzymam pierwszą wersję (MVP) mojego projektu?',
+      a: 'Pierwszy działający prototyp lub aplikację dostarczamy zazwyczaj w ciągu 3–10 dni od pierwszej rozmowy.',
+      badge: 'Czas realizacji',
+      category: 'Technologia i Realizacja' as const,
+    },
+    {
+      q: 'Co się stanie, jeśli w przyszłości będę chciał rozbudować aplikację z innym zespołem?',
+      a: 'Zero vendor lock-in. Przekazujemy Ci czyste, udokumentowane repozytorium kodu (np. na GitHub/GitLab). Ponieważ budujemy rozwiązania w oparciu o branżowe standardy, dowolny inny programista na świecie będzie mógł bez problemu kontynuować rozwój Twojego systemu.',
+      badge: 'Zero Vendor Lock-in',
+      category: 'Technologia i Realizacja' as const,
     },
   ];
+
+  const filteredFaqs =
+    selectedFaqCategory === 'Wszystkie'
+      ? faqs
+      : faqs.filter((faq) => faq.category === selectedFaqCategory);
 
   return (
     <div className="relative overflow-hidden rounded-3xl border border-zinc-800/90 bg-zinc-950 text-zinc-100 shadow-2xl antialiased selection:bg-emerald-500/30 selection:text-emerald-200 mb-16">
@@ -1111,14 +1150,50 @@ export default async function B2BCustomerPortal() {
             Najczęściej zadawane pytania
           </h2>
           <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg max-w-2xl mx-auto">
-            Masz wątpliwości dotyczące Vibe Coding lub przebiegu współpracy? Sprawdź odpowiedzi na
-            kluczowe pytania biznesowe i techniczne.
+            Wybierz kategorię i znajdź odpowiedzi na kluczowe pytania biznesowe oraz techniczne.
           </p>
+
+          {/* Filtr kategorii (pigułki / tabs) */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            {faqCategories.map((category) => {
+              const isSelected = selectedFaqCategory === category;
+              const count =
+                category === 'Wszystkie'
+                  ? faqs.length
+                  : faqs.filter((f) => f.category === category).length;
+              return (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => {
+                    setSelectedFaqCategory(category);
+                    setOpenFaq(0);
+                  }}
+                  className={`group inline-flex items-center gap-2 rounded-full px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-medium transition-all duration-300 cursor-pointer ${
+                    isSelected
+                      ? 'border border-emerald-500/60 bg-emerald-500/15 text-emerald-300 shadow-[0_0_20px_rgba(16,185,129,0.25)] ring-1 ring-emerald-500/40'
+                      : 'border border-zinc-800/80 bg-zinc-900/60 text-zinc-400 hover:border-zinc-700 hover:bg-zinc-850 hover:text-zinc-200'
+                  }`}
+                >
+                  <span>{category}</span>
+                  <span
+                    className={`rounded-full px-1.5 py-0.5 text-[10px] font-mono transition-colors ${
+                      isSelected
+                        ? 'bg-emerald-500/20 text-emerald-300'
+                        : 'bg-zinc-800 text-zinc-500 group-hover:text-zinc-300'
+                    }`}
+                  >
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Akordeon */}
-        <div className="mt-12 space-y-4">
-          {faqs.map((faq, index) => {
+        <div className="mt-10 space-y-4">
+          {filteredFaqs.map((faq, index) => {
             const isOpen = openFaq === index;
             return (
               <div
@@ -1142,6 +1217,9 @@ export default async function B2BCustomerPortal() {
                       </span>
                       <span className="inline-block rounded-md border border-zinc-800 bg-zinc-950/60 px-2 py-0.5 text-[11px] font-mono font-medium text-zinc-400">
                         {faq.badge}
+                      </span>
+                      <span className="hidden sm:inline-block rounded-md border border-zinc-800/50 bg-zinc-900/60 px-2 py-0.5 text-[10px] font-mono text-zinc-500">
+                        {faq.category}
                       </span>
                     </div>
                     <span className="block text-base sm:text-lg font-semibold text-white group-hover:text-emerald-300 transition-colors">
