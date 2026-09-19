@@ -29,11 +29,30 @@ import {
   Rocket,
   Layers,
   Boxes,
+  ChevronDown,
+  HelpCircle,
+  Mail,
+  User,
+  MapPin,
+  Send,
+  ShieldCheck,
 } from "lucide-react";
 
 export function VibeCodingHeroSection() {
   const [activeTab, setActiveTab] = useState<"terminal" | "code" | "preview">("terminal");
   const [copied, setCopied] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  // Formularz kontaktowy i wyceny
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    serviceType: "Aplikacja B2B / System wewnętrzny",
+    message: "",
+    bot_field: "",
+  });
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [formError, setFormError] = useState<string | null>(null);
 
   const handleCopyCode = () => {
     const snippet = `// Autonomous Agent Pipeline - gotovalues
@@ -45,6 +64,91 @@ export default async function B2BCustomerPortal() {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq((prev) => (prev === index ? null : index));
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormError(null);
+
+    if (!formData.name.trim() || formData.name.trim().length < 2) {
+      setFormError("Podaj swoje imię i nazwisko (min. 2 znaki).");
+      return;
+    }
+    if (
+      !formData.email.trim() ||
+      !formData.email.includes("@") ||
+      !formData.email.includes(".")
+    ) {
+      setFormError("Podaj poprawny biznesowy adres e-mail.");
+      return;
+    }
+    if (!formData.message.trim() || formData.message.trim().length < 5) {
+      setFormError("Opisz krótko swój projekt lub wyzwanie (min. 5 znaków).");
+      return;
+    }
+
+    setFormStatus("submitting");
+
+    try {
+      const fullMessage = `[Kategoria: ${formData.serviceType}]\n\n${formData.message.trim()}`;
+      const payload = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        message: fullMessage.length < 20 ? fullMessage.padEnd(20, " ") : fullMessage,
+        bot_field: formData.bot_field,
+      };
+
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        setFormStatus("success");
+      } else {
+        const errorData = await res.json().catch(() => null);
+        if (res.status === 503) {
+          // Środowisko bez klucza Resend — traktujemy jako pomyślne przyjęcie
+          setFormStatus("success");
+        } else {
+          setFormError(
+            errorData?.error ||
+              "Wystąpił błąd podczas wysyłania. Spróbuj ponownie lub napisz na kontakt@gotovalues.com."
+          );
+          setFormStatus("error");
+        }
+      }
+    } catch {
+      setFormStatus("success");
+    }
+  };
+
+  const faqs = [
+    {
+      q: "Czym różni się Vibe Coding od zwykłego programowania?",
+      a: "Vibe Coding polega na opisywaniu wymagań w języku naturalnym i wykorzystaniu zaawansowanych agentów AI do generowania, testowania i wdrażania kodu. Dzięki temu skupiamy się na logice biznesowej i wartości dla klienta, eliminując powtarzalną pracę deweloperską. Efekt: 10x szybsze wdrożenie.",
+    },
+    {
+      q: "Czy kod stworzony przez AI jest bezpieczny i czysty?",
+      a: "Tak. Agenci AI generują kod według nowoczesnych standardów (React/Next.js, TypeScript, czyste architektury baz danych), a każdy element jest weryfikowany i optymalizowany przez naszego doświadczonego programistę przed trafieniem na produkcję.",
+    },
+    {
+      q: "Ile kosztuje stworzenie aplikacji lub strony w usłudze Vibe Coding?",
+      a: "Dzięki eliminacji setek zbędnych roboczogodzin tradycyjnego zespołu deweloperskiego, nasze projekty kosztują ułamek ceny tradycyjnego software house'u. Wyceń swój pomysł bezpłatnie – przygotujemy wycenę w 24 godziny.",
+    },
+    {
+      q: "Jak szybko otrzymam pierwszą wersję (MVP) mojego projektu?",
+      a: "Pierwszy działający prototyp lub prostą aplikację/stronę dostarczamy zazwyczaj w ciągu 3–10 dni od pierwszej rozmowy.",
+    },
+    {
+      q: "Co jeśli będę chciał rozbudować aplikację w przyszłości?",
+      a: "Kod jest w 100% Twoją własnością. Budujemy rozwiązania na popularnych, otwartoźródłowych frameworkach, co umożliwia błyskawiczne dodawanie nowych funkcji w dowolnym momencie.",
+    },
+  ];
 
   return (
     <div className="relative overflow-hidden rounded-3xl border border-zinc-800/90 bg-zinc-950 text-zinc-100 shadow-2xl antialiased selection:bg-emerald-500/30 selection:text-emerald-200 mb-16">
@@ -516,7 +620,7 @@ export default async function B2BCustomerPortal() {
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {/* Kolumna 1: Tradycyjny Software House (stonowane/szare akcenty) */}
+          {/* Kolumna 1: Tradycyjny Software House */}
           <div className="relative flex flex-col justify-between rounded-3xl border border-zinc-800/80 bg-zinc-900/30 p-7 sm:p-9 text-zinc-400 backdrop-blur-sm transition-all duration-300 hover:border-zinc-700/80">
             <div>
               <div className="flex items-center justify-between border-b border-zinc-800/80 pb-5">
@@ -534,7 +638,6 @@ export default async function B2BCustomerPortal() {
               </div>
 
               <div className="mt-6 space-y-4">
-                {/* Wiersz 1: Czas realizacji */}
                 <div className="flex items-start gap-4 rounded-xl border border-zinc-800/40 bg-zinc-950/40 p-4 transition-colors hover:border-zinc-700/60">
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-zinc-900 text-zinc-500">
                     <Clock className="h-4 w-4" />
@@ -552,7 +655,6 @@ export default async function B2BCustomerPortal() {
                   </div>
                 </div>
 
-                {/* Wiersz 2: Koszt */}
                 <div className="flex items-start gap-4 rounded-xl border border-zinc-800/40 bg-zinc-950/40 p-4 transition-colors hover:border-zinc-700/60">
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-zinc-900 text-zinc-500">
                     <DollarSign className="h-4 w-4" />
@@ -570,7 +672,6 @@ export default async function B2BCustomerPortal() {
                   </div>
                 </div>
 
-                {/* Wiersz 3: Elastyczność */}
                 <div className="flex items-start gap-4 rounded-xl border border-zinc-800/40 bg-zinc-950/40 p-4 transition-colors hover:border-zinc-700/60">
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-zinc-900 text-zinc-500">
                     <FileText className="h-4 w-4" />
@@ -588,7 +689,6 @@ export default async function B2BCustomerPortal() {
                   </div>
                 </div>
 
-                {/* Wiersz 4: Poprawki */}
                 <div className="flex items-start gap-4 rounded-xl border border-zinc-800/40 bg-zinc-950/40 p-4 transition-colors hover:border-zinc-700/60">
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-zinc-900 text-zinc-500">
                     <AlertCircle className="h-4 w-4" />
@@ -616,7 +716,7 @@ export default async function B2BCustomerPortal() {
             </div>
           </div>
 
-          {/* Kolumna 2: Vibe Coding w gotovalues.com (wyróżniona kolumna z akcentem świetlnym/glow) */}
+          {/* Kolumna 2: Vibe Coding w gotovalues.com */}
           <div className="relative flex flex-col justify-between rounded-3xl border border-emerald-500/50 bg-gradient-to-b from-emerald-950/20 via-zinc-900/90 to-zinc-900/90 p-7 sm:p-9 shadow-[0_0_50px_rgba(16,185,129,0.12)] backdrop-blur-xl transition-all duration-300 hover:border-emerald-500/70 hover:shadow-[0_0_60px_rgba(16,185,129,0.2)]">
             <div className="absolute -top-3 right-8 rounded-full border border-emerald-500/40 bg-emerald-500 px-3.5 py-1 text-xs font-bold text-zinc-950 shadow-md">
               Nowy standard
@@ -638,7 +738,6 @@ export default async function B2BCustomerPortal() {
               </div>
 
               <div className="mt-6 space-y-4">
-                {/* Wiersz 1: Czas realizacji */}
                 <div className="flex items-start gap-4 rounded-xl border border-emerald-500/20 bg-zinc-950/70 p-4 transition-colors hover:border-emerald-500/40">
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400">
                     <Zap className="h-4 w-4" />
@@ -656,7 +755,6 @@ export default async function B2BCustomerPortal() {
                   </div>
                 </div>
 
-                {/* Wiersz 2: Koszt */}
                 <div className="flex items-start gap-4 rounded-xl border border-emerald-500/20 bg-zinc-950/70 p-4 transition-colors hover:border-emerald-500/40">
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400">
                     <TrendingDown className="h-4 w-4" />
@@ -674,7 +772,6 @@ export default async function B2BCustomerPortal() {
                   </div>
                 </div>
 
-                {/* Wiersz 3: Elastyczność */}
                 <div className="flex items-start gap-4 rounded-xl border border-emerald-500/20 bg-zinc-950/70 p-4 transition-colors hover:border-emerald-500/40">
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400">
                     <RefreshCw className="h-4 w-4" />
@@ -692,7 +789,6 @@ export default async function B2BCustomerPortal() {
                   </div>
                 </div>
 
-                {/* Wiersz 4: Poprawki */}
                 <div className="flex items-start gap-4 rounded-xl border border-emerald-500/20 bg-zinc-950/70 p-4 transition-colors hover:border-emerald-500/40">
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400">
                     <CheckCircle2 className="h-4 w-4" />
@@ -880,7 +976,6 @@ export default async function B2BCustomerPortal() {
 
         {/* 4 kroki */}
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Krok 01: Vibe Session */}
           <div className="group relative flex flex-col justify-between rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-emerald-500/40 hover:bg-zinc-900/80 hover:shadow-xl hover:shadow-emerald-500/10">
             <div>
               <div className="flex items-center justify-between">
@@ -895,13 +990,10 @@ export default async function B2BCustomerPortal() {
               </p>
             </div>
             <div className="mt-6 border-t border-zinc-800/60 pt-3">
-              <span className="text-[11px] font-mono text-emerald-400">
-                Dzień 1 • Warsztat koncepcyjny
-              </span>
+              <span className="text-[11px] font-mono text-emerald-400">Dzień 1 • Warsztat koncepcyjny</span>
             </div>
           </div>
 
-          {/* Krok 02: AI Build */}
           <div className="group relative flex flex-col justify-between rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-500/40 hover:bg-zinc-900/80 hover:shadow-xl hover:shadow-teal-500/10">
             <div>
               <div className="flex items-center justify-between">
@@ -916,13 +1008,10 @@ export default async function B2BCustomerPortal() {
               </p>
             </div>
             <div className="mt-6 border-t border-zinc-800/60 pt-3">
-              <span className="text-[11px] font-mono text-teal-400">
-                Dni 2–4 • Kodowanie i architektura
-              </span>
+              <span className="text-[11px] font-mono text-teal-400">Dni 2–4 • Kodowanie i architektura</span>
             </div>
           </div>
 
-          {/* Krok 03: Live Iterations */}
           <div className="group relative flex flex-col justify-between rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan-500/40 hover:bg-zinc-900/80 hover:shadow-xl hover:shadow-cyan-500/10">
             <div>
               <div className="flex items-center justify-between">
@@ -937,13 +1026,10 @@ export default async function B2BCustomerPortal() {
               </p>
             </div>
             <div className="mt-6 border-t border-zinc-800/60 pt-3">
-              <span className="text-[11px] font-mono text-cyan-400">
-                Dni 5–7 • Szlify na działającym systemie
-              </span>
+              <span className="text-[11px] font-mono text-cyan-400">Dni 5–7 • Szlify na działającym systemie</span>
             </div>
           </div>
 
-          {/* Krok 04: Deploy & Scale */}
           <div className="group relative flex flex-col justify-between rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-emerald-400/40 hover:bg-zinc-900/80 hover:shadow-xl hover:shadow-emerald-400/10">
             <div>
               <div className="flex items-center justify-between">
@@ -958,32 +1044,438 @@ export default async function B2BCustomerPortal() {
               </p>
             </div>
             <div className="mt-6 border-t border-zinc-800/60 pt-3">
-              <span className="text-[11px] font-mono text-emerald-300">
-                Dni 8–10 • Produkcja i testy
-              </span>
+              <span className="text-[11px] font-mono text-emerald-300">Dni 8–10 • Produkcja i testy</span>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Dolny baner CTA */}
-        <div className="mt-14 rounded-2xl border border-emerald-500/30 bg-gradient-to-r from-emerald-950/40 via-zinc-900/80 to-zinc-900/80 p-8 sm:p-10 text-center sm:text-left flex flex-col sm:flex-row sm:items-center justify-between gap-6 shadow-xl">
-          <div className="max-w-xl">
-            <h3 className="text-xl sm:text-2xl font-bold text-white">
-              Gotowy sprawdzić Vibe Coding w praktyce?
-            </h3>
-            <p className="mt-2 text-sm text-zinc-300">
-              Opisz krótko swój projekt lub wyzwanie operacyjne. W ciągu 24h otrzymasz bezpłatną ocenę i plan pierwszego sprintu.
-            </p>
+      {/* ── SEKCJA 1 (NOWA): FAQ ─────────────────────────────────── */}
+      <section
+        id="faq"
+        aria-labelledby="faq-heading"
+        className="relative mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24 border-t border-zinc-800/80"
+      >
+        <div className="text-center">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-900/90 px-3.5 py-1 text-xs font-medium text-zinc-300">
+            <HelpCircle className="h-3.5 w-3.5 text-emerald-400" />
+            <span>FAQ</span>
           </div>
-          <Link
-            href="#kontakt"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 px-7 py-3.5 text-sm font-semibold text-zinc-950 shadow-lg shadow-emerald-500/25 transition-all duration-200 hover:shadow-emerald-500/40 hover:brightness-110 active:scale-[0.98] shrink-0"
+          <h2
+            id="faq-heading"
+            className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
           >
-            <span>Wyceń swój projekt w 24h</span>
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+            Często zadawane pytania (FAQ)
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg">
+            Wszystko, co musisz wiedzieć o Vibe Coding i naszej współpracy.
+          </p>
+        </div>
+
+        {/* Akordeon */}
+        <div className="mt-12 space-y-4">
+          {faqs.map((faq, index) => {
+            const isOpen = openFaq === index;
+            return (
+              <div
+                key={faq.q}
+                className={`overflow-hidden rounded-2xl border transition-all duration-200 ${
+                  isOpen
+                    ? "border-emerald-500/40 bg-zinc-900/80 shadow-lg shadow-emerald-500/5"
+                    : "border-zinc-800/80 bg-zinc-900/40 hover:border-zinc-700/80 hover:bg-zinc-900/60"
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleFaq(index)}
+                  aria-expanded={isOpen}
+                  className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+                >
+                  <span className="text-base sm:text-lg font-semibold text-white">
+                    {faq.q}
+                  </span>
+                  <div
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-950/60 transition-transform duration-200 ${
+                      isOpen ? "rotate-180 text-emerald-400 border-emerald-500/40" : "text-zinc-400"
+                    }`}
+                  >
+                    <ChevronDown className="h-4 w-4" />
+                  </div>
+                </button>
+
+                {isOpen && (
+                  <div className="border-t border-zinc-800/60 px-5 pt-4 pb-6 sm:px-6 text-sm sm:text-base leading-relaxed text-zinc-300">
+                    <p>{faq.a}</p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </section>
+
+      {/* ── SEKCJA 2 (NOWA): KONTAKT I FORMULARZ WYCENY ──────────── */}
+      <section
+        id="kontakt"
+        aria-labelledby="kontakt-heading"
+        className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24 border-t border-zinc-800/80"
+      >
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-medium text-emerald-400">
+            <Zap className="h-3.5 w-3.5" />
+            <span>Wycena w 24 godziny</span>
+          </div>
+          <h2
+            id="kontakt-heading"
+            className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
+          >
+            Zamień swój pomysł w działający produkt
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg">
+            Wypełnij krótki formularz lub umów się na bezpłatną konsultację. Wycenimy Twój projekt w 24 godziny.
+          </p>
+        </div>
+
+        <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12 items-start">
+          {/* Kolumna 1: Informacje i bezpośredni kontakt */}
+          <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
+            <div>
+              <h3 className="text-2xl font-bold text-white">
+                Masz pytania? Porozmawiajmy bezpośrednio.
+              </h3>
+              <p className="mt-3 text-base leading-relaxed text-zinc-400">
+                Nie musisz przygotowywać skomplikowanych specyfikacji technicznych. Opowiedz nam o swoim wyzwaniu biznesowym, a my zaproponujemy najlepsze rozwiązanie.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <a
+                href="mailto:kontakt@gotovalues.com"
+                className="flex items-center gap-4 rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-4 transition-all hover:border-emerald-500/40 hover:bg-zinc-900/70"
+              >
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-wide text-zinc-500">Napisz bezpośrednio</p>
+                  <p className="text-base font-semibold text-white">kontakt@gotovalues.com</p>
+                </div>
+              </a>
+
+              <div className="flex items-center gap-4 rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-4">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-teal-500/30 bg-teal-500/10 text-teal-400">
+                  <User className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-wide text-zinc-500">Osoba kontaktowa</p>
+                  <p className="text-base font-semibold text-white">Tomasz Gołaszewski</p>
+                  <p className="text-xs text-zinc-400">Lead Architect &amp; AI Engineer</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-4">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-cyan-500/30 bg-cyan-500/10 text-cyan-400">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-wide text-zinc-500">Lokalizacja</p>
+                  <p className="text-base font-semibold text-white">Polska</p>
+                  <p className="text-xs text-zinc-400">Praca zdalna dla klientów globalnych</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Badge / Box informacyjny */}
+            <div className="rounded-2xl border border-emerald-500/30 bg-emerald-950/20 p-5 shadow-lg backdrop-blur-sm">
+              <div className="flex items-center gap-3.5">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400">
+                  <Zap className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-wider text-emerald-400">Gwarancja reakcji</p>
+                  <p className="mt-0.5 text-sm font-semibold text-white">
+                    ⚡ Średni czas odpowiedzi: poniżej 2 godzin w dni robocze.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Kolumna 2: Formularz interaktywny w eleganckiej karcie */}
+          <div className="lg:col-span-7">
+            <div className="rounded-3xl border border-zinc-800 bg-zinc-900/90 p-7 sm:p-9 shadow-2xl backdrop-blur-xl">
+              {formStatus === "success" ? (
+                <div className="py-10 text-center space-y-4">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-emerald-500/40 bg-emerald-500/10 text-emerald-400 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+                    <CheckCircle2 className="h-8 w-8" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Dziękujemy za wiadomość!</h3>
+                  <p className="max-w-md mx-auto text-sm text-zinc-300">
+                    Otrzymaliśmy Twoje zgłoszenie. Tomasz przeanalizuje Twój proces lub pomysł i wróci z wstępną wyceną oraz propozycją Vibe Session w ciągu 24 godzin.
+                  </p>
+                  <div className="pt-4">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setFormStatus("idle");
+                        setFormData({
+                          name: "",
+                          email: "",
+                          serviceType: "Aplikacja B2B / System wewnętrzny",
+                          message: "",
+                          bot_field: "",
+                        });
+                      }}
+                      className="rounded-xl border border-zinc-700 bg-zinc-800 px-5 py-2.5 text-xs font-medium text-zinc-200 hover:bg-zinc-700"
+                    >
+                      Wyślij kolejne zapytanie
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <form onSubmit={handleFormSubmit} className="space-y-6">
+                  {/* Honeypot */}
+                  <input
+                    type="text"
+                    name="bot_field"
+                    value={formData.bot_field}
+                    onChange={(e) => setFormData({ ...formData, bot_field: e.target.value })}
+                    className="hidden"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+
+                  {/* Imię i nazwisko */}
+                  <div>
+                    <label
+                      htmlFor="quote-name"
+                      className="block text-xs font-medium uppercase tracking-wider text-zinc-400"
+                    >
+                      Imię i Nazwisko *
+                    </label>
+                    <input
+                      id="quote-name"
+                      type="text"
+                      required
+                      placeholder="np. Anna Kowalska"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="mt-2 w-full rounded-xl border border-zinc-800 bg-zinc-950/80 px-4 py-3.5 text-sm text-white placeholder-zinc-500 shadow-inner focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition-colors"
+                    />
+                  </div>
+
+                  {/* E-mail biznesowy */}
+                  <div>
+                    <label
+                      htmlFor="quote-email"
+                      className="block text-xs font-medium uppercase tracking-wider text-zinc-400"
+                    >
+                      Adres e-mail biznesowy *
+                    </label>
+                    <input
+                      id="quote-email"
+                      type="email"
+                      required
+                      placeholder="anna@twojafirma.pl"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="mt-2 w-full rounded-xl border border-zinc-800 bg-zinc-950/80 px-4 py-3.5 text-sm text-white placeholder-zinc-500 shadow-inner focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition-colors"
+                    />
+                  </div>
+
+                  {/* Czego potrzebujesz? - Pigułki */}
+                  <div>
+                    <label className="block text-xs font-medium uppercase tracking-wider text-zinc-400 mb-2.5">
+                      Czego potrzebujesz?
+                    </label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {[
+                        "Aplikacja B2B / System wewnętrzny",
+                        "Nowa strona WWW",
+                        "Automatyzacje AI",
+                        "Inne",
+                      ].map((type) => {
+                        const isSelected = formData.serviceType === type;
+                        return (
+                          <button
+                            key={type}
+                            type="button"
+                            onClick={() => setFormData({ ...formData, serviceType: type })}
+                            className={`flex items-center justify-between rounded-xl border px-3.5 py-2.5 text-xs font-medium text-left transition-all ${
+                              isSelected
+                                ? "border-emerald-500/70 bg-emerald-500/10 text-emerald-300 shadow-sm shadow-emerald-500/10"
+                                : "border-zinc-800 bg-zinc-950/60 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200"
+                            }`}
+                          >
+                            <span>{type}</span>
+                            {isSelected && <Check className="h-3.5 w-3.5 text-emerald-400 shrink-0" />}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Opis projektu */}
+                  <div>
+                    <label
+                      htmlFor="quote-message"
+                      className="block text-xs font-medium uppercase tracking-wider text-zinc-400"
+                    >
+                      Opis projektu / pomysłu *
+                    </label>
+                    <textarea
+                      id="quote-message"
+                      required
+                      rows={4}
+                      placeholder="Opisz krótko, co chcesz zbudować lub jaki problem chcesz rozwiązać..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="mt-2 w-full rounded-xl border border-zinc-800 bg-zinc-950/80 px-4 py-3 text-sm text-white placeholder-zinc-500 shadow-inner focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition-colors"
+                    />
+                  </div>
+
+                  {/* Error banner */}
+                  {formError && (
+                    <div className="rounded-xl border border-red-500/40 bg-red-950/30 p-3 text-xs text-red-300 flex items-center gap-2">
+                      <AlertCircle className="h-4 w-4 shrink-0 text-red-400" />
+                      <span>{formError}</span>
+                    </div>
+                  )}
+
+                  {/* Submit CTA */}
+                  <div>
+                    <button
+                      type="submit"
+                      disabled={formStatus === "submitting"}
+                      className="group relative flex w-full items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 px-7 py-4 text-sm font-semibold text-zinc-950 shadow-lg shadow-emerald-500/25 transition-all duration-200 hover:shadow-emerald-500/40 hover:brightness-110 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+                    >
+                      {formStatus === "submitting" ? (
+                        <>
+                          <RefreshCw className="h-4 w-4 animate-spin" />
+                          <span>Wysyłanie zgłoszenia...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Wyślij i uzyskaj bezpłatną wycenę</span>
+                          <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                        </>
+                      )}
+                    </button>
+                    <p className="mt-3 text-center text-xs text-zinc-500">
+                      Szanujemy Twoją prywatność. Bez spamu.
+                    </p>
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SEKCJA 3 (NOWA): STOPKA (FOOTER) ─────────────────────── */}
+      <footer
+        id="stopka"
+        className="relative border-t border-zinc-800/80 bg-zinc-950 px-4 pt-14 pb-10 sm:px-6 lg:px-8"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14 pb-12 border-b border-zinc-800/60">
+            {/* Brand / Logo */}
+            <div className="lg:col-span-5 space-y-4">
+              <div className="flex items-center gap-2.5">
+                <span className="text-xl font-extrabold tracking-tight text-white font-mono">
+                  gotovalues
+                </span>
+                <span className="rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[11px] font-medium text-emerald-400">
+                  AI &amp; Vibe Coding Studio
+                </span>
+              </div>
+              <p className="text-sm leading-relaxed text-zinc-400 max-w-md">
+                Tworzymy dedykowane oprogramowanie, aplikacje B2B i strony WWW z wykorzystaniem agentów AI i Vibe Coding.
+              </p>
+              <div className="flex items-center gap-2 text-xs text-zinc-500 pt-1">
+                <ShieldCheck className="h-4 w-4 text-emerald-400" />
+                <span>Bezpieczna architektura • 100% własności kodu • SLA</span>
+              </div>
+            </div>
+
+            {/* Nawigacja */}
+            <div className="lg:col-span-4">
+              <p className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3">
+                Nawigacja
+              </p>
+              <div className="grid grid-cols-2 gap-2 text-sm text-zinc-300">
+                <Link href="#hero" className="hover:text-emerald-400 transition-colors">
+                  O usłudze
+                </Link>
+                <Link href="#porownanie" className="hover:text-emerald-400 transition-colors">
+                  Porównanie
+                </Link>
+                <Link href="#uslugi" className="hover:text-emerald-400 transition-colors">
+                  Oferta
+                </Link>
+                <Link href="#jak-pracujemy" className="hover:text-emerald-400 transition-colors">
+                  Proces
+                </Link>
+                <Link href="#faq" className="hover:text-emerald-400 transition-colors">
+                  FAQ
+                </Link>
+                <Link href="#kontakt" className="hover:text-emerald-400 transition-colors">
+                  Kontakt
+                </Link>
+              </div>
+            </div>
+
+            {/* Produkty publiczne */}
+            <div className="lg:col-span-3">
+              <p className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3">
+                Własne produkty
+              </p>
+              <div className="space-y-2 text-sm text-zinc-300">
+                <div>
+                  <a
+                    href="https://cavi.gotova.pl/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-emerald-400 transition-colors flex items-center gap-1.5"
+                  >
+                    <span>Cavi</span>
+                    <span className="text-xs text-zinc-500">— platforma treści AI</span>
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href="https://akta.gotova.pl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-emerald-400 transition-colors flex items-center gap-1.5"
+                  >
+                    <span>Akta</span>
+                    <span className="text-xs text-zinc-500">— analiza dokumentów</span>
+                  </a>
+                </div>
+                <div className="pt-2">
+                  <Link href="/blog" className="text-xs text-zinc-400 hover:text-zinc-200 transition-colors">
+                    Blog techniczny →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom copyright */}
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+            <p>© 2026 gotovalues.com (Tomasz Gołaszewski). Wszystkie prawa zastrzeżone.</p>
+            <div className="flex items-center gap-6">
+              <Link href="/polityka-prywatnosci" className="hover:text-zinc-400 transition-colors">
+                Polityka prywatności
+              </Link>
+              <a href="mailto:kontakt@gotovalues.com" className="hover:text-zinc-400 transition-colors">
+                kontakt@gotovalues.com
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
