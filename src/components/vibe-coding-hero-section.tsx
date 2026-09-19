@@ -1111,7 +1111,8 @@ export default async function B2BCustomerPortal() {
             Najczęściej zadawane pytania
           </h2>
           <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg max-w-2xl mx-auto">
-            Masz wątpliwości dotyczące Vibe Coding lub przebiegu współpracy? Sprawdź odpowiedzi na kluczowe pytania biznesowe i techniczne.
+            Masz wątpliwości dotyczące Vibe Coding lub przebiegu współpracy? Sprawdź odpowiedzi na
+            kluczowe pytania biznesowe i techniczne.
           </p>
         </div>
 
@@ -1177,7 +1178,8 @@ export default async function B2BCustomerPortal() {
               Masz niestandardowe pytanie techniczne lub biznesowe?
             </h3>
             <p className="text-xs sm:text-sm text-zinc-400 max-w-xl">
-              Chętnie odpowiemy na wszystkie kwestie dotyczące architektury, prywatności danych czy estymacji podczas bezpłatnej konsultacji.
+              Chętnie odpowiemy na wszystkie kwestie dotyczące architektury, prywatności danych czy
+              estymacji podczas bezpłatnej konsultacji.
             </p>
           </div>
           <Link
