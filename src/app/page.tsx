@@ -1,12 +1,14 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import { siteContent } from "@/content/site";
-import { blogPosts } from "@/content/blog";
-import { ContactFormLazy as ContactForm } from "@/components/contact-form-lazy";
-import { ContactSignals } from "@/components/contact-signals";
-import { ProductCard } from "@/components/product-card";
-import { SectionHeading } from "@/components/section-heading";
-import { SiteHeader } from "@/components/site-header";
+import { siteContent } from '@/content/site';
+import { blogPosts } from '@/content/blog';
+import { ContactFormLazy as ContactForm } from '@/components/contact-form-lazy';
+import { ContactSignals } from '@/components/contact-signals';
+import { ProductCard } from '@/components/product-card';
+import { SectionHeading } from '@/components/section-heading';
+import { SiteHeader } from '@/components/site-header';
+
+import { VibeCodingHeroSection } from '@/components/vibe-coding-hero-section';
 
 export default function HomePage() {
   const featuredProducts = siteContent.products.public;
@@ -16,40 +18,7 @@ export default function HomePage() {
     <main id="main" className="page-shell" tabIndex={-1}>
       <SiteHeader />
 
-      <section className="hero surface">
-        <div className="hero-copy">
-          <p className="eyebrow">{siteContent.brand.eyebrow}</p>
-          <p className="angle-tag">{siteContent.brand.angle}</p>
-          <h1>{siteContent.brand.headline}</h1>
-          <p className="lede">{siteContent.brand.intro}</p>
-          <div className="hero-actions">
-            <a className="button button-primary" href={siteContent.brand.cta.primary.href}>
-              {siteContent.brand.cta.primary.label}
-            </a>
-            <Link className="button button-secondary" href={siteContent.brand.cta.secondary.href}>
-              {siteContent.brand.cta.secondary.label}
-            </Link>
-          </div>
-        </div>
-
-        <div className="hero-panel">
-          <div className="hero-panel-card">
-            <span className="hero-panel-label">Typowe punkty wejścia</span>
-            <ul>
-              <li>dokumenty, statusy i decyzje rozrzucone między kilka miejsc</li>
-              <li>ręczne przepisywanie, sprawdzanie i pilnowanie wyjątków</li>
-              <li>proces, którego nie da się sensownie zamknąć w gotowym systemie</li>
-            </ul>
-          </div>
-          <div className="hero-panel-grid">
-            <div className="hero-chip">agenci AI</div>
-            <div className="hero-chip">workflow</div>
-            <div className="hero-chip">dokumenty</div>
-            <div className="hero-chip">OCR</div>
-            <div className="hero-chip">custom tools</div>
-          </div>
-        </div>
-      </section>
+      <VibeCodingHeroSection />
 
       <section className="section" id="oferta">
         <SectionHeading
@@ -139,11 +108,17 @@ export default function HomePage() {
           </article>
           <article className="approach-card">
             <h3>Od 4 000 PLN</h3>
-            <p>START z prototypem agenta triage, BUSINESS z trzema agentami i integracjami, ENTERPRISE z audytem i SLA.</p>
+            <p>
+              START z prototypem agenta triage, BUSINESS z trzema agentami i integracjami,
+              ENTERPRISE z audytem i SLA.
+            </p>
           </article>
           <article className="approach-card">
             <h3>Działa z Twoim helpdeskiem</h3>
-            <p>Integracja z istniejącym systemem zgłoszeń, CRM-em i Slackiem — bez wymiany środowiska.</p>
+            <p>
+              Integracja z istniejącym systemem zgłoszeń, CRM-em i Slackiem — bez wymiany
+              środowiska.
+            </p>
           </article>
         </div>
       </section>
@@ -162,10 +137,10 @@ export default function HomePage() {
           {recentPosts.map((post) => (
             <article className="surface pillar-card blog-card" key={post.slug}>
               <time className="eyebrow" dateTime={post.date}>
-                {new Date(post.date).toLocaleDateString("pl-PL", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
+                {new Date(post.date).toLocaleDateString('pl-PL', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
                 })}
               </time>
               <h3>
@@ -219,8 +194,13 @@ export default function HomePage() {
             <p>{siteContent.contact.intro}</p>
             <ul className="contact-points">
               <li>wystarczy jeden konkretny przykład z codziennej pracy</li>
-              <li>ocenię, czy wystarczy gotowe narzędzie, integracja, czy trzeba budować coś dedykowanego</li>
-              <li>jeśli problem rozwiązuje darmowe lub tanie narzędzie z rynku — powiem to wprost</li>
+              <li>
+                ocenię, czy wystarczy gotowe narzędzie, integracja, czy trzeba budować coś
+                dedykowanego
+              </li>
+              <li>
+                jeśli problem rozwiązuje darmowe lub tanie narzędzie z rynku — powiem to wprost
+              </li>
             </ul>
             <ContactSignals />
           </div>
