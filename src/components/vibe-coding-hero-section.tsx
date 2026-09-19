@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React, { useState } from "react";
+import Link from "next/link";
 import {
   Sparkles,
   ArrowRight,
@@ -17,10 +17,22 @@ import {
   Check,
   Activity,
   CheckCheck,
-} from 'lucide-react';
+  Clock,
+  DollarSign,
+  FileText,
+  AlertCircle,
+  XCircle,
+  Server,
+  Globe,
+  Bot,
+  MessageSquare,
+  Rocket,
+  Layers,
+  Boxes,
+} from "lucide-react";
 
 export function VibeCodingHeroSection() {
-  const [activeTab, setActiveTab] = useState<'terminal' | 'code' | 'preview'>('terminal');
+  const [activeTab, setActiveTab] = useState<"terminal" | "code" | "preview">("terminal");
   const [copied, setCopied] = useState(false);
 
   const handleCopyCode = () => {
@@ -79,7 +91,7 @@ export default async function B2BCustomerPortal() {
               id="hero-heading"
               className="mt-6 text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl lg:leading-[1.1]"
             >
-              Tworzymy aplikacje i strony WWW{' '}
+              Tworzymy aplikacje i strony WWW{" "}
               <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
                 10x szybciej
               </span>
@@ -88,9 +100,10 @@ export default async function B2BCustomerPortal() {
 
             {/* Podtytuł */}
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-300 sm:text-xl">
-              Łączymy wiedzę ekspercką z zaawansowanym Vibe Coding i agentami AI. Budujemy
-              dedykowane aplikacje B2B, systemy wewnętrzne oraz strony internetowe o wysokiej
-              konwersji — bez przepalania budżetu i bezkończących się miesięcy oczekiwania.
+              Łączymy wiedzę ekspercką z zaawansowanym Vibe Coding i agentami AI.
+              Budujemy dedykowane aplikacje B2B, systemy wewnętrzne oraz strony
+              internetowe o wysokiej konwersji — bez przepalania budżetu i
+              bezkończących się miesięcy oczekiwania.
             </p>
 
             {/* Przyciski CTA */}
@@ -104,7 +117,7 @@ export default async function B2BCustomerPortal() {
               </Link>
 
               <Link
-                href="#korzysci"
+                href="#jak-pracujemy"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/80 px-6 py-4 text-sm font-medium text-zinc-300 backdrop-blur-sm transition-all duration-200 hover:border-zinc-700 hover:bg-zinc-800 hover:text-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
               >
                 <span>Zobacz, jak pracujemy</span>
@@ -148,11 +161,11 @@ export default async function B2BCustomerPortal() {
                 <div className="flex items-center rounded-lg bg-zinc-950/80 p-1 border border-zinc-800/80 text-xs">
                   <button
                     type="button"
-                    onClick={() => setActiveTab('terminal')}
+                    onClick={() => setActiveTab("terminal")}
                     className={`flex items-center gap-1.5 rounded-md px-2.5 py-1 transition-all ${
-                      activeTab === 'terminal'
-                        ? 'bg-zinc-800 text-emerald-400 shadow-sm'
-                        : 'text-zinc-400 hover:text-zinc-200'
+                      activeTab === "terminal"
+                        ? "bg-zinc-800 text-emerald-400 shadow-sm"
+                        : "text-zinc-400 hover:text-zinc-200"
                     }`}
                   >
                     <Terminal className="h-3 w-3" />
@@ -160,11 +173,11 @@ export default async function B2BCustomerPortal() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => setActiveTab('code')}
+                    onClick={() => setActiveTab("code")}
                     className={`flex items-center gap-1.5 rounded-md px-2.5 py-1 transition-all ${
-                      activeTab === 'code'
-                        ? 'bg-zinc-800 text-cyan-400 shadow-sm'
-                        : 'text-zinc-400 hover:text-zinc-200'
+                      activeTab === "code"
+                        ? "bg-zinc-800 text-cyan-400 shadow-sm"
+                        : "text-zinc-400 hover:text-zinc-200"
                     }`}
                   >
                     <Code2 className="h-3 w-3" />
@@ -172,11 +185,11 @@ export default async function B2BCustomerPortal() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => setActiveTab('preview')}
+                    onClick={() => setActiveTab("preview")}
                     className={`flex items-center gap-1.5 rounded-md px-2.5 py-1 transition-all ${
-                      activeTab === 'preview'
-                        ? 'bg-zinc-800 text-teal-400 shadow-sm'
-                        : 'text-zinc-400 hover:text-zinc-200'
+                      activeTab === "preview"
+                        ? "bg-zinc-800 text-teal-400 shadow-sm"
+                        : "text-zinc-400 hover:text-zinc-200"
                     }`}
                   >
                     <LayoutDashboard className="h-3 w-3" />
@@ -214,7 +227,7 @@ export default async function B2BCustomerPortal() {
               </div>
 
               {/* Tab 1: Terminal Agenta */}
-              {activeTab === 'terminal' && (
+              {activeTab === "terminal" && (
                 <div className="mt-3 space-y-2 rounded-xl bg-zinc-950 p-4 font-mono text-xs text-zinc-300 border border-zinc-900">
                   <div className="flex items-center gap-2 text-zinc-500 text-[11px]">
                     <span className="text-emerald-400 font-bold">$</span>
@@ -246,16 +259,13 @@ export default async function B2BCustomerPortal() {
                       </span>
                     </div>
                     <p className="text-purple-400">
-                      export default async function <span className="text-amber-300">Portal</span>()
-                      &#123;
+                      export default async function <span className="text-amber-300">Portal</span>() &#123;
                     </p>
                     <p className="pl-3 text-zinc-300">
-                      const pipeline = await <span className="text-cyan-300">deployMVP</span>(&#123;
-                      speed: &apos;10x&apos; &#125;);
+                      const pipeline = await <span className="text-cyan-300">deployMVP</span>(&#123; speed: &apos;10x&apos; &#125;);
                     </p>
                     <p className="pl-3 text-zinc-300">
-                      return &lt;<span className="text-emerald-400">B2BSystem</span>{' '}
-                      ready=&#123;pipeline.ready&#125; /&gt;;
+                      return &lt;<span className="text-emerald-400">B2BSystem</span> ready=&#123;pipeline.ready&#125; /&gt;;
                     </p>
                     <p className="text-purple-400">&#125;</p>
                   </div>
@@ -263,7 +273,7 @@ export default async function B2BCustomerPortal() {
               )}
 
               {/* Tab 2: Kod MVP */}
-              {activeTab === 'code' && (
+              {activeTab === "code" && (
                 <div className="mt-3 rounded-xl bg-zinc-950 p-4 font-mono text-xs text-zinc-300 border border-zinc-900">
                   <div className="flex items-center justify-between pb-2 mb-2 border-b border-zinc-800">
                     <span className="text-zinc-400 text-[11px]">src/app/api/pipeline/route.ts</span>
@@ -286,20 +296,15 @@ export default async function B2BCustomerPortal() {
                     </button>
                   </div>
                   <div className="space-y-1 text-[11px] leading-relaxed">
-                    <p className="text-zinc-500">
-                      {'// Zoptymalizowany kod TypeScript z agenticznym scaffoldingiem'}
+                    <p className="text-zinc-500">{"// Zoptymalizowany kod TypeScript z agenticznym scaffoldingiem"}</p>
+                    <p className="text-purple-400">
+                      import &#123; NextResponse &#125; from <span className="text-emerald-300">&quot;next/server&quot;</span>;
                     </p>
                     <p className="text-purple-400">
-                      import &#123; NextResponse &#125; from{' '}
-                      <span className="text-emerald-300">&quot;next/server&quot;</span>;
-                    </p>
-                    <p className="text-purple-400">
-                      import &#123; db &#125; from{' '}
-                      <span className="text-emerald-300">&quot;@/lib/db&quot;</span>;
+                      import &#123; db &#125; from <span className="text-emerald-300">&quot;@/lib/db&quot;</span>;
                     </p>
                     <p className="text-purple-400 pt-1">
-                      export async function <span className="text-cyan-300">POST</span>(req:
-                      Request) &#123;
+                      export async function <span className="text-cyan-300">POST</span>(req: Request) &#123;
                     </p>
                     <p className="pl-3 text-zinc-300">
                       const &#123; workflowId &#125; = await req.json();
@@ -316,7 +321,7 @@ export default async function B2BCustomerPortal() {
               )}
 
               {/* Tab 3: Podgląd UI (Mini Live Dashboard) */}
-              {activeTab === 'preview' && (
+              {activeTab === "preview" && (
                 <div className="mt-3 rounded-xl bg-zinc-950 p-4 border border-zinc-900">
                   <div className="flex items-center justify-between pb-2 mb-3 border-b border-zinc-800">
                     <div className="flex items-center gap-2">
@@ -331,31 +336,21 @@ export default async function B2BCustomerPortal() {
                   <div className="grid grid-cols-2 gap-2 mb-3">
                     <div className="rounded-lg bg-zinc-900 p-2.5 border border-zinc-800/80">
                       <p className="text-[10px] text-zinc-400">Czas obsługi procesów</p>
-                      <p className="text-base font-bold text-white mt-0.5">
-                        3.2s <span className="text-emerald-400 text-xs">-82%</span>
-                      </p>
+                      <p className="text-base font-bold text-white mt-0.5">3.2s <span className="text-emerald-400 text-xs">-82%</span></p>
                     </div>
                     <div className="rounded-lg bg-zinc-900 p-2.5 border border-zinc-800/80">
                       <p className="text-[10px] text-zinc-400">Automatyzacja zadań</p>
-                      <p className="text-base font-bold text-white mt-0.5">
-                        94.8% <span className="text-cyan-400 text-xs">AI agent</span>
-                      </p>
+                      <p className="text-base font-bold text-white mt-0.5">94.8% <span className="text-cyan-400 text-xs">AI agent</span></p>
                     </div>
                   </div>
 
                   <div className="space-y-1.5 text-xs">
                     <div className="flex items-center justify-between rounded bg-zinc-900/60 p-2 border border-zinc-800/50">
-                      <span className="text-zinc-300 text-[11px]">
-                        Faktura #2026/09 — Ekstrakcja danych
-                      </span>
-                      <span className="text-[10px] text-emerald-400 font-mono">
-                        100% poprawności
-                      </span>
+                      <span className="text-zinc-300 text-[11px]">Faktura #2026/09 — Ekstrakcja danych</span>
+                      <span className="text-[10px] text-emerald-400 font-mono">100% poprawności</span>
                     </div>
                     <div className="flex items-center justify-between rounded bg-zinc-900/60 p-2 border border-zinc-800/50">
-                      <span className="text-zinc-300 text-[11px]">
-                        Zgłoszenie klienta B2B — AI Triage
-                      </span>
+                      <span className="text-zinc-300 text-[11px]">Zgłoszenie klienta B2B — AI Triage</span>
                       <span className="text-[10px] text-cyan-400 font-mono">Odpowiedź wysłana</span>
                     </div>
                   </div>
@@ -364,21 +359,16 @@ export default async function B2BCustomerPortal() {
 
               {/* Tech chips */}
               <div className="mt-4 flex flex-wrap items-center gap-1.5 pt-1">
-                {[
-                  'Vibe Coding',
-                  'Agenci AI',
-                  'Next.js 16',
-                  'Tailwind v4',
-                  'Type-Safe',
-                  'PostgreSQL',
-                ].map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-md border border-zinc-800 bg-zinc-900/60 px-2.5 py-1 text-[11px] font-mono text-zinc-400"
-                  >
-                    {tag}
-                  </span>
-                ))}
+                {["Vibe Coding", "Agenci AI", "Next.js 16", "Tailwind v4", "Type-Safe", "PostgreSQL"].map(
+                  (tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-md border border-zinc-800 bg-zinc-900/60 px-2.5 py-1 text-[11px] font-mono text-zinc-400"
+                    >
+                      {tag}
+                    </span>
+                  )
+                )}
               </div>
             </div>
           </div>
@@ -403,9 +393,9 @@ export default async function B2BCustomerPortal() {
             Przewaga, której nie da Ci tradycyjny software house
           </h2>
           <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg">
-            Eliminujemy wielotygodniowe spotkania o niczym, rozdmuchane budżety i przeładowane
-            specyfikacje. Dostarczamy oprogramowanie, które od razu rozwiązuje realne wąskie gardła
-            i zarabia na siebie.
+            Eliminujemy wielotygodniowe spotkania o niczym, rozdmuchane budżety i
+            przeładowane specyfikacje. Dostarczamy oprogramowanie, które od razu
+            rozwiązuje realne wąskie gardła i zarabia na siebie.
           </p>
         </div>
 
@@ -417,12 +407,13 @@ export default async function B2BCustomerPortal() {
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-transform duration-300 group-hover:scale-110">
                 <Zap className="h-6 w-6" />
               </div>
-              <h3 className="mt-6 text-xl font-bold text-white">Błyskawiczne tempo</h3>
+              <h3 className="mt-6 text-xl font-bold text-white">
+                Błyskawiczne tempo
+              </h3>
               <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-                MVP i działające aplikacje w{' '}
+                MVP i działające aplikacje w{" "}
                 <strong className="text-zinc-100 font-semibold">3–10 dni zamiast miesięcy</strong>.
-                Zastępujemy powolne procedury i niekończące się planowanie autonomicznymi
-                workflowami programistycznymi.
+                Zastępujemy powolne procedury i niekończące się planowanie autonomicznymi workflowami programistycznymi.
               </p>
             </div>
 
@@ -446,11 +437,13 @@ export default async function B2BCustomerPortal() {
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-teal-500/30 bg-teal-500/10 text-teal-400 shadow-[0_0_20px_rgba(20,184,166,0.15)] transition-transform duration-300 group-hover:scale-110">
                 <TrendingDown className="h-6 w-6" />
               </div>
-              <h3 className="mt-6 text-xl font-bold text-white">Ułamek tradycyjnych kosztów</h3>
+              <h3 className="mt-6 text-xl font-bold text-white">
+                Ułamek tradycyjnych kosztów
+              </h3>
               <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-                Płacisz za{' '}
-                <strong className="text-zinc-100 font-semibold">realną wartość biznesową</strong>, a
-                nie roboczogodziny wielkiego zespołu PM-ów, analityków i junior developerów.
+                Płacisz za{" "}
+                <strong className="text-zinc-100 font-semibold">realną wartość biznesową</strong>,
+                a nie roboczogodziny wielkiego zespołu PM-ów, analityków i junior developerów.
               </p>
             </div>
 
@@ -474,9 +467,11 @@ export default async function B2BCustomerPortal() {
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.15)] transition-transform duration-300 group-hover:scale-110">
                 <RefreshCw className="h-6 w-6" />
               </div>
-              <h3 className="mt-6 text-xl font-bold text-white">Wdrożenia w czasie rzeczywistym</h3>
+              <h3 className="mt-6 text-xl font-bold text-white">
+                Wdrożenia w czasie rzeczywistym
+              </h3>
               <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-                Iteracje i zmiany wprowadzane{' '}
+                Iteracje i zmiany wprowadzane{" "}
                 <strong className="text-zinc-100 font-semibold">na żywo podczas spotkań</strong>.
                 Widzisz efekty i testujesz działający kod w trakcie rozmowy, a nie po 2 tygodniach.
               </p>
@@ -495,6 +490,498 @@ export default async function B2BCustomerPortal() {
               </div>
             </div>
           </article>
+        </div>
+      </section>
+
+      {/* ── SEKCJA 1: TABELA PORÓWNAWCZA ─────────────────────────── */}
+      <section
+        id="porownanie"
+        aria-labelledby="porownanie-heading"
+        className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24 border-t border-zinc-800/80"
+      >
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-900/90 px-3.5 py-1 text-xs font-medium text-zinc-300">
+            <Sparkles className="h-3.5 w-3.5 text-emerald-400" />
+            <span>Porównanie modeli wytwarzania</span>
+          </div>
+          <h2
+            id="porownanie-heading"
+            className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
+          >
+            Tradycyjny Software House vs. Vibe Coding w gotovalues.com
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg">
+            Zobacz, jak zmieniamy zasady gry w tworzeniu oprogramowania.
+          </p>
+        </div>
+
+        <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {/* Kolumna 1: Tradycyjny Software House (stonowane/szare akcenty) */}
+          <div className="relative flex flex-col justify-between rounded-3xl border border-zinc-800/80 bg-zinc-900/30 p-7 sm:p-9 text-zinc-400 backdrop-blur-sm transition-all duration-300 hover:border-zinc-700/80">
+            <div>
+              <div className="flex items-center justify-between border-b border-zinc-800/80 pb-5">
+                <div>
+                  <span className="text-xs font-mono uppercase tracking-wider text-zinc-500">
+                    Stary model
+                  </span>
+                  <h3 className="mt-1 text-2xl font-bold text-zinc-300">
+                    Tradycyjny Software House
+                  </h3>
+                </div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-800/50 text-zinc-500">
+                  <Clock className="h-5 w-5" />
+                </div>
+              </div>
+
+              <div className="mt-6 space-y-4">
+                {/* Wiersz 1: Czas realizacji */}
+                <div className="flex items-start gap-4 rounded-xl border border-zinc-800/40 bg-zinc-950/40 p-4 transition-colors hover:border-zinc-700/60">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-zinc-900 text-zinc-500">
+                    <Clock className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono uppercase tracking-wide text-zinc-500">
+                      Czas realizacji
+                    </p>
+                    <p className="mt-0.5 text-base font-semibold text-zinc-300">
+                      3–6 miesięcy
+                    </p>
+                    <p className="mt-1 text-xs text-zinc-500">
+                      Powolny rozruch, wielotygodniowe ustalenia i miesiące oczekiwania na pierwszą wersję.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Wiersz 2: Koszt */}
+                <div className="flex items-start gap-4 rounded-xl border border-zinc-800/40 bg-zinc-950/40 p-4 transition-colors hover:border-zinc-700/60">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-zinc-900 text-zinc-500">
+                    <DollarSign className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono uppercase tracking-wide text-zinc-500">
+                      Koszt
+                    </p>
+                    <p className="mt-0.5 text-base font-semibold text-zinc-300">
+                      Wysokie budżety (duży zespół programistów)
+                    </p>
+                    <p className="mt-1 text-xs text-zinc-500">
+                      Płacisz za PM-ów, analityków, testerów i narzut organizacyjny agencji.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Wiersz 3: Elastyczność */}
+                <div className="flex items-start gap-4 rounded-xl border border-zinc-800/40 bg-zinc-950/40 p-4 transition-colors hover:border-zinc-700/60">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-zinc-900 text-zinc-500">
+                    <FileText className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono uppercase tracking-wide text-zinc-500">
+                      Elastyczność
+                    </p>
+                    <p className="mt-0.5 text-base font-semibold text-zinc-300">
+                      Sztywne specyfikacje i płatne aneksy
+                    </p>
+                    <p className="mt-1 text-xs text-zinc-500">
+                      Każde odstępstwo od pierwotnej makiety wymaga renegocjacji zakresu i dodatkowych kosztów.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Wiersz 4: Poprawki */}
+                <div className="flex items-start gap-4 rounded-xl border border-zinc-800/40 bg-zinc-950/40 p-4 transition-colors hover:border-zinc-700/60">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-zinc-900 text-zinc-500">
+                    <AlertCircle className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono uppercase tracking-wide text-zinc-500">
+                      Poprawki
+                    </p>
+                    <p className="mt-0.5 text-base font-semibold text-zinc-300">
+                      Długie procesy akceptacji i re-wyceny
+                    </p>
+                    <p className="mt-1 text-xs text-zinc-500">
+                      Zmiany czekają na kolejny cykl sprintu, review i formalne zatwierdzenie.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 border-t border-zinc-800/80 pt-4 text-center">
+              <span className="inline-flex items-center gap-1.5 text-xs font-medium text-zinc-500">
+                <XCircle className="h-4 w-4 text-zinc-600" />
+                <span>Wysokie ryzyko długu technologicznego i przekroczenia budżetu</span>
+              </span>
+            </div>
+          </div>
+
+          {/* Kolumna 2: Vibe Coding w gotovalues.com (wyróżniona kolumna z akcentem świetlnym/glow) */}
+          <div className="relative flex flex-col justify-between rounded-3xl border border-emerald-500/50 bg-gradient-to-b from-emerald-950/20 via-zinc-900/90 to-zinc-900/90 p-7 sm:p-9 shadow-[0_0_50px_rgba(16,185,129,0.12)] backdrop-blur-xl transition-all duration-300 hover:border-emerald-500/70 hover:shadow-[0_0_60px_rgba(16,185,129,0.2)]">
+            <div className="absolute -top-3 right-8 rounded-full border border-emerald-500/40 bg-emerald-500 px-3.5 py-1 text-xs font-bold text-zinc-950 shadow-md">
+              Nowy standard
+            </div>
+
+            <div>
+              <div className="flex items-center justify-between border-b border-zinc-800/80 pb-5">
+                <div>
+                  <span className="text-xs font-mono uppercase tracking-wider text-emerald-400">
+                    Nowoczesny model
+                  </span>
+                  <h3 className="mt-1 text-2xl font-bold text-white">
+                    Vibe Coding w gotovalues.com
+                  </h3>
+                </div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                  <Zap className="h-5 w-5" />
+                </div>
+              </div>
+
+              <div className="mt-6 space-y-4">
+                {/* Wiersz 1: Czas realizacji */}
+                <div className="flex items-start gap-4 rounded-xl border border-emerald-500/20 bg-zinc-950/70 p-4 transition-colors hover:border-emerald-500/40">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400">
+                    <Zap className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono uppercase tracking-wide text-emerald-400">
+                      Czas realizacji
+                    </p>
+                    <p className="mt-0.5 text-base font-bold text-white">
+                      3–10 dni (MVP i działające aplikacje)
+                    </p>
+                    <p className="mt-1 text-xs text-zinc-400">
+                      Działające oprogramowanie dostarczone w kilka dni dzięki autonomicznym agentom AI.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Wiersz 2: Koszt */}
+                <div className="flex items-start gap-4 rounded-xl border border-emerald-500/20 bg-zinc-950/70 p-4 transition-colors hover:border-emerald-500/40">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400">
+                    <TrendingDown className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono uppercase tracking-wide text-emerald-400">
+                      Koszt
+                    </p>
+                    <p className="mt-0.5 text-base font-bold text-white">
+                      Ułamek tradycyjnej ceny (operowanie agentami AI)
+                    </p>
+                    <p className="mt-1 text-xs text-zinc-400">
+                      Płacisz wyłącznie za dowiezioną wartość. Senior architekt kieruje pracą agentów bez zbędnych narzutów.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Wiersz 3: Elastyczność */}
+                <div className="flex items-start gap-4 rounded-xl border border-emerald-500/20 bg-zinc-950/70 p-4 transition-colors hover:border-emerald-500/40">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400">
+                    <RefreshCw className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono uppercase tracking-wide text-emerald-400">
+                      Elastyczność
+                    </p>
+                    <p className="mt-0.5 text-base font-bold text-white">
+                      Błyskawiczne dostosowanie do zmian biznesowych
+                    </p>
+                    <p className="mt-1 text-xs text-zinc-400">
+                      Twoje potrzeby się zmieniają? Przeformułowujemy założenia i natychmiast generujemy zaktualizowany kod.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Wiersz 4: Poprawki */}
+                <div className="flex items-start gap-4 rounded-xl border border-emerald-500/20 bg-zinc-950/70 p-4 transition-colors hover:border-emerald-500/40">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-400">
+                    <CheckCircle2 className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-mono uppercase tracking-wide text-emerald-400">
+                      Poprawki
+                    </p>
+                    <p className="mt-0.5 text-base font-bold text-white">
+                      Iteracje w czasie rzeczywistym podczas spotkań
+                    </p>
+                    <p className="mt-1 text-xs text-zinc-400">
+                      Modyfikacje wprowadzane na żywo w trakcie rozmowy — widzisz i testujesz rezultat od razu.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 border-t border-zinc-800/80 pt-4 text-center">
+              <span className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-400">
+                <CheckCheck className="h-4 w-4" />
+                <span>100% własności kodu, brak długu technologicznego i natychmiastowe ROI</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SEKCJA 2: OFERTA USŁUG (3 FILARY) ─────────────────────── */}
+      <section
+        id="uslugi"
+        aria-labelledby="uslugi-heading"
+        className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24 border-t border-zinc-800/80"
+      >
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-900/90 px-3.5 py-1 text-xs font-medium text-zinc-300">
+            <Boxes className="h-3.5 w-3.5 text-emerald-400" />
+            <span>Oferta usług</span>
+          </div>
+          <h2
+            id="uslugi-heading"
+            className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
+          >
+            Co możemy dla Ciebie zbudować?
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg">
+            Kompleksowe rozwiązania cyfrowe napędzane przez sztuczną inteligencję.
+          </p>
+        </div>
+
+        {/* Siatka 3 kart usługowych */}
+        <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-3">
+          {/* Karta 1: Dedykowane Aplikacje B2B i Narzędzia Wewnętrzne */}
+          <article className="group relative flex flex-col justify-between rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-emerald-500/40 hover:bg-zinc-900/80 hover:shadow-2xl hover:shadow-emerald-500/10">
+            <div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-transform duration-300 group-hover:scale-110">
+                <Server className="h-6 w-6" />
+              </div>
+              <h3 className="mt-6 text-xl font-bold text-white">
+                Dedykowane Aplikacje B2B i Narzędzia Wewnętrzne
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+                Tworzymy elastyczne systemy CRM/ERP, panele klienta oraz portale pracownicze dostosowane do Twoich unikalnych procesów.
+              </p>
+
+              <ul className="mt-6 space-y-2.5 text-xs text-zinc-300">
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400 mt-0.5" />
+                  <span>Dedykowane bazy danych i czysta architektura</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400 mt-0.5" />
+                  <span>Integracje przez API z zewnętrznymi narzędziami</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400 mt-0.5" />
+                  <span>W pełni responsywne interfejsy</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="mt-8 border-t border-zinc-800/60 pt-4">
+              <span className="text-xs font-mono font-medium text-emerald-400">
+                Next.js 16 • PostgreSQL • REST/GraphQL →
+              </span>
+            </div>
+          </article>
+
+          {/* Karta 2: Nowoczesne Strony WWW & Landing Pages */}
+          <article className="group relative flex flex-col justify-between rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-teal-500/40 hover:bg-zinc-900/80 hover:shadow-2xl hover:shadow-teal-500/10">
+            <div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-teal-500/30 bg-teal-500/10 text-teal-400 shadow-[0_0_20px_rgba(20,184,166,0.15)] transition-transform duration-300 group-hover:scale-110">
+                <Globe className="h-6 w-6" />
+              </div>
+              <h3 className="mt-6 text-xl font-bold text-white">
+                Nowoczesne Strony WWW &amp; Landing Pages
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+                Projektujemy i wdrażamy superszybkie strony internetowe nastawione na konwersję i generowanie leadów.
+              </p>
+
+              <ul className="mt-6 space-y-2.5 text-xs text-zinc-300">
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-teal-400 mt-0.5" />
+                  <span>Unikalny UI/UX dopasowany do Twojej marki</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-teal-400 mt-0.5" />
+                  <span>Optymalizacja pod SEO oraz wyszukiwanie AI (LLMO)</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-teal-400 mt-0.5" />
+                  <span>Błyskawiczne czasy ładowania i pełna responsywność</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="mt-8 border-t border-zinc-800/60 pt-4">
+              <span className="text-xs font-mono font-medium text-teal-400">
+                100/100 Lighthouse • SEO / LLMO • Tailwind v4 →
+              </span>
+            </div>
+          </article>
+
+          {/* Karta 3: Rozwiązania Agentowe & Automatyzacje AI */}
+          <article className="group relative flex flex-col justify-between rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-cyan-500/40 hover:bg-zinc-900/80 hover:shadow-2xl hover:shadow-cyan-500/10">
+            <div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.15)] transition-transform duration-300 group-hover:scale-110">
+                <Bot className="h-6 w-6" />
+              </div>
+              <h3 className="mt-6 text-xl font-bold text-white">
+                Rozwiązania Agentowe &amp; Automatyzacje AI
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+                Integracje inteligentnych asystentów AI i automatycznych przepływów danych bezpośrednio w Twoich narzędziach.
+              </p>
+
+              <ul className="mt-6 space-y-2.5 text-xs text-zinc-300">
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-cyan-400 mt-0.5" />
+                  <span>Autonomiczni agenci przetwarzający dokumenty i dane</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-cyan-400 mt-0.5" />
+                  <span>Integracja modeli LLM z wewnętrzną wiedzą firmy (RAG)</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-cyan-400 mt-0.5" />
+                  <span>Automatyzacja rutynowych zadań w zespole</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="mt-8 border-t border-zinc-800/60 pt-4">
+              <span className="text-xs font-mono font-medium text-cyan-400">
+                Agentic AI • RAG &amp; Embeddings • Custom Tools →
+              </span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      {/* ── SEKCJA 3: PROCES CODESIGNU / PROCES WDROŻENIA ─────────── */}
+      <section
+        id="jak-pracujemy"
+        aria-labelledby="proces-heading"
+        className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24 border-t border-zinc-800/80"
+      >
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-900/90 px-3.5 py-1 text-xs font-medium text-zinc-300">
+            <Layers className="h-3.5 w-3.5 text-emerald-400" />
+            <span>Sprawdzony framework</span>
+          </div>
+          <h2
+            id="proces-heading"
+            className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
+          >
+            Jak pracujemy? (Proces w 4 krokach)
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:text-lg">
+            Przejrzysta ścieżka od pomysłu do wdrożonego systemu — bez zbędnej biurokracji.
+          </p>
+        </div>
+
+        {/* 4 kroki */}
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Krok 01: Vibe Session */}
+          <div className="group relative flex flex-col justify-between rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-emerald-500/40 hover:bg-zinc-900/80 hover:shadow-xl hover:shadow-emerald-500/10">
+            <div>
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-3xl font-extrabold text-emerald-400">01</span>
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-emerald-500/30 bg-emerald-500/10 text-emerald-400">
+                  <MessageSquare className="h-4 w-4" />
+                </div>
+              </div>
+              <h3 className="mt-5 text-lg font-bold text-white">Vibe Session</h3>
+              <p className="mt-2.5 text-xs leading-relaxed text-zinc-400">
+                Omawiamy Twój cel i wizję w języku naturalnym — bez skomplikowanych specyfikacji.
+              </p>
+            </div>
+            <div className="mt-6 border-t border-zinc-800/60 pt-3">
+              <span className="text-[11px] font-mono text-emerald-400">
+                Dzień 1 • Warsztat koncepcyjny
+              </span>
+            </div>
+          </div>
+
+          {/* Krok 02: AI Build */}
+          <div className="group relative flex flex-col justify-between rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-500/40 hover:bg-zinc-900/80 hover:shadow-xl hover:shadow-teal-500/10">
+            <div>
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-3xl font-extrabold text-teal-400">02</span>
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-teal-500/30 bg-teal-500/10 text-teal-400">
+                  <Cpu className="h-4 w-4" />
+                </div>
+              </div>
+              <h3 className="mt-5 text-lg font-bold text-white">AI Build</h3>
+              <p className="mt-2.5 text-xs leading-relaxed text-zinc-400">
+                Nasi deweloperzy przy wsparciu agentów AI budują pierwszy działający prototyp w kilka dni.
+              </p>
+            </div>
+            <div className="mt-6 border-t border-zinc-800/60 pt-3">
+              <span className="text-[11px] font-mono text-teal-400">
+                Dni 2–4 • Kodowanie i architektura
+              </span>
+            </div>
+          </div>
+
+          {/* Krok 03: Live Iterations */}
+          <div className="group relative flex flex-col justify-between rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan-500/40 hover:bg-zinc-900/80 hover:shadow-xl hover:shadow-cyan-500/10">
+            <div>
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-3xl font-extrabold text-cyan-400">03</span>
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-cyan-500/30 bg-cyan-500/10 text-cyan-400">
+                  <RefreshCw className="h-4 w-4" />
+                </div>
+              </div>
+              <h3 className="mt-5 text-lg font-bold text-white">Live Iterations</h3>
+              <p className="mt-2.5 text-xs leading-relaxed text-zinc-400">
+                Przeglądamy aplikację na żywo i wprowadzamy szlify oraz nowe funkcje w czasie rzeczywistym.
+              </p>
+            </div>
+            <div className="mt-6 border-t border-zinc-800/60 pt-3">
+              <span className="text-[11px] font-mono text-cyan-400">
+                Dni 5–7 • Szlify na działającym systemie
+              </span>
+            </div>
+          </div>
+
+          {/* Krok 04: Deploy & Scale */}
+          <div className="group relative flex flex-col justify-between rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-emerald-400/40 hover:bg-zinc-900/80 hover:shadow-xl hover:shadow-emerald-400/10">
+            <div>
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-3xl font-extrabold text-emerald-300">04</span>
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-emerald-400/30 bg-emerald-400/10 text-emerald-300">
+                  <Rocket className="h-4 w-4" />
+                </div>
+              </div>
+              <h3 className="mt-5 text-lg font-bold text-white">Deploy &amp; Scale</h3>
+              <p className="mt-2.5 text-xs leading-relaxed text-zinc-400">
+                Bezpieczna publikacja na produkcji z pełnym wsparciem technicznym i opcją dalszego rozwoju.
+              </p>
+            </div>
+            <div className="mt-6 border-t border-zinc-800/60 pt-3">
+              <span className="text-[11px] font-mono text-emerald-300">
+                Dni 8–10 • Produkcja i testy
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Dolny baner CTA */}
+        <div className="mt-14 rounded-2xl border border-emerald-500/30 bg-gradient-to-r from-emerald-950/40 via-zinc-900/80 to-zinc-900/80 p-8 sm:p-10 text-center sm:text-left flex flex-col sm:flex-row sm:items-center justify-between gap-6 shadow-xl">
+          <div className="max-w-xl">
+            <h3 className="text-xl sm:text-2xl font-bold text-white">
+              Gotowy sprawdzić Vibe Coding w praktyce?
+            </h3>
+            <p className="mt-2 text-sm text-zinc-300">
+              Opisz krótko swój projekt lub wyzwanie operacyjne. W ciągu 24h otrzymasz bezpłatną ocenę i plan pierwszego sprintu.
+            </p>
+          </div>
+          <Link
+            href="#kontakt"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 px-7 py-3.5 text-sm font-semibold text-zinc-950 shadow-lg shadow-emerald-500/25 transition-all duration-200 hover:shadow-emerald-500/40 hover:brightness-110 active:scale-[0.98] shrink-0"
+          >
+            <span>Wyceń swój projekt w 24h</span>
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
     </div>
