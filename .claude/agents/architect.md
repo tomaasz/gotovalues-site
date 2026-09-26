@@ -30,4 +30,3 @@ Output format:
 ## Verification Plan
 
 ## Open Questions
-

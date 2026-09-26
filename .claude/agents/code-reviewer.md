@@ -26,4 +26,3 @@ Output format:
 ## Accessibility & Performance Audit
 
 ## Verdict (Approve / Request Changes)
-
