@@ -31,4 +31,3 @@ The project uses a pnpm workspace monorepo with Hermes design packages:
    - Interactive elements must have clear focus rings (`focus-visible:ring-2 focus-visible:ring-emerald-500`).
    - Form inputs must have connected labels or `aria-label`.
    - Loading states and feedback messages must use `aria-live="polite"` regions.
-
