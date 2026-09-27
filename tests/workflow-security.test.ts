@@ -136,6 +136,14 @@ test('Dependency-Track upload passes repository metadata through the shell envir
   assert.doesNotMatch(source, /-F "projectName=\$\{\{/);
 });
 
+test('workflows never reference the secrets context in an if condition', () => {
+  // GitHub rejects the whole workflow file when `if:` reads `secrets.*`, so
+  // no job in it ever starts.
+  for (const name of ['ci.yml', 'sonarqube.yml', 'stale.yml']) {
+    assert.doesNotMatch(workflow(name), /^\s*if:.*\bsecrets\./m);
+  }
+});
+
 test('checkout actions are pinned and do not persist credentials', () => {
   for (const name of ['ci.yml', 'sonarqube.yml', 'stale.yml']) {
     const source = workflow(name);

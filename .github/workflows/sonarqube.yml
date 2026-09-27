@@ -93,14 +93,19 @@ jobs:
                --format cyclonedx --output sbom.cdx.json .
 
       - name: Upload SBOM to Dependency-Track
-        if: ${{ secrets.DEPTRACK_URL != '' && secrets.DEPTRACK_API_KEY != '' }}
         continue-on-error: true
         env:
           DEPTRACK_URL: ${{ secrets.DEPTRACK_URL }}
           DEPTRACK_API_KEY: ${{ secrets.DEPTRACK_API_KEY }}
           PROJECT_NAME: ${{ github.event.repository.name }}
           PROJECT_VERSION: ${{ github.sha }}
+        # The secrets context is not allowed in step `if:`; checking it there
+        # invalidates the whole workflow file, so gate on the env in the shell.
         run: |
+          if [ -z "$DEPTRACK_URL" ] || [ -z "$DEPTRACK_API_KEY" ]; then
+            echo "Dependency-Track is not configured; skipping SBOM upload."
+            exit 0
+          fi
           curl -sS -X POST "$DEPTRACK_URL/api/v1/bom" \
             -H "X-Api-Key: $DEPTRACK_API_KEY" \
             -F "autoCreate=true" \
