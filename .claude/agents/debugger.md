@@ -30,4 +30,3 @@ Output format:
 ## Proposed Fix
 
 ## Verification Steps
-

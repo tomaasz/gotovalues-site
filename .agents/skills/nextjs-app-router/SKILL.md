@@ -30,4 +30,3 @@ This skill guides development in `gotovalues-site`, utilizing Next.js 16 with Ap
      ```bash
      npx tsx --test tests/*.test.ts tests/*.test.tsx
      ```
-

@@ -22,4 +22,3 @@ Output format:
 ## Secrets & Credential Exposure Check
 
 ## Remediation Steps
-

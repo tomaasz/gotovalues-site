@@ -60,4 +60,3 @@ If a regression occurs, promote the previous known-good deployment via the Verce
 VERCEL_TOKEN="$(op read 'op://hosty-debianovh/vercel/token')" \
   npx --yes vercel@latest rollback <deployment-id-or-url> --token "$VERCEL_TOKEN"
 ```
-
