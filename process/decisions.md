@@ -4,6 +4,15 @@ This file tracks durable architectural, technology, and organizational decisions
 
 ---
 
+## 2026-09-27: Standing Approval to Ship to Main & Production
+
+- **Context:** Agents stopped at every merge/deploy because the contract forbade auto-merge, leaving finished work and bot PRs waiting on the owner.
+- **Decision:** Agents may merge green PRs, push verified work to `main`, release to production (Vercel Git integration; manual CLI as fallback) and keep the repo tidy (delete merged worktrees/branches, local and remote). Guardrails: no force-push or history rewrite on `main`, no merging red CI, no secrets, post-deploy smoke check.
+- **Supersedes:** the "manual deploy only" part of 2026-05-12 "Vercel-First Deployment Boundary".
+- **Status:** Accepted.
+
+---
+
 ## 2026-09-20: Multi-Agent Harness & Process State Setup
 
 - **Context:** The repository is developed using multiple AI coding agents (Claude Code, Codex CLI account pool, Antigravity CLI/IDE, Hermes Agent) across several hosts. Without a unified contract and durable state, agents duplicate context exploration and risk violating deployment or brand rules.

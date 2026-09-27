@@ -9,9 +9,9 @@ Before any non-trivial work in this repository, Claude Code / other agents must 
 3. Read `process/context.md`, `process/decisions.md`, and `process/routing.md`.
 4. Read the relevant plan in `process/plans/` or create one before making substantial changes.
 5. Preserve unrelated dirty files (e.g. untracked or in-progress components) and runtime artifacts.
-6. After verified successful work, commit and push to `origin/main` by default unless push is blocked.
+6. After verified successful work, commit and push to `origin/main` and ship it to production (see "Ship to Main & Production" below). The owner has granted standing approval for this — do not stop to ask.
 7. Never commit secrets, `.env*`, tokens, credentials, or runtime state.
-8. Never force-push, auto-merge, or bypass human gates.
+8. Never force-push, rewrite `main` history, or merge a PR whose CI is red.
 9. After work, update `~/obsidian-vault/projects/gotovalues.md` (the Handoff block) to hand off state to other agents.
 
 ---
@@ -82,12 +82,22 @@ pnpm storybook
 
 ---
 
-## Vercel Production Deployment Boundary
+## Ship to Main & Production (standing approval)
+
+The repository owner has given agents standing approval (2026-09-27) to land work on `main` and release it to production without asking each time:
+
+- **Merge PRs yourself** (`gh pr merge <n> --squash --delete-branch`) once all required checks are green and there are no conflicts — including bot PRs. Never merge a PR with failing checks; fix it or report it.
+- **Push verified work directly to `main`** (tests + lint + build green).
+- **Release to production** after every change on `main`, then run the smoke check below.
+- **Keep the repo tidy** after each task: local tree clean and in sync with `origin/main`; remove worktrees and local branches already in `main` (incl. squash-merged); delete remote branches whose PR is merged/closed or already in `main`; `git fetch --prune`. Never delete `main` or work not yet in `main` — report it instead.
+
+## Vercel Production Deployment
 
 `gotovalues.com` is strictly deployed to **Vercel** (`gotovalues` project).
 
-- GitHub Actions only runs CI validation (lint/build/test); **CI does not deploy to production**.
-- Deployment is manual and performed only from a clean, merged `main` checkout.
+- The Vercel Git integration deploys every push to `main` to production automatically; confirm the production deployment for the pushed SHA reaches `READY`.
+- GitHub Actions only runs CI validation (lint/build/test); CI itself does not deploy.
+- If the Git-triggered deploy fails or does not start, deploy manually from a clean `main` checkout with the command below.
 - Detailed runbook: [`docs/deployment.md`](docs/deployment.md).
 - Vercel API token is stored securely in 1Password: `op://hosty-debianovh/vercel/token`. Never place the token in `.env` or repository files.
 
