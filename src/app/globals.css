@@ -113,7 +113,8 @@ textarea {
 .page-shell {
   width: min(calc(100% - 32px), var(--max-width));
   margin: 0 auto;
-  padding: 24px 0 80px;
+  /* No top padding: the sticky header carries it, so it never shifts on scroll. */
+  padding: 0 0 80px;
 }
 
 .site-header {
@@ -124,7 +125,7 @@ textarea {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 14px 0;
+  padding: 38px 0 14px;
   margin-bottom: 28px;
   border-bottom: var(--gv-line-thick) solid var(--gv-ink);
   background: var(--gv-paper);
@@ -1114,6 +1115,7 @@ h3 {
 
   .site-header {
     position: static;
+    padding-top: 0;
     min-width: 0;
     max-width: 100%;
   }
