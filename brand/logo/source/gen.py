@@ -15,6 +15,7 @@ RO = XH / 2       # bowl outer radius
 RI = RO - W       # bowl inner radius
 ASC = 22.0        # ascender top (l)
 GAP = 16.0        # default letter gap
+STROKE = "STROKE:"  # marker for centreline paths that picosvg outlines later
 
 
 def f(v):
@@ -68,17 +69,17 @@ def poly(*pts):
 
 # ---- letters: each returns (list of (path, evenodd)), advance width ----
 
-def L_o(x, filled=False):
+def letter_o(x, filled=False):
     if filled:
         return [(disc(x + RO, CY, RO), False)], 2 * RO
     return [(ring(x + RO, CY, RO, RI), True)], 2 * RO
 
 
-def L_a(x):
+def letter_a(x):
     return [(ring(x + RO, CY, RO, RI), True), (rect(x + 2 * RO - W, T, W, XH), False)], 2 * RO
 
 
-def L_g_route(x):
+def letter_g_route(x):
     """g whose descender is a route ending in a station dot (concept B)."""
     cx = x + RO
     stem_x = x + 2 * RO - W
@@ -95,7 +96,7 @@ def L_g_route(x):
             (disc(dot_cx, tail_y + W / 2, dot_r), False)], 2 * RO
 
 
-def L_g(x):
+def letter_g(x):
     cx = x + RO
     stem_bottom = B + 8
     hook_r = RO - 4
@@ -107,13 +108,13 @@ def L_g(x):
     return parts, 2 * RO
 
 
-def L_t(x):
+def letter_t(x):
     w = 62.0
     sx = x + 16
     return [(rect(sx, T - 34, W, B - (T - 34)), False), (rect(x, T, w, W), False)], w
 
 
-def L_v(x):
+def letter_v(x):
     w = 2 * RO
     hw = W / math.cos(math.atan((w / 2) / XH))
     slope = XH / (w / 2)
@@ -121,23 +122,23 @@ def L_v(x):
     return [(poly((x, T), (x + hw, T), (x + w / 2, apex_in), (x + w - hw, T), (x + w, T), (x + w / 2, B + 3)), False)], w
 
 
-def L_l(x):
+def letter_l(x):
     return [(rect(x, ASC, W, B - ASC), False)], W
 
 
-def L_u(x):
+def letter_u(x):
     cy = B - RO
     return [(rect(x, T, W, cy - T + 1), False), (arc(x + RO, cy, RO, RI, 0, 180), False),
             (rect(x + 2 * RO - W, T, W, XH), False)], 2 * RO
 
 
-def L_e(x):
+def letter_e(x):
     cx = x + RO
     ext = math.degrees(math.asin((W / 2) / RO))
     return [(arc(cx, CY, RO, RI, 40, 360 + ext), False), (rect(x + W / 2, CY - W / 2, 2 * RO - W / 2 - 1, W), False)], 2 * RO
 
 
-def L_s(x):
+def letter_s(x):
     """Geometric s drawn as a smooth centreline; outlined later by picosvg (stroke -> fill)."""
     t = T
     pts = (f"M{f(x+60)} {f(t+25)}"
@@ -147,11 +148,20 @@ def L_s(x):
            f"C{f(x+49)} {f(t+58)} {f(x+59)} {f(t+65)} {f(x+59)} {f(t+79)}"
            f"C{f(x+59)} {f(t+91)} {f(x+49)} {f(t+99)} {f(x+35)} {f(t+99)}"
            f"C{f(x+21)} {f(t+99)} {f(x+11)} {f(t+92)} {f(x+6)} {f(t+82)}")
-    return [("STROKE:" + pts, False)], 70.0
+    return [(STROKE + pts, False)], 70.0
 
 
-LETTERS = {"g": L_g, "o": L_o, "t": L_t, "v": L_v, "a": L_a, "l": L_l, "u": L_u, "e": L_e, "s": L_s}
+LETTERS = {"g": letter_g, "o": letter_o, "t": letter_t, "v": letter_v, "a": letter_a, "l": letter_l, "u": letter_u, "e": letter_e, "s": letter_s}
 TIGHT = {("t", "o"): -6, ("o", "t"): -4, ("o", "v"): -6, ("v", "a"): -6, ("a", "l"): 2, ("l", "u"): 2}
+
+
+def _glyph(ch, i, x, filled_index, route_g):
+    """Return (parts, advance) for one letter of the wordmark."""
+    if ch == "o":
+        return letter_o(x, filled=(i == filled_index))
+    if ch == "g" and route_g:
+        return letter_g_route(x)
+    return LETTERS[ch](x)
 
 
 def wordmark(x0=0.0, filled_index=None, accent=None, route_g=False, dot_color=None):
@@ -159,19 +169,12 @@ def wordmark(x0=0.0, filled_index=None, accent=None, route_g=False, dot_color=No
     x = x0
     out = []
     for i, ch in enumerate(word):
-        if ch == "o":
-            parts, adv = L_o(x, filled=(i == filled_index))
-        elif ch == "g" and route_g:
-            parts, adv = L_g_route(x)
-            if dot_color:
-                out.extend((pp, eo, None) for pp, eo in parts[:-1])
-                out.append((parts[-1][0], parts[-1][1], dot_color))
-                x += adv + GAP + TIGHT.get((ch, word[i + 1]), 0)
-                continue
-        else:
-            parts, adv = LETTERS[ch](x)
+        parts, adv = _glyph(ch, i, x, filled_index, route_g)
         color = accent if (i == filled_index and accent) else None
         out.extend((p, eo, color) for p, eo in parts)
+        if ch == "g" and route_g and dot_color:
+            # the station dot (last part of the route g) carries the brand accent
+            out[-1] = (out[-1][0], out[-1][1], dot_color)
         nxt = word[i + 1] if i + 1 < len(word) else None
         x += adv + (GAP + TIGHT.get((ch, nxt), 0) if nxt else 0)
     return out, x - x0
@@ -180,9 +183,9 @@ def wordmark(x0=0.0, filled_index=None, accent=None, route_g=False, dot_color=No
 def svg(elems, vb_w, vb_h, title, fill=INK):
     body = []
     for p, eo, color in elems:
-        if p.startswith("STROKE:"):
+        if p.startswith(STROKE):
             sc = color or fill
-            body.append(f'  <path fill="none" stroke="{sc}" stroke-width="{f(W - 1)}" d="{p[7:]}"/>')
+            body.append(f'  <path fill="none" stroke="{sc}" stroke-width="{f(W - 1)}" d="{p[len(STROKE):]}"/>')
             continue
         attr = ' fill-rule="evenodd"' if eo else ""
         c = f' fill="{color}"' if color else ""
@@ -194,8 +197,8 @@ def svg(elems, vb_w, vb_h, title, fill=INK):
 def _paths(elems):
     out = []
     for p, eo, c in elems:
-        if p.startswith("STROKE:"):
-            out.append(f'<path fill="none" stroke="{c or INK}" stroke-width="{f(W - 1)}" d="{p[7:]}"/>')
+        if p.startswith(STROKE):
+            out.append(f'<path fill="none" stroke="{c or INK}" stroke-width="{f(W - 1)}" d="{p[len(STROKE):]}"/>')
             continue
         attr = ' fill-rule="evenodd"' if eo else ""
         col = f' fill="{c}"' if c else ""

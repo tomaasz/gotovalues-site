@@ -4,6 +4,7 @@
 Run: uv run --with picosvg python3 finalize.py out/*.svg
 """
 import sys
+from pathlib import Path
 from collections import defaultdict
 
 from picosvg.svg import SVG
@@ -36,7 +37,16 @@ def finalize(path):
     open(path, "w").write("\n".join(out) + "\n")
 
 
+def _safe_svg_path(arg):
+    """Only accept existing .svg files inside the current working directory."""
+    root = Path.cwd().resolve()
+    path = Path(arg).resolve()
+    if path.suffix != ".svg" or not path.is_file() or root not in path.parents:
+        raise SystemExit(f"refusing to process {arg!r}: expected an .svg file inside {root}")
+    return str(path)
+
+
 if __name__ == "__main__":
     for p in sys.argv[1:]:
-        finalize(p)
+        finalize(_safe_svg_path(p))
         print("finalized", p)
