@@ -6,7 +6,11 @@ repos:
       - id: check-added-large-files
         args: ["--maxkb=1024"]
       - id: end-of-file-fixer
+        # vendored third-party agent skills (Impeccable, UI UX Pro Max): keep upstream bytes for clean updates
+        exclude: ^\.(agents|claude|gemini|hermes)/skills/(impeccable|ui-ux-pro-max|design-system|brand|design|ui-styling)/
       - id: trailing-whitespace
+        # vendored third-party agent skills (Impeccable, UI UX Pro Max): keep upstream bytes for clean updates
+        exclude: ^\.(agents|claude|gemini|hermes)/skills/(impeccable|ui-ux-pro-max|design-system|brand|design|ui-styling)/
 
   # Reject staging of obvious junk files. .gitignore handles ignore-on-add,
   # but accidental `git add -A` from a different cwd or a moved-from-elsewhere
