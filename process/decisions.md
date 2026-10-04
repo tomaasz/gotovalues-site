@@ -4,6 +4,20 @@ This file tracks durable architectural, technology, and organizational decisions
 
 ---
 
+## 2026-10-04: Brand Logotype & Design-Skill Stack
+
+- **Context:** The site used a stock Fraunces "g" as its mark and had no single visual-language source; the dark "vibe coding" hero drifts from the paper/ink/sage brand palette.
+- **Decision:**
+  1. Logo direction A "Trasa do wartości" (route g ending in a sage station dot), built with `kaankiziltug/logo-design-skill`; masters, guide and generator live in `brand/logo/`.
+  2. Install project-local design skills: **Impeccable** (`pbakaus/impeccable`, engine v0.1.11, installed with `--no-hooks`) as the primary design workflow, and **UI UX Pro Max** (`ui-ux-pro-max-cli`: `ui-ux-pro-max`, `design-system`, `brand`, `design`, `ui-styling`) as the design-system generator/reference. `slides` and `banner-design` were removed as out of scope.
+  3. Single source of truth for the visual system: Impeccable `PRODUCT.md` + `DESIGN.md` → `packages/design-tokens`. Other skills (Anthropic `frontend-design`, Vercel `web-design-guidelines`, `jakubkrehel/skills`) act as auditors only.
+  4. Canonical copies in `.agents/skills/`; `.claude/skills` / `.gemini/skills` symlink identical skills (Impeccable keeps per-provider builds). Impeccable engine binaries are git-ignored (the launcher downloads them on first run).
+  5. The `design` skill's Gemini image-generation scripts (paid API key) are not used.
+- **Research:** `process/research/2026-10-04-design-system-skills.md`.
+- **Status:** Accepted.
+
+---
+
 ## 2026-09-27: Standing Approval to Ship to Main & Production
 
 - **Context:** Agents stopped at every merge/deploy because the contract forbade auto-merge, leaving finished work and bot PRs waiting on the owner.
