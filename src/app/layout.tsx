@@ -38,6 +38,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://gotovalues.com"),
   alternates: {
     canonical: "/",
+    types: { "application/rss+xml": "/feed.xml" },
   },
   icons: {
     icon: [
