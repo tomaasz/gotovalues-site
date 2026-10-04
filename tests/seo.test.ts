@@ -63,6 +63,8 @@ describe("SEO config", () => {
     assert.match(llms, /AI|automatyzacja|aplikacje/i);
     assert.match(llms, /https:\/\/gotovalues\.com\/sitemap\.xml/);
     assert.match(llms, /https:\/\/gotovalues\.com\/jak-pracuje/);
+    assert.match(llms, /^# .+\n\n> .+/, "H1 must be followed by a blockquote description");
+    assert.match(llms, /\[Jak pracuję\]\(https:\/\/gotovalues\.com\/jak-pracuje\)/);
     assert.match(ai, /AI crawling: allow/);
     assert.match(ai, /AI indexing: allow/);
     assert.match(ai, /https:\/\/gotovalues\.com\/llms\.txt/);
