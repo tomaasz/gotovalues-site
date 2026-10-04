@@ -11,15 +11,15 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <Link className="brand-mark" href="/">
+        {/* Logotype "Trasa do wartości" — sources and guidelines in brand/logo/. */}
         <Image
-          className="brand-mark-icon"
-          src="/images/mark.png"
-          alt=""
-          width={19}
-          height={27}
+          className="brand-mark-logo"
+          src="/brand/gotovalues-logo.svg"
+          alt={siteContent.brand.name}
+          width={148}
+          height={30}
           priority
         />
-        {siteContent.brand.name}
       </Link>
       <nav className="site-nav" aria-label="Główna nawigacja">
         <Link href="/#oferta">Oferta</Link>
