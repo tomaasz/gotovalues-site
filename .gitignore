@@ -32,3 +32,6 @@ package-lock.json
 *storybook.log
 storybook-static
 static-fallback/
+
+# Impeccable engine binaries (launcher downloads them on first run)
+**/skills/impeccable/scripts/bin/
