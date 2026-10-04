@@ -174,7 +174,7 @@ export function ProcessDrawing() {
     <div className="gv-drawing-block">
       <figure className="gv-drawing">
         <svg
-          viewBox="0 0 600 360"
+          viewBox="0 14 600 326"
           role="img"
           aria-labelledby={`${groupName}-caption`}
           className={hasInteracted ? 'is-redrawing' : undefined}

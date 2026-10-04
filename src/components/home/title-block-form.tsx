@@ -4,7 +4,12 @@ import { useState } from 'react';
 
 import { logger } from '@/lib/logger';
 
-type Status = { kind: 'idle' | 'sending' | 'success' | 'error'; message: string };
+type Status = {
+  kind: 'idle' | 'sending' | 'success' | 'error';
+  message: string;
+  /** The error belongs to the process description field. */
+  invalidMessage?: boolean;
+};
 
 const MIN_MESSAGE = 20;
 
@@ -24,6 +29,7 @@ export function TitleBlockForm() {
     if (message.length < MIN_MESSAGE) {
       setStatus({
         kind: 'error',
+        invalidMessage: true,
         message: `Opisz proces w co najmniej ${MIN_MESSAGE} znakach: co dziś robicie ręcznie i gdzie to boli.`,
       });
       return;
@@ -83,6 +89,7 @@ export function TitleBlockForm() {
           required
           minLength={MIN_MESSAGE}
           maxLength={5000}
+          aria-invalid={status.invalidMessage ? true : undefined}
           placeholder="Np. reklamacje spływają mailem, statusy partii prowadzimy w Excelu…"
         />
       </div>
@@ -104,8 +111,7 @@ export function TitleBlockForm() {
       <p
         id="gv-title-form-status"
         className={`gv-tb-status gv-tb-status-${status.kind}`}
-        role={status.kind === 'error' ? 'alert' : 'status'}
-        aria-live="polite"
+        role="status"
       >
         {status.message}
       </p>

@@ -1034,7 +1034,7 @@ h3 {
 }
 
 .required-indicator {
-  color: #8f3c34;
+  color: var(--gv-sage-deep);
   margin-left: 2px;
 }
 
@@ -1119,19 +1119,17 @@ h3 {
   }
 
   .site-nav {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    overflow-x: auto;
+    gap: 2px 18px;
     padding-top: 8px;
     border-top: var(--gv-line-thin) solid var(--gv-ink);
-    scrollbar-width: none;
-    white-space: nowrap;
   }
 
-  .site-nav::-webkit-scrollbar {
-    display: none;
+  .site-nav a {
+    white-space: nowrap;
   }
 
   .hero,

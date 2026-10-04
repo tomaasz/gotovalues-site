@@ -33,6 +33,12 @@
     transparent 0 6px,
     rgb(78 139 118 / 0.55) 6px 7px
   );
+  /* Sparse sage raster: tone for selected / focused / hover states. */
+  --gv-hatch-sparse: repeating-linear-gradient(
+    45deg,
+    transparent 0 5px,
+    rgb(78 139 118 / 0.3) 5px 6px
+  );
   --gv-hatch-ink: repeating-linear-gradient(
     45deg,
     transparent 0 5px,
