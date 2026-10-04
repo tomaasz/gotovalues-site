@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-04T12:00:00Z",
+  "title": "Design System: gotovalues",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "neutral", "displayName": "Drawing Paper", "canonical": "oklch(98.0% 0.005 78.3)", "tonalRamp": ["#0c0b0a", "#252423", "#413f3d", "#5f5d5b", "#7f7d7a", "#a09e9b", "#c6c4c1", "#efeeec"] },
+      "ink": { "role": "neutral", "displayName": "Drafting Ink", "canonical": "oklch(27.2% 0.008 59.3)", "tonalRamp": ["#0d0b09", "#262322", "#433f3c", "#615d59", "#817c79", "#a29d99", "#c8c3bf", "#f1eeeb"] },
+      "sage": { "role": "primary", "displayName": "Route Sage", "canonical": "oklch(58.9% 0.072 169.5)", "tonalRamp": ["#001108", "#092b21", "#034c39", "#2d6b57", "#4e8b76", "#70ad97", "#95d4bd", "#d3f8ea"] },
+      "sage-deep": { "role": "primary", "displayName": "Deep Sage", "canonical": "oklch(44.3% 0.059 169.3)", "tonalRamp": ["#001009", "#112a21", "#1a4a3a", "#396858", "#598977", "#7aab98", "#9fd1be", "#d9f7eb"] },
+      "ink-soft": { "role": "neutral", "displayName": "Soft Ink", "canonical": "oklch(44.4% 0.014 59.3)", "tonalRamp": ["#0e0a08", "#272320", "#463e38", "#645c56", "#847b75", "#a59c96", "#cbc2bb", "#f3ede9"] },
+      "grid": { "role": "neutral", "displayName": "Drafting Grid", "canonical": "oklch(93.1% 0.009 161.3)", "tonalRamp": ["#090c0a", "#222523", "#3c413e", "#595f5c", "#797f7b", "#9aa09c", "#bfc6c2", "#ebf0ed"] },
+      "sage-wash": { "role": "neutral", "displayName": "Sage Wash", "canonical": "rgb(78 139 118 / 0.1)" },
+      "danger": { "role": "error", "displayName": "Error Red", "canonical": "oklch(46.7% 0.115 27.8)", "tonalRamp": ["#210000", "#3f1410", "#701f1a", "#934038", "#b76056", "#dd8176", "#ffa79b", "#ffded5"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Drawing Title", "purpose": "One per page; semi-condensed Archivo at a single monumental scale." },
+      "headline": { "displayName": "Sheet Heading", "purpose": "Head row of each sheet, above a 2px ink rule, about 24ch." },
+      "title": { "displayName": "Block Title", "purpose": "Sub-blocks inside a sheet: detail views, private deployments, notes." },
+      "lede": { "displayName": "Lede", "purpose": "One sentence under a title, soft ink, max 48ch." },
+      "body": { "displayName": "Body", "purpose": "Running copy with tabular figures, 62-76ch." },
+      "label": { "displayName": "Cell Label", "purpose": "Uppercase field name inside a title-block or table cell; never a kicker." },
+      "annotation": { "displayName": "Annotation", "purpose": "Mono for positions, revisions, zones, dimensions and stacks only." }
+    },
+    "lineWeights": [
+      { "name": "line-thick", "value": "2px", "purpose": "Sheet frames, section rules, outline of parts." },
+      { "name": "line", "value": "1.5px", "purpose": "Parts, balloons, buttons, fields, link underlines." },
+      { "name": "line-thin", "value": "1px", "purpose": "Cell rules, dimension lines, outer drawing frame." }
+    ],
+    "patterns": [
+      { "name": "hatch", "value": "repeating-linear-gradient(45deg, transparent 0 6px, rgb(78 139 118 / 0.55) 6px 7px)", "purpose": "Section cut: manual work legend, private deployments." },
+      { "name": "hatch-ink", "value": "repeating-linear-gradient(45deg, transparent 0 5px, rgb(42 38 35 / 0.35) 5px 6px)", "purpose": "Ink-weight section hatching." },
+      { "name": "drafting-grid", "value": "linear-gradient(var(--gv-grid) 1px, transparent 1px), linear-gradient(90deg, var(--gv-grid) 1px, transparent 1px) / 24px 24px", "purpose": "Behind the first-viewport process drawing only." }
+    ],
+    "shadows": [
+      { "name": "focus-ring-field", "value": "0 0 0 2px var(--gv-sage-deep)", "purpose": "Focus stroke on standard form fields; not elevation. The system has no depth shadows." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Exponential ease-out for all transitions and the redraw." },
+      { "name": "draw-duration", "value": "900ms", "purpose": "Stroke draw per edge, staggered 110ms after a 180ms lead." },
+      { "name": "node-place", "value": "520ms", "purpose": "Node fade and 6px rise, staggered 60ms." },
+      { "name": "stop-dot", "value": "420ms @ 980ms delay", "purpose": "Sage stop-dot scales in once the route is drawn." },
+      { "name": "ui-transition", "value": "0.2s", "purpose": "Colour and background changes on links, buttons, rows." }
+    ],
+    "breakpoints": [
+      { "name": "sheet-stack", "value": "1080px" },
+      { "name": "single-column", "value": "860px" },
+      { "name": "phone", "value": "640px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled deep-sage action; hover goes to ink.",
+      "html": "<button class=\"ds-btn-primary\">Wyślij opis procesu</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 20px; border: 1.5px solid var(--gv-sage-deep, #2f5e4e); border-radius: 2px; color: var(--gv-paper, #faf8f5); background: var(--gv-sage-deep, #2f5e4e); font-family: var(--gv-font-body, Archivo, system-ui, sans-serif); font-weight: 700; cursor: pointer; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary:hover { background: var(--gv-ink, #2a2623); border-color: var(--gv-ink, #2a2623); } .ds-btn-primary:focus-visible { outline: 2px solid var(--gv-sage-deep, #2f5e4e); outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Paper button with ink border; hover adds sage wash.",
+      "html": "<button class=\"ds-btn-secondary\">Jak pracuję</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 20px; border: 1.5px solid var(--gv-ink, #2a2623); border-radius: 2px; color: var(--gv-ink, #2a2623); background: var(--gv-paper, #faf8f5); font-family: var(--gv-font-body, Archivo, system-ui, sans-serif); font-weight: 700; cursor: pointer; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-secondary:hover { background: rgb(78 139 118 / 0.1); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--gv-sage-deep, #2f5e4e); outline-offset: 3px; }"
+    },
+    {
+      "name": "Title Block Cell",
+      "kind": "input",
+      "refersTo": "title-block-cell",
+      "description": "Ruled cell with a field label and a dashed-baseline input; focus washes the cell sage.",
+      "html": "<div class=\"ds-tb-cell\"><label for=\"ds-tb\">E-mail służbowy</label><input id=\"ds-tb\" type=\"email\" placeholder=\"jan@firma.pl\"></div>",
+      "css": ".ds-tb-cell { display: grid; gap: 4px; padding: 10px 14px 12px; border: 1px solid var(--gv-ink, #2a2623); background: var(--gv-paper, #faf8f5); font-family: var(--gv-font-body, Archivo, system-ui, sans-serif); } .ds-tb-cell label { color: var(--gv-ink-soft, #5a524c); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; } .ds-tb-cell input { width: 100%; padding: 4px 0; border: 0; border-bottom: 1px dashed var(--gv-ink-soft, #5a524c); color: var(--gv-ink, #2a2623); background: transparent; font: inherit; font-size: 1rem; outline: none; } .ds-tb-cell input::placeholder { color: var(--gv-ink-soft, #5a524c); opacity: 1; } .ds-tb-cell:focus-within { background: rgb(78 139 118 / 0.1); } .ds-tb-cell:focus-within input { border-bottom: 2px solid var(--gv-sage-deep, #2f5e4e); }"
+    },
+    {
+      "name": "Standard Field",
+      "kind": "input",
+      "refersTo": "field-input",
+      "description": "Full contact form input: paper, 1.5px ink border, deep-sage focus ring.",
+      "html": "<input class=\"ds-field\" placeholder=\"Imię i nazwisko\">",
+      "css": ".ds-field { width: 100%; padding: 12px 14px; border: 1.5px solid var(--gv-ink, #2a2623); border-radius: 2px; color: var(--gv-ink, #2a2623); background: var(--gv-paper, #faf8f5); font-family: var(--gv-font-body, Archivo, system-ui, sans-serif); font-size: 1rem; outline: none; transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-field:focus { border-color: var(--gv-sage-deep, #2f5e4e); box-shadow: 0 0 0 2px var(--gv-sage-deep, #2f5e4e); }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Ink links with a hidden 1.5px underline that turns sage on hover.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Oferta</a><a href=\"#\">Jak pracuję</a><a href=\"#\">Produkty</a><a href=\"#\">Kontakt</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 4px 20px; padding: 14px 0; border-bottom: 2px solid var(--gv-ink, #2a2623); background: var(--gv-paper, #faf8f5); font-family: var(--gv-font-body, Archivo, system-ui, sans-serif); font-size: 0.9rem; font-weight: 600; } .ds-nav a { padding: 4px 0; color: var(--gv-ink, #2a2623); text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 1.5px; text-underline-offset: 6px; transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1), text-decoration-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-nav a:hover, .ds-nav a:focus-visible { color: var(--gv-sage-deep, #2f5e4e); text-decoration-color: var(--gv-sage, #4e8b76); } .ds-nav a:focus-visible { outline: 2px solid var(--gv-sage-deep, #2f5e4e); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Position Balloon",
+      "kind": "chip",
+      "refersTo": "position-balloon",
+      "description": "Circled mono position number attached to every named part.",
+      "html": "<span class=\"ds-pos-item\"><span class=\"ds-pos\">3</span>PDF</span>",
+      "css": ".ds-pos-item { display: inline-flex; align-items: center; gap: 8px; color: var(--gv-ink, #2a2623); font-family: var(--gv-font-body, Archivo, system-ui, sans-serif); font-size: 0.88rem; font-weight: 600; } .ds-pos { display: inline-grid; place-items: center; width: 26px; height: 26px; border: 1.5px solid var(--gv-ink, #2a2623); border-radius: 50%; background: var(--gv-paper, #faf8f5); font-family: var(--gv-font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 0.78rem; font-weight: 600; line-height: 1; }"
+    },
+    {
+      "name": "Sheet",
+      "kind": "card",
+      "refersTo": "sheet",
+      "description": "Paper panel in a 2px ink frame with a ruled head row.",
+      "html": "<section class=\"ds-sheet\"><div class=\"ds-sheet-head\"><h2>Uwagi: pytania przed współpracą</h2></div><p>Treść arkusza.</p></section>",
+      "css": ".ds-sheet { padding: clamp(16px, 2.4vw, 32px); border: 2px solid var(--gv-ink, #2a2623); border-radius: 0; color: var(--gv-ink, #2a2623); background: var(--gv-paper, #faf8f5); font-family: var(--gv-font-body, Archivo, system-ui, sans-serif); } .ds-sheet-head { padding-bottom: 16px; margin-bottom: 24px; border-bottom: 2px solid var(--gv-ink, #2a2623); } .ds-sheet-head h2 { margin: 0; max-width: 24ch; font-family: var(--gv-font-display, Archivo, system-ui, sans-serif); font-stretch: 88%; font-size: clamp(1.75rem, 3vw, 2.6rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.025em; } .ds-sheet p { margin: 0; color: var(--gv-ink-soft, #5a524c); line-height: 1.55; }"
+    },
+    {
+      "name": "Revision Table",
+      "kind": "custom",
+      "refersTo": "revision-row-selected",
+      "description": "Signature control: selectable revision rows; the checked ID cell fills deep sage.",
+      "html": "<fieldset class=\"ds-rev\"><legend>Tabela zmian: wybierz rewizję procesu</legend><label class=\"ds-rev-row\"><input type=\"radio\" name=\"ds-rev\" checked><span class=\"ds-rev-id\">0</span><span class=\"ds-rev-name\">Stan obecny</span></label><label class=\"ds-rev-row\"><input type=\"radio\" name=\"ds-rev\"><span class=\"ds-rev-id\">A</span><span class=\"ds-rev-name\">Gotowe narzędzie</span></label></fieldset>",
+      "css": ".ds-rev { margin: 0; padding: 0; border: 2px solid var(--gv-ink, #2a2623); background: var(--gv-paper, #faf8f5); color: var(--gv-ink, #2a2623); font-family: var(--gv-font-body, Archivo, system-ui, sans-serif); } .ds-rev legend { float: left; width: 100%; padding: 8px 12px; border-bottom: 1px solid var(--gv-ink, #2a2623); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; } .ds-rev-row { clear: both; position: relative; display: grid; grid-template-columns: 52px 1fr; align-items: center; min-height: 48px; border-bottom: 1px solid var(--gv-ink, #2a2623); cursor: pointer; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-rev-row:last-child { border-bottom: 0; } .ds-rev-row input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; } .ds-rev-row:hover, .ds-rev-row:has(input:checked) { background: rgb(78 139 118 / 0.1); } .ds-rev-row:has(input:focus-visible) { outline: 2px solid var(--gv-sage-deep, #2f5e4e); outline-offset: -4px; } .ds-rev-id { align-self: stretch; display: grid; place-items: center; border-right: 1px solid var(--gv-ink, #2a2623); font-family: var(--gv-font-mono, 'JetBrains Mono', ui-monospace, monospace); font-weight: 600; } .ds-rev-row:has(input:checked) .ds-rev-id { color: var(--gv-paper, #faf8f5); background: var(--gv-sage-deep, #2f5e4e); } .ds-rev-name { padding: 10px 12px; font-weight: 700; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Working Drawing",
+    "overview": "Every page is a sheet from a technical drawing set (ISO 128 conventions): a paper sheet with a framed border, a faint sage drafting grid, ink linework at three line weights, numbered position balloons, dimension lines, a title block and a revision table. Content is presented as parts of a drawing, not as marketing panels. The offer is a parts list (wykaz części), the products are detail views (szczegół A / B), the FAQ is the notes field (uwagi), the author is the opracował cell, and the contact form is the title block itself.\n\nThe world is built from three logo colours and nothing else. All tone comes from line weight, dashing and 45° hatching, never from grey fills, blur or tonal gradients. Density is that of a real drawing: tight ruled cells, small monospace annotation, then one large, semi-condensed grotesk title per sheet. Motion belongs to the drawing. The process diagram redraws stroke by stroke when the visitor picks a revision, and stays still on first paint and under reduced motion.\n\nThe user explicitly rejected these directions: the dark AI-startup look (neon, gradients, robots), the faceless corporate software-house look, a magazine or overly artistic look, and any colour that is not in the logo.",
+    "keyCharacteristics": [
+      "One paper sheet per section, framed in a 2px ink rule, square corners.",
+      "Three colours (paper, ink, sage) plus derived deep sage, soft ink, a sage-tinted grid and one danger red for form errors.",
+      "Archivo variable at 88% width for everything set in words; JetBrains Mono only for positions, revisions and measurements.",
+      "Line weight is the hierarchy: 2px outline, 1.5px parts, 1px dimension and cell rules.",
+      "Circles are reserved for position balloons and the sage stop-dot.",
+      "Flat. Depth is never simulated."
+    ],
+    "rules": [
+      { "name": "The Three Colour Rule", "body": "Paper, ink and sage are the whole palette. Every other value is derived from them. A new surface that needs another hue is the wrong surface.", "section": "colors" },
+      { "name": "The Readable Sage Rule", "body": "Text, links and filled controls use deep sage. Light sage is for strokes, dots, hatching and text above roughly 24px.", "section": "colors" },
+      { "name": "The Hatch, Not Grey Rule", "body": "To mark something as different (manual work, private, not shown), hatch it with 45° hard-stop lines (--gv-hatch in sage, --gv-hatch-ink in ink) or dash its outline. Never fill it grey.", "section": "colors" },
+      { "name": "The One Grotesk Rule", "body": "Every word is set in Archivo. Hierarchy comes from size, weight and width. Never add a second display face.", "section": "typography" },
+      { "name": "The Mono Is Measurement Rule", "body": "JetBrains Mono appears only where a drawing would carry numbers, codes or dimensions (positions, revisions, zones, stacks). Never use it for prose or headings.", "section": "typography" },
+      { "name": "The Field Label Rule", "body": "Uppercase tracked labels name a cell they sit inside. They never float above a heading as a kicker.", "section": "typography" },
+      { "name": "The Line Weight Rule", "body": "Only the three line tokens separate things: --gv-line-thick (2px), --gv-line (1.5px), --gv-line-thin (1px). Never add blur, glow or offset shadows.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do build every section as a sheet: paper, 2px ink frame, square corners, headline over a 2px ink rule.",
+      "Do give every named part a position number in a circled mono balloon, and keep the numbering consistent between drawing and list.",
+      "Do express difference through line weight (2 / 1.5 / 1px), dashing (manual, provisional) and 45° hatching (private, cut), all drawn as hard-stop line rasters.",
+      "Do use deep sage for text, links and filled controls, and light sage only for strokes, dots and hatching.",
+      "Do set titles in Archivo 700 at 88% width with -0.025em tracking, and annotations in JetBrains Mono at 0.74rem.",
+      "Do animate only drawing acts (strokes drawing, nodes placing, the dot appearing) on the exponential ease-out, triggered by the visitor, with a static reduced-motion state.",
+      "Do keep user-facing copy in Polish and the brand lowercase: gotovalues."
+    ],
+    "donts": [
+      "Don't introduce any hue outside paper, ink and sage (danger red is for form errors only), and don't use neutral greys. Derive from ink or sage instead.",
+      "Don't use gradients as tonal fills or blends. The only allowed linear-gradient uses are hard-stop rasters (grid, hatching, drawn strokes).",
+      "Don't add shadows, blur, glow or glassmorphism. The world is flat.",
+      "Don't round panels or images. 2px is the maximum corner on controls, and circles are only for balloons, counters, bullets and the stop-dot.",
+      "Don't put an uppercase tracked kicker or eyebrow above a heading. Uppercase labels only name the cell they sit in.",
+      "Don't use JetBrains Mono for prose or headings, and don't add a second display face.",
+      "Don't autoplay motion on first paint.",
+      "Don't use the dark AI-startup look (neon, gradients, robots), the faceless corporate software-house look, or a magazine or art-piece look."
+    ]
+  }
+}

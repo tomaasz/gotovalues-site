@@ -1,0 +1,70 @@
+/* @hermes/design-tokens — gotovalues "working drawing" world.
+ *
+ * Site-specific layer on top of the shared Hermes tokens. It does not change
+ * any shared primitive, so other consumers of this package are unaffected.
+ *
+ * World: the client's process drawn as a technical working drawing — paper
+ * sheet, ink linework, sage accents, title block and revision table.
+ * Rule: three logo colours only; tones come from hatching and line weight,
+ * never from grey fills, gradients or blur.
+ */
+
+:root {
+  /* ── Colour (fixed by the logo, see brand/logo/README.md) ─────────────── */
+  --gv-paper: #faf8f5;
+  --gv-ink: #2a2623;
+  --gv-sage: #4e8b76; /* graphics and large text only: 3.75:1 on paper */
+  --gv-sage-deep: #2f5e4e; /* text, links, filled controls: 7:1 on paper */
+
+  /* Derived from the three colours above — never a neutral grey. */
+  --gv-ink-soft: #5a524c; /* secondary text, 7.4:1 on paper */
+  --gv-grid: #e3eae6; /* drafting grid, sage tinted */
+  --gv-sage-wash: rgb(78 139 118 / 0.1); /* selected row, hover wash */
+  --gv-danger: #8f3c34; /* form errors only */
+
+  /* ── Line weights (ISO 128: thick visible outline, thin dimension) ─────── */
+  --gv-line-thick: 2px;
+  --gv-line: 1.5px;
+  --gv-line-thin: 1px;
+
+  /* ── Section hatching (ISO 128 cross-section, 45°) ────────────────────── */
+  --gv-hatch: repeating-linear-gradient(
+    45deg,
+    transparent 0 6px,
+    rgb(78 139 118 / 0.55) 6px 7px
+  );
+  /* Sparse sage raster: tone for selected / focused / hover states. */
+  --gv-hatch-sparse: repeating-linear-gradient(
+    45deg,
+    transparent 0 5px,
+    rgb(78 139 118 / 0.3) 5px 6px
+  );
+  --gv-hatch-ink: repeating-linear-gradient(
+    45deg,
+    transparent 0 5px,
+    rgb(42 38 35 / 0.35) 5px 6px
+  );
+
+  /* ── Typography ───────────────────────────────────────────────────────── */
+  /* Families are injected by next/font in src/app/layout.tsx. */
+  --gv-font-display: var(--font-display), "Archivo", system-ui, sans-serif;
+  --gv-font-body: var(--font-display), "Archivo", system-ui, sans-serif;
+  --gv-font-mono: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+
+  --gv-title-size: clamp(2.6rem, 5.4vw, 5.25rem); /* drawing title, one scale */
+  --gv-h2-size: clamp(1.75rem, 3vw, 2.6rem);
+  --gv-h3-size: clamp(1.2rem, 1.6vw, 1.45rem);
+  --gv-annot-size: 0.74rem; /* dimension and annotation text */
+  --gv-title-stretch: 88%; /* semi-condensed lettering */
+  --gv-tracking-title: -0.025em;
+  --gv-tracking-annot: 0.06em;
+
+  /* ── Geometry ─────────────────────────────────────────────────────────── */
+  --gv-radius: 2px; /* drawings have no rounded panels */
+  --gv-sheet-pad: clamp(16px, 2.4vw, 32px);
+  --gv-grid-step: 24px;
+
+  /* ── Motion ───────────────────────────────────────────────────────────── */
+  --gv-ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* exponential ease-out */
+  --gv-draw-duration: 900ms;
+}

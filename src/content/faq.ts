@@ -1,20 +1,23 @@
+// FAQ shared by the homepage ("Uwagi" notes), FAQPage JSON-LD and /ai/faq.json.
+// Voice: first person singular (independent partner). No unverified figures —
+// see PRODUCT.md, "Capabilities and Constraints".
 export const faqs = [
   // KATEGORIA 1: WSPÓŁPRACA I KOSZTY
   {
-    q: 'Czym dokładnie jest Vibe Coding i dlaczego opłaca się to mojej firmie?',
-    a: "Vibe Coding to nowoczesny proces tworzenia oprogramowania, w którym opisujesz wymagania w języku naturalnym, a my przy wsparciu autonomicznych agentów AI błyskawicznie zamieniamy je w działający kod. Dla Twojej firmy oznacza to dostarczenie gotowej aplikacji lub strony w kilka dni (zamiast miesięcy) oraz spadek kosztów realizacji nawet o 70% w porównaniu do tradycyjnych software house'ów.",
-    badge: 'Metodologia i ROI',
+    q: 'Od czego zaczyna się współpraca?',
+    a: 'Od krótkiego opisu jednego procesu: miejsca, w którym zespół przepisuje dane, szuka statusów albo obsługuje wyjątki ręcznie. Najpierw sprawdzam, czy problem rozwiąże gotowe narzędzie lub integracja tego, co już macie. Dedykowaną aplikację albo agenta AI buduję tylko wtedy, gdy to jedyna sensowna droga.',
+    badge: 'Model współpracy',
     category: 'Współpraca i Koszty' as const,
   },
   {
     q: 'Ile kosztuje realizacja projektu i jak rozliczamy współpracę?',
-    a: 'Wyceniamy projekty w oparciu o stałą stawkę za etap (Fixed Price) lub elastyczny budżet iteracyjny. Zanim wydasz złotówkę, otrzymujesz dokładny kosztorys i harmonogram. Dzięki automatyzacji AI płacisz za realnie dostarczoną wartość biznesową, a nie za bezkońcowe roboczogodziny.',
+    a: 'Wyceniam projekty stałą stawką za etap albo jako elastyczny budżet iteracyjny. Zanim cokolwiek zapłacisz, dostajesz kosztorys i harmonogram. Proponuję tylko taki zakres, który ma sens biznesowo — bez agencyjnego narzutu i bez budżetu liczonego w dziesiątkach tysięcy na sam start.',
     badge: 'Przejrzysty kosztorys',
     category: 'Współpraca i Koszty' as const,
   },
   {
     q: 'Nie mam specyfikacji technicznej – czy to problem?',
-    a: 'Zupełnie nie. Wystarczy, że podczas krótkiej rozmowy (Vibe Session) opowiesz nam o swoim problemie biznesowym lub wizji w zwykłych słowach. My przekształcimy to w architekturę systemu i przygotujemy pierwszy działający prototyp.',
+    a: 'Nie. Wystarczy, że w krótkiej rozmowie opowiesz o problemie zwykłymi słowami. Sam przekładam go na zakres, architekturę i pierwszy działający prototyp.',
     badge: 'Brak specyfikacji? OK',
     category: 'Współpraca i Koszty' as const,
   },
@@ -22,34 +25,34 @@ export const faqs = [
   // KATEGORIA 2: BEZPIECZEŃSTWO I RODO
   {
     q: 'Kto posiada prawa autorskie do stworzonego kodu i aplikacji?',
-    a: '100% praw autorskich oraz pełna własność intelektualna (IP) do wygenerowanego kodu, infrastruktury i baz danych przechodzi na Ciebie od razu po zakończeniu projektu. Nie nakładamy żadnych ograniczeń licencyjnych ani ukrytych opłat.',
-    badge: '100% IP & Własność',
+    a: 'Pełne prawa autorskie do kodu, infrastruktury i baz danych przechodzą na Ciebie po zakończeniu projektu. Nie nakładam ograniczeń licencyjnych ani ukrytych opłat.',
+    badge: 'Własność kodu',
     category: 'Bezpieczeństwo i RODO' as const,
   },
   {
     q: 'Co z poufnością moich danych biznesowych i zgodnością z RODO/GDPR?',
-    a: 'Bezpieczeństwo Twoich danych to nasz priorytet. Pracujemy na zabezpieczonych środowiskach i korzystamy z komercyjnych instancji modeli AI, które prawnie gwarantują, że Twoje dane biznesowe NIE SĄ wykorzystywane do trenowania modeli. Na życzenie podpisujemy również umowę o poufności (NDA) przed rozpoczęciem rozmów.',
-    badge: 'Poufność & RODO',
+    a: 'Pracuję na zabezpieczonych środowiskach i korzystam z komercyjnych instancji modeli AI, których warunki wykluczają trenowanie modeli na Twoich danych. Na życzenie podpisuję umowę o poufności (NDA) przed rozpoczęciem rozmów.',
+    badge: 'Poufność i RODO',
     category: 'Bezpieczeństwo i RODO' as const,
   },
 
   // KATEGORIA 3: TECHNOLOGIA I REALIZACJA
   {
-    q: 'Czy kod tworzony przez AI jest bezpieczny, czysty i skalowalny?',
-    a: 'Tak. Każda linijka kodu generowana przez AI jest nadzorowana, audytowana i optymalizowana przez naszego Senior Developera. Używamy sprawdzonych, nowoczesnych technologii (React, Next.js, Node.js, Python, PostgreSQL), co gwarantuje wysoką wydajność, brak podatności na zagrożenia oraz łatwą skalowalność.',
-    badge: 'Jakość & Architektura',
+    q: 'Czy kod tworzony z pomocą AI jest bezpieczny i łatwy w utrzymaniu?',
+    a: 'AI to narzędzie w mojej pracy, nie autor projektu: każdy fragment kodu przeglądam i testuję. Używam sprawdzonych technologii (React, Next.js, Python, PostgreSQL), a szyfrowanie, walidacja danych, kontrola dostępu i monitoring błędów są standardem każdego wdrożenia.',
+    badge: 'Jakość i architektura',
     category: 'Technologia i Realizacja' as const,
   },
   {
-    q: 'Jak szybko otrzymam pierwszą wersję (MVP) mojego projektu?',
-    a: 'Pierwszy działający prototyp lub aplikację dostarczamy zazwyczaj w ciągu 3–10 dni od pierwszej rozmowy.',
+    q: 'Jak szybko otrzymam pierwszą działającą wersję?',
+    a: 'Działające wdrożenie dostarczam w tygodnie, nie miesiące. Dokładny termin podaję po rozmowie o procesie, razem z kosztorysem.',
     badge: 'Czas realizacji',
     category: 'Technologia i Realizacja' as const,
   },
   {
     q: 'Co się stanie, jeśli w przyszłości będę chciał rozbudować aplikację z innym zespołem?',
-    a: 'Zero vendor lock-in. Przekazujemy Ci czyste, udokumentowane repozytorium kodu (np. na GitHub/GitLab). Ponieważ budujemy rozwiązania w oparciu o branżowe standardy, dowolny inny programista na świecie będzie mógł bez problemu kontynuować rozwój Twojego systemu.',
-    badge: 'Zero Vendor Lock-in',
+    a: 'Dostajesz czyste, udokumentowane repozytorium kodu z testami. Buduję na branżowych standardach, więc inny programista może kontynuować rozwój bez przepisywania od zera — nawet jeśli nie ja będę go dalej rozwijać.',
+    badge: 'Bez uzależnienia od dostawcy',
     category: 'Technologia i Realizacja' as const,
   },
 ];

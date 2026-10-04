@@ -57,11 +57,11 @@ export function CookieConsent() {
   return (
     <section
       aria-label="Zgoda na pliki cookie"
-      className="fixed inset-x-4 bottom-4 z-50 rounded-2xl border border-border bg-card p-5 text-card-foreground shadow-lg md:inset-x-auto md:right-6 md:bottom-6 md:max-w-md"
+      className="fixed inset-x-0 bottom-0 z-50 max-h-[45vh] overflow-y-auto border-t-2 border-foreground bg-background px-4 py-3 text-foreground"
     >
-      <div className="space-y-3">
-        <p className="text-sm font-semibold">Pliki cookie</p>
-        <p className="text-xs leading-relaxed text-muted-foreground">
+      <div className="mx-auto max-w-[1180px] space-y-2 md:flex md:flex-wrap md:items-center md:gap-x-6 md:gap-y-2 md:space-y-0">
+        <p className="text-xs leading-relaxed text-muted-foreground md:flex-1">
+          <span className="font-semibold text-foreground">Pliki cookie. </span>
           Używamy niezbędnych plików cookie, aby strona działała. Za Twoją zgodą
           korzystamy też z analityki, by rozumieć, jak używasz strony, i ją
           ulepszać.{" "}
@@ -83,10 +83,19 @@ export function CookieConsent() {
           {expanded ? "Ukryj szczegóły" : "Szczegóły"}
         </button>
 
+        <div className="flex flex-wrap items-center justify-end gap-2">
+          <Button variant="ghost" size="sm" onClick={() => respond(false)}>
+            Tylko niezbędne
+          </Button>
+          <Button size="sm" onClick={() => respond(true)}>
+            Akceptuj
+          </Button>
+        </div>
+
         {expanded && (
           <dl
             id="cookie-details"
-            className="space-y-2 border-t border-border pt-3 text-xs"
+            className="space-y-2 border-t border-border pt-3 text-xs md:basis-full"
           >
             <div>
               <dt className="font-medium">Niezbędne — zawsze aktywne</dt>
@@ -104,14 +113,6 @@ export function CookieConsent() {
           </dl>
         )}
 
-        <div className="flex flex-wrap items-center justify-end gap-2 pt-1">
-          <Button variant="ghost" size="sm" onClick={() => respond(false)}>
-            Tylko niezbędne
-          </Button>
-          <Button size="sm" onClick={() => respond(true)}>
-            Akceptuj
-          </Button>
-        </div>
       </div>
     </section>
   );
