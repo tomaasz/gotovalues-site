@@ -7,6 +7,7 @@
   "exports": {
     ".": "./src/index.css",
     "./css": "./src/index.css",
+    "./gotovalues-drawing": "./src/gotovalues-drawing.css",
     "./tokens": "./src/tokens.ts"
   },
   "files": ["src"]

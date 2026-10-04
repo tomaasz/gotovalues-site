@@ -1,6 +1,15 @@
+import {
+  AuthorSheet,
+  ContactSheet,
+  DrawingSheet,
+  NotesSheet,
+  PartsListSheet,
+  ProofSheet,
+} from '@/components/home/home-sheets';
 import { SiteHeader } from '@/components/site-header';
-import { VibeCodingHeroSection } from '@/components/vibe-coding-hero-section';
 import { faqs } from '@/content/faq';
+
+import './home.css';
 
 const faqJsonLd = {
   '@context': 'https://schema.org',
@@ -14,9 +23,14 @@ const faqJsonLd = {
 
 export default function HomePage() {
   return (
-    <main id="main" className="page-shell" tabIndex={-1}>
+    <main id="main" className="page-shell gv-home" tabIndex={-1}>
       <SiteHeader />
-      <VibeCodingHeroSection />
+      <DrawingSheet />
+      <PartsListSheet />
+      <ProofSheet />
+      <AuthorSheet />
+      <NotesSheet />
+      <ContactSheet />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

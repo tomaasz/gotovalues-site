@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Archivo, JetBrains_Mono } from "next/font/google";
 
 import { brandName } from "@/content/site";
 
@@ -13,19 +13,22 @@ import { escapeMap } from "@/lib/utils";
 
 import "./globals.css";
 
-const displayFont = Fraunces({
+// "Working drawing" world: one industrial grotesque (variable width) for
+// titles and text, one monospace reserved for measurements, positions and
+// revision data. Self-hosted by next/font.
+const sansFont = Archivo({
   subsets: ["latin", "latin-ext"],
   variable: "--font-display",
   display: "swap",
   preload: true,
-  axes: ["SOFT", "WONK"],
+  axes: ["wdth"],
 });
 
-const bodyFont = Manrope({
+const monoFont = JetBrains_Mono({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-body",
+  variable: "--font-mono",
   display: "swap",
-  preload: true,
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -122,8 +125,8 @@ export default function RootLayout({
 
 
   return (
-    <html lang="pl">
-      <body className={`${displayFont.variable} ${bodyFont.variable}`}>
+    <html lang="pl" className={`${sansFont.variable} ${monoFont.variable}`}>
+      <body>
         <a href="#main" className="skip-link">Przejdź do głównej treści</a>
         <PostHogProvider>
           {children}

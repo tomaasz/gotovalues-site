@@ -57,7 +57,7 @@ export function CookieConsent() {
   return (
     <section
       aria-label="Zgoda na pliki cookie"
-      className="fixed inset-x-4 bottom-4 z-50 rounded-2xl border border-border bg-card p-5 text-card-foreground shadow-lg md:inset-x-auto md:right-6 md:bottom-6 md:max-w-md"
+      className="fixed inset-x-4 bottom-4 z-50 rounded-none border-2 border-foreground bg-background p-5 text-foreground md:inset-x-auto md:right-6 md:bottom-6 md:max-w-md"
     >
       <div className="space-y-3">
         <p className="text-sm font-semibold">Pliki cookie</p>

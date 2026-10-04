@@ -92,8 +92,8 @@ export const siteContent = {
           "Pokazuje umiejętność budowy lekkiego narzędzia webowego, które łączy interfejs, dane i automatyzację w jednej aplikacji.",
         url: "https://cavi.gotova.pl/",
         screenshot: {
-          src: "/images/products/cavi-dashboard.svg",
-          alt: "Panel aplikacji Cavi do zarządzania CV i ofertami pracy.",
+          src: "/images/products/cavi-live.jpg",
+          alt: "Strona startowa Cavi: kreator CV, skaner CV pod ATS i analizator profilu LinkedIn.",
         },
       },
       {
@@ -106,8 +106,8 @@ export const siteContent = {
           "Pokazuje umiejętność budowy pełnego rozwiązania: frontend, API i model danych pod dokumenty, wyszukiwanie i operacyjną pracę na zasobach.",
         url: "https://akta.gotova.pl",
         screenshot: {
-          src: "/images/products/akta-portal.svg",
-          alt: "Widok portalu Akta do pracy z archiwami i danymi genealogicznymi.",
+          src: "/images/products/akta-live.jpg",
+          alt: "Strona startowa Akta (Archiwa Gotova): wyszukiwarka cyfrowych archiwów genealogicznych.",
         },
       },
     ] satisfies ProductCard[],
