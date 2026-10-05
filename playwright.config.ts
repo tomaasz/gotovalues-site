@@ -2,7 +2,7 @@ import { defineConfig, devices } from 'playwright/test';
 
 /**
  * Konfiguracja Playwright dla testów E2E gotovalues-site.
- * 
+ *
  * Zasady bezpieczeństwa i izolacji:
  * 1. Dedykowany, czysty profil/kontekst testowy (brak CDP do codziennego Chrome).
  * 2. Brak wymogu istniejącego profilu użytkownika.
