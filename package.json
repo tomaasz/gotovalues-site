@@ -9,8 +9,9 @@
     "build": "next build",
     "dev": "next dev",
     "start": "next start",
-    "lint": "eslint src tests next.config.ts",
+    "lint": "eslint src tests e2e next.config.ts playwright.config.ts",
     "test": "tsx --test tests/*.test.ts tests/*.test.tsx",
+    "test:e2e": "playwright test",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
