@@ -1,0 +1,26 @@
+# gotovalues — AI, automatyzacja i lekkie aplikacje webowe dla MŚP
+
+> gotovalues buduje lekkie aplikacje webowe, automatyzacje procesów i praktyczne wdrożenia AI dla małych i średnich firm. Najpierw sprawdzam gotowe narzędzia i integracje, a dedykowaną aplikację tworzę dopiero wtedy, gdy realny proces tego wymaga.
+
+## Best fit
+- firmy, które tracą czas na dokumenty, statusy, wyjątki i ręczne przepisywanie danych
+- zespoły potrzebujące prostego narzędzia webowego zamiast dużego systemu enterprise
+- procesy, w których AI/OCR/LLM skraca pracę operacyjną, ale musi mieć kontrolę jakości i niski koszt utrzymania
+
+## Not a fit
+- projekty wymagające dużego software house'u lub rozbudowanego zespołu body-leasing
+- wdrożenia AI bez jasnego procesu biznesowego i bez mierzalnego efektu operacyjnego
+
+## Proof of competence
+- [Cavi](https://cavi.gotova.pl/): Produkt webowy pokazujący workflow użytkownika, dane, interfejs i funkcje AI w jednym spójnym procesie.
+- [Akta](https://akta.gotova.pl): System do pracy z dokumentami i danymi pokazujący doświadczenie w OCR, wyszukiwaniu, strukturze danych i operacyjnej pracy na źródłach.
+
+## Key pages
+- [Homepage](https://gotovalues.com): oferta i pozycjonowanie
+- [Jak pracuję](https://gotovalues.com/jak-pracuje): model współpracy i porównanie z alternatywami
+- [TriageFlow](https://gotovalues.com/triageflow): triage zgłoszeń i dokumentów
+- [SupportFlow AI](https://gotovalues.com/supportflow): pilotaż automatyzacji obsługi zgłoszeń
+- [Workflow dla produkcji](https://gotovalues.com/dla-produkcji): automatyzacja procesów produkcyjnych
+- [Workflow dla logistyki](https://gotovalues.com/dla-logistyki): automatyzacja procesów logistycznych
+- [Blog techniczny](https://gotovalues.com/blog): artykuły o AI i automatyzacji
+- [Sitemap](https://gotovalues.com/sitemap.xml)
