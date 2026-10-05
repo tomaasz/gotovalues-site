@@ -63,7 +63,7 @@ jobs:
         # Quota exhaustion and other external service errors are not code
         # failures, so keep the signal in the log without blocking CI/auto-merge.
         continue-on-error: true
-        uses: snyk/actions/node@12140f4059e244892ae643824a95459a102120dd # master
+        uses: snyk/actions/node@b075801f26076be9bb50521154cafab73f44da0c # master
         with:
           args: --all-projects
         env:
