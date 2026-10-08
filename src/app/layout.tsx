@@ -89,7 +89,12 @@ const jsonLd = {
       "url": "https://gotovalues.com",
       "description": "Dedykowane aplikacje webowe i narzędzia AI dla firm, które chcą uporządkować dokumenty, workflow i ręczną pracę w procesach operacyjnych.",
       "inLanguage": "pl",
-      "publisher": { "@id": "https://gotovalues.com/#org" }
+      "publisher": { "@id": "https://gotovalues.com/#org" },
+      "sameAs": [
+        "https://www.linkedin.com/in/tomasz-golaszewski/",
+        "https://github.com/gotovalues",
+        "https://www.facebook.com/gotovalues"
+      ]
     },
     {
       "@type": "ProfessionalService",
@@ -101,6 +106,11 @@ const jsonLd = {
       "description": "Boutique konsulting: dedykowane aplikacje webowe, agenci AI i automatyzacja procesów dla małych i średnich firm w Polsce.",
       "areaServed": "PL",
       "inLanguage": "pl",
+      "sameAs": [
+        "https://www.linkedin.com/in/tomasz-golaszewski/",
+        "https://github.com/gotovalues",
+        "https://www.facebook.com/gotovalues"
+      ],
       "knowsAbout": [
         "automatyzacja procesów",
         "aplikacje webowe dla firm",

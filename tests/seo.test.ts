@@ -1,5 +1,6 @@
 import { describe, test } from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 
 import robots from "../src/app/robots";
 import sitemap from "../src/app/sitemap";
@@ -68,5 +69,16 @@ describe("SEO config", () => {
     assert.match(ai, /AI crawling: allow/);
     assert.match(ai, /AI indexing: allow/);
     assert.match(ai, /https:\/\/gotovalues\.com\/llms\.txt/);
+  });
+
+  test("layout.tsx includes valid Schema.org JSON-LD with verified sameAs profiles", () => {
+    const layoutPath = new URL("../src/app/layout.tsx", import.meta.url);
+    const content = readFileSync(layoutPath, "utf-8");
+
+    assert.match(content, /https:\/\/schema\.org/);
+    assert.match(content, /sameAs/);
+    assert.match(content, /https:\/\/www\.linkedin\.com\/in\/tomasz-golaszewski\//);
+    assert.match(content, /https:\/\/github\.com\/gotovalues/);
+    assert.match(content, /https:\/\/www\.facebook\.com\/gotovalues/);
   });
 });
