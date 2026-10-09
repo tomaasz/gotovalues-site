@@ -38,6 +38,8 @@
     ".storybook/**/*.tsx",
     "vitest.config.ts",
     "vitest.shims.d.ts",
+    "playwright.config.ts",
+    "e2e/**/*.ts",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
