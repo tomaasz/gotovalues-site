@@ -35,3 +35,10 @@ static-fallback/
 
 # Impeccable engine binaries (launcher downloads them on first run)
 **/skills/impeccable/scripts/bin/
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+playwright/.auth/
