@@ -41,7 +41,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    
+
     // Check if JSON-RPC or direct parameter object
     const params = body?.params || body || {};
     const data = executeCatalogTool({
