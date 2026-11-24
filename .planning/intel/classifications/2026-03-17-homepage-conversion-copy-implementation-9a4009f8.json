@@ -1,0 +1,13 @@
+{
+  "source_path": "docs/plans/2026-03-17-homepage-conversion-copy-implementation.md",
+  "type": "SPEC",
+  "confidence": "medium",
+  "manifest_override": false,
+  "title": "Homepage Conversion Copy Implementation Plan",
+  "summary": "Implementation plan for improving homepage conversion copy, contact form microcopy, tests, linting, and production build verification.",
+  "scope": ["homepage", "conversion copy", "contact form", "Next.js App Router", "TypeScript", "React", "tests", "linting", "production build"],
+  "cross_refs": [],
+  "locked": false,
+  "precedence": null,
+  "notes": "Technical implementation plan with file-level tasks and verification commands, so it is classified as SPEC rather than PRD."
+}

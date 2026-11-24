@@ -1,0 +1,13 @@
+{
+  "source_path": "/home/tomaasz/projekty/gotovalues-site/docs/plans/2026-03-17-production-landing-implementation.md",
+  "type": "SPEC",
+  "confidence": "medium",
+  "manifest_override": false,
+  "title": "Production Landing Page Implementation Plan",
+  "summary": "Implementation plan for a production-focused landing page route using existing Next.js components, content, styling, and verification commands.",
+  "scope": ["production landing page", "Next.js App Router", "React", "TypeScript", "ContactForm", "ProductCard", "Node test runner"],
+  "cross_refs": [],
+  "locked": false,
+  "precedence": null,
+  "notes": "Technical implementation plan with route, component, content, test, lint, and build requirements. No formal endpoint or schema contract."
+}

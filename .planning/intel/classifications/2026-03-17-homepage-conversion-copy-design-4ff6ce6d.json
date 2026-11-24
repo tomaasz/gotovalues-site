@@ -1,0 +1,13 @@
+{
+  "source_path": "docs/plans/2026-03-17-homepage-conversion-copy-design.md",
+  "type": "PRD",
+  "confidence": "medium",
+  "manifest_override": false,
+  "title": "Homepage Conversion Copy Design",
+  "summary": "Defines homepage copy changes to improve customer acquisition while preserving layout and credible, concrete messaging.",
+  "scope": ["homepage", "copy", "customer acquisition", "hero", "offer", "proof", "contact form"],
+  "cross_refs": [],
+  "locked": false,
+  "precedence": null,
+  "notes": "Product-facing goals, audience, scope, and constraints dominate. No explicit user stories or acceptance criteria."
+}

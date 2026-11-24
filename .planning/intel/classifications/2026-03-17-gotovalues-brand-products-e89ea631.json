@@ -1,0 +1,13 @@
+{
+  "source_path": "docs/plans/2026-03-17-gotovalues-brand-products.md",
+  "type": "SPEC",
+  "confidence": "medium",
+  "manifest_override": false,
+  "title": "gotovalues Brand And Products Implementation Plan",
+  "summary": "Implementation plan for the gotovalues rebrand and product-first visual hierarchy across the Next.js site.",
+  "scope": ["gotovalues brand", "products page", "Next.js", "UI styling", "email copy", "Cloudflare Workers"],
+  "cross_refs": [],
+  "locked": false,
+  "precedence": null,
+  "notes": "Implementation-focused plan with architecture, technology stack, file changes, verification commands, and deployment steps. No ADR decision or formal acceptance criteria sections."
+}

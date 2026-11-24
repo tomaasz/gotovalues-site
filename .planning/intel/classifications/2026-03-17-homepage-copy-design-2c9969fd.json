@@ -1,0 +1,13 @@
+{
+  "source_path": "docs/plans/2026-03-17-homepage-copy-design.md",
+  "type": "PRD",
+  "confidence": "medium",
+  "manifest_override": false,
+  "title": "gotovalues Homepage Copy Design",
+  "summary": "Homepage brief for positioning practical web applications and AI tools to local production and processing companies with operational complexity.",
+  "scope": ["homepage", "local business clients", "web applications", "AI tools", "operational processes", "production companies", "processing companies"],
+  "cross_refs": [],
+  "locked": false,
+  "precedence": null,
+  "notes": "Content is a product and messaging brief with audience, offer, CTA, tone, and message-order requirements, so it is classified as PRD."
+}

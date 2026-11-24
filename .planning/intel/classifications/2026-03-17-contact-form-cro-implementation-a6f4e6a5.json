@@ -1,0 +1,13 @@
+{
+  "source_path": "docs/plans/2026-03-17-contact-form-cro-implementation.md",
+  "type": "SPEC",
+  "confidence": "medium",
+  "manifest_override": false,
+  "title": "Contact Form CRO Implementation Plan",
+  "summary": "Technical implementation plan for simplifying the homepage contact form, validation schema, email payload, tests, and verification steps.",
+  "scope": ["homepage contact form", "Next.js App Router", "React", "TypeScript", "Zod", "contact API route", "email payload", "Node test runner"],
+  "cross_refs": [],
+  "locked": false,
+  "precedence": null,
+  "notes": "Implementation plan with architecture, technology, file-level modifications, validation changes, and test/build commands; classified as SPEC because it specifies how the feature is built."
+}

@@ -1,0 +1,13 @@
+{
+  "source_path": "/home/tomaasz/projekty/gotovalues-site/docs/plans/2026-03-17-about-trust-design.md",
+  "type": "PRD",
+  "confidence": "medium",
+  "manifest_override": false,
+  "title": "About Trust Design",
+  "summary": "Plan for strengthening the homepage About section with professional identity, domain experience, and an operational consulting positioning.",
+  "scope": ["homepage", "About section", "professional identity", "domain experience", "operational consulting", "copy structure"],
+  "cross_refs": [],
+  "locked": false,
+  "precedence": null,
+  "notes": "Classified as PRD from goal, problem, constraints, and success criteria describing the desired product copy and user-facing outcome. No user-story section is present."
+}

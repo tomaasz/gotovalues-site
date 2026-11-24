@@ -1,0 +1,13 @@
+{
+  "source_path": "docs/plans/2026-03-17-gotovalues-brand-products-design.md",
+  "type": "PRD",
+  "confidence": "medium",
+  "manifest_override": false,
+  "title": "gotovalues Brand And Products Design",
+  "summary": "Defines the approved gotovalues rebrand and product-first visual direction for the products page and shared styling.",
+  "scope": ["gotovalues brand", "products page", "hero copy", "typography", "product cards", "supporting text"],
+  "cross_refs": [],
+  "locked": false,
+  "precedence": null,
+  "notes": "Contains approved direction and scope for product and brand changes, but no explicit user stories or acceptance criteria. Classified as PRD based on product goals and requirements."
+}

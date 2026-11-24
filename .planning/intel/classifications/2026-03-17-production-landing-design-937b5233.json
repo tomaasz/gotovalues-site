@@ -1,0 +1,13 @@
+{
+  "source_path": "docs/plans/2026-03-17-production-landing-design.md",
+  "type": "PRD",
+  "confidence": "medium",
+  "manifest_override": false,
+  "title": "Production Landing Page Design",
+  "summary": "Design brief for a production-industry landing page focused on operational document, quality, workflow, and exception-management problems.",
+  "scope": ["production landing page", "cold outreach", "operational documents", "quality", "workflow", "exceptions", "contact form", "conversion"],
+  "cross_refs": [],
+  "locked": false,
+  "precedence": null,
+  "notes": "Dominant signals are goal, audience, traffic context, page structure, conversion guidance, and constraints. No implementation contract or ADR decision sections."
+}
