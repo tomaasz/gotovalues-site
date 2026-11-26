@@ -68,7 +68,7 @@ describe("ContactForm component", () => {
 
   test('submits only the approved four-field payload and honeypot', async () => {
     let requestBody = '';
-    mock.method(global, 'fetch', async (_input, init) => {
+    mock.method(global, 'fetch', async (_input: RequestInfo | URL, init?: RequestInit) => {
       requestBody = String(init?.body ?? '');
       return new Response(JSON.stringify({ message: 'ok' }), { status: 200 });
     });
