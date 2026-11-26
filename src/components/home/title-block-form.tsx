@@ -106,7 +106,7 @@ export function TitleBlockForm() {
         <input id="gv-tb-bot" name="bot_field" tabIndex={-1} autoComplete="off" />
       </div>
       <button className="gv-tb-submit" type="submit" disabled={sending}>
-        {sending ? 'Wysyłam opis…' : 'Napisz'}
+        {sending ? 'Wysyłanie…' : 'Napisz'}
       </button>
       <p
         id="gv-title-form-status"

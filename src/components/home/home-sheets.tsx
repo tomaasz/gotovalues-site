@@ -244,7 +244,7 @@ export function ContactSheet() {
   return (
     <section className="gv-sheet gv-contact" id="kontakt" aria-labelledby="gv-contact-title">
       <div className="gv-contact-copy">
-        <h2 id="gv-contact-title">Zlecenie: opisz proces do uporządkowania</h2>
+        <h2 id="gv-contact-title">Opisz proces do uporządkowania</h2>
         <p>{contact.intro}</p>
         <dl className="gv-author-table">
           {contact.signals.map((signal) => (

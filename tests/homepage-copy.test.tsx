@@ -64,4 +64,13 @@ describe("homepage copy", () => {
       globalThis.FormData = nativeFormData;
     }
   });
+
+  test("keeps the full contact form CTA and concise process prompt", async () => {
+    const { ContactForm } = await import("../src/components/contact-form");
+    render(<ContactForm />);
+
+    assert.ok(screen.getByRole("button", { name: "Napisz" }));
+    assert.match(screen.getByLabelText(/Co dziś dzieje się ręcznie/i).getAttribute("placeholder") ?? "", /dokumenty|statusy|wyjątki/i);
+    assert.equal(screen.queryByRole("button", { name: /Wyślij (krótki opis|opis procesu)/i }), null);
+  });
 });

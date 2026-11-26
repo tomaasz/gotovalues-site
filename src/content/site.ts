@@ -198,7 +198,7 @@ export const siteContent = {
   },
   contact: {
     intro:
-      "Nie musisz mieć gotowej specyfikacji. Wystarczy krótki opis jednego procesu, wąskiego problemu albo miejsca, w którym dziś zespół robi za dużo ręcznie. Nie zawsze odpowiedzią jest budowa od zera — często wystarczy gotowe narzędzie, integracja albo automatyzacja tego, co już macie.",
+      "Opisz jeden proces, który dziś zabiera zespołowi za dużo ręcznej pracy. Odpowiem, czy wystarczy gotowe narzędzie, integracja, automatyzacja albo lekka aplikacja.",
     signals: [
       {
         label: "E-mail",

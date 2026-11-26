@@ -175,7 +175,7 @@ export function ContactForm() {
           id="message-input"
           name="message"
           rows={6}
-          placeholder="Wystarczą 2-4 zdania. Np. dokumenty przychodzą mailem, dane trafiają do Excela, a status trzeba ręcznie dopytywać."
+          placeholder="Np. dokumenty przychodzą mailem, statusy są w Excelu, a wyjątki giną między narzędziami."
           required
         />
       </div>
@@ -199,19 +199,18 @@ export function ContactForm() {
               >
                 <path d="M21 12a9 9 0 1 1-6.219-8.56" />
               </svg>
-              Wysyłanie...
+              Wysyłanie…
             </>
           ) : (
-            'Wyślij krótki opis'
+            'Napisz'
           )}
         </button>
         <p className="helper-text">
-          Wystarczy kilka zdań. Wiadomość trafia bezpośrednio do mnie, bez żadnego automatu po
-          drodze.
+          Wystarczy kilka zdań. Wiadomość trafia bezpośrednio do mnie.
         </p>
       </div>
 
-      <div aria-live="polite" aria-atomic="true">
+      <div role="status" aria-live="polite" aria-atomic="true">
         {state.status !== 'idle' ? (
           <p className={`form-feedback form-feedback-${state.status}`}>{state.message}</p>
         ) : null}

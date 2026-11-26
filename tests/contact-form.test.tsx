@@ -34,7 +34,7 @@ describe("ContactForm component", () => {
     assert.ok(screen.getByLabelText(/E-mail/i));
     assert.ok(screen.getByLabelText(/Firma/i));
     assert.ok(screen.getByLabelText(/Co dziś dzieje się/i));
-    assert.ok(screen.getByRole('button', { name: /Wyślij krótki opis/i }));
+    assert.ok(screen.getByRole('button', { name: 'Napisz' }));
   });
 
   test('has polite live region for feedback', () => {
@@ -42,6 +42,7 @@ describe("ContactForm component", () => {
     const liveRegion = container.querySelector('[aria-live="polite"]');
     assert.ok(liveRegion);
     assert.equal(liveRegion.getAttribute('aria-atomic'), 'true');
+    assert.equal(liveRegion.getAttribute('role'), 'status');
   });
 
   async function setupAndSubmit(mockResponse: Response) {
