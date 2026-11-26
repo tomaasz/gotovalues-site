@@ -11,7 +11,7 @@ The roadmap turns the existing gotovalues site into a clearer acquisition surfac
 
 - [x] **Phase 1: Homepage positioning and trust** - Make the homepage explain the offer and establish credible operational trust.
 - [x] **Phase 2: Contact conversion** - Let visitors describe one concrete problem through a low-friction form.
-- [ ] **Phase 3: Brand and product proof** - Align the brand and turn `/produkty` into useful sales proof.
+- [x] **Phase 3: Brand and product proof** - Align the brand and turn `#produkty` into clear, unified sales proof.
 - [ ] **Phase 4: Production acquisition** - Add the focused `/dla-produkcji` route for outreach.
 
 ## Phase Details
@@ -52,10 +52,10 @@ Plans:
   1. Active public brand strings, metadata, and mail references use lowercase gotovalues consistently.
   2. `/produkty` explains why the page exists and connects public and private examples to business capabilities.
   3. The products page has calmer hierarchy, readable contrast, and product cards that carry the visual proof.
-**Plans**: 2 plans
+**Plans**: 2/2 plans executed
 Plans:
-- [ ] 03-01-PLAN.md — Ujednolicenie marki i skrócenie aktywnych treści
-- [ ] 03-02-PLAN.md — Jedna spokojna siatka proof produktów na homepage
+- [x] 03-01-PLAN.md — Ujednolicenie marki i skrócenie aktywnych treści
+- [x] 03-02-PLAN.md — Jedna spokojna siatka proof produktów na homepage
 **UI hint**: yes
 
 ### Phase 4: Production acquisition
@@ -75,5 +75,5 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Homepage positioning and trust | 2/2 | Complete | 2026-11-26 |
 | 2. Contact conversion | 2/2 | Complete | 2026-11-26 |
-| 3. Brand and product proof | 0/TBD | Not started | - |
+| 3. Brand and product proof | 2/2 | Complete | 2026-11-26 |
 | 4. Production acquisition | 0/TBD | Not started | - |

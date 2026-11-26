@@ -6,17 +6,17 @@
     {
       "number": "1",
       "name": "Homepage positioning and trust",
-      "status": "in_progress"
+      "status": "complete"
     },
     {
       "number": "2",
       "name": "Contact conversion",
-      "status": "pending"
+      "status": "complete"
     },
     {
       "number": "3",
       "name": "Brand and product proof",
-      "status": "pending"
+      "status": "complete"
     },
     {
       "number": "4",
@@ -25,9 +25,9 @@
     }
   ],
   "next": {
-    "command": "$gsd-progress --next",
-    "label": "Advance to the next step (verify)",
-    "reason": "Phase 1 of 4 · 0% · ready to verify"
+    "command": "$gsd-discuss-phase 4",
+    "label": "Discuss and plan Phase 4 (Production acquisition)",
+    "reason": "Phase 3 of 4 complete · 75% · ready for Phase 4"
   },
-  "updated_at": "2026-11-26T13:31:22.783Z"
+  "updated_at": "2026-11-26T22:21:00.000Z"
 }

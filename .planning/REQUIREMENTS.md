@@ -17,8 +17,8 @@
 
 ### Brand and Product Proof
 
-- [ ] **REQ-brand-products**: Active brand strings, metadata, mail text, and public docs use lowercase gotovalues, while `/produkty` uses calmer copy, stronger product cards, reduced heading scale, and adequate contrast.
-- [ ] **REQ-products-proof**: `/produkty` explains its purpose, shows public proof, describes private implementation categories honestly, and translates examples into business capabilities.
+- [x] **REQ-brand-products**: Active brand strings, metadata, mail text, and public docs use lowercase gotovalues, while `#produkty` uses calmer copy, stronger product cards, reduced heading scale, and adequate contrast.
+- [x] **REQ-products-proof**: `#produkty` explains its purpose, shows public proof, describes private implementation categories honestly, and translates examples into business capabilities.
 
 ### Production Acquisition
 
@@ -44,8 +44,8 @@
 | REQ-homepage-positioning | Phase 1 | Complete |
 | REQ-homepage-conversion | Phase 1 | Complete |
 | REQ-contact-form-friction | Phase 2 | Complete |
-| REQ-brand-products | Phase 3 | Pending |
-| REQ-products-proof | Phase 3 | Pending |
+| REQ-brand-products | Phase 3 | Complete |
+| REQ-products-proof | Phase 3 | Complete |
 | REQ-production-landing | Phase 4 | Pending |
 
 **Coverage:**
