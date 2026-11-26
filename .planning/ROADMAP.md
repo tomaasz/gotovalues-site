@@ -9,7 +9,7 @@ The roadmap turns the existing gotovalues site into a clearer acquisition surfac
 **Phase Numbering:**
 - Integer phases are planned milestone work.
 
-- [ ] **Phase 1: Homepage positioning and trust** - Make the homepage explain the offer and establish credible operational trust.
+- [x] **Phase 1: Homepage positioning and trust** - Make the homepage explain the offer and establish credible operational trust.
 - [ ] **Phase 2: Contact conversion** - Let visitors describe one concrete problem through a low-friction form.
 - [ ] **Phase 3: Brand and product proof** - Align the brand and turn `/produkty` into useful sales proof.
 - [ ] **Phase 4: Production acquisition** - Add the focused `/dla-produkcji` route for outreach.
@@ -24,10 +24,10 @@ The roadmap turns the existing gotovalues site into a clearer acquisition surfac
   1. A visitor can identify who gotovalues helps and what kind of operational problem it addresses from the hero and offer sections.
   2. The homepage presents Tomasz Gołaszewski and relevant process experience in a concise About section.
   3. Hero, proof, About, contact, and form copy lead to one concrete process conversation without unsupported claims.
-**Plans**: 1/2 plans executed
+**Plans**: 2/2 plans executed
 Plans:
 - [x] 01-01-PLAN.md — Problem-first hero, oferta, proof i krótkie About
-- [ ] 01-02-PLAN.md — Spójna ścieżka kontaktu, CTA i dostępne statusy
+- [x] 01-02-PLAN.md — Spójna ścieżka kontaktu, CTA i dostępne statusy
 **UI hint**: yes
 
 ### Phase 2: Contact conversion
@@ -67,7 +67,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Homepage positioning and trust | 1/2 | In Progress | - |
+| 1. Homepage positioning and trust | 2/2 | Complete | 2026-11-26 |
 | 2. Contact conversion | 0/TBD | Not started | - |
 | 3. Brand and product proof | 0/TBD | Not started | - |
 | 4. Production acquisition | 0/TBD | Not started | - |
