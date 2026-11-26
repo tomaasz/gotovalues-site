@@ -10,7 +10,7 @@ The roadmap turns the existing gotovalues site into a clearer acquisition surfac
 - Integer phases are planned milestone work.
 
 - [x] **Phase 1: Homepage positioning and trust** - Make the homepage explain the offer and establish credible operational trust.
-- [ ] **Phase 2: Contact conversion** - Let visitors describe one concrete problem through a low-friction form.
+- [x] **Phase 2: Contact conversion** - Let visitors describe one concrete problem through a low-friction form.
 - [ ] **Phase 3: Brand and product proof** - Align the brand and turn `/produkty` into useful sales proof.
 - [ ] **Phase 4: Production acquisition** - Add the focused `/dla-produkcji` route for outreach.
 
@@ -71,6 +71,6 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Homepage positioning and trust | 2/2 | Complete | 2026-11-26 |
-| 2. Contact conversion | 2/2 | In Progress | - |
+| 2. Contact conversion | 2/2 | Complete | 2026-11-26 |
 | 3. Brand and product proof | 0/TBD | Not started | - |
 | 4. Production acquisition | 0/TBD | Not started | - |
