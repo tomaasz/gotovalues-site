@@ -20,8 +20,6 @@ function ExternalIcon() {
 
 /** Sheet 1 — first viewport: the process drawing with its title block. */
 export function DrawingSheet() {
-  const { brand } = siteContent;
-
   return (
     <section className="gv-sheet gv-sheet-main" aria-labelledby="gv-title">
       <div className="gv-zones gv-zones-x" aria-hidden="true">
@@ -38,7 +36,6 @@ export function DrawingSheet() {
       <div className="gv-sheet-grid">
         <header className="gv-sheet-title">
           <h1 id="gv-title">Porządkuję jeden proces naraz.</h1>
-          <p className="gv-lede">{brand.headline}</p>
         </header>
 
         <div className="gv-sheet-drawing">
@@ -78,7 +75,7 @@ export function PartsListSheet() {
   return (
     <section className="gv-sheet" id="oferta" aria-labelledby="gv-parts-title">
       <div className="gv-sheet-head">
-        <h2 id="gv-parts-title">Wykaz części: co porządkuję i buduję</h2>
+        <h2 id="gv-parts-title">Co porządkuję i buduję</h2>
         <Link className="gv-link" href="/jak-pracuje">
           Jak wybieram między gotowcem, integracją a aplikacją
         </Link>
@@ -137,7 +134,7 @@ export function ProofSheet() {
   return (
     <section className="gv-sheet" id="produkty" aria-labelledby="gv-proof-title">
       <div className="gv-sheet-head">
-        <h2 id="gv-proof-title">Szczegóły: działające produkty na tej samej infrastrukturze</h2>
+        <h2 id="gv-proof-title">Dwa przykłady pracy</h2>
       </div>
 
       <div className="gv-details">
@@ -200,7 +197,6 @@ export function AuthorSheet() {
         <h2 id="gv-author-title">Opracował: Tomasz Gołaszewski</h2>
         <p className="gv-lede">{about.headline}</p>
         <p>{about.summary}</p>
-        <p>{about.detail}</p>
         <a className="gv-link" href={about.profileLink.href} target="_blank" rel="noopener noreferrer">
           {about.profileLink.label}
           <ExternalIcon />

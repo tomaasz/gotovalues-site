@@ -90,7 +90,7 @@ export function TitleBlockForm() {
           minLength={MIN_MESSAGE}
           maxLength={5000}
           aria-invalid={status.invalidMessage ? true : undefined}
-          placeholder="Np. reklamacje spływają mailem, statusy partii prowadzimy w Excelu…"
+          placeholder="Np. dokumenty przychodzą mailem; statusy prowadzimy w Excelu; wyjątki giną między narzędziami…"
         />
       </div>
       <div className="gv-tb-cell">
@@ -106,7 +106,7 @@ export function TitleBlockForm() {
         <input id="gv-tb-bot" name="bot_field" tabIndex={-1} autoComplete="off" />
       </div>
       <button className="gv-tb-submit" type="submit" disabled={sending}>
-        {sending ? 'Wysyłam opis…' : 'Wyślij opis procesu'}
+        {sending ? 'Wysyłam opis…' : 'Napisz'}
       </button>
       <p
         id="gv-title-form-status"

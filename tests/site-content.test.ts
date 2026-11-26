@@ -37,7 +37,7 @@ describe("site content", () => {
   test("defines three offer pillars for the homepage", () => {
     assert.deepEqual(
       siteContent.offer.pillars.map((pillar) => pillar.title),
-      ["Analityka i automatyzacja", "Aplikacje webowe i AI", "Gotowe produkty i platformy"],
+      ["Dokumenty i dane", "Ręczna praca i wyjątki", "Narzędzie dopasowane do procesu"],
     );
   });
 
@@ -47,8 +47,9 @@ describe("site content", () => {
   });
 
   test("keeps homepage CTA and framing focused on one concrete process", () => {
-    assert.match(siteContent.brand.cta.primary.label, /proces/i);
-    assert.match(siteContent.brand.eyebrow, /aplikacje|rozwiązania/i);
+    assert.equal(siteContent.brand.cta.primary.label, "Napisz");
+    assert.match(siteContent.brand.headline, /dokumenty|statusy|wyjątki/i);
+    assert.match(siteContent.brand.intro, /narzędzie|aplikację|AI/i);
   });
 
   test("turns Obsidian competitor research into non-antagonistic positioning payload", () => {
@@ -92,7 +93,7 @@ describe("site content", () => {
     assert.match(siteContent.about.role, /Tomasz Gołaszewski/i);
     assert.match(siteContent.about.profileLink.href, /linkedin\.com/i);
     assert.match(siteContent.about.summary, /wycenie|aktywami|leasingowych/i);
-    assert.equal(siteContent.about.points.length, 4);
+    assert.equal(siteContent.about.points.length, 3);
     assert.equal(siteContent.contact.signals[0]?.value, "kontakt@gotovalues.com");
     assert.match(siteContent.contact.signals[1]?.value ?? "", /24h/i);
   });

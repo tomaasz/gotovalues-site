@@ -27,17 +27,14 @@ export type ProductCard = {
 export const siteContent = {
   brand: {
     name: brandName,
-    angle:
-      "Agentic AI i aplikacje webowe dla MŚP — gotowe wdrożenie zamiast drogich warsztatów.",
-    eyebrow:
-      "Nowoczesne aplikacje webowe i rozwiązania AI — bezpieczne, tanie w utrzymaniu i dopasowane do realnych procesów firmy.",
-    headline:
-      "Buduję narzędzia wokół Twoich danych i procesów — z AI lub bez. Działające wdrożenie w tygodnie, nie miesiące.",
+    angle: "Dokumenty, statusy i dane bez ręcznego pilnowania.",
+    eyebrow: "Dla firm produkcyjnych i przetwórczych.",
+    headline: "Porządkuję dokumenty, ręczną pracę, statusy i wyjątki.",
     intro:
-      "Nie jestem zwykłym koderem do wynajęcia. Pomagam firmom uporządkować dokumenty, statusy i ręczną pracę. Najpierw sprawdzam, czy problem rozwiąże gotowe narzędzie lub integracja. Dedykowaną aplikację albo agenta AI buduję tylko wtedy, gdy to jedyna sensowna droga — bez wymiany całego istniejącego środowiska pracy. Dostarczam działające wdrożenie w tygodnie, nie miesiące — bez budowania zespołu i bez budżetu liczonego w dziesiątkach tysięcy na sam start.",
+      "Dobieram najprostsze narzędzie do konkretnego procesu: aplikację webową, integrację albo praktyczne AI.",
     cta: {
       primary: {
-        label: "Opisz proces do uporządkowania",
+        label: "Napisz",
         href: "#kontakt",
       },
       secondary: {
@@ -49,33 +46,33 @@ export const siteContent = {
   offer: {
     pillars: [
       {
-        title: "Analityka i automatyzacja",
+        title: "Dokumenty i dane",
         description:
-          "Porządkuję dane, statusy i obieg informacji tam, gdzie zespół traci czas na ręczne przepisywanie i sprawdzanie wyjątków.",
+          "Porządkuję informacje rozproszone między mailami, arkuszami i systemami.",
         bullets: [
-          "dashboardy i raporty dla bieżącej pracy operacyjnej",
-          "automatyzacja pracy na dokumentach i danych",
-          "integracje między narzędziami bez dokładania ręcznej pracy",
+          "odczyt i walidacja dokumentów",
+          "jedno miejsce dla statusów i decyzji",
+          "dane gotowe do dalszej pracy",
         ],
       },
       {
-        title: "Aplikacje webowe i AI",
+        title: "Ręczna praca i wyjątki",
         description:
-          "Buduję dedykowane aplikacje i narzędzia AI pod konkretne problemy operacyjne — od odczytu dokumentów po wieloetapowe pipeline'y przetwarzania danych.",
+          "Skracam czynności, które zespół codziennie przepisuje, sprawdza i poprawia.",
         bullets: [
-          "lekkie aplikacje webowe z wyszukiwaniem i nawigacją po danych",
-          "pipeline'y AI: klasyfikacja, ekstrakcja, normalizacja, walidacja",
-          "OCR i systemy dokumentowe z monitoringiem i kontrolą kosztów",
+          "workflow dla powtarzalnych zadań",
+          "obsługa wyjątków zamiast ukrywania ich w skrzynce",
+          "alerty, gdy status wymaga reakcji",
         ],
       },
       {
-        title: "Gotowe produkty i platformy",
+        title: "Narzędzie dopasowane do procesu",
         description:
-          "Buduję kompletne aplikacje gotowe do oddania użytkownikom — od logowania i ról po płatności i eksport danych.",
+          "Jeśli gotowy system nie wystarcza, dokładam lekką aplikację, integrację lub AI.",
         bullets: [
-          "aplikacje webowe z autoryzacją, rolami i panelem administracyjnym",
-          "płatności, generowanie PDF/DOCX i eksport danych",
-          "rozszerzenia przeglądarki i automatyzacja pracy użytkownika",
+          "własny widok dla pracy operacyjnej",
+          "integracje bez wymiany całego środowiska",
+          "AI z kontrolą jakości danych",
         ],
       },
     ] satisfies OfferPillar[],
@@ -86,10 +83,10 @@ export const siteContent = {
         name: "Cavi",
         category: "public",
         summary:
-          "Publiczny przykład produktu z własnym workflow, logiką aplikacyjną i funkcjami AI osadzonymi w realnym procesie użytkownika.",
-        stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "AI workflows"],
+          "Aplikacja webowa z własnym workflow i funkcjami AI.",
+        stack: ["aplikacja webowa", "AI"],
         impact:
-          "Pokazuje umiejętność budowy lekkiego narzędzia webowego, które łączy interfejs, dane i automatyzację w jednej aplikacji.",
+          "Przykład narzędzia, które prowadzi użytkownika przez konkretny proces.",
         url: "https://cavi.gotova.pl/",
         screenshot: {
           src: "/images/products/cavi-live.jpg",
@@ -100,10 +97,10 @@ export const siteContent = {
         name: "Akta",
         category: "public",
         summary:
-          "Publiczny system do pracy z dokumentami i danymi archiwalnymi, pokazujący sposób budowy narzędzi wokół wyszukiwania, eksploracji i struktury danych.",
-        stack: ["Next.js", "TypeScript", "FastAPI", "Python", "PostgreSQL"],
+          "System do pracy z dokumentami i uporządkowanymi danymi.",
+        stack: ["dokumenty", "wyszukiwanie"],
         impact:
-          "Pokazuje umiejętność budowy pełnego rozwiązania: frontend, API i model danych pod dokumenty, wyszukiwanie i operacyjną pracę na zasobach.",
+          "Przykład pracy z wyszukiwaniem i strukturą danych.",
         url: "https://akta.gotova.pl",
         screenshot: {
           src: "/images/products/akta-live.jpg",
@@ -116,10 +113,10 @@ export const siteContent = {
         name: "OCR dla dokumentów operacyjnych",
         category: "private",
         summary:
-          "Prywatne wdrożenie do odczytu danych z dokumentów i kontroli jakości procesu OCR w pracy operacyjnej zespołu.",
-        stack: ["FastAPI", "Python", "Playwright", "OpenCV", "Tesseract", "LLM"],
+          "Prywatne wdrożenie do odczytu dokumentów i kontroli jakości danych.",
+        stack: ["OCR", "walidacja"],
         impact:
-          "Pokazuje doświadczenie w budowie własnych narzędzi do dokumentów, walidacji danych i obsługi wyjątków bez ręcznego przepisywania.",
+          "Anonimowy przykład automatyzacji pracy z dokumentami.",
         screenshot: {
           src: "/images/private/ocr-operations.svg",
           alt: "Widok prywatnego wdrożenia OCR do przetwarzania dokumentów i kontroli pipeline'u.",
@@ -129,10 +126,10 @@ export const siteContent = {
         name: "Workflow tłumaczenia i normalizacji akt",
         category: "private",
         summary:
-          "Prywatne wdrożenie do czyszczenia OCR, tłumaczenia treści i porządkowania danych z dokumentów o nieregularnej strukturze.",
-        stack: ["Python", "Flask", "PostgreSQL", "Translation pipeline", "LLM"],
+          "Prywatne wdrożenie do czyszczenia OCR i porządkowania danych.",
+        stack: ["normalizacja", "dokumenty"],
         impact:
-          "Pokazuje budowę narzędzia, które zamienia nieuporządkowane źródła w dane gotowe do dalszej pracy, wyszukiwania i decyzji operacyjnych.",
+          "Anonimowy przykład przygotowania danych do dalszej pracy.",
         screenshot: {
           src: "/images/private/akta-translate.svg",
           alt: "Widok prywatnego wdrożenia do tłumaczenia i strukturyzacji treści dokumentów archiwalnych.",
@@ -173,37 +170,29 @@ export const siteContent = {
   },
   about: {
     title: "O mnie",
-    headline:
-      "Łączę doświadczenie operacyjne, analityczne i techniczne, dlatego rozumiem nie tylko narzędzie, ale też proces, który ma działać po wdrożeniu.",
-    role: "Tomasz Gołaszewski, niezależny partner do porządkowania procesów operacyjnych i budowy dedykowanych narzędzi.",
+    headline: "Tomasz Gołaszewski. Porządkuję procesy i buduję narzędzia.",
+    role: "Tomasz Gołaszewski — niezależnie pomagam firmom uporządkować pracę operacyjną.",
     profileLink: {
       label: "Zobacz profil na LinkedIn",
       href: "https://www.linkedin.com/in/tomasz-golaszewski/",
     },
     summary:
-      "Przez lata pracowałem przy remarketingu, wycenie środków technicznych, zarządzaniu aktywami i cyfryzacji procesów w firmach leasingowych oraz środowiskach, w których dane, dokumenty i decyzje operacyjne muszą się spinać w codziennej pracy.",
-    detail:
-      "Budowałem zespoły, standardy analityczne i wewnętrzne narzędzia IT. Projektowałem raportowanie, automatyzację, workflow i rozwiązania wspierające sprzedaż, wyceny, jakość danych oraz pracę operacyjną. Nie działam jak duża agencja: pracuję bezpośrednio z klientem i proponuję tylko taki zakres, który ma sens biznesowo.",
+      "Znam pracę z dokumentami, aktywami i danymi, dlatego zaczynam od procesu, nie od technologii.",
     points: [
       {
-        label: "Doświadczenie",
+        label: "Procesy",
         value:
-          "wieloletnia praca w leasingu, asset management, wycenie maszyn i cyfryzacji procesów.",
+          "leasing, asset management, wycena i cyfryzacja pracy operacyjnej.",
       },
       {
-        label: "Zakres",
+        label: "Dane",
         value:
-          "od analizy problemu, przez dobór gotowego narzędzia lub integracji, po wdrożenie raportowania, automatyzacji i dedykowanego rozwiązania.",
+          "dokumenty, statusy i informacje, które muszą być dostępne i sprawdzalne.",
       },
       {
-        label: "Styl współpracy",
+        label: "Narzędzia",
         value:
-          "bezpośrednia praca z klientem, wąski i sensowny zakres, bez agencyjnego narzutu i zbędnej złożoności.",
-      },
-      {
-        label: "Technologie",
-        value:
-          "React, Next.js, Python, FastAPI, Flask, PostgreSQL, wielomodelowe AI (Gemini, Claude, GPT), Cloudflare, Vercel, monitoring produkcyjny.",
+          "aplikacje webowe, integracje i AI dobrane do konkretnego zadania.",
       },
     ],
   },
@@ -244,27 +233,24 @@ export const siteContent = {
   },
   proofOfCompetence: {
     eyebrow: "Proof of competence",
-    headline:
-      "Nie tylko doradzam o AI i automatyzacji — buduję własne produkty na tej samej infrastrukturze.",
+    headline: "Dwa publiczne przykłady pracy.",
     items: [
       {
         name: "Cavi",
         url: "https://cavi.gotova.pl/",
-        summary:
-          "Produkt webowy pokazujący workflow użytkownika, dane, interfejs i funkcje AI w jednym spójnym procesie.",
+        summary: "Aplikacja webowa z własnym workflow i funkcjami AI.",
         evidence: [
-          "pełna aplikacja webowa z logiką produktową, nie tylko demo technologiczne",
-          "przykład budowania narzędzia wokół danych użytkownika i decyzji, które trzeba podejmować w procesie",
+          "workflow użytkownika",
+          "dane i decyzje w jednym procesie",
         ],
       },
       {
         name: "Akta",
         url: "https://akta.gotova.pl",
-        summary:
-          "System do pracy z dokumentami i danymi pokazujący doświadczenie w OCR, wyszukiwaniu, strukturze danych i operacyjnej pracy na źródłach.",
+        summary: "System do pracy z dokumentami i uporządkowanymi danymi.",
         evidence: [
-          "frontend, API i model danych wokół dokumentów, wyszukiwania i walidacji",
-          "praktyczny przykład przetwarzania nieuporządkowanych dokumentów w dane gotowe do dalszej pracy",
+          "wyszukiwanie w dokumentach",
+          "dane gotowe do dalszej pracy",
         ],
       },
     ],
