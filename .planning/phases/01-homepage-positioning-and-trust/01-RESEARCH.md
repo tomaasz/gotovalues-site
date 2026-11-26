@@ -323,27 +323,23 @@ The project-specific handler additionally validates with Zod and sends mail; do 
 | A2 | Three trust points are a useful implementation target for “najwyżej kilka”, although the exact count is discretionary. | Architecture / Pitfalls | A different count could be preferred; keep the planner's copy review checkpoint. |
 | A3 | `siteContent.brand.intro` and CTA fields may remain as compatibility data if not rendered, unless the planner confirms consumers. | Anti-Patterns | Removing unused fields could affect non-home routes or tests; verify references before deleting. |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Should the first-viewport lede be removed entirely or reduced to one sentence?**
    - What we know: D-09 says visual first screen with `Napisz` and no additional description; `DrawingSheet` currently renders `brand.headline` below the h1 [VERIFIED: .planning/phases/01-homepage-positioning-and-trust/01-CONTEXT.md:27-31; src/components/home/home-sheets.tsx:38-42].
-   - What's unclear: Whether the design review wants an empty lede slot or a single problem sentence.
-   - Recommendation: Plan the default as no explanatory paragraph in the first viewport; retain only a short accessible label if removing the node would harm structure.
+   - Resolution: Usuń lede całkowicie z widocznego pierwszego ekranu; pozostaje wizualny układ rysunku i przycisk `Napisz`. Nie dodawaj zastępczego zdania marketingowego, ponieważ D-09 wymaga ekranu przede wszystkim wizualnego.
 
 2. **Which exact three About proof points should survive?**
    - What we know: Existing points cover experience, scope, collaboration style, and technologies [VERIFIED: src/content/site.ts:187-207].
-   - What's unclear: The user locked brevity, not the exact selection.
-   - Recommendation: Prefer process experience, document/data/tool delivery, and direct collaboration; leave the final wording for the copy task and test only the invariant, not a long exact phrase.
+   - Resolution: About pozostaje krótkie: tożsamość Tomasza, jeden zwięzły opis oraz najwyżej trzy evidence-based punkty o procesach, aktywach/danych i narzędziach. Testy pilnują limitu i kategorii dowodów, a nie długiego literalnego tekstu.
 
 3. **Should the full `ContactForm` microcopy change in Phase 1?**
    - What we know: D-10 requires examples near the open field, and the title-block form already has one example; Phase 2 owns low-friction field structure [VERIFIED: src/components/home/title-block-form.tsx:81-110; .planning/REQUIREMENTS.md:14-16].
-   - What's unclear: Whether to align the full form's helper text now or defer all its changes.
-   - Recommendation: Align only wording that is necessary for homepage consistency; do not remove or rename fields until Phase 2 resolves the `service`/selector conflict.
+   - Resolution: Pełny `ContactForm` dostaje wyłącznie mikrocopy (etykiety, placeholder, helper i CTA). Pola, selektor, payload, walidacja i API pozostają bez zmian; decyzja o `service`/selectorze należy do fazy 2.
 
 4. **External conversion benchmarks?**
    - What we know: The research seam requested a web query, but no web provider was available in this session.
-   - What's unclear: No current benchmark or external expert source was verified.
-   - Recommendation: Do not use benchmark claims or generic numerical conversion targets in the plan.
+   - Resolution: Nie używamy zewnętrznych benchmarków konwersji ani celów liczbowych, bo nie zostały zweryfikowane, a użytkownik chce krótkiego, rzeczowego copy bez nieudokumentowanych claims.
 
 ## Environment Availability
 
