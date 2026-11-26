@@ -38,6 +38,32 @@ describe("ContactForm component", () => {
     assert.equal(screen.queryByLabelText(/System wsparcia/i), null);
     assert.equal(screen.queryByLabelText(/Zgłoszenia tygodniowo/i), null);
     assert.equal(screen.queryByLabelText(/Program pilotażowy/i), null);
+    const controls = Array.from(document.querySelectorAll('input[name], textarea[name]')).map((control) => control.getAttribute('name'));
+    assert.deepEqual(controls, ['bot_field', 'name', 'email', 'company', 'message']);
+  });
+
+  test('shows the sending label while the request is pending', async () => {
+    let release!: (response: Response) => void;
+    mock.method(global, 'fetch', () => new Promise<Response>((resolve) => { release = resolve; }));
+    const { container } = render(<ContactForm />);
+    const form = container.querySelector('form')!;
+    const reactPropsKey = Object.keys(form).find((key) => key.startsWith('__reactProps$'))!;
+    const props = form[reactPropsKey as keyof typeof form] as { action: (data: FormData) => Promise<void> };
+    const data = new FormData();
+    data.set('name', 'Test');
+    data.set('email', 'test@example.com');
+    data.set('company', '');
+    data.set('message', 'Opis procesu wystarczająco długi do wysłania.');
+    data.set('bot_field', '');
+
+    let submission!: Promise<void>;
+    await act(async () => {
+      submission = props.action(data);
+      await Promise.resolve();
+    });
+    assert.ok(screen.getByRole('button', { name: 'Wysyłanie…' }));
+    release(new Response(JSON.stringify({ message: 'ok' }), { status: 200 }));
+    await act(async () => { await submission; });
   });
 
   test('submits only the approved four-field payload and honeypot', async () => {
