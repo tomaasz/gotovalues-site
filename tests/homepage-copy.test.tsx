@@ -73,4 +73,11 @@ describe("homepage copy", () => {
     assert.match(screen.getByLabelText(/Co dziś dzieje się ręcznie/i).getAttribute("placeholder") ?? "", /dokumenty|statusy|wyjątki/i);
     assert.equal(screen.queryByRole("button", { name: /Wyślij (krótki opis|opis procesu)/i }), null);
   });
+
+  test("keeps the compact form status live and the sending label consistent", () => {
+    render(<TitleBlockForm />);
+    const status = screen.getByRole("status");
+    assert.equal(status.getAttribute("aria-live"), "polite");
+    assert.equal(screen.getByRole("button", { name: "Napisz" }).textContent, "Napisz");
+  });
 });

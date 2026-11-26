@@ -112,6 +112,7 @@ export function TitleBlockForm() {
         id="gv-title-form-status"
         className={`gv-tb-status gv-tb-status-${status.kind}`}
         role="status"
+        aria-live="polite"
       >
         {status.message}
       </p>
