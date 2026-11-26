@@ -44,10 +44,7 @@ export function TitleBlockForm() {
         body: JSON.stringify({
           name: String(data.get('name') ?? ''),
           email: String(data.get('email') ?? ''),
-          company: '',
-          supportSystem: '',
-          weeklyTicketVolume: '',
-          pilotInterest: '',
+          company: String(data.get('company') ?? ''),
           message,
           bot_field: String(data.get('bot_field') ?? ''),
         }),
@@ -100,6 +97,12 @@ export function TitleBlockForm() {
       <div className="gv-tb-cell">
         <label htmlFor="gv-tb-email">E-mail służbowy</label>
         <input id="gv-tb-email" name="email" type="email" autoComplete="email" required maxLength={255} />
+      </div>
+      <div className="gv-tb-cell">
+        <label htmlFor="gv-tb-company">
+          Firma <span className="optional-indicator">(opcjonalnie)</span>
+        </label>
+        <input id="gv-tb-company" name="company" autoComplete="organization" maxLength={120} />
       </div>
       <div className="gv-honeypot" aria-hidden="true">
         <label htmlFor="gv-tb-bot">Nie wypełniaj tego pola</label>

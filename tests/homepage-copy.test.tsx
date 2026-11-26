@@ -39,6 +39,7 @@ describe("homepage copy", () => {
       });
       fireEvent.change(screen.getByLabelText("Imię"), { target: { value: "Tomasz" } });
       fireEvent.change(screen.getByLabelText("E-mail służbowy"), { target: { value: "tomasz@example.com" } });
+      fireEvent.change(screen.getByLabelText(/Firma/), { target: { value: "Gotova" } });
 
       const form = screen.getByRole("button", { name: "Napisz" }).closest("form")!;
       const reactPropsKey = Object.keys(form).find((key) => key.startsWith("__reactProps$"));
@@ -55,10 +56,8 @@ describe("homepage copy", () => {
         "email",
         "message",
         "name",
-        "pilotInterest",
-        "supportSystem",
-        "weeklyTicketVolume",
       ]);
+      assert.equal(JSON.parse(String(request.body)).company, "Gotova");
       assert.equal(JSON.parse(String(request.body)).message, "Dokumenty przychodzą mailem, a statusy prowadzimy w Excelu.");
     } finally {
       globalThis.FormData = nativeFormData;
@@ -79,5 +78,6 @@ describe("homepage copy", () => {
     const status = screen.getByRole("status");
     assert.equal(status.getAttribute("aria-live"), "polite");
     assert.equal(screen.getByRole("button", { name: "Napisz" }).textContent, "Napisz");
+    assert.equal(screen.queryByLabelText(/System wsparcia|Zgłoszenia tygodniowo|Program pilotażowy/i), null);
   });
 });
