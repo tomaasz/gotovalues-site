@@ -6,7 +6,7 @@
 
 ## User Constraints
 
-Phase 2 inherits the approved product direction from Phase 1: keep the homepage sparse and problem-first; make the form the place where a visitor describes one concrete operational problem; use the exact primary CTA `Napisz`; keep Polish user-facing copy; preserve the existing Next.js App Router, typed `siteContent`, visual homepage composition, and safe `/api/contact` boundary. Do not add ERP-replacement claims, unsupported metrics, a new services page, or a new public product route. The unresolved `service` selector decision is explicitly deferred to this phase.
+Phase 2 inherits the approved product direction from Phase 1: keep the homepage sparse and problem-first; make the form the place where a visitor describes one concrete operational problem; use the exact primary CTA `Napisz`; keep Polish user-facing copy; preserve the existing Next.js App Router, typed `siteContent`, visual homepage composition, and safe `/api/contact` boundary. Do not add ERP-replacement claims, unsupported metrics, a new services page, or a new public product route. Planning resolves the previously deferred selector decision by removing `service` and all SupportFlow qualification fields end-to-end, with no replacement selector.
 
 ## Phase Requirements
 
@@ -135,7 +135,7 @@ export const contactFormSchema = z.object({
 });
 ```
 
-The phase plan must decide whether the three SupportFlow qualification fields remain optional or are removed as part of the low-friction requirement; do not silently change them without updating email and tests. [VERIFIED: src/lib/contact.ts:5-15]
+The phase plan has decided to remove the three SupportFlow qualification fields as part of the low-friction requirement; implementation must update the schema, email and tests together. [VERIFIED: src/lib/contact.ts:5-15]
 
 ### Existing submission boundary
 
@@ -230,17 +230,13 @@ This is a form contract/content change, not a rename or migration. No stored dat
 
 | # | Claim | Section | Risk if Wrong |
 |---|-------|---------|---------------|
-| A1 | The Phase 2 implementation should remove `service` and may also remove the three optional SupportFlow qualification fields to satisfy the strict four-field requirement. | Summary, Code Examples | Removing qualification data could affect downstream pilot triage; lock this explicitly during planning/discussion before implementation. |
+| A1 | Phase 2 removes `service`, `supportSystem`, `weeklyTicketVolume`, and `pilotInterest` end-to-end; the first-contact contract has no replacement selector. | 02-CONTEXT.md D-01/D-02, 02-DISCUSSION-LOG.md | Later qualification needs require a separate product decision. |
 | A2 | No real Resend delivery is needed during local execution. | Environment Availability | Production smoke testing would need credentials and a safe test recipient. |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **Should `supportSystem`, `weeklyTicketVolume`, and `pilotInterest` remain optional hidden/secondary context, or should Phase 2 remove them entirely?**
-   - What we know: The v1 requirement names only first name, email, optional company, and one main message; the existing schema and email include three optional qualification fields. [VERIFIED: .planning/REQUIREMENTS.md:14-16; src/lib/contact.ts:5-15]
-   - Recommendation: Lock the strict four-field form for first contact unless pilot qualification is an explicit business need; if retained, keep them visibly secondary and update tests to prove the main path remains low friction.
-2. **What exact replacement should be used for the unresolved `service` selector?**
-   - What we know: The approved CRO design says remove it; an older copy plan suggests making it easier to understand. [CITED: docs/plans/2026-03-17-contact-form-cro-design.md; docs/plans/2026-03-17-homepage-conversion-copy-implementation.md]
-   - Recommendation: Prefer removal because it aligns with the current phase requirement and avoids asking visitors to classify their problem.
+1. **Qualification fields:** Resolved — remove `supportSystem`, `weeklyTicketVolume`, and `pilotInterest` entirely from the form, schema, payload and generated email. The requirement names only first name, e-mail, optional company and one main message. [VERIFIED: .planning/REQUIREMENTS.md:14-16; 02-CONTEXT.md D-01/D-02]
+2. **Service selector:** Resolved — remove `service` entirely and add no replacement selector. Visitors describe the problem in the main message field. [CITED: docs/plans/2026-03-17-contact-form-cro-design.md; 02-CONTEXT.md D-02]
 
 ## Metadata
 
