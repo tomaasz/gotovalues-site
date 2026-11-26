@@ -38,7 +38,10 @@ Plans:
   1. The form visibly asks for first name, email, optional company, and one main message.
   2. The submitted payload and generated email contain the readable visitor context required by the contact flow.
   3. Success and helper copy explain what happens after submission, and validation errors remain understandable.
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 02-01-PLAN.md — Czteropolowy kontrakt kontaktu i zachowane zabezpieczenia
+- [ ] 02-02-PLAN.md — Spójny, dostępny formularz i statusy konwersji
 **UI hint**: yes
 
 ### Phase 3: Brand and product proof
