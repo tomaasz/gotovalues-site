@@ -156,8 +156,6 @@ export function ProofSheet() {
             <div className="gv-detail-copy">
               <h3>{product.name}</h3>
               <p>{product.summary}</p>
-              <p className="gv-detail-impact">{product.impact}</p>
-              <p className="gv-detail-stack">{product.stack.join(' · ')}</p>
               {product.url ? (
                 <a className="gv-link" href={product.url} target="_blank" rel="noopener noreferrer">
                   Otwórz {product.name}
@@ -178,7 +176,6 @@ export function ProofSheet() {
             <li key={item.name}>
               <strong>{item.name}</strong>
               <span>{item.summary}</span>
-              <span className="gv-detail-stack">{item.stack.join(' · ')}</span>
             </li>
           ))}
         </ul>

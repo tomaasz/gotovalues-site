@@ -92,9 +92,18 @@ describe("site content", () => {
   test("keeps trust signals in about and contact content", () => {
     assert.match(siteContent.about.role, /Tomasz Gołaszewski/i);
     assert.match(siteContent.about.profileLink.href, /linkedin\.com/i);
-    assert.match(siteContent.about.summary, /wycenie|aktywami|leasingowych/i);
-    assert.equal(siteContent.about.points.length, 3);
+    assert.match(siteContent.about.summary, /proces|dokument|danych/i);
+    assert.ok(siteContent.about.points.length <= 3);
+    assert.equal("detail" in siteContent.about, false);
     assert.equal(siteContent.contact.signals[0]?.value, "kontakt@gotovalues.com");
     assert.match(siteContent.contact.signals[1]?.value ?? "", /24h/i);
+  });
+
+  test("keeps offer and proof anchored in operational problems", () => {
+    const offerText = siteContent.offer.pillars.map((pillar) => `${pillar.title} ${pillar.description} ${pillar.bullets.join(" ")}`).join(" ");
+    assert.match(offerText, /dokument|dane|ręczn|wyjątk|status/i);
+    assert.deepEqual(siteContent.proofOfCompetence.items.map((item) => item.name), ["Cavi", "Akta"]);
+    assert.equal(siteContent.proofOfCompetence.items.filter((item) => Boolean(item.url)).length, 2);
+    assert.ok(siteContent.proofOfCompetence.items.every((item) => item.summary.length <= 90));
   });
 });
