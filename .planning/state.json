@@ -1,0 +1,33 @@
+{
+  "contract": "1.0.0",
+  "flavor": "core",
+  "milestone": null,
+  "phases": [
+    {
+      "number": "1",
+      "name": "Homepage positioning and trust",
+      "status": "in_progress"
+    },
+    {
+      "number": "2",
+      "name": "Contact conversion",
+      "status": "pending"
+    },
+    {
+      "number": "3",
+      "name": "Brand and product proof",
+      "status": "pending"
+    },
+    {
+      "number": "4",
+      "name": "Production acquisition",
+      "status": "pending"
+    }
+  ],
+  "next": {
+    "command": "$gsd-progress --next",
+    "label": "Advance to the next step",
+    "reason": "Phase 1 of 4 · 0% · executing"
+  },
+  "updated_at": "2026-11-26T13:19:04.367Z"
+}

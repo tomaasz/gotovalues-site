@@ -24,9 +24,9 @@ The roadmap turns the existing gotovalues site into a clearer acquisition surfac
   1. A visitor can identify who gotovalues helps and what kind of operational problem it addresses from the hero and offer sections.
   2. The homepage presents Tomasz Gołaszewski and relevant process experience in a concise About section.
   3. Hero, proof, About, contact, and form copy lead to one concrete process conversation without unsupported claims.
-**Plans**: 2 plans
+**Plans**: 1/2 plans executed
 Plans:
-- [ ] 01-01-PLAN.md — Problem-first hero, oferta, proof i krótkie About
+- [x] 01-01-PLAN.md — Problem-first hero, oferta, proof i krótkie About
 - [ ] 01-02-PLAN.md — Spójna ścieżka kontaktu, CTA i dostępne statusy
 **UI hint**: yes
 
@@ -67,7 +67,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Homepage positioning and trust | 0/TBD | Not started | - |
+| 1. Homepage positioning and trust | 1/2 | In Progress | - |
 | 2. Contact conversion | 0/TBD | Not started | - |
 | 3. Brand and product proof | 0/TBD | Not started | - |
 | 4. Production acquisition | 0/TBD | Not started | - |

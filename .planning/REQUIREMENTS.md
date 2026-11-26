@@ -7,8 +7,8 @@
 
 ### Homepage Trust and Positioning
 
-- [ ] **REQ-about-trust**: The homepage About section identifies Tomasz Gołaszewski, shows relevant process, asset, data, and tool experience, and reads as a credible operational partner while staying concise.
-- [ ] **REQ-homepage-positioning**: Homepage messaging targets local production and processing companies needing custom web applications and practical AI for operational processes, using a direct business-first tone.
+- [x] **REQ-about-trust**: The homepage About section identifies Tomasz Gołaszewski, shows relevant process, asset, data, and tool experience, and reads as a credible operational partner while staying concise.
+- [x] **REQ-homepage-positioning**: Homepage messaging targets local production and processing companies needing custom web applications and practical AI for operational processes, using a direct business-first tone.
 - [ ] **REQ-homepage-conversion**: Hero, offer, proof, About, contact, and form copy explain fit, demonstrate process understanding, and invite a conversation about one concrete problem without unverified claims.
 
 ### Contact Conversion
@@ -40,8 +40,8 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| REQ-about-trust | Phase 1 | Pending |
-| REQ-homepage-positioning | Phase 1 | Pending |
+| REQ-about-trust | Phase 1 | Complete |
+| REQ-homepage-positioning | Phase 1 | Complete |
 | REQ-homepage-conversion | Phase 1 | Pending |
 | REQ-contact-form-friction | Phase 2 | Pending |
 | REQ-brand-products | Phase 3 | Pending |
