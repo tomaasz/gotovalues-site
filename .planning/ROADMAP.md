@@ -52,7 +52,10 @@ Plans:
   1. Active public brand strings, metadata, and mail references use lowercase gotovalues consistently.
   2. `/produkty` explains why the page exists and connects public and private examples to business capabilities.
   3. The products page has calmer hierarchy, readable contrast, and product cards that carry the visual proof.
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 03-01-PLAN.md — Ujednolicenie marki i skrócenie aktywnych treści
+- [ ] 03-02-PLAN.md — Jedna spokojna siatka proof produktów na homepage
 **UI hint**: yes
 
 ### Phase 4: Production acquisition
