@@ -71,22 +71,19 @@ describe("contact form", () => {
     assert.equal(result.success, false);
   });
 
-  test("includes SupportFlow pilot qualification fields in the email", () => {
+  test("keeps the normalized contract to four contact fields plus honeypot", () => {
     const parsed = contactFormSchema.parse({
       name: "Jan Kowalski",
       email: "jan@example.com",
       company: "Acme",
       message: "Potrzebuję aplikacji do obiegu dokumentów.",
-      supportSystem: "Zendesk",
-      weeklyTicketVolume: "50-100",
-      pilotInterest: "Tak, rozważam pilotaż",
+      bot_field: "",
     });
 
+    assert.deepEqual(Object.keys(parsed).sort(), ["bot_field", "company", "email", "message", "name"]);
     const email = buildContactEmail(parsed);
-    assert.match(email.text, /System wsparcia: Zendesk/);
-    assert.match(email.text, /Zgłoszenia tygodniowo: 50-100/);
-    assert.match(email.text, /Program pilotażowy: Tak, rozważam pilotaż/);
-    assert.match(email.html, /System wsparcia:/);
+    assert.doesNotMatch(email.text, /System wsparcia|Zgłoszenia tygodniowo|Program pilotażowy/);
+    assert.doesNotMatch(email.html, /System wsparcia|Zgłoszenia tygodniowo|Program pilotażowy/);
   });
 
   test("builds a readable email payload for valid submissions", () => {

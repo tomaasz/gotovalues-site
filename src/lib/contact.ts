@@ -6,13 +6,10 @@ export const contactFormSchema = z.object({
   name: z.string().trim().min(2, 'Podaj imię.').max(100, 'Imię jest za długie.'),
   email: z.string().trim().email('Podaj poprawny adres e-mail.').max(255, 'E-mail jest za długi.'),
   company: z.string().trim().max(120).optional().default(''),
-  supportSystem: z.string().trim().max(120).optional().default(''),
-  weeklyTicketVolume: z.string().trim().max(60).optional().default(''),
-  pilotInterest: z.string().trim().max(120).optional().default(''),
   message: z.string().trim().min(20, 'Opisz krótko, czego potrzebujesz.').max(5000, 'Wiadomość jest za długa.'),
   // Sentinel: Server-side honeypot validation to prevent bots from bypassing client-side checks via direct API POSTs.
   bot_field: z.string().max(0, 'Spam detected').optional().default(''),
-});
+}).strict();
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
@@ -25,9 +22,6 @@ export function buildContactEmail(data: ContactFormData): {
     { label: 'Imię', value: data.name },
     { label: 'E-mail', value: data.email, isEmail: true },
     { label: 'Firma', value: data.company || 'nie podano' },
-    { label: 'System wsparcia', value: data.supportSystem || 'nie podano' },
-    { label: 'Zgłoszenia tygodniowo', value: data.weeklyTicketVolume || 'nie podano' },
-    { label: 'Program pilotażowy', value: data.pilotInterest || 'nie podano' },
   ];
   const subject = `[${brandName}] Nowe zgłoszenie od ${data.name}`;
   const text = [

@@ -38,6 +38,21 @@ test('POST /api/contact', async (t) => {
     assert.ok(data.issues);
   });
 
+  await t.test('rejects removed qualification fields', async () => {
+    const request = new Request('http://localhost:3000/api/contact', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: 'Jan',
+        email: 'jan@example.com',
+        message: 'Opis procesu, który jest wystarczająco długi.',
+        supportSystem: 'Zendesk',
+      }),
+    });
+
+    const response = await POST(request);
+    assert.strictEqual(response.status, 400);
+  });
+
   await t.test('returns 503 when server config is missing', async () => {
     process.env.RESEND_API_KEY = '';
     process.env.CONTACT_TO_EMAIL = '';
