@@ -35,6 +35,24 @@ describe("ContactForm component", () => {
     assert.ok(screen.getByLabelText(/Firma/i));
     assert.ok(screen.getByLabelText(/Co dziś dzieje się/i));
     assert.ok(screen.getByRole('button', { name: 'Napisz' }));
+    assert.equal(screen.queryByLabelText(/System wsparcia/i), null);
+    assert.equal(screen.queryByLabelText(/Zgłoszenia tygodniowo/i), null);
+    assert.equal(screen.queryByLabelText(/Program pilotażowy/i), null);
+  });
+
+  test('submits only the approved four-field payload and honeypot', async () => {
+    let requestBody = '';
+    mock.method(global, 'fetch', async (_input, init) => {
+      requestBody = String(init?.body ?? '');
+      return new Response(JSON.stringify({ message: 'ok' }), { status: 200 });
+    });
+
+    const { container } = render(<ContactForm />);
+    await act(async () => {
+      await submitFormAction(container, 'Test', 'test@example.com', 'Opis procesu wystarczająco długi do wysłania.');
+    });
+
+    assert.deepEqual(Object.keys(JSON.parse(requestBody)).sort(), ['bot_field', 'company', 'email', 'message', 'name']);
   });
 
   test('has polite live region for feedback', () => {
