@@ -5,8 +5,9 @@ import { act, cleanup, fireEvent, render, screen } from "@testing-library/react"
 import { afterEach, describe, mock, test } from "node:test";
 import assert from "node:assert/strict";
 
-import { DrawingSheet } from "../src/components/home/home-sheets";
+import { DrawingSheet, ProofSheet } from "../src/components/home/home-sheets";
 import { TitleBlockForm } from "../src/components/home/title-block-form";
+import { siteContent } from "../src/content/site";
 
 describe("homepage copy", () => {
   afterEach(() => {
@@ -79,5 +80,48 @@ describe("homepage copy", () => {
     assert.equal(status.getAttribute("aria-live"), "polite");
     assert.equal(screen.getByRole("button", { name: "Napisz" }).textContent, "Napisz");
     assert.equal(screen.queryByLabelText(/System wsparcia|Zgłoszenia tygodniowo|Program pilotażowy/i), null);
+  });
+
+  test("renders public and private proof in one grid with exactly two public links", () => {
+    const { container } = render(<ProofSheet />);
+    const section = container.querySelector("section#produkty");
+    assert.ok(section);
+
+    const grid = section.querySelector('[data-proof-grid="unified"]');
+    assert.ok(grid);
+    assert.equal(section.querySelector(".gv-private"), null);
+
+    const allProducts = [...siteContent.products.public, ...siteContent.products.private];
+    assert.equal(grid.children.length, allProducts.length);
+
+    const links = Array.from(grid.querySelectorAll("a"));
+    assert.equal(links.length, 2);
+    assert.deepEqual(
+      links.map((link) => link.getAttribute("href")),
+      ["https://cavi.gotova.pl/", "https://akta.gotova.pl"],
+    );
+    for (const link of links) {
+      assert.equal(link.getAttribute("target"), "_blank");
+      assert.equal(link.getAttribute("rel"), "noopener noreferrer");
+      assert.match(link.textContent ?? "", /otwiera się w nowej karcie/i);
+    }
+
+    const articles = Array.from(grid.querySelectorAll("article"));
+    assert.equal(articles.length, siteContent.products.private.length);
+    for (const article of articles) {
+      assert.equal(article.getAttribute("href"), null);
+      assert.equal(article.querySelector("a"), null);
+      assert.match(article.textContent ?? "", /Prywatne wdrożenie/);
+      assert.match(article.textContent ?? "", /Bez linku/);
+    }
+
+    assert.equal(screen.getByRole("heading", { level: 2 }).id, "gv-proof-title");
+    assert.equal(screen.getAllByRole("heading", { level: 3 }).length, allProducts.length);
+
+    for (const product of allProducts) {
+      assert.ok(screen.getByRole("heading", { level: 3, name: product.name }));
+      assert.ok(screen.getByText(product.summary));
+      assert.ok(screen.getByRole("img", { name: product.screenshot.alt }));
+    }
   });
 });

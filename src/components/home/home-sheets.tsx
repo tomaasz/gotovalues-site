@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 import { ContactFormLazy } from '@/components/contact-form-lazy';
 import { ProcessDrawing } from '@/components/home/process-drawing';
 import { TitleBlockForm } from '@/components/home/title-block-form';
+import { ProductCard } from '@/components/product-card';
 import { faqs } from '@/content/faq';
 import { siteContent } from '@/content/site';
 
@@ -126,59 +126,30 @@ export function PartsListSheet() {
   );
 }
 
-/** Sheet 3 — detail views: the two public products and private deployments. */
+/** Sheet 3 — unified product proof grid: public links and anonymous private deployments. */
 export function ProofSheet() {
   const { products } = siteContent;
-  const detailLetters = ['A', 'B'];
+  const allProducts = [...products.public, ...products.private];
+  const detailCodes = ['A', 'B', 'C', 'D'];
 
   return (
     <section className="gv-sheet" id="produkty" aria-labelledby="gv-proof-title">
-      <div className="gv-sheet-head">
-        <h2 id="gv-proof-title">Dwa przykłady pracy</h2>
+      <div className="gv-sheet-head gv-proof-head">
+        <h2 id="gv-proof-title">Przykłady produktów i wdrożeń</h2>
+        <p className="gv-proof-intro">
+          Dwa publiczne produkty z linkami oraz krótkie, anonimowe przykłady wdrożeń prywatnych bez linków.
+        </p>
       </div>
 
-      <div className="gv-details">
-        {products.public.map((product, index) => (
-          <article className="gv-detail" key={product.name}>
-            <div className="gv-detail-callout" aria-hidden="true">
-              <span className="gv-detail-letter">{detailLetters[index]}</span>
-              <span>szczegół {detailLetters[index]}</span>
-            </div>
-            <div className="gv-detail-view">
-              <Image
-                src={product.screenshot.src}
-                alt={product.screenshot.alt}
-                width={960}
-                height={600}
-                sizes="(max-width: 900px) 100vw, 560px"
-              />
-            </div>
-            <div className="gv-detail-copy">
-              <h3>{product.name}</h3>
-              <p>{product.summary}</p>
-              {product.url ? (
-                <a className="gv-link" href={product.url} target="_blank" rel="noopener noreferrer">
-                  Otwórz {product.name}
-                  <ExternalIcon />
-                  <span className="sr-only"> (otwiera się w nowej karcie)</span>
-                </a>
-              ) : null}
-            </div>
-          </article>
+      <div className="gv-proof-grid" data-proof-grid="unified">
+        {allProducts.map((product, index) => (
+          <ProductCard
+            key={product.name}
+            product={product}
+            variant="sheet"
+            detailCode={detailCodes[index]}
+          />
         ))}
-      </div>
-
-      <div className="gv-private">
-        <h3>Wdrożenia prywatne</h3>
-        <p className="gv-private-note">Opisane bez linków i nazw klientów.</p>
-        <ul>
-          {products.private.map((item) => (
-            <li key={item.name}>
-              <strong>{item.name}</strong>
-              <span>{item.summary}</span>
-            </li>
-          ))}
-        </ul>
       </div>
     </section>
   );

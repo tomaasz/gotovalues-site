@@ -96,4 +96,43 @@ describe("ProductCard component", () => {
     render(<ProductCard product={mockPrivateProduct} />);
     assert.ok(screen.getByText("Prywatne wdrożenie"));
   });
+
+  test("never links a private product even if a url is passed", () => {
+    const privateWithUrl: ProductCardType = {
+      ...mockPrivateProduct,
+      url: "https://private.example.com",
+    };
+    const { container } = render(<ProductCard product={privateWithUrl} />);
+    assert.equal(container.querySelector("a"), null);
+    assert.ok(container.querySelector("article"));
+  });
+
+  test("renders sheet variant for public product as accessible external link", () => {
+    const { container } = render(
+      <ProductCard product={mockPublicProduct} variant="sheet" detailCode="A" />,
+    );
+    const link = container.querySelector("a.gv-proof-card-public");
+    assert.ok(link);
+    assert.equal(link.getAttribute("href"), "https://example.com/public");
+    assert.equal(link.getAttribute("target"), "_blank");
+    assert.equal(link.getAttribute("rel"), "noopener noreferrer");
+    assert.ok(screen.getByRole("heading", { level: 3, name: "Public Product A" }));
+    assert.ok(screen.getByText("This is a public product summary."));
+    assert.ok(screen.getByRole("img", { name: "Screenshot alt" }));
+    assert.match(link.textContent ?? "", /otwiera się w nowej karcie/i);
+  });
+
+  test("renders sheet variant for private product as unlinked concise article", () => {
+    const { container } = render(
+      <ProductCard product={mockPrivateProduct} variant="sheet" detailCode="C" />,
+    );
+    assert.equal(container.querySelector("a"), null);
+    const article = container.querySelector("article.gv-proof-card-private");
+    assert.ok(article);
+    assert.ok(screen.getByRole("heading", { level: 3, name: "Private Product B" }));
+    assert.ok(screen.getByText("This is a private product summary."));
+    assert.ok(screen.getByRole("img", { name: "Private screenshot alt" }));
+    assert.ok(screen.getByText("Bez linku"));
+    assert.equal(screen.queryByText("Medium impact."), null);
+  });
 });
