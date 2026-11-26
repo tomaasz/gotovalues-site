@@ -13,7 +13,7 @@
 
 ### Contact Conversion
 
-- [ ] **REQ-contact-form-friction**: The contact form uses first name, email, optional company, and one main message field with low-friction helper and success copy and a simple email payload.
+- [x] **REQ-contact-form-friction**: The contact form uses first name, email, optional company, and one main message field with low-friction helper and success copy and a simple email payload.
 
 ### Brand and Product Proof
 
@@ -43,7 +43,7 @@
 | REQ-about-trust | Phase 1 | Complete |
 | REQ-homepage-positioning | Phase 1 | Complete |
 | REQ-homepage-conversion | Phase 1 | Complete |
-| REQ-contact-form-friction | Phase 2 | Pending |
+| REQ-contact-form-friction | Phase 2 | Complete |
 | REQ-brand-products | Phase 3 | Pending |
 | REQ-products-proof | Phase 3 | Pending |
 | REQ-production-landing | Phase 4 | Pending |
