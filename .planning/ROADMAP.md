@@ -38,10 +38,10 @@ Plans:
   1. The form visibly asks for first name, email, optional company, and one main message.
   2. The submitted payload and generated email contain the readable visitor context required by the contact flow.
   3. Success and helper copy explain what happens after submission, and validation errors remain understandable.
-**Plans**: 1/2 plans executed
+**Plans**: 2/2 plans executed
 Plans:
 - [x] 02-01-PLAN.md — Czteropolowy kontrakt kontaktu i zachowane zabezpieczenia
-- [ ] 02-02-PLAN.md — Spójny, dostępny formularz i statusy konwersji
+- [x] 02-02-PLAN.md — Spójny, dostępny formularz i statusy konwersji
 **UI hint**: yes
 
 ### Phase 3: Brand and product proof
@@ -71,6 +71,6 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Homepage positioning and trust | 2/2 | Complete | 2026-11-26 |
-| 2. Contact conversion | 1/2 | In Progress | - |
+| 2. Contact conversion | 2/2 | In Progress | - |
 | 3. Brand and product proof | 0/TBD | Not started | - |
 | 4. Production acquisition | 0/TBD | Not started | - |
