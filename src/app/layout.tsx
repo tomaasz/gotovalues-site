@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: `%s | ${brandName}`,
   },
   description:
-    "Dedykowane aplikacje webowe i narzędzia AI dla firm, które chcą uporządkować dokumenty, workflow i ręczną pracę w procesach operacyjnych.",
+    "Aplikacje webowe i automatyzacja procesów dla firm, które porządkują dokumenty, statusy i ręczną pracę.",
   metadataBase: new URL("https://gotovalues.com"),
   alternates: {
     canonical: "/",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   manifest: "/favicon/site.webmanifest",
   openGraph: {
     title: brandName,
-    description: "Dedykowane aplikacje webowe i narzędzia AI dla firm, które chcą uporządkować dokumenty, workflow i ręczną pracę w procesach operacyjnych.",
+    description: "Aplikacje webowe i automatyzacja procesów dla firm, które porządkują dokumenty, statusy i ręczną pracę.",
     url: "https://gotovalues.com",
     siteName: brandName,
     locale: "pl_PL",
@@ -87,7 +87,7 @@ const jsonLd = {
       "@id": "https://gotovalues.com/#website",
       "name": brandName,
       "url": "https://gotovalues.com",
-      "description": "Dedykowane aplikacje webowe i narzędzia AI dla firm, które chcą uporządkować dokumenty, workflow i ręczną pracę w procesach operacyjnych.",
+      "description": "Aplikacje webowe i automatyzacja procesów dla firm, które porządkują dokumenty, statusy i ręczną pracę.",
       "inLanguage": "pl",
       "publisher": { "@id": "https://gotovalues.com/#org" },
       "sameAs": [
@@ -103,7 +103,7 @@ const jsonLd = {
       "url": "https://gotovalues.com",
       "image": "https://gotovalues.com/images/og.png",
       "email": "kontakt@gotovalues.com",
-      "description": "Boutique konsulting: dedykowane aplikacje webowe, agenci AI i automatyzacja procesów dla małych i średnich firm w Polsce.",
+      "description": "Aplikacje webowe i automatyzacja procesów dla małych i średnich firm w Polsce.",
       "areaServed": "PL",
       "inLanguage": "pl",
       "sameAs": [

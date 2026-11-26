@@ -104,7 +104,7 @@ export const siteContent = {
         url: "https://akta.gotova.pl",
         screenshot: {
           src: "/images/products/akta-live.jpg",
-          alt: "Strona startowa Akta (Archiwa Gotova): wyszukiwarka cyfrowych archiwów genealogicznych.",
+          alt: "Strona startowa Akta: wyszukiwarka archiwów genealogicznych.",
         },
       },
     ] satisfies ProductCard[],
@@ -139,32 +139,32 @@ export const siteContent = {
   },
   approach: {
     eyebrow: "Podejście techniczne",
-    headline: "Nowoczesne, bezpieczne i tanie w utrzymaniu",
+    headline: "Proste w utrzymaniu",
     points: [
       {
         title: "Nowoczesny stack, niskie koszty",
         description:
-          "Używam sprawdzonych technologii (React, Next.js, Python, PostgreSQL) i bezpłatnych warstw monitoringu, hostingu i AI — tak aby rozwiązanie było tanie w utrzymaniu bez kompromisu na jakości.",
+          "Dobieram React, Next.js, Python i PostgreSQL do zakresu procesu, żeby rozwiązanie było łatwe w utrzymaniu.",
       },
       {
         title: "Od automatyzacji do własnej aplikacji",
         description:
-          "Automatyzacje w Make i Zapier to początek, nie koniec. Gdy proces wymaga własnego interfejsu, logiki AI i skalowania — buduję to jako lekką aplikację webową, a nie kolejną warstwę automatyzacji.",
+          "Zaczynam od gotowych integracji. Gdy proces potrzebuje własnego widoku albo logiki, dokładam lekką aplikację webową.",
       },
       {
         title: "Bezpieczeństwo od pierwszego dnia",
         description:
-          "Szyfrowanie, walidacja danych, kontrola dostępu i nagłówki bezpieczeństwa nie są dodatkiem — to standard każdego wdrożenia.",
+          "Walidacja danych, kontrola dostępu i nagłówki bezpieczeństwa są częścią wdrożenia.",
       },
       {
         title: "Monitoring i kontrola jakości",
         description:
-          "Każde rozwiązanie ma wbudowane śledzenie błędów, metryki użytkowania i alerty — wiesz co działa, co wymaga uwagi i ile kosztuje.",
+          "Śledzenie błędów i alerty pokazują, co działa i co wymaga uwagi.",
       },
       {
         title: "Łatwe do rozbudowy",
         description:
-          "Czytelny kod, testy i dokumentacja pozwalają rozbudowywać rozwiązanie bez przepisywania od zera — nawet jeśli nie ja będę je rozwijać dalej.",
+          "Czytelny kod, testy i dokumentacja ułatwiają dalszą rozbudowę.",
       },
     ] satisfies ApproachPoint[],
   },
@@ -216,24 +216,24 @@ export const siteContent = {
     ],
   },
   aiSummary: {
-    title: "gotovalues — AI, automatyzacja i lekkie aplikacje webowe dla MŚP",
+    title: "gotovalues — aplikacje webowe i automatyzacja procesów",
     positioning:
-      "gotovalues buduje lekkie aplikacje webowe, automatyzacje procesów i praktyczne wdrożenia AI dla małych i średnich firm. Najpierw sprawdzam gotowe narzędzia i integracje, a dedykowaną aplikację tworzę dopiero wtedy, gdy realny proces tego wymaga.",
+      "gotovalues buduje aplikacje webowe, automatyzuje procesy i dobiera AI tam, gdzie skraca pracę.",
     sitemap: "https://gotovalues.com/sitemap.xml",
     bestFor: [
       "firmy, które tracą czas na dokumenty, statusy, wyjątki i ręczne przepisywanie danych",
       "zespoły potrzebujące prostego narzędzia webowego zamiast dużego systemu enterprise",
-      "procesy, w których AI/OCR/LLM skraca pracę operacyjną, ale musi mieć kontrolę jakości i niski koszt utrzymania",
+      "procesy, w których AI lub OCR skraca pracę i wymaga kontroli jakości",
     ],
     notFor: [
-      "projekty wymagające dużego software house'u lub rozbudowanego zespołu body-leasing",
-      "wdrożenia AI bez jasnego procesu biznesowego i bez mierzalnego efektu operacyjnego",
+      "projekty wymagające dużego zespołu wdrożeniowego",
+      "AI bez jasno opisanego procesu",
     ],
     proof: ["Cavi", "Akta", "prywatne workflow OCR i normalizacji dokumentów"],
   },
   proofOfCompetence: {
     eyebrow: "Proof of competence",
-    headline: "Dwa publiczne przykłady pracy.",
+    headline: "Przykłady działających narzędzi.",
     items: [
       {
         name: "Cavi",

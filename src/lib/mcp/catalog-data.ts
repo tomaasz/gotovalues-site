@@ -4,8 +4,7 @@ import { CatalogItem, CatalogToolOutput } from "./catalog-schema";
 export const METHODOLOGY_URL = "https://gotovalues.com/jak-pracuje";
 
 /**
- * Registry of tools, products, and services known to gotovalues,
- * with clear provenance flags indicating publisher connection.
+ * Katalog narzędzi, produktów i usług z informacją o pochodzeniu.
  */
 export const RAW_CATALOG_ITEMS: Array<
   Omit<CatalogItem, "methodology_url"> & { methodology_url?: string }
@@ -24,7 +23,7 @@ export const RAW_CATALOG_ITEMS: Array<
     id: "akta",
     name: "Akta (Archiwa Gotova)",
     url: "https://akta.gotova.pl",
-    description: "System do pracy z dokumentami i danymi archiwalnymi oraz wyszukiwarka OCR.",
+    description: "Praca z dokumentami archiwalnymi i wyszukiwaniem OCR.",
     category: "first_party_product",
     connected_to_publisher: true,
     relationship_type: "first_party",
@@ -33,7 +32,7 @@ export const RAW_CATALOG_ITEMS: Array<
     id: "triageflow",
     name: "TriageFlow",
     url: "https://gotovalues.com/triageflow",
-    description: "Agent AI do automatycznego triażu zgłoszeń (GitHub Issues, e-mail, fora).",
+    description: "Automatyczny triage zgłoszeń z GitHub Issues, e-maila i forów.",
     category: "first_party_product",
     connected_to_publisher: true,
     relationship_type: "first_party",
@@ -42,7 +41,7 @@ export const RAW_CATALOG_ITEMS: Array<
     id: "supportflow",
     name: "SupportFlow AI",
     url: "https://gotovalues.com/supportflow",
-    description: "Automatyzacja obsługi zgłoszeń i wsparcia B2B przez asystentów AI.",
+    description: "Automatyzacja obsługi zgłoszeń B2B przez asystentów AI.",
     category: "first_party_product",
     connected_to_publisher: true,
     relationship_type: "first_party",
