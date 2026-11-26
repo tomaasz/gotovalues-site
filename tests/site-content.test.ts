@@ -31,6 +31,8 @@ describe("site content", () => {
     for (const product of siteContent.products.private) {
       assert.equal('url' in product ? product.url : undefined, undefined);
       assert.ok(product.screenshot.alt.length > 0);
+      assert.ok(product.name.length <= 48);
+      assert.ok(product.summary.length <= 90);
     }
   });
 
