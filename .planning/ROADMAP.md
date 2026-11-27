@@ -66,7 +66,10 @@ Plans:
   1. `/dla-produkcji` names document, quality, and exception-workflow symptoms that production visitors recognize.
   2. The page presents focused tools and honest proof without implying ERP replacement.
   3. The page explains a small first step and offers one short-contact CTA.
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 04-01-PLAN.md — Uporządkowanie i skrócenie treści oraz testów SEO dla `/dla-produkcji`
+- [ ] 04-02-PLAN.md — Skupiony landing `/dla-produkcji` z pełnym proofem, jednym CTA i testami renderowania
 **UI hint**: yes
 
 ## Progress
@@ -76,4 +79,4 @@ Plans:
 | 1. Homepage positioning and trust | 2/2 | Complete | 2026-11-26 |
 | 2. Contact conversion | 2/2 | Complete | 2026-11-26 |
 | 3. Brand and product proof | 2/2 | Complete | 2026-11-26 |
-| 4. Production acquisition | 0/TBD | Not started | - |
+| 4. Production acquisition | 0/2 | Planned | - |

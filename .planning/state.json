@@ -21,13 +21,13 @@
     {
       "number": "4",
       "name": "Production acquisition",
-      "status": "pending"
+      "status": "planned"
     }
   ],
   "next": {
-    "command": "$gsd-discuss-phase 4",
-    "label": "Discuss and plan Phase 4 (Production acquisition)",
-    "reason": "Phase 3 of 4 complete · 75% · ready for Phase 4"
+    "command": "$gsd-execute-phase 4",
+    "label": "Execute Phase 4 (Production acquisition)",
+    "reason": "Phase 4 of 4 planned (2 plans) · 75% · ready to execute"
   },
-  "updated_at": "2026-11-26T22:21:00.000Z"
+  "updated_at": "2026-11-26T22:25:00.000Z"
 }

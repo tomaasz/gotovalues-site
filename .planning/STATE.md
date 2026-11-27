@@ -2,17 +2,17 @@
 gsd_state_version: "1.0"
 current_phase: 04
 current_phase_name: Production acquisition
-current_plan: 0
-status: ready_to_discuss
-stopped_at: Completed Phase 3 (03-01 and 03-02 verified)
-last_updated: "2026-11-26T22:21:00.000Z"
+current_plan: 1
+status: planned
+stopped_at: Planned Phase 4 (04-01 and 04-02 ready to execute)
+last_updated: "2026-11-26T22:25:00.000Z"
 last_activity: 2026-11-26
-last_activity_desc: Completed Phase 03 (Brand and product proof) and verified 6/6 must-haves
-state_head: 9cfa5e9
+last_activity_desc: Planned Phase 04 (2 plans across 2 waves)
+state_head: 6fafdb2
 progress:
   total_phases: 4
   completed_phases: 3
-  total_plans: 6
+  total_plans: 8
   completed_plans: 6
   percent: 75
 ---
@@ -28,11 +28,11 @@ See: .planning/PROJECT.md (updated 2026-11-25)
 
 ## Current Position
 
-Phase: 04 of 04 (Production acquisition) — READY TO DISCUSS / PLAN
-Current Plan: 0 of TBD
-Total Plans in Phase: TBD
-Status: Phase 03 complete (2/2 plans verified); ready for Phase 04
-Last activity: 2026-11-26 — Completed Phase 03 (Brand and product proof)
+Phase: 04 of 04 (Production acquisition) — PLANNED (ready to execute)
+Current Plan: 1 of 2
+Total Plans in Phase: 2
+Status: Phase 04 planned (04-01 and 04-02 ready)
+Last activity: 2026-11-26 — Planned Phase 04 (Production acquisition)
 
 Progress: [████████░░] 75%
 
@@ -50,7 +50,7 @@ Progress: [████████░░] 75%
 | 1 | 2 | 2 | 10.5 min |
 | 2 | 2 | 2 | 17.5 min |
 | 3 | 2 | 2 | 10 min |
-| 4 | 0 | TBD | — |
+| 4 | 0 | 2 | — |
 
 **Per-Plan Metrics:**
 
@@ -74,6 +74,7 @@ Progress: [████████░░] 75%
 - [Phase 02]: Skrócony formularz ma opcjonalne pole Firma i identyczny czteropolowy payload jak formularz pełny.
 - [Phase 03]: Aktywne powierzchnie używają `gotovalues` małymi literami i krótszych opisów bez zmian schematów AI/MCP/mail.
 - [Phase 03]: `#produkty` na stronie głównej prezentuje Cavi, Akta i prywatne wdrożenia w jednej siatce (`ProductCard` wariant `sheet`); tylko Cavi i Akta są linkami, a prywatne karty są anonimowe, kreskowane i bez linków.
+- [Phase 04 plan]: `/dla-produkcji` usuwa konkurującą sekcję SupportFlow (`#zobacz-tez`) i przekierowanie `/#produkty`, przenosi cały copy do `siteContent.productionLanding`, pokazuje jawnie brak wymiany ERP, łączy publiczny (`Cavi`, `Akta`) i anonimowy prywatny proof (OCR/normalizacja) przez `ProductCard` i prowadzi jednym głównym CTA do `#kontakt`.
 
 ### Pending Todos
 
@@ -91,6 +92,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-11-26T22:21:00.000Z
-Stopped at: Completed Phase 3 (03-02-PLAN.md + 03-VERIFICATION.md)
+Last session: 2026-11-26T22:25:00.000Z
+Stopped at: Planned Phase 4 (04-01-PLAN.md and 04-02-PLAN.md)
 Resume file: None
