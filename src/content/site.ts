@@ -288,70 +288,110 @@ export const siteContent = {
     },
   },
   productionLanding: {
+    metadataDescription:
+      "Lekkie narzędzia gotovalues dla firm produkcyjnych i przetwórczych: dokumenty jakościowe, reklamacje, statusy partii i wyjątki operacyjne bez wymiany ERP.",
     eyebrow: "Dla produkcji i przetwórstwa",
     headline:
-      "Porządkuję dokumenty, jakość i wyjątki operacyjne tam, gdzie gotowy system nie domyka realnej pracy zakładu.",
+      "Porządkuję dokumenty, jakość i wyjątki operacyjne — bez wymiany ERP.",
     intro:
-      "Jeśli dokumenty jakościowe, reklamacje, statusy partii i decyzje operacyjne żyją między Excelem, mailem i PDF-ami, projektuję lekkie narzędzie, które porządkuje ten konkretny fragment procesu bez wymiany całego środowiska.",
+      "Gdy protokoły jakościowe, reklamacje, statusy partii i decyzje krążą między Excelem, mailem i PDF-ami, dokładam lekkie narzędzie dokładnie w ten fragment procesu.",
     cta: {
       label: "Opisz proces w zakładzie",
       href: "#kontakt",
+    },
+    panel: {
+      label: "Typowe obszary problemu",
+      items: [
+        "dokumenty jakościowe, reklamacje i protokoły",
+        "statusy partii, decyzji i wyjątków operacyjnych",
+        "ręczne przepisywanie danych między plikami i systemami",
+      ],
+      chips: ["jakość", "reklamacje", "partie", "wyjątki"],
+    },
+    sections: {
+      symptoms: {
+        eyebrow: "Objawy",
+        heading: "Praca wraca do maila, Excela i ręcznych obejść",
+      },
+      solutions: {
+        eyebrow: "Co porządkuję",
+        heading: "Lekkie narzędzia wokół procesu — bez wymiany ERP",
+      },
+      proof: {
+        eyebrow: "Dowód pracy",
+        intro:
+          "Dwa publiczne produkty (Cavi, Akta) z linkami oraz dwa anonimowe wdrożenia prywatne OCR i normalizacji dokumentów — bez nazw klientów i bez linków.",
+      },
+      firstStep: {
+        eyebrow: "Pierwszy krok",
+        heading: "Mały zakres na start, nie wielki projekt",
+      },
+      contact: {
+        eyebrow: "Kontakt",
+        heading: "Opisz jeden proces w kilku zdaniach",
+        intro:
+          "Wrócę z konkretną oceną, czy wystarczy gotowe narzędzie, integracja albo lekka aplikacja pod dokumenty, jakość lub wyjątki operacyjne.",
+        points: [
+          "wystarczy jeden konkretny przykład z zakładu albo back office",
+          "nie potrzebujesz gotowej specyfikacji ani listy funkcji",
+          "jeśli problem nie wymaga customowego narzędzia, powiem to wprost",
+        ],
+      },
     },
     symptoms: [
       {
         title: "Dokumenty są, ale trudno na nich pracować",
         description:
-          "Specyfikacje, protokoły, reklamacje i załączniki są rozproszone, więc znalezienie właściwej wersji albo historii sprawy zajmuje za dużo czasu.",
+          "Specyfikacje, protokoły, reklamacje i załączniki leżą w mailach i na dyskach, więc znalezienie aktualnej wersji zajmuje za dużo czasu.",
       },
       {
-        title: "Status procesu trzeba ręcznie dopytywać",
+        title: "Status trzeba ręcznie dopytywać",
         description:
-          "Zespół wie, co dzieje się z partią, reklamacją albo dokumentem dopiero po telefonie, mailu albo sprawdzeniu kilku miejsc naraz.",
+          "Zespół wie, na jakim etapie jest partia, reklamacja albo dokument dopiero po telefonie, mailu lub sprawdzeniu kilku arkuszy.",
       },
       {
         title: "Wyjątki zjadają czas ludziom operacyjnym",
         description:
-          "Proces niby działa, ale przy niestandardowych przypadkach wszystko wraca do ręcznego pilnowania, przepisywania i weryfikacji.",
+          "Przy niestandardowych przypadkach proces wraca do ręcznego pilnowania, przepisywania i doraźnego sprawdzania.",
       },
     ],
     solutions: [
       {
         title: "Narzędzia wokół dokumentów i jakości",
         description:
-          "Buduję lekkie systemy do pracy na dokumentach, statusach, reklamacjach, partiach i ścieżkach decyzji bez dokładania kolejnego arkusza.",
+          "Lekkie aplikacje do pracy z dokumentami, reklamacjami, partiami i decyzjami — bez dokładania kolejnego arkusza i bez wymiany ERP.",
       },
       {
-        title: "Workflow pod realne wyjątki procesu",
+        title: "Workflow pod realne wyjątki",
         description:
-          "Projektuję rozwiązania pod to, co dzieje się naprawdę na zakładzie: braki danych, wyjątki jakościowe, nieregularne dokumenty i ręczne obejścia.",
+          "Obsługa tego, co naprawdę blokuje pracę: braków danych, niezgodności jakościowych, nieregularnych załączników i ręcznych obejść.",
       },
       {
-        title: "Praktyczne funkcje AI jako element narzędzia",
+        title: "Praktyczne AI tam, gdzie skraca pracę",
         description:
-          "OCR, ekstrakcja, klasyfikacja i wyszukiwanie wdrażam tam, gdzie rzeczywiście skracają pracę ludzi, a nie jako osobny projekt bez zastosowania.",
+          "OCR, ekstrakcja, klasyfikacja i wyszukiwanie jako część procesu z kontrolą jakości danych — nie osobny eksperyment.",
       },
     ],
-    proofHeading:
-      "Przykłady pokazują kierunek: dokumenty, dane i workflow da się uporządkować lekkim narzędziem zamiast kolejnym obejściem.",
+    proofHeading: "Przykłady narzędzi i wdrożeń",
     processSteps: [
       {
-        title: "Rozpoznanie jednego procesu",
+        title: "1. Jeden konkretny proces",
         description:
-          "Zaczynamy od konkretnego obszaru: dokumenty jakościowe, reklamacje, statusy, partie albo obieg decyzji.",
+          "Zaczynamy od jednego wąskiego gardła: dokumentów jakościowych, reklamacji, statusów partii albo obiegu decyzji.",
       },
       {
-        title: "Pierwsza wersja z jasnym zakresem",
+        title: "2. Mała pierwsza wersja",
         description:
-          "Proponuję pierwszy sensowny zakres, który można sprawdzić na żywej pracy zespołu zamiast planować duży projekt od razu.",
+          "Proponuję krótki, mierzalny zakres do sprawdzenia na realnej pracy zespołu zamiast wielkiego projektu od startu.",
       },
       {
-        title: "Wdrożenie pod codzienną operację",
+        title: "3. Wdrożenie pod codzienną pracę",
         description:
-          "Narzędzie ma odciążać ludzi na zakładzie i w back office, a nie być tylko ładną warstwą nad problemem.",
+          "Narzędzie ma odciążać zakład i back office w codziennych operacjach i łatwo dawać się utrzymać.",
       },
     ],
     closing:
-      "Jeśli w Twoim zakładzie część pracy dalej spina się ręcznie między dokumentami, Excelem i mailem, zacznijmy od jednego konkretnego procesu.",
+      "Nie zaczynam od dużego wdrożenia. Zaczynam od jednego procesu, który dziś zabiera zespołowi za dużo ręcznej pracy.",
   },
   logisticsLanding: {
     eyebrow: "Dla logistyki i spedycji",

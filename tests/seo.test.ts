@@ -49,6 +49,9 @@ describe("SEO config", () => {
     assert.ok(howIWork, "Must include non-antagonistic how-I-work landing page");
     assert.ok((howIWork.priority ?? 0) > (comparison.priority ?? 0));
 
+    const production = config.find(item => item.url === "https://gotovalues.com/dla-produkcji");
+    assert.ok(production, "Must include /dla-produkcji landing page");
+
     const llms = config.find(item => item.url === "https://gotovalues.com/llms.txt");
     assert.ok(llms, "Must include llms.txt for AI crawlers");
   });
@@ -66,6 +69,7 @@ describe("SEO config", () => {
     assert.match(llms, /https:\/\/gotovalues\.com\/jak-pracuje/);
     assert.match(llms, /^# .+\n\n> .+/, "H1 must be followed by a blockquote description");
     assert.match(llms, /\[Jak pracuję\]\(https:\/\/gotovalues\.com\/jak-pracuje\)/);
+    assert.match(llms, /https:\/\/gotovalues\.com\/dla-produkcji/);
     assert.match(ai, /AI crawling: allow/);
     assert.match(ai, /AI indexing: allow/);
     assert.match(ai, /https:\/\/gotovalues\.com\/llms\.txt/);

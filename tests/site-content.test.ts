@@ -83,12 +83,24 @@ describe("site content", () => {
   });
 
   test("defines a focused landing-page payload for production outreach", () => {
-    assert.match(siteContent.productionLanding.eyebrow, /produkcji/i);
-    assert.match(siteContent.productionLanding.headline, /jakość/i);
-    assert.equal(siteContent.productionLanding.symptoms.length, 3);
-    assert.equal(siteContent.productionLanding.solutions.length, 3);
-    assert.equal(siteContent.productionLanding.processSteps.length, 3);
-    assert.match(siteContent.productionLanding.cta.label, /proces/i);
+    const landing = siteContent.productionLanding;
+    assert.match(landing.eyebrow, /produkcji/i);
+    assert.match(landing.headline, /jakość/i);
+    assert.match(landing.headline, /bez wymiany ERP/i);
+    assert.match(landing.metadataDescription, /gotovalues/);
+    assert.match(landing.metadataDescription, /bez wymiany ERP/i);
+    assert.equal(landing.symptoms.length, 3);
+    assert.equal(landing.solutions.length, 3);
+    assert.equal(landing.processSteps.length, 3);
+    assert.equal(landing.panel.items.length, 3);
+    assert.equal(landing.sections.contact.points.length, 3);
+    assert.match(landing.cta.label, /proces/i);
+    assert.equal(landing.cta.href, "#kontakt");
+
+    const allProductionText = JSON.stringify(landing);
+    assert.match(allProductionText, /dokument/i);
+    assert.match(allProductionText, /wyjątk/i);
+    assert.equal(/SupportFlow|helpdesk/i.test(allProductionText), false);
   });
 
   test("keeps trust signals in about and contact content", () => {
