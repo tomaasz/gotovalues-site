@@ -28,18 +28,18 @@ export const siteContent = {
   brand: {
     name: brandName,
     angle:
-      "Automatyzacja, lekkie aplikacje webowe i planowane zdalne wsparcie IT dla firm oraz osób prywatnych.",
-    eyebrow: "Zdalnie · dla firm i osób prywatnych",
-    headline: "Automatyzacja, aplikacje i zdalne wsparcie IT.",
+      "Automatyzacja, lekkie aplikacje webowe, serwery, sprzęt i wsparcie IT dla firm oraz osób prywatnych.",
+    eyebrow: "Dla firm i osób prywatnych · zdalnie i lokalnie po umówieniu",
+    headline: "Automatyzacja, aplikacje i wsparcie IT.",
     intro:
-      "Pomagam firmom i osobom prywatnym łączyć narzędzia, budować proste aplikacje oraz zdalnie porządkować sprawy IT — w jasno ustalonych etapach.",
+      "Pomagam firmom i osobom prywatnym w automatyzacji pracy, tworzeniu prostych aplikacji oraz wsparciu IT — od oprogramowania po komputery, serwery i sieci.",
     cta: {
       primary: {
-        label: "Wyślij wiadomość",
+        label: "Napisz wiadomość",
         href: "#kontakt",
       },
       secondary: {
-        label: "Zobacz zakres",
+        label: "Zobacz pełny zakres",
         href: "#oferta",
       },
     },
@@ -49,7 +49,7 @@ export const siteContent = {
       {
         title: "Procesy, dane i automatyzacja",
         description:
-          "Łączę dane z poczty, arkuszy i programów, żeby zespół nie przepisywał tych samych informacji ręcznie.",
+          "Łączę dane z poczty, arkuszy i programów, żeby nie przepisywać tych samych informacji ręcznie.",
         bullets: [
           "integracje między pocztą, arkuszami, CRM i bazami danych",
           "porządkowanie danych i czytelne raporty do codziennych decyzji",
@@ -59,21 +59,21 @@ export const siteContent = {
       {
         title: "Dedykowane narzędzia i aplikacje",
         description:
-          "Gdy gotowe programy nie pasują do sposobu pracy firmy, buduję lekkie narzędzie webowe pod konkretny proces.",
+          "Gdy gotowe programy nie pasują do sposobu pracy, buduję lekkie narzędzie webowe pod konkretny proces.",
         bullets: [
           "wewnętrzne panele, formularze, obiegi dokumentów i proste aplikacje webowe",
-          "przejrzyste strony firmowe dopasowane do realnej oferty",
-          "kod, konta i dokumentacja przekazywane firmie na jasnych zasadach",
+          "przejrzyste strony internetowe dopasowane do realnej oferty",
+          "kod, konta i dokumentacja przekazywane na jasnych zasadach",
         ],
       },
       {
-        title: "Uporządkowanie IT i zdalne wsparcie",
+        title: "Wsparcie IT, serwery i sprzęt",
         description:
-          "Pomagam firmom i osobom prywatnym uporządkować podstawy IT oraz rozwiązuję bieżące sprawy techniczne zdalnie.",
+          "Pomagam firmom i osobom prywatnym w sprawach sprzętowych, instalacjach, konfiguracji serwerów i bieżącym wsparciu IT.",
         bullets: [
-          "poczta we własnej domenie, Microsoft 365 i Google Workspace",
-          "automatyczne kopie zapasowe, porządek w hasłach i uprawnieniach",
-          "zdalna konfiguracja komputera, programów i planowane wsparcie techniczne",
+          "instalacja, konfiguracja i modernizacja komputerów, serwerów (w tym NAS) oraz sieci",
+          "poczta we własnej domenie, Microsoft 365, Google Workspace i automatyczne kopie zapasowe",
+          "diagnostyka, dobór sprzętu, porządek w uprawnieniach i planowane wsparcie IT",
         ],
       },
     ] satisfies OfferPillar[],
@@ -159,14 +159,14 @@ export const siteContent = {
   about: {
     title: "O mnie",
     headline: "gotovalues — jeden bezpośredni kontakt od rozmowy po wdrożenie.",
-    role: "Niezależny specjalista — automatyzacja, aplikacje webowe i zdalne wsparcie IT.",
+    role: "Niezależny specjalista — automatyzacja, aplikacje webowe, serwery i wsparcie IT.",
     summary:
-      "Pracuję bezpośrednio z firmami i osobami prywatnymi. Najpierw sprawdzam, gdzie dokładnie leży problem — a potem dobieram najprostsze rozwiązanie: od zdalnego wsparcia IT i konfiguracji narzędzi, przez integracje danych, po lekką aplikację webową.",
+      "Pracuję bezpośrednio z firmami i osobami prywatnymi. Najpierw sprawdzam, gdzie dokładnie leży problem — a potem dobieram najprostsze rozwiązanie: od spraw sprzętowych, instalacji i wsparcia IT, przez integracje danych, po lekką aplikację webową.",
     points: [
       {
         label: "Obszar pracy",
         value:
-          "automatyzacja, analiza danych, lekkie aplikacje webowe (TypeScript/Next.js, Python, SQL) i zdalne wsparcie IT.",
+          "automatyzacja, analiza danych, lekkie aplikacje webowe (TypeScript/Next.js, Python, SQL), serwery, sprzęt i wsparcie IT.",
       },
       {
         label: "Model współpracy",
@@ -175,13 +175,13 @@ export const siteContent = {
       },
       {
         label: "Lokalizacja",
-        value: "działam zdalnie w całej Polsce (siedziba: Zabrodzie, powiat wyszkowski).",
+        value: "zdalnie w całej Polsce; sprawy sprzętowe lokalnie po umówieniu (Zabrodzie, powiat wyszkowski).",
       },
     ],
   },
   contact: {
     intro:
-      "Napisz krótko, jaki proces chcesz usprawnić albo w czym potrzebujesz zdalnego wsparcia IT. Jeśli temat wykracza poza mój zakres, powiem to wprost na początku.",
+      "Napisz krótko, jaki proces chcesz usprawnić albo w czym potrzebujesz wsparcia IT — od aplikacji i automatyzacji po komputery, serwery czy konfigurację. Jeśli temat wykracza poza mój zakres, powiem to wprost na początku.",
     signals: [
       {
         label: "E-mail",
@@ -194,28 +194,28 @@ export const siteContent = {
       },
       {
         label: "Tryb pracy",
-        value: "Zdalnie w całej Polsce (Zabrodzie, powiat wyszkowski).",
+        value: "Zdalnie (cała Polska) · lokalnie po umówieniu (Zabrodzie, pow. wyszkowski).",
       },
     ],
   },
   aiSummary: {
-    title: "gotovalues — automatyzacja, aplikacje i zdalne wsparcie IT",
+    title: "gotovalues — automatyzacja, aplikacje i wsparcie IT",
     positioning:
-      "gotovalues pomaga firmom i osobom prywatnym zdalnie w całej Polsce w automatyzacji powtarzalnej pracy, porządkowaniu danych, budowie lekkich aplikacji webowych oraz planowanym zdalnym wsparciu IT (poczta, kopie zapasowe, konfiguracja). Siedziba: Zabrodzie, powiat wyszkowski.",
+      "gotovalues pomaga firmom i osobom prywatnym w automatyzacji powtarzalnej pracy, porządkowaniu danych, budowie lekkich aplikacji webowych oraz wsparciu IT (komputery, serwery, NAS, instalacje, poczta, kopie zapasowe). Praca zdalna w całej Polsce oraz sprawy sprzętowe po umówieniu (Zabrodzie, powiat wyszkowski).",
     sitemap: "https://gotovalues.com/sitemap.xml",
     bestFor: [
       "firmy i osoby tracące czas na ręczne przepisywanie danych między pocztą, arkuszami i programami",
       "firmy potrzebujące prostego, dedykowanego narzędzia webowego zamiast rozbudowanego systemu enterprise",
-      "firmy i osoby prywatne szukające planowanego zdalnego wsparcia IT, konfiguracji poczty, kopii zapasowych i programów",
+      "firmy i osoby prywatne szukające wsparcia IT: instalacji i konfiguracji komputerów, serwerów (NAS), sieci, poczty i kopii zapasowych",
     ],
     notFor: [
-      "firmy wymagające serwisu sprzętowego z dojazdem na miejsce lub dyżurów awaryjnych 24/7",
+      "firmy wymagające całodobowych dyżurów awaryjnych 24/7 i natychmiastowego serwisu SLA",
       "rozległe wdrożenia ERP dla setek użytkowników wymagające dużego zespołu wdrożeniowego",
     ],
     proof: [
       "procesy, dane i automatyzacja",
       "dedykowane lekkie aplikacje webowe",
-      "planowane zdalne wsparcie IT",
+      "wsparcie IT, serwery i sprzęt",
     ],
   },
   comparisonLanding: {

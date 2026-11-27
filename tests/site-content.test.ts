@@ -36,13 +36,13 @@ describe("site content", () => {
     }
   });
 
-  test("defines three remote-first offer pillars for the homepage", () => {
+  test("defines three offer pillars including automation, apps and IT/hardware", () => {
     assert.deepEqual(
       siteContent.offer.pillars.map((pillar) => pillar.title),
       [
         "Procesy, dane i automatyzacja",
         "Dedykowane narzędzia i aplikacje",
-        "Uporządkowanie IT i zdalne wsparcie",
+        "Wsparcie IT, serwery i sprzęt",
       ],
     );
   });
@@ -52,11 +52,11 @@ describe("site content", () => {
     assert.equal(siteContent.brand.name, "gotovalues");
   });
 
-  test("keeps homepage CTA and framing focused on processes, data, apps and remote IT without onsite promises", () => {
-    assert.equal(siteContent.brand.cta.primary.label, "Wyślij wiadomość");
-    assert.match(siteContent.brand.headline, /automatyzacja|aplikacje|zdalne wsparcie IT/i);
-    assert.match(siteContent.brand.intro, /osobom prywatnym|aplikacje|etapach/i);
-    assert.equal(/dojazd|naprawa komputer|od ręki|24h/i.test(JSON.stringify(siteContent.brand)), false);
+  test("keeps homepage CTA and framing focused on automation, apps and IT support without unverified absolutes", () => {
+    assert.equal(siteContent.brand.cta.primary.label, "Napisz wiadomość");
+    assert.match(siteContent.brand.headline, /automatyzacja|aplikacje|wsparcie IT/i);
+    assert.match(siteContent.brand.intro, /osobom prywatnym|komputery|serwery/i);
+    assert.equal(/od ręki|24h/i.test(JSON.stringify(siteContent.brand)), false);
   });
 
   test("keeps /jak-pracuje positioning grounded in process-first methodology", () => {
@@ -90,11 +90,11 @@ describe("site content", () => {
     assert.equal(/600\s*468\s*473/.test(JSON.stringify(siteContent)), false);
   });
 
-  test("keeps offer free of onsite repair promises", () => {
+  test("keeps offer anchored in automation, apps and IT/hardware without 24/7 or emergency absolutes", () => {
     const offerText = siteContent.offer.pillars
       .map((pillar) => `${pillar.title} ${pillar.description} ${pillar.bullets.join(" ")}`)
       .join(" ");
-    assert.match(offerText, /integracje|aplikacje|zdaln|kopie zapasowe/i);
-    assert.equal(/dojazd|naprawa komputer|okablowanie|od ręki/i.test(offerText), false);
+    assert.match(offerText, /integracje|aplikacje|komputerów|serwerów|kopie zapasowe/i);
+    assert.equal(/24\/7|od ręki/i.test(offerText), false);
   });
 });

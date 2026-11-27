@@ -1,19 +1,19 @@
-# gotovalues — automatyzacja, aplikacje i zdalne wsparcie IT
+# gotovalues — automatyzacja, aplikacje i wsparcie IT
 
-> gotovalues pomaga firmom i osobom prywatnym zdalnie w całej Polsce w automatyzacji powtarzalnej pracy, porządkowaniu danych, budowie lekkich aplikacji webowych oraz planowanym zdalnym wsparciu IT (poczta, kopie zapasowe, konfiguracja). Siedziba: Zabrodzie, powiat wyszkowski.
+> gotovalues pomaga firmom i osobom prywatnym w automatyzacji powtarzalnej pracy, porządkowaniu danych, budowie lekkich aplikacji webowych oraz wsparciu IT (komputery, serwery, NAS, instalacje, poczta, kopie zapasowe). Praca zdalna w całej Polsce oraz sprawy sprzętowe po umówieniu (Zabrodzie, powiat wyszkowski).
 
 ## Scope
-- **Procesy, dane i automatyzacja**: Łączę dane z poczty, arkuszy i programów, żeby zespół nie przepisywał tych samych informacji ręcznie.
-- **Dedykowane narzędzia i aplikacje**: Gdy gotowe programy nie pasują do sposobu pracy firmy, buduję lekkie narzędzie webowe pod konkretny proces.
-- **Uporządkowanie IT i zdalne wsparcie**: Pomagam firmom i osobom prywatnym uporządkować podstawy IT oraz rozwiązuję bieżące sprawy techniczne zdalnie.
+- **Procesy, dane i automatyzacja**: Łączę dane z poczty, arkuszy i programów, żeby nie przepisywać tych samych informacji ręcznie.
+- **Dedykowane narzędzia i aplikacje**: Gdy gotowe programy nie pasują do sposobu pracy, buduję lekkie narzędzie webowe pod konkretny proces.
+- **Wsparcie IT, serwery i sprzęt**: Pomagam firmom i osobom prywatnym w sprawach sprzętowych, instalacjach, konfiguracji serwerów i bieżącym wsparciu IT.
 
 ## Best fit
 - firmy i osoby tracące czas na ręczne przepisywanie danych między pocztą, arkuszami i programami
 - firmy potrzebujące prostego, dedykowanego narzędzia webowego zamiast rozbudowanego systemu enterprise
-- firmy i osoby prywatne szukające planowanego zdalnego wsparcia IT, konfiguracji poczty, kopii zapasowych i programów
+- firmy i osoby prywatne szukające wsparcia IT: instalacji i konfiguracji komputerów, serwerów (NAS), sieci, poczty i kopii zapasowych
 
 ## Not a fit
-- firmy wymagające serwisu sprzętowego z dojazdem na miejsce lub dyżurów awaryjnych 24/7
+- firmy wymagające całodobowych dyżurów awaryjnych 24/7 i natychmiastowego serwisu SLA
 - rozległe wdrożenia ERP dla setek użytkowników wymagające dużego zespołu wdrożeniowego
 
 ## Key pages

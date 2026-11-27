@@ -2,20 +2,20 @@
 // Voice: first person singular (remote-first, planned work for small firms, JDG and SMEs).
 export const faqs = [
   {
-    q: 'Czy pracujesz zdalnie, czy przyjeżdżasz na miejsce?',
-    a: 'Pracuję wyłącznie zdalnie na terenie całej Polski — od konfiguracji narzędzi i wsparcia technicznego po integracje danych i budowę aplikacji. Nie prowadzę serwisu z dojazdem ani dyżurów awaryjnych 24/7; zadania planujemy wcześniej na konkretny termin.',
-    badge: 'Zdalnie i planowo',
+    q: 'Jak wygląda współpraca — zdalnie czy na miejscu?',
+    a: 'Większość prac — od wsparcia IT i konfiguracji oprogramowania po integracje i budowę aplikacji — realizuję zdalnie na terenie całej Polski. Sprawy sprzętowe, instalacje komputerów, serwerów i sieci (Zabrodzie, powiat wyszkowski i okolice) ustalamy indywidualnie na umówiony termin. Nie prowadzę dyżurów awaryjnych 24/7.',
+    badge: 'Zdalnie i po umówieniu',
     category: 'Współpraca i Koszty' as const,
   },
   {
     q: 'Czy muszę podpisywać stałą umowę abonamentową?',
-    a: 'Nie. Możemy zacząć od jednego konkretnego zlecenia — na przykład uporządkowania poczty i kopii zapasowych, integracji arkuszy albo małego narzędzia. Dalszą współpracę ustalamy dopiero wtedy, gdy ma to sens.',
+    a: 'Nie. Możemy zacząć od jednego konkretnego zadania — na przykład konfiguracji komputera lub serwera, uporządkowania poczty i kopii zapasowych, integracji arkuszy albo małej aplikacji. Dalszą współpracę ustalamy dopiero wtedy, gdy ma to sens.',
     badge: 'Etapowo bez abonamentu',
     category: 'Współpraca i Koszty' as const,
   },
   {
     q: 'Jak wygląda wycena i rozliczenie?',
-    a: 'Po krótkim opisie problemu przygotowuję propozycję zakresu i wycenę przed startem — za zamknięty etap albo w rozliczeniu godzinowym przy doraźnych pracach zdalnych. Warunki i formę rozliczenia ustalamy jasno przed rozpoczęciem prac.',
+    a: 'Po krótkim opisie problemu przygotowuję propozycję zakresu i wycenę przed startem — za zamknięty etap albo w rozliczeniu godzinowym przy doraźnym wsparciu IT. Warunki i formę rozliczenia ustalamy jasno przed rozpoczęciem prac.',
     badge: 'Jasny zakres i wycena',
     category: 'Współpraca i Koszty' as const,
   },

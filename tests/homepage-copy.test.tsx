@@ -17,19 +17,17 @@ describe("homepage copy", () => {
     mock.restoreAll();
   });
 
-  test("keeps the first viewport focused on processes, data and remote IT with one primary action", () => {
-    render(<DrawingSheet />);
+  test("keeps the first viewport clean with a single CTA to #kontakt and no duplicate form", () => {
+    const { container } = render(<DrawingSheet />);
 
     assert.equal(
       screen.getByRole("heading", { level: 1 }).textContent,
-      "Automatyzacja, aplikacje i zdalne wsparcie IT.",
+      "Automatyzacja, aplikacje i wsparcie IT.",
     );
-    assert.equal(screen.getAllByRole("button", { name: "Wyślij wiadomość" }).length, 1);
-    assert.equal(screen.queryByText(/działające wdrożenie|nie jestem zwykłym|naprawa komputerów|dojazd/i), null);
-    assert.match(
-      screen.getByLabelText("W czym mogę pomóc?").getAttribute("placeholder") ?? "",
-      /przepisywanie danych|raporty|poczty|backupu/i,
-    );
+    assert.equal(container.querySelectorAll("form").length, 0);
+    const cta = screen.getByRole("link", { name: "Napisz wiadomość" });
+    assert.equal(cta.getAttribute("href"), "#kontakt");
+    assert.ok(screen.getByText("Wsparcie IT, serwery i sprzęt"));
   });
 
   test("submits the unchanged contact payload shape", async () => {
@@ -78,14 +76,14 @@ describe("homepage copy", () => {
     }
   });
 
-  test("keeps the full contact form CTA and neutral process + remote IT prompt", async () => {
+  test("keeps the full contact form CTA and neutral automation + hardware/IT prompt", async () => {
     const { ContactForm } = await import("../src/components/contact-form");
     render(<ContactForm />);
 
     assert.ok(screen.getByRole("button", { name: "Wyślij wiadomość" }));
     const placeholder = screen.getByLabelText(/W czym mogę pomóc/i).getAttribute("placeholder") ?? "";
-    assert.match(placeholder, /przepisywanie danych|raporty|poczty|kopii zapasowych/i);
-    assert.equal(/Wi-Fi|serwis komputera/i.test(placeholder), false);
+    assert.match(placeholder, /przepisywanie danych|raporty|komputera|serwera|wsparcie IT/i);
+    assert.equal(/rwie się Wi-Fi/i.test(placeholder), false);
   });
 
   test("keeps the compact form status live and without legacy pilot fields", () => {

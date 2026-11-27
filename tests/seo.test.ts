@@ -92,6 +92,6 @@ describe("SEO config", () => {
     assert.match(content, /https:\/\/github\.com\/gotovalues/);
     assert.match(content, /https:\/\/www\.facebook\.com\/gotovalues/);
     assert.equal(/gołaszew|golaszew|linkedin\.com\/in\//i.test(content), false);
-    assert.match(content, /automatyzacja, aplikacje i zdalne wsparcie IT/);
+    assert.match(content, /automatyzacja, aplikacje i wsparcie IT/);
   });
 });

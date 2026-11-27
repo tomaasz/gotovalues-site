@@ -1,6 +1,5 @@
 import { ContactFormLazy } from '@/components/contact-form-lazy';
 import { ProcessDrawing } from '@/components/home/process-drawing';
-import { TitleBlockForm } from '@/components/home/title-block-form';
 import { OwnerReveal } from '@/components/owner-reveal';
 import { PhoneReveal } from '@/components/phone-reveal';
 import { ProductCard } from '@/components/product-card';
@@ -12,7 +11,7 @@ const ZONES_Y = ['1', '2', '3', '4'] as const;
 
 /** Sheet 1 — first viewport: the process drawing with its title block. */
 export function DrawingSheet() {
-  const { brand } = siteContent;
+  const { brand, offer } = siteContent;
 
   return (
     <section className="gv-sheet gv-sheet-main" aria-labelledby="gv-title">
@@ -38,11 +37,31 @@ export function DrawingSheet() {
         </div>
 
         <div className="gv-title-block" id="opisz-proces">
-          <TitleBlockForm />
+          <div className="gv-tb-summary">
+            <ol className="gv-tb-scope">
+              {offer.pillars.map((pillar, index) => (
+                <li key={pillar.title}>
+                  <span className="gv-pos">{index + 1}</span>
+                  <div>
+                    <strong>{pillar.title}</strong>
+                    <p>{pillar.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <div className="gv-tb-actions">
+              <a className="gv-tb-submit gv-tb-cta" href={brand.cta.primary.href}>
+                {brand.cta.primary.label}
+              </a>
+              <a className="gv-link gv-tb-secondary" href={brand.cta.secondary.href}>
+                {brand.cta.secondary.label}
+              </a>
+            </div>
+          </div>
           <dl className="gv-tb-meta">
             <div>
               <dt>Zakres</dt>
-              <dd>procesy, dane, aplikacje, zdalne IT</dd>
+              <dd>automatyzacja, aplikacje, serwery, IT</dd>
             </div>
             <div>
               <dt>Kontakt</dt>
@@ -50,7 +69,7 @@ export function DrawingSheet() {
             </div>
             <div>
               <dt>Tryb</dt>
-              <dd>zdalnie · cała Polska</dd>
+              <dd>zdalnie · lokalnie po umówieniu</dd>
             </div>
             <div>
               <dt>Marka</dt>

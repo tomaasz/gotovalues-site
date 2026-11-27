@@ -17,7 +17,7 @@ const initialState = {
 
 const DEFAULT_MESSAGE_LABEL = 'W czym mogę pomóc';
 const DEFAULT_MESSAGE_PLACEHOLDER =
-  'Opisz krótko problem lub proces, który chcesz uporządkować — np. ręczne przepisywanie danych, raporty, narzędzie webowe albo zdalna konfiguracja poczty i kopii zapasowych.';
+  'Opisz krótko temat — np. ręczne przepisywanie danych, raporty, narzędzie webowe, instalacja lub konfiguracja komputera, serwera, poczty albo wsparcie IT.';
 const DEFAULT_SUBMIT_LABEL = 'Wyślij wiadomość';
 
 export function ContactForm({
