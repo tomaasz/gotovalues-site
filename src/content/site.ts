@@ -28,11 +28,11 @@ export const siteContent = {
   brand: {
     name: brandName,
     angle:
-      "Procesy, dane, lekkie aplikacje webowe i planowane zdalne wsparcie IT dla małych firm oraz MŚP.",
-    eyebrow: "Zdalnie dla firm i JDG · Polska",
-    headline: "Porządkuję procesy, dane i IT w małej firmie.",
+      "Automatyzacja, lekkie aplikacje webowe i planowane zdalne wsparcie IT dla firm oraz osób prywatnych.",
+    eyebrow: "Zdalnie · dla firm i osób prywatnych",
+    headline: "Automatyzacja, aplikacje i zdalne wsparcie IT.",
     intro:
-      "Łączę narzędzia, buduję proste aplikacje i pomagam zdalnie uporządkować firmowe IT — w jasno ustalonych etapach.",
+      "Pomagam firmom i osobom prywatnym łączyć narzędzia, budować proste aplikacje oraz zdalnie porządkować sprawy IT — w jasno ustalonych etapach.",
     cta: {
       primary: {
         label: "Wyślij wiadomość",
@@ -69,11 +69,11 @@ export const siteContent = {
       {
         title: "Uporządkowanie IT i zdalne wsparcie",
         description:
-          "Pomagam małym firmom i JDG uporządkować podstawy IT oraz rozwiązuję bieżące sprawy techniczne zdalnie.",
+          "Pomagam firmom i osobom prywatnym uporządkować podstawy IT oraz rozwiązuję bieżące sprawy techniczne zdalnie.",
         bullets: [
           "poczta we własnej domenie, Microsoft 365 i Google Workspace",
           "automatyczne kopie zapasowe, porządek w hasłach i uprawnieniach",
-          "zdalna konfiguracja stanowisk, programów i planowane wsparcie techniczne",
+          "zdalna konfiguracja komputera, programów i planowane wsparcie techniczne",
         ],
       },
     ] satisfies OfferPillar[],
@@ -158,19 +158,19 @@ export const siteContent = {
   },
   about: {
     title: "O mnie",
-    headline: "Tomasz Gołaszewski. Jeden kontakt od diagnozy po wdrożenie.",
-    role: "Tomasz Gołaszewski — automatyzacja procesów, aplikacje webowe i zdalne wsparcie IT.",
+    headline: "Tomasz Gołaszewski. Jeden kontakt od rozmowy po wdrożenie.",
+    role: "Tomasz Gołaszewski — automatyzacja, aplikacje webowe i zdalne wsparcie IT.",
     profileLink: {
       label: "Zobacz profil na LinkedIn",
       href: "https://www.linkedin.com/in/tomasz-golaszewski/",
     },
     summary:
-      "Pracuję bezpośrednio z właścicielami małych firm i MŚP. Najpierw sprawdzam, gdzie dokładnie powstaje problem — a potem dobieram najprostsze rozwiązanie: od konfiguracji gotowych narzędzi i zdalnego wsparcia IT, przez integracje danych, po lekką aplikację webową.",
+      "Pracuję bezpośrednio z firmami i osobami prywatnymi. Najpierw sprawdzam, gdzie dokładnie leży problem — a potem dobieram najprostsze rozwiązanie: od zdalnego wsparcia IT i konfiguracji narzędzi, przez integracje danych, po lekką aplikację webową.",
     points: [
       {
         label: "Obszar pracy",
         value:
-          "automatyzacja procesów, analiza danych, lekkie aplikacje webowe (TypeScript/Next.js, Python, SQL) i zdalne wsparcie IT.",
+          "automatyzacja, analiza danych, lekkie aplikacje webowe (TypeScript/Next.js, Python, SQL) i zdalne wsparcie IT.",
       },
       {
         label: "Model współpracy",
@@ -185,7 +185,7 @@ export const siteContent = {
   },
   contact: {
     intro:
-      "Napisz krótko, jaki proces chcesz usprawnić albo co w firmowym IT wymaga zdalnego uporządkowania. Jeśli temat wykracza poza mój zakres, powiem to wprost na początku.",
+      "Napisz krótko, jaki proces chcesz usprawnić albo w czym potrzebujesz zdalnego wsparcia IT. Jeśli temat wykracza poza mój zakres, powiem to wprost na początku.",
     signals: [
       {
         label: "E-mail",
@@ -203,14 +203,14 @@ export const siteContent = {
     ],
   },
   aiSummary: {
-    title: "gotovalues — procesy, dane, aplikacje i zdalne IT dla firm",
+    title: "gotovalues — automatyzacja, aplikacje i zdalne wsparcie IT",
     positioning:
-      "gotovalues pomaga małym firmom i MŚP zdalnie w całej Polsce porządkować powtarzalną pracę, dane i narzędzia IT: integracje i automatyzacja procesów (z praktycznym AI tam, gdzie ma sens), lekkie aplikacje webowe oraz planowane zdalne wsparcie IT (poczta, kopie zapasowe, konfiguracja). Siedziba: Zabrodzie, powiat wyszkowski.",
+      "gotovalues pomaga firmom i osobom prywatnym zdalnie w całej Polsce w automatyzacji powtarzalnej pracy, porządkowaniu danych, budowie lekkich aplikacji webowych oraz planowanym zdalnym wsparciu IT (poczta, kopie zapasowe, konfiguracja). Siedziba: Zabrodzie, powiat wyszkowski.",
     sitemap: "https://gotovalues.com/sitemap.xml",
     bestFor: [
-      "małe firmy i MŚP tracące czas na ręczne przepisywanie danych między pocztą, arkuszami i systemami",
+      "firmy i osoby tracące czas na ręczne przepisywanie danych między pocztą, arkuszami i programami",
       "firmy potrzebujące prostego, dedykowanego narzędzia webowego zamiast rozbudowanego systemu enterprise",
-      "małe firmy i JDG szukające planowanego zdalnego uporządkowania poczty, kopii zapasowych, uprawnień i narzędzi IT",
+      "firmy i osoby prywatne szukające planowanego zdalnego wsparcia IT, konfiguracji poczty, kopii zapasowych i programów",
     ],
     notFor: [
       "firmy wymagające serwisu sprzętowego z dojazdem na miejsce lub dyżurów awaryjnych 24/7",

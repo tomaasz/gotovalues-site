@@ -30,7 +30,7 @@ export function TitleBlockForm() {
       setStatus({
         kind: 'error',
         invalidMessage: true,
-        message: `Opisz krótko problem w co najmniej ${MIN_MESSAGE} znakach — np. jaki proces chcesz usprawnić albo co uporządkować w firmowym IT.`,
+        message: `Opisz krótko problem w co najmniej ${MIN_MESSAGE} znakach — np. co chcesz zautomatyzować albo w czym potrzebujesz zdalnego wsparcia IT.`,
       });
       return;
     }

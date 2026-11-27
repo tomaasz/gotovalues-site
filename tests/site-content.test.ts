@@ -54,8 +54,8 @@ describe("site content", () => {
 
   test("keeps homepage CTA and framing focused on processes, data, apps and remote IT without onsite promises", () => {
     assert.equal(siteContent.brand.cta.primary.label, "Wyślij wiadomość");
-    assert.match(siteContent.brand.headline, /procesy|dane|IT/i);
-    assert.match(siteContent.brand.intro, /aplikacje|zdalnie|etapach/i);
+    assert.match(siteContent.brand.headline, /automatyzacja|aplikacje|zdalne wsparcie IT/i);
+    assert.match(siteContent.brand.intro, /osobom prywatnym|aplikacje|etapach/i);
     assert.equal(/dojazd|naprawa komputer|od ręki|24h/i.test(JSON.stringify(siteContent.brand)), false);
   });
 

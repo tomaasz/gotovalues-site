@@ -118,7 +118,7 @@ const REVISIONS: Revision[] = [
     reachesValue: true,
     nodes: [
       { id: 'data', label: 'Dane / pliki', x: 30, y: 30, kind: 'source' },
-      { id: 'process', label: 'Proces firmy', x: 240, y: 30, kind: 'source' },
+      { id: 'process', label: 'Twój proces', x: 240, y: 30, kind: 'source' },
       { id: 'auto', label: 'automatyzacja / AI', x: 30, y: 160, w: 155, kind: 'tool' },
       { id: 'app', label: 'lekka aplikacja', x: 245, y: 150, w: 175, h: 60, kind: 'app' },
       DECISION,

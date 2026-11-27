@@ -92,6 +92,6 @@ describe("SEO config", () => {
     assert.match(content, /https:\/\/www\.linkedin\.com\/in\/tomasz-golaszewski\//);
     assert.match(content, /https:\/\/github\.com\/gotovalues/);
     assert.match(content, /https:\/\/www\.facebook\.com\/gotovalues/);
-    assert.match(content, /procesy, dane, aplikacje i zdalne IT dla firm/);
+    assert.match(content, /automatyzacja, aplikacje i zdalne wsparcie IT/);
   });
 });

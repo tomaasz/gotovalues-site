@@ -31,9 +31,9 @@ const monoFont = JetBrains_Mono({
   preload: false,
 });
 
-const defaultTitle = `${brandName} — procesy, dane, aplikacje i zdalne IT dla firm`;
+const defaultTitle = `${brandName} — automatyzacja, aplikacje i zdalne wsparcie IT`;
 const defaultDescription =
-  "Porządkuję powtarzalną pracę, dane i narzędzia IT w małych firmach i MŚP. Automatyzacja procesów, lekkie aplikacje webowe i zdalne wsparcie IT — planowo i etapami.";
+  "Automatyzacja procesów, lekkie aplikacje webowe i planowane zdalne wsparcie IT dla firm oraz osób prywatnych — w jasno ustalonych etapach.";
 
 export const metadata: Metadata = {
   title: {
@@ -107,7 +107,7 @@ const jsonLd = {
       "image": "https://gotovalues.com/images/og.png",
       "email": "kontakt@gotovalues.com",
       "description":
-        "Zdalne porządkowanie procesów, danych i narzędzi IT dla małych firm i MŚP w całej Polsce: integracje, automatyzacja, lekkie aplikacje webowe oraz planowane zdalne wsparcie IT.",
+        "Automatyzacja powtarzalnej pracy, lekkie aplikacje webowe i planowane zdalne wsparcie IT dla firm oraz osób prywatnych w całej Polsce.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Zabrodzie",

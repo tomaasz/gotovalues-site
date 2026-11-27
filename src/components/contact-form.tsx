@@ -133,7 +133,7 @@ export function ContactForm({
             id="company-input"
             name="company"
             type="text"
-            placeholder="Nazwa firmy lub JDG"
+            placeholder="Nazwa firmy (jeśli dotyczy)"
             autoComplete="organization"
           />
         </div>

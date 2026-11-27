@@ -1,16 +1,16 @@
-# gotovalues — procesy, dane, aplikacje i zdalne IT dla firm
+# gotovalues — automatyzacja, aplikacje i zdalne wsparcie IT
 
-> gotovalues pomaga małym firmom i MŚP zdalnie w całej Polsce porządkować powtarzalną pracę, dane i narzędzia IT: integracje i automatyzacja procesów (z praktycznym AI tam, gdzie ma sens), lekkie aplikacje webowe oraz planowane zdalne wsparcie IT (poczta, kopie zapasowe, konfiguracja). Siedziba: Zabrodzie, powiat wyszkowski.
+> gotovalues pomaga firmom i osobom prywatnym zdalnie w całej Polsce w automatyzacji powtarzalnej pracy, porządkowaniu danych, budowie lekkich aplikacji webowych oraz planowanym zdalnym wsparciu IT (poczta, kopie zapasowe, konfiguracja). Siedziba: Zabrodzie, powiat wyszkowski.
 
 ## Scope
 - **Procesy, dane i automatyzacja**: Łączę dane z poczty, arkuszy i programów, żeby zespół nie przepisywał tych samych informacji ręcznie.
 - **Dedykowane narzędzia i aplikacje**: Gdy gotowe programy nie pasują do sposobu pracy firmy, buduję lekkie narzędzie webowe pod konkretny proces.
-- **Uporządkowanie IT i zdalne wsparcie**: Pomagam małym firmom i JDG uporządkować podstawy IT oraz rozwiązuję bieżące sprawy techniczne zdalnie.
+- **Uporządkowanie IT i zdalne wsparcie**: Pomagam firmom i osobom prywatnym uporządkować podstawy IT oraz rozwiązuję bieżące sprawy techniczne zdalnie.
 
 ## Best fit
-- małe firmy i MŚP tracące czas na ręczne przepisywanie danych między pocztą, arkuszami i systemami
+- firmy i osoby tracące czas na ręczne przepisywanie danych między pocztą, arkuszami i programami
 - firmy potrzebujące prostego, dedykowanego narzędzia webowego zamiast rozbudowanego systemu enterprise
-- małe firmy i JDG szukające planowanego zdalnego uporządkowania poczty, kopii zapasowych, uprawnień i narzędzi IT
+- firmy i osoby prywatne szukające planowanego zdalnego wsparcia IT, konfiguracji poczty, kopii zapasowych i programów
 
 ## Not a fit
 - firmy wymagające serwisu sprzętowego z dojazdem na miejsce lub dyżurów awaryjnych 24/7

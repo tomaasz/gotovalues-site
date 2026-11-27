@@ -27,8 +27,8 @@ export const faqs = [
   },
   {
     q: 'Kto ma dostęp do kont, danych i kodu po zakończeniu prac?',
-    a: 'Konta, domeny, dostępy oraz zasady poufności i praw do stworzonego rozwiązania ustalamy wprost przed rozpoczęciem prac — tak, żeby firma zachowała kontrolę nad swoimi danymi i narzędziami.',
-    badge: 'Kontrola po stronie firmy',
+    a: 'Konta, domeny, dostępy oraz zasady poufności i praw do stworzonego rozwiązania ustalamy wprost przed rozpoczęciem prac — tak, żeby pełna kontrola nad danymi i narzędziami została po Twojej stronie.',
+    badge: 'Kontrola po Twojej stronie',
     category: 'Bezpieczeństwo i RODO' as const,
   },
 ];

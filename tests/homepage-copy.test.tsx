@@ -22,7 +22,7 @@ describe("homepage copy", () => {
 
     assert.equal(
       screen.getByRole("heading", { level: 1 }).textContent,
-      "Porządkuję procesy, dane i IT w małej firmie.",
+      "Automatyzacja, aplikacje i zdalne wsparcie IT.",
     );
     assert.equal(screen.getAllByRole("button", { name: "Wyślij wiadomość" }).length, 1);
     assert.equal(screen.queryByText(/działające wdrożenie|nie jestem zwykłym|naprawa komputerów|dojazd/i), null);

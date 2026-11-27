@@ -52,7 +52,7 @@ export function DrawingSheet() {
               <dd>procesy, dane, aplikacje, zdalne IT</dd>
             </div>
             <div>
-              <dt>Opracował</dt>
+              <dt>Realizacja</dt>
               <dd>Tomasz Gołaszewski</dd>
             </div>
             <div>
@@ -154,14 +154,14 @@ export function ProofSheet() {
   );
 }
 
-/** Sheet 4 — author block ("Opracował"). */
+/** Sheet 4 — author block ("O mnie"). */
 export function AuthorSheet() {
   const { about } = siteContent;
 
   return (
     <section className="gv-sheet gv-author" id="o-mnie" aria-labelledby="gv-author-title">
       <div className="gv-author-copy">
-        <h2 id="gv-author-title">Opracował: Tomasz Gołaszewski</h2>
+        <h2 id="gv-author-title">{about.title}</h2>
         <p className="gv-lede">{about.headline}</p>
         <p>{about.summary}</p>
         <a className="gv-link" href={about.profileLink.href} target="_blank" rel="noopener noreferrer">
@@ -191,7 +191,7 @@ export function NotesSheet() {
   return (
     <section className="gv-sheet" id="faq" aria-labelledby="gv-notes-title">
       <div className="gv-sheet-head">
-        <h2 id="gv-notes-title">Uwagi: pytania przed współpracą</h2>
+        <h2 id="gv-notes-title">Pytania przed współpracą</h2>
       </div>
       <ol className="gv-faq">
         {faqs.map((faq) => (
