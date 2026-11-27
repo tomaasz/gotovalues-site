@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 import { ContactFormLazy as ContactForm } from "@/components/contact-form-lazy";
 import { ContactSignals } from "@/components/contact-signals";
@@ -11,12 +10,12 @@ import { siteContent } from "@/content/site";
 export const metadata: Metadata = {
   title: "Dla produkcji",
   alternates: { canonical: "/dla-produkcji" },
-  description:
-    "Dedykowane narzędzia dla firm produkcyjnych i przetwórczych: dokumenty jakościowe, reklamacje, statusy i wyjątki operacyjne bez dokładania kolejnego Excela.",
+  description: siteContent.productionLanding.metadataDescription,
 };
 
 export default function ProductionLandingPage() {
   const content = siteContent.productionLanding;
+  const allProducts = [...siteContent.products.public, ...siteContent.products.private];
 
   return (
     <main id="main" className="page-shell" tabIndex={-1}>
@@ -31,34 +30,32 @@ export default function ProductionLandingPage() {
             <a className="button button-primary" href={content.cta.href}>
               {content.cta.label}
             </a>
-            <Link className="button button-secondary" href="/#produkty">
-              Zobacz przykłady wdrożeń
-            </Link>
           </div>
         </div>
 
         <div className="hero-panel">
           <div className="hero-panel-card">
-            <span className="hero-panel-label">Typowe obszary problemu</span>
+            <span className="hero-panel-label">{content.panel.label}</span>
             <ul>
-              <li>dokumenty jakościowe, reklamacje i protokoły</li>
-              <li>statusy partii, decyzji i wyjątków operacyjnych</li>
-              <li>ręczne przepisywanie danych między plikami i systemami</li>
+              {content.panel.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </div>
           <div className="hero-panel-grid">
-            <div className="hero-chip">jakość</div>
-            <div className="hero-chip">reklamacje</div>
-            <div className="hero-chip">partie</div>
-            <div className="hero-chip">workflow</div>
+            {content.panel.chips.map((chip) => (
+              <div className="hero-chip" key={chip}>
+                {chip}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" id="objawy">
         <SectionHeading
-          eyebrow="Objawy"
-          heading="Najczęściej problem nie polega na braku systemu. Polega na tym, że realna praca zakładu i tak wraca do maila, Excela i ręcznych obejść."
+          eyebrow={content.sections.symptoms.eyebrow}
+          heading={content.sections.symptoms.heading}
         />
         <div className="pillar-grid">
           {content.symptoms.map((item) => (
@@ -70,10 +67,10 @@ export default function ProductionLandingPage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" id="rozwiazania">
         <SectionHeading
-          eyebrow="Co porządkuję"
-          heading="Buduję lekkie narzędzia wokół procesu, zamiast proponować wymianę całego środowiska pracy."
+          eyebrow={content.sections.solutions.eyebrow}
+          heading={content.sections.solutions.heading}
         />
         <div className="pillar-grid">
           {content.solutions.map((item) => (
@@ -85,10 +82,15 @@ export default function ProductionLandingPage() {
         </div>
       </section>
 
-      <section className="section">
-        <SectionHeading eyebrow="Proof" heading={content.proofHeading} />
-        <div className="product-grid">
-          {siteContent.products.public.map((product) => (
+      <section className="section" id="proof">
+        <SectionHeading
+          eyebrow={content.sections.proof.eyebrow}
+          heading={content.proofHeading}
+        >
+          <p className="lede">{content.sections.proof.intro}</p>
+        </SectionHeading>
+        <div className="product-grid" data-proof-grid="production">
+          {allProducts.map((product) => (
             <ProductCard compact key={product.name} product={product} />
           ))}
         </div>
@@ -96,8 +98,8 @@ export default function ProductionLandingPage() {
 
       <section className="section" id="jak-pracuje">
         <SectionHeading
-          eyebrow="Pierwszy krok"
-          heading="Nie zaczynam od dużego wdrożenia. Zaczynam od jednego procesu, który dziś zjada czas ludziom operacyjnym."
+          eyebrow={content.sections.firstStep.eyebrow}
+          heading={content.sections.firstStep.heading}
         />
         <div className="surface about-card">
           <p>{content.closing}</p>
@@ -112,36 +114,18 @@ export default function ProductionLandingPage() {
         </div>
       </section>
 
-      <section className="section surface" id="zobacz-tez">
-        <SectionHeading
-          eyebrow="Zobacz także"
-          heading="Automatyzacja supportu i obsługi klienta"
-        />
-        <p style={{ maxWidth: "var(--measure)", marginBottom: "var(--space-m)" }}>
-          Poza dokumentami produkcyjnymi zajmuję się też automatyzacją powtarzalnej pracy w
-          działach wsparcia. Sprawdź, jak agenci AI odciążają Twój helpdesk.
-        </p>
-        <Link className="button button-primary" href="/supportflow">
-          SupportFlow AI — automatyzacja wsparcia
-        </Link>
-      </section>
-
       <section className="section" id="kontakt">
         <SectionHeading
-          eyebrow="Kontakt"
-          heading="Jeśli widzisz taki problem u siebie, opisz go w kilku zdaniach. Wrócę z oceną, czy warto budować narzędzie pod ten proces."
+          eyebrow={content.sections.contact.eyebrow}
+          heading={content.sections.contact.heading}
         />
         <div className="surface contact-card">
           <div className="contact-copy">
-            <p>
-              Najlepiej sprawdzają się tematy związane z dokumentami jakościowymi, reklamacjami,
-              statusami, wyjątkami operacyjnymi i ręcznym przepływem danych między ludźmi,
-              plikami i systemami.
-            </p>
+            <p>{content.sections.contact.intro}</p>
             <ul className="contact-points">
-              <li>wystarczy jeden konkretny przykład z zakładu albo back office</li>
-              <li>nie potrzebujesz gotowej specyfikacji ani listy funkcji</li>
-              <li>jeśli problem nie wymaga customowego narzędzia, powiem to wprost</li>
+              {content.sections.contact.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
             </ul>
             <ContactSignals />
           </div>
