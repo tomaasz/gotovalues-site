@@ -22,7 +22,7 @@
 
 ### Production Acquisition
 
-- [ ] **REQ-production-landing**: `/dla-produkcji` addresses production-specific document, quality, and exception workflows, presents lightweight tools without promising ERP replacement, shows honest proof, explains a small first step, and has one short-contact CTA.
+- [x] **REQ-production-landing**: `/dla-produkcji` addresses production-specific document, quality, and exception workflows, presents lightweight tools without promising ERP replacement, shows honest proof, explains a small first step, and has one short-contact CTA.
 
 ## v2 Requirements
 
@@ -46,7 +46,7 @@
 | REQ-contact-form-friction | Phase 2 | Complete |
 | REQ-brand-products | Phase 3 | Complete |
 | REQ-products-proof | Phase 3 | Complete |
-| REQ-production-landing | Phase 4 | Pending |
+| REQ-production-landing | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 7 total

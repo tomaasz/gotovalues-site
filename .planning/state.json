@@ -21,13 +21,13 @@
     {
       "number": "4",
       "name": "Production acquisition",
-      "status": "planned"
+      "status": "complete"
     }
   ],
   "next": {
-    "command": "$gsd-execute-phase 4",
-    "label": "Execute Phase 4 (Production acquisition)",
-    "reason": "Phase 4 of 4 planned (2 plans) · 75% · ready to execute"
+    "command": "merge agent-01-01 -> main & verify production",
+    "label": "Ship milestone v1 to main and production",
+    "reason": "All 4 phases complete (8/8 plans verified) · 100%"
   },
-  "updated_at": "2026-11-26T22:25:00.000Z"
+  "updated_at": "2026-11-27T05:58:00.000Z"
 }
