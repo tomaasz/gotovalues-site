@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import { ContactFormLazy } from '@/components/contact-form-lazy';
 import { ProcessDrawing } from '@/components/home/process-drawing';
 import { TitleBlockForm } from '@/components/home/title-block-form';
@@ -35,7 +33,7 @@ export function DrawingSheet() {
 
       <div className="gv-sheet-grid">
         <header className="gv-sheet-title">
-          <h1 id="gv-title">Porządkuję jeden proces naraz.</h1>
+          <h1 id="gv-title">Sprawne IT dla małej firmy i JDG.</h1>
         </header>
 
         <div className="gv-sheet-drawing">
@@ -46,16 +44,16 @@ export function DrawingSheet() {
           <TitleBlockForm />
           <dl className="gv-tb-meta">
             <div>
-              <dt>Rysunek</dt>
-              <dd>poglądowy proces operacyjny</dd>
+              <dt>Zakres</dt>
+              <dd>sieci, serwis, helpdesk, narzędzia</dd>
             </div>
             <div>
               <dt>Opracował</dt>
               <dd>Tomasz Gołaszewski</dd>
             </div>
             <div>
-              <dt>Odpowiedź</dt>
-              <dd>do 24 h w dni robocze</dd>
+              <dt>Obszar</dt>
+              <dd>lokalnie na miejscu i zdalnie</dd>
             </div>
             <div>
               <dt>Firma</dt>
@@ -75,10 +73,7 @@ export function PartsListSheet() {
   return (
     <section className="gv-sheet" id="oferta" aria-labelledby="gv-parts-title">
       <div className="gv-sheet-head">
-        <h2 id="gv-parts-title">Co porządkuję i buduję</h2>
-        <Link className="gv-link" href="/jak-pracuje">
-          Jak wybieram między gotowcem, integracją a aplikacją
-        </Link>
+        <h2 id="gv-parts-title">Usługi IT dla małych firm i JDG</h2>
       </div>
 
       <div className="gv-table-wrap">
@@ -113,7 +108,7 @@ export function PartsListSheet() {
       </div>
 
       <div className="gv-notes-block">
-        <h3>Wymagania techniczne każdego wdrożenia</h3>
+        <h3>Jak pracuję na co dzień</h3>
         <ol className="gv-tech-notes">
           {approach.points.map((point) => (
             <li key={point.title}>
@@ -215,7 +210,7 @@ export function ContactSheet() {
   return (
     <section className="gv-sheet gv-contact" id="kontakt" aria-labelledby="gv-contact-title">
       <div className="gv-contact-copy">
-        <h2 id="gv-contact-title">Opisz proces do uporządkowania</h2>
+        <h2 id="gv-contact-title">Opisz, z czym potrzebujesz pomocy</h2>
         <p>{contact.intro}</p>
         <dl className="gv-author-table">
           {contact.signals.map((signal) => (

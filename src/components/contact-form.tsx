@@ -118,7 +118,7 @@ export function ContactForm() {
             id="company-input"
             name="company"
             type="text"
-            placeholder="Nazwa firmy lub zakładu"
+            placeholder="Nazwa firmy lub JDG"
             autoComplete="organization"
           />
         </div>
@@ -126,7 +126,7 @@ export function ContactForm() {
 
       <div className="field">
         <label htmlFor="message-input">
-          Co dziś dzieje się ręcznie albo chaotycznie{' '}
+          W czym mogę pomóc{' '}
           <span className="required-indicator" aria-hidden="true">
             *
           </span>
@@ -135,7 +135,7 @@ export function ContactForm() {
           id="message-input"
           name="message"
           rows={6}
-          placeholder="Np. dokumenty przychodzą mailem, statusy są w Excelu, a wyjątki giną między narzędziami."
+          placeholder="Np. rwie się Wi-Fi w biurze, komputer wymaga serwisu, trzeba ustawić pocztę i backup albo szukam zdalnego wsparcia IT."
           required
         />
       </div>

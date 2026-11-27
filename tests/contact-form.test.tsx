@@ -33,7 +33,7 @@ describe("ContactForm component", () => {
     assert.ok(screen.getByLabelText(/Imię/i));
     assert.ok(screen.getByLabelText(/E-mail/i));
     assert.ok(screen.getByLabelText(/Firma/i));
-    assert.ok(screen.getByLabelText(/Co dziś dzieje się/i));
+    assert.ok(screen.getByLabelText(/W czym mogę pomóc/i));
     assert.ok(screen.getByRole('button', { name: 'Napisz' }));
     assert.equal(screen.queryByLabelText(/System wsparcia/i), null);
     assert.equal(screen.queryByLabelText(/Zgłoszenia tygodniowo/i), null);
@@ -95,7 +95,7 @@ describe("ContactForm component", () => {
     const { getByLabelText, container } = render(<ContactForm />);
     const nameInput = getByLabelText(/Imię/i) as HTMLInputElement;
     const emailInput = getByLabelText(/E-mail/i) as HTMLInputElement;
-    const msgInput = getByLabelText(/Co dziś dzieje się/i) as HTMLTextAreaElement;
+    const msgInput = getByLabelText(/W czym mogę pomóc/i) as HTMLTextAreaElement;
 
     await act(async () => {
       nameInput.value = 'Test';

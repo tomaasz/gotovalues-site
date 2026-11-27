@@ -1,58 +1,51 @@
 // FAQ shared by the homepage ("Uwagi" notes), FAQPage JSON-LD and /ai/faq.json.
-// Voice: first person singular (independent partner). No unverified figures —
-// see PRODUCT.md, "Capabilities and Constraints".
+// Voice: first person singular (independent local & remote IT partner for small firms and JDG).
 export const faqs = [
   // KATEGORIA 1: WSPÓŁPRACA I KOSZTY
   {
-    q: 'Od czego zaczyna się współpraca?',
-    a: 'Od krótkiego opisu jednego procesu: miejsca, w którym zespół przepisuje dane, szuka statusów albo obsługuje wyjątki ręcznie. Najpierw sprawdzam, czy problem rozwiąże gotowe narzędzie lub integracja tego, co już macie. Dedykowaną aplikację albo agenta AI buduję tylko wtedy, gdy to jedyna sensowna droga.',
-    badge: 'Model współpracy',
+    q: 'Czy pomagasz zdalnie, czy też na miejscu?',
+    a: 'Jedno i drugie. Większość codziennych problemów z komputerem, pocztą, programami czy uprawnieniami rozwiązuję zdalnie od ręki — na terenie całej Polski. Gdy sprawa wymaga pracy fizycznej (sieć, Wi-Fi, okablowanie, drukarka, serwis sprzętu), przyjeżdżam lokalnie na miejsce.',
+    badge: 'Zdalnie i na miejscu',
     category: 'Współpraca i Koszty' as const,
   },
   {
-    q: 'Ile kosztuje realizacja projektu i jak rozliczamy współpracę?',
-    a: 'Wyceniam projekty stałą stawką za etap albo jako elastyczny budżet iteracyjny. Zanim cokolwiek zapłacisz, dostajesz kosztorys i harmonogram. Proponuję tylko taki zakres, który ma sens biznesowo — bez agencyjnego narzutu i bez budżetu liczonego w dziesiątkach tysięcy na sam start.',
-    badge: 'Przejrzysty kosztorys',
+    q: 'Czy muszę podpisywać stałą umowę abonamentową?',
+    a: 'Nie. Możemy współpracować jednorazowo (np. konfiguracja sieci, naprawa komputera, wdrożenie poczty i kopii zapasowych) albo w lekkiej stałej opiece IT dla małej firmy i JDG — zależnie od tego, co ma sens przy Twojej skali.',
+    badge: 'Doraźnie lub stale',
     category: 'Współpraca i Koszty' as const,
   },
   {
-    q: 'Nie mam specyfikacji technicznej – czy to problem?',
-    a: 'Nie. Wystarczy, że w krótkiej rozmowie opowiesz o problemie zwykłymi słowami. Sam przekładam go na zakres, architekturę i pierwszy działający prototyp.',
-    badge: 'Brak specyfikacji? OK',
+    q: 'Ile kosztuje usługa i jak rozliczamy współpracę?',
+    a: 'Zanim zaczniemy, dostajesz jasną wycenę za konkretną usługę albo stawkę godzinową przy doraźnym wsparciu. Rozliczamy się przejrzyście na fakturę — bez ukrytych kosztów i bez pakietów korporacyjnych.',
+    badge: 'Przejrzysta wycena',
+    category: 'Współpraca i Koszty' as const,
+  },
+  {
+    q: 'Nie znam się na technikaliach — czy wystarczy opisać problem swoimi słowami?',
+    a: 'Oczywiście. Wystarczy krótka wiadomość zwykłym językiem: co przestało działać albo co chcesz uporządkować. Dopytam o szczegóły, zaproponuję najprostsze rozwiązanie i wytłumaczę je bez żargonu.',
+    badge: 'Po ludzku',
     category: 'Współpraca i Koszty' as const,
   },
 
-  // KATEGORIA 2: BEZPIECZEŃSTWO I RODO
+  // KATEGORIA 2: BEZPIECZEŃSTWO I DANE
   {
-    q: 'Kto posiada prawa autorskie do stworzonego kodu i aplikacji?',
-    a: 'Pełne prawa autorskie do kodu, infrastruktury i baz danych przechodzą na Ciebie po zakończeniu projektu. Nie nakładam ograniczeń licencyjnych ani ukrytych opłat.',
-    badge: 'Własność kodu',
+    q: 'Jak dbasz o bezpieczeństwo danych, haseł i kopii zapasowych?',
+    a: 'Kopie zapasowe (backup) i bezpieczeństwo to podstawa małej firmy. Pomagam ustawić automatyczny backup kluczowych plików, uporządkować dostępy i hasła oraz zabezpieczyć sieć Wi-Fi. Na życzenie podpisuję umowę o poufności (NDA).',
+    badge: 'Bezpieczeństwo i backup',
     category: 'Bezpieczeństwo i RODO' as const,
   },
   {
-    q: 'Co z poufnością moich danych biznesowych i zgodnością z RODO/GDPR?',
-    a: 'Pracuję na zabezpieczonych środowiskach i korzystam z komercyjnych instancji modeli AI, których warunki wykluczają trenowanie modeli na Twoich danych. Na życzenie podpisuję umowę o poufności (NDA) przed rozpoczęciem rozmów.',
-    badge: 'Poufność i RODO',
+    q: 'Czy po konfiguracji wszystkie konta, domeny i sprzęty należą do mnie?',
+    a: 'Tak. Domena, poczta, konta w chmurze, konfiguracja sieci i ewentualne stworzone narzędzia są zawsze zarejestrowane na Twoją firmę i masz do nich pełne dostępy.',
+    badge: 'Pełna własność',
     category: 'Bezpieczeństwo i RODO' as const,
   },
 
-  // KATEGORIA 3: TECHNOLOGIA I REALIZACJA
+  // KATEGORIA 3: ZAKRES USŁUG
   {
-    q: 'Czy kod tworzony z pomocą AI jest bezpieczny i łatwy w utrzymaniu?',
-    a: 'AI to narzędzie w mojej pracy, nie autor projektu: każdy fragment kodu przeglądam i testuję. Używam sprawdzonych technologii (React, Next.js, Python, PostgreSQL), a szyfrowanie, walidacja danych, kontrola dostępu i monitoring błędów są standardem każdego wdrożenia.',
-    badge: 'Jakość i architektura',
-    category: 'Technologia i Realizacja' as const,
-  },
-  {
-    q: 'Jak szybko otrzymam pierwszą działającą wersję?',
-    a: 'Działające wdrożenie dostarczam w tygodnie, nie miesiące. Dokładny termin podaję po rozmowie o procesie, razem z kosztorysem.',
-    badge: 'Czas realizacji',
-    category: 'Technologia i Realizacja' as const,
-  },
-  {
-    q: 'Co się stanie, jeśli w przyszłości będę chciał rozbudować aplikację z innym zespołem?',
-    a: 'Dostajesz czyste, udokumentowane repozytorium kodu z testami. Buduję na branżowych standardach, więc inny programista może kontynuować rozwój bez przepisywania od zera — nawet jeśli nie ja będę go dalej rozwijać.',
-    badge: 'Bez uzależnienia od dostawcy',
+    q: 'Czy oprócz sieci, napraw i helpdesku robisz też strony lub automatyzacje?',
+    a: 'Tak, jako naturalne uzupełnienie codziennej obsługi IT. Gdy sprzęt, sieć i poczta już działają stabilnie, mogę przygotować prostą stronę firmową, połączyć programy albo zautomatyzować powtarzalne zadania.',
+    badge: 'IT + narzędzia',
     category: 'Technologia i Realizacja' as const,
   },
 ];

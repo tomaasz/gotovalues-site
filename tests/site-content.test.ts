@@ -36,10 +36,15 @@ describe("site content", () => {
     }
   });
 
-  test("defines three offer pillars for the homepage", () => {
+  test("defines four small-business IT offer pillars for the homepage", () => {
     assert.deepEqual(
       siteContent.offer.pillars.map((pillar) => pillar.title),
-      ["Dokumenty i dane", "Ręczna praca i wyjątki", "Narzędzie dopasowane do procesu"],
+      [
+        "Sieci, Wi-Fi i sprzęt biurowy",
+        "Naprawa i konfiguracja komputerów",
+        "Zdalny i lokalny helpdesk IT",
+        "Automatyzacja i proste narzędzia",
+      ],
     );
   });
 
@@ -48,10 +53,10 @@ describe("site content", () => {
     assert.equal(siteContent.brand.name, "gotovalues");
   });
 
-  test("keeps homepage CTA and framing focused on one concrete process", () => {
+  test("keeps homepage CTA and framing focused on small business and JDG IT support", () => {
     assert.equal(siteContent.brand.cta.primary.label, "Napisz");
-    assert.match(siteContent.brand.headline, /dokumenty|statusy|wyjątki/i);
-    assert.match(siteContent.brand.intro, /narzędzie|aplikację|AI/i);
+    assert.match(siteContent.brand.headline, /IT|małej firmy|JDG/i);
+    assert.match(siteContent.brand.intro, /sieci|naprawa|helpdesk/i);
   });
 
   test("turns Obsidian competitor research into non-antagonistic positioning payload", () => {
@@ -106,16 +111,16 @@ describe("site content", () => {
   test("keeps trust signals in about and contact content", () => {
     assert.match(siteContent.about.role, /Tomasz Gołaszewski/i);
     assert.match(siteContent.about.profileLink.href, /linkedin\.com/i);
-    assert.match(siteContent.about.summary, /proces|dokument|danych/i);
+    assert.match(siteContent.about.summary, /sieci|naprawy|pomoc zdalną|IT/i);
     assert.ok(siteContent.about.points.length <= 3);
     assert.equal("detail" in siteContent.about, false);
     assert.equal(siteContent.contact.signals[0]?.value, "kontakt@gotovalues.com");
     assert.match(siteContent.contact.signals[1]?.value ?? "", /24h/i);
   });
 
-  test("keeps offer and proof anchored in operational problems", () => {
+  test("keeps offer anchored in small-business IT services and optional automation", () => {
     const offerText = siteContent.offer.pillars.map((pillar) => `${pillar.title} ${pillar.description} ${pillar.bullets.join(" ")}`).join(" ");
-    assert.match(offerText, /dokument|dane|ręczn|wyjątk|status/i);
+    assert.match(offerText, /sieci|Wi-Fi|naprawa|helpdesk|backup|automatyzac/i);
     assert.deepEqual(siteContent.proofOfCompetence.items.map((item) => item.name), ["Cavi", "Akta"]);
     assert.equal(siteContent.proofOfCompetence.items.filter((item) => Boolean(item.url)).length, 2);
     assert.ok(siteContent.proofOfCompetence.items.every((item) => item.summary.length <= 90));

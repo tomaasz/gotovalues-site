@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: `%s | ${brandName}`,
   },
   description:
-    "Aplikacje webowe i automatyzacja procesów dla firm, które porządkują dokumenty, statusy i ręczną pracę.",
+    "Wsparcie IT dla małych firm i JDG: sieci i Wi-Fi, naprawa komputerów, zdalny i lokalny helpdesk, poczta, backup oraz proste narzędzia i automatyzacja.",
   metadataBase: new URL("https://gotovalues.com"),
   alternates: {
     canonical: "/",
@@ -53,7 +53,8 @@ export const metadata: Metadata = {
   manifest: "/favicon/site.webmanifest",
   openGraph: {
     title: brandName,
-    description: "Aplikacje webowe i automatyzacja procesów dla firm, które porządkują dokumenty, statusy i ręczną pracę.",
+    description:
+      "Wsparcie IT dla małych firm i JDG: sieci i Wi-Fi, naprawa komputerów, zdalny i lokalny helpdesk, poczta, backup oraz proste narzędzia.",
     url: "https://gotovalues.com",
     siteName: brandName,
     locale: "pl_PL",
@@ -63,14 +64,15 @@ export const metadata: Metadata = {
         url: "/images/og.png",
         width: 1200,
         height: 630,
-        alt: "gotovalues — gotowe wdrożenia AI dla MŚP",
+        alt: "gotovalues — wsparcie IT dla małych firm i JDG",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: brandName,
-    description: "Dedykowane aplikacje webowe i narzędzia AI dla firm, które chcą uporządkować dokumenty, workflow i ręczną pracę w procesach operacyjnych.",
+    description:
+      "Wsparcie IT dla małych firm i JDG: sieci, naprawa komputerów, zdalny i lokalny helpdesk, backup oraz proste narzędzia.",
     images: ["/images/og.png"],
   },
   robots: {
@@ -87,7 +89,7 @@ const jsonLd = {
       "@id": "https://gotovalues.com/#website",
       "name": brandName,
       "url": "https://gotovalues.com",
-      "description": "Aplikacje webowe i automatyzacja procesów dla firm, które porządkują dokumenty, statusy i ręczną pracę.",
+      "description": "Wsparcie IT dla małych firm i JDG: sieci, naprawa komputerów, zdalny i lokalny helpdesk, backup oraz proste narzędzia i automatyzacja.",
       "inLanguage": "pl",
       "publisher": { "@id": "https://gotovalues.com/#org" },
       "sameAs": [
@@ -103,7 +105,7 @@ const jsonLd = {
       "url": "https://gotovalues.com",
       "image": "https://gotovalues.com/images/og.png",
       "email": "kontakt@gotovalues.com",
-      "description": "Aplikacje webowe i automatyzacja procesów dla małych i średnich firm w Polsce.",
+      "description": "Kompleksowe usługi IT dla małych firm i JDG: sieci i Wi-Fi, naprawa komputerów, helpdesk zdalny i na miejscu, poczta, kopie zapasowe oraz automatyzacja.",
       "areaServed": "PL",
       "inLanguage": "pl",
       "sameAs": [
@@ -112,11 +114,12 @@ const jsonLd = {
         "https://www.facebook.com/gotovalues"
       ],
       "knowsAbout": [
-        "automatyzacja procesów",
-        "aplikacje webowe dla firm",
-        "AI dla firm",
-        "dashboardy analityczne",
-        "integracja systemów IT"
+        "usługi IT dla małych firm i JDG",
+        "sieci komputerowe i Wi-Fi",
+        "naprawa i konfiguracja komputerów",
+        "zdalny i lokalny helpdesk IT",
+        "kopie zapasowe i poczta firmowa",
+        "automatyzacja i proste narzędzia webowe"
       ],
       "founder": {
         "@type": "Person",

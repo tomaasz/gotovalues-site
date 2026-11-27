@@ -27,52 +27,62 @@ export type ProductCard = {
 export const siteContent = {
   brand: {
     name: brandName,
-    angle: "Dokumenty, statusy i dane bez ręcznego pilnowania.",
-    eyebrow: "Dla firm produkcyjnych i przetwórczych.",
-    headline: "Porządkuję dokumenty, ręczną pracę, statusy i wyjątki.",
+    angle: "Sieci, komputery, helpdesk zdalny i na miejscu dla małych firm oraz JDG.",
+    eyebrow: "Wsparcie IT dla małych firm i JDG.",
+    headline: "Sprawne IT dla małej firmy i JDG.",
     intro:
-      "Dobieram najprostsze narzędzie do konkretnego procesu: aplikację webową, integrację albo praktyczne AI.",
+      "Sieci i Wi-Fi, naprawa i konfiguracja komputerów, zdalny i lokalny helpdesk, poczta oraz kopie zapasowe — a dodatkowo proste narzędzia i automatyzacja.",
     cta: {
       primary: {
         label: "Napisz",
         href: "#kontakt",
       },
       secondary: {
-        label: "Zobacz działające przykłady",
-        href: "#produkty",
+        label: "Zobacz zakres usług",
+        href: "#oferta",
       },
     },
   },
   offer: {
     pillars: [
       {
-        title: "Dokumenty i dane",
+        title: "Sieci, Wi-Fi i sprzęt biurowy",
         description:
-          "Porządkuję informacje rozproszone między mailami, arkuszami i systemami.",
+          "Konfiguruję i porządkuję sieć w biurze, domu-biurze lub warsztacie — tak, żeby internet, drukarki i urządzenia po prostu działały.",
         bullets: [
-          "odczyt i walidacja dokumentów",
-          "jedno miejsce dla statusów i decyzji",
-          "dane gotowe do dalszej pracy",
+          "routery, stabilne Wi-Fi, okablowanie i bezpieczny dostęp zdalny (VPN)",
+          "drukarki sieciowe, skanery i współdzielone pliki firmowe (NAS)",
+          "rozdzielenie sieci firmowej od sieci dla gości",
         ],
       },
       {
-        title: "Ręczna praca i wyjątki",
+        title: "Naprawa i konfiguracja komputerów",
         description:
-          "Skracam czynności, które zespół codziennie przepisuje, sprawdza i poprawia.",
+          "Pomagam, gdy komputer zwolnił, nie startuje albo trzeba szybko przygotować nowe stanowisko do pracy bez tracenia całego dnia.",
         bullets: [
-          "workflow dla powtarzalnych zadań",
-          "obsługa wyjątków zamiast ukrywania ich w skrzynce",
-          "alerty, gdy status wymaga reakcji",
+          "diagnostyka, serwis, naprawa i przyspieszanie komputerów oraz laptopów",
+          "instalacja systemu, przeniesienie danych i konfiguracja programów",
+          "doradztwo przy zakupie sprzętu dopasowanego do budżetu firmy",
         ],
       },
       {
-        title: "Narzędzie dopasowane do procesu",
+        title: "Zdalny i lokalny helpdesk IT",
         description:
-          "Jeśli gotowy system nie wystarcza, dokładam lekką aplikację, integrację lub AI.",
+          "Stała lub doraźna pomoc dla małych firm i JDG — większość spraw rozwiązuję zdalnie od ręki, a gdy trzeba, przyjeżdżam na miejsce.",
         bullets: [
-          "własny widok dla pracy operacyjnej",
-          "integracje bez wymiany całego środowiska",
-          "AI z kontrolą jakości danych",
+          "szybka pomoc zdalna przy codziennych awariach, błędach i aktualizacjach",
+          "poczta we własnej domenie, Microsoft 365 i Google Workspace",
+          "automatyczne kopie zapasowe (backup) i podstawowe bezpieczeństwo danych",
+        ],
+      },
+      {
+        title: "Automatyzacja i proste narzędzia",
+        description:
+          "Gdy poza sprawnym IT chcesz ograniczyć ręczne przepisywanie danych, dokładam prostą stronę, integrację albo lekkie narzędzie.",
+        bullets: [
+          "proste strony wizytówki i formularze kontaktowe dla małej firmy",
+          "łączenie poczty, arkuszy i programów, z których już korzystasz",
+          "praktyczne usprawnienia i AI tam, gdzie realnie oszczędzają czas",
         ],
       },
     ] satisfies OfferPillar[],
@@ -138,67 +148,67 @@ export const siteContent = {
     ] satisfies ProductCard[],
   },
   approach: {
-    eyebrow: "Podejście techniczne",
-    headline: "Proste w utrzymaniu",
+    eyebrow: "Jak pracuję",
+    headline: "Prosto, rzetelnie i bez infolinii",
     points: [
       {
-        title: "Nowoczesny stack, niskie koszty",
+        title: "Jeden kontakt zamiast infolinii",
         description:
-          "Dobieram React, Next.js, Python i PostgreSQL do zakresu procesu, żeby rozwiązanie było łatwe w utrzymaniu.",
+          "Rozmawiasz bezpośrednio ze mną — bez przekierowań i tłumaczenia problemu za każdym razem od nowa.",
       },
       {
-        title: "Od automatyzacji do własnej aplikacji",
+        title: "Zdalnie od ręki, lokalnie na miejscu",
         description:
-          "Zaczynam od gotowych integracji. Gdy proces potrzebuje własnego widoku albo logiki, dokładam lekką aplikację webową.",
+          "Większość spraw z komputerem, pocztą czy programami rozwiązuję zdalnie. Przy sieci i sprzęcie przyjeżdżam na miejsce.",
       },
       {
-        title: "Bezpieczeństwo od pierwszego dnia",
+        title: "Kopie zapasowe i bezpieczeństwo",
         description:
-          "Walidacja danych, kontrola dostępu i nagłówki bezpieczeństwa są częścią wdrożenia.",
+          "Pilnuję aktualizacji, bezpiecznego Wi-Fi i automatycznego backupu, żeby awaria dysku nie zatrzymała firmy.",
       },
       {
-        title: "Monitoring i kontrola jakości",
+        title: "Prosty język i jasna wycena",
         description:
-          "Śledzenie błędów i alerty pokazują, co działa i co wymaga uwagi.",
+          "Tłumaczę po ludzku, co się stało i jakie są opcje. Zawsze wiesz z góry, ile kosztuje usługa.",
       },
       {
-        title: "Łatwe do rozbudowy",
+        title: "Od sprawnej sieci po proste narzędzia",
         description:
-          "Czytelny kod, testy i dokumentacja ułatwiają dalszą rozbudowę.",
+          "Kiedy sprzęt i sieć już działają, mogę też zrobić prostą stronę, spiąć programy albo zautomatyzować powtarzalną pracę.",
       },
     ] satisfies ApproachPoint[],
   },
   about: {
     title: "O mnie",
-    headline: "Tomasz Gołaszewski. Porządkuję procesy i buduję narzędzia.",
-    role: "Tomasz Gołaszewski — niezależnie pomagam firmom uporządkować pracę operacyjną.",
+    headline: "Tomasz Gołaszewski. Twój lokalny i zdalny partner IT.",
+    role: "Tomasz Gołaszewski — kompleksowe wsparcie IT dla małych firm i JDG.",
     profileLink: {
       label: "Zobacz profil na LinkedIn",
       href: "https://www.linkedin.com/in/tomasz-golaszewski/",
     },
     summary:
-      "Znam pracę z dokumentami, aktywami i danymi, dlatego zaczynam od procesu, nie od technologii.",
+      "Łączę codzienne wsparcie IT — sieci, naprawy komputerów i pomoc zdalną — z praktycznym doświadczeniem w porządkowaniu danych i prostych narzędzi.",
     points: [
       {
-        label: "Procesy",
+        label: "Sprzęt i sieci",
         value:
-          "leasing, asset management, wycena i cyfryzacja pracy operacyjnej.",
+          "routery, Wi-Fi, drukarki, serwis, naprawa i przygotowanie komputerów do pracy.",
       },
       {
-        label: "Dane",
+        label: "Helpdesk i opieka",
         value:
-          "dokumenty, statusy i informacje, które muszą być dostępne i sprawdzalne.",
+          "szybka pomoc zdalna i na miejscu, poczta firmowa, backup i bezpieczeństwo danych.",
       },
       {
         label: "Narzędzia",
         value:
-          "aplikacje webowe, integracje i AI dobrane do konkretnego zadania.",
+          "proste strony, integracje i automatyzacje jako uzupełnienie codziennego wsparcia IT.",
       },
     ],
   },
   contact: {
     intro:
-      "Opisz jeden proces, który dziś zabiera zespołowi za dużo ręcznej pracy. Odpowiem, czy wystarczy gotowe narzędzie, integracja, automatyzacja albo lekka aplikacja.",
+      "Napisz krótko, z czym masz problem — rwie się sieć, komputer wymaga serwisu, trzeba skonfigurować pocztę lub backup albo szukasz stałego wsparcia IT dla swojej firmy.",
     signals: [
       {
         label: "E-mail",
@@ -210,26 +220,26 @@ export const siteContent = {
         value: "Odpowiadam w 24h w dni robocze.",
       },
       {
-        label: "Tryb współpracy",
-        value: "Pracuję zdalnie i bezpośrednio z firmami z Warszawy, Mazowsza i całej Polski.",
+        label: "Obszar działania",
+        value: "Lokalnie na miejscu oraz zdalnie w całej Polsce.",
       },
     ],
   },
   aiSummary: {
-    title: "gotovalues — aplikacje webowe i automatyzacja procesów",
+    title: "gotovalues — wsparcie IT dla małych firm i JDG",
     positioning:
-      "gotovalues buduje aplikacje webowe, automatyzuje procesy i dobiera AI tam, gdzie skraca pracę.",
+      "gotovalues świadczy usługi IT dla małych firm i JDG: sieci i Wi-Fi, naprawa komputerów, helpdesk zdalny i na miejscu, backup oraz dodatkowo proste narzędzia i automatyzacja AI.",
     sitemap: "https://gotovalues.com/sitemap.xml",
     bestFor: [
-      "firmy, które tracą czas na dokumenty, statusy, wyjątki i ręczne przepisywanie danych",
-      "zespoły potrzebujące prostego narzędzia webowego zamiast dużego systemu enterprise",
-      "procesy, w których AI lub OCR skraca pracę i wymaga kontroli jakości",
+      "małe firmy i jednoosobowe działalności (JDG) potrzebujące rzetelnego wsparcia IT bez zatrudniania informatyka na etat",
+      "biura i lokalne firmy z problemami z siecią Wi-Fi, komputerami, drukarkami, pocztą firmową lub kopiami zapasowymi",
+      "firmy szukające zdalnego helpdesku oraz opcjonalnie prostych stron, integracji lub automatyzacji",
     ],
     notFor: [
-      "projekty wymagające dużego zespołu wdrożeniowego",
-      "AI bez jasno opisanego procesu",
+      "duże korporacje wymagające całodobowego zespołu serwisowego 24/7 w wielu lokalizacjach",
+      "rozległe wdrożenia systemów ERP dla setek użytkowników",
     ],
-    proof: ["Cavi", "Akta", "prywatne workflow OCR i normalizacji dokumentów"],
+    proof: ["sieci i Wi-Fi", "naprawa i konfiguracja komputerów", "zdalny i lokalny helpdesk IT"],
   },
   proofOfCompetence: {
     eyebrow: "Proof of competence",

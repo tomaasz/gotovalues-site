@@ -41,64 +41,64 @@ type Revision = {
 const BOX_W = 120;
 const BOX_H = 40;
 
-const DECISION: DrawingNode = { id: 'decision', label: 'Decyzja', x: 440, y: 290, kind: 'decision' };
+const DECISION: DrawingNode = { id: 'decision', label: 'Spokojna praca', x: 432, y: 290, w: 128, kind: 'decision' };
 
 const REVISIONS: Revision[] = [
   {
     id: '0',
     name: 'Stan obecny',
-    when: 'dokumenty i statusy żyją między Excelem, mailem i PDF-ami',
-    dimension: 'dziś: cztery źródła, ręczne przepisywanie, decyzja bez pełnych danych',
+    when: 'rwie Wi-Fi, wolny komputer, brak kopii i wszystko na Twojej głowie',
+    dimension: 'dziś: awarie sprzętu, słaba sieć i szukanie rozwiązań po godzinach',
     reachesValue: false,
     nodes: [
-      { id: 'excel', label: 'Excel', x: 30, y: 30, kind: 'source' },
-      { id: 'mail', label: 'E-mail', x: 240, y: 30, kind: 'source' },
-      { id: 'pdf', label: 'PDF', x: 440, y: 30, kind: 'source' },
-      { id: 'erp', label: 'ERP / TMS', x: 30, y: 170, kind: 'source' },
-      { id: 'manual', label: 'przepisywanie', x: 240, y: 170, kind: 'manual' },
+      { id: 'wifi', label: 'Wi-Fi / sieć', x: 30, y: 30, kind: 'source' },
+      { id: 'pc', label: 'Komputery', x: 240, y: 30, kind: 'source' },
+      { id: 'mail', label: 'Poczta / pliki', x: 440, y: 30, kind: 'source' },
+      { id: 'printer', label: 'Drukarka', x: 30, y: 170, kind: 'source' },
+      { id: 'manual', label: 'awarie i gaszenie', x: 230, y: 170, w: 140, kind: 'manual' },
       DECISION,
     ],
     edges: [
       { points: [[90, 70], [90, 120], [270, 120], [270, 170]], manual: true },
       { points: [[300, 70], [300, 170]], manual: true },
       { points: [[500, 70], [500, 130], [330, 130], [330, 170]], manual: true },
-      { points: [[150, 190], [240, 190]], manual: true },
+      { points: [[150, 190], [230, 190]], manual: true },
       { points: [[240, 50], [150, 50]], manual: true },
       { points: [[440, 60], [410, 60], [410, 150], [90, 150], [90, 170]], manual: true },
-      { points: [[360, 190], [400, 190], [400, 250], [500, 250], [500, 290]], manual: true },
+      { points: [[370, 190], [400, 190], [400, 250], [496, 250], [496, 290]], manual: true },
     ],
   },
   {
     id: 'A',
-    name: 'Gotowe narzędzie',
-    when: 'gdy problem rozwiąże konfiguracja narzędzia, które już istnieje',
-    dimension: 'rewizja A: jedno gotowe narzędzie zamiast trzech miejsc',
+    name: 'Sieć i serwis',
+    when: 'gdy trzeba naprawić komputer, ustabilizować Wi-Fi lub podłączyć biuro',
+    dimension: 'rewizja A: stabilna sieć, sprawny sprzęt i skonfigurowane stanowiska',
     reachesValue: true,
     nodes: [
-      { id: 'excel', label: 'Excel', x: 30, y: 30, kind: 'source' },
-      { id: 'mail', label: 'E-mail', x: 240, y: 30, kind: 'source' },
-      { id: 'pdf', label: 'PDF', x: 440, y: 30, kind: 'source' },
-      { id: 'tool', label: 'gotowe narzędzie', x: 210, y: 160, w: 180, kind: 'tool' },
+      { id: 'wifi', label: 'Wi-Fi / sieć', x: 30, y: 30, kind: 'source' },
+      { id: 'pc', label: 'Komputery', x: 240, y: 30, kind: 'source' },
+      { id: 'printer', label: 'Drukarka', x: 440, y: 30, kind: 'source' },
+      { id: 'infra', label: 'sprawna sieć i sprzęt', x: 205, y: 160, w: 190, kind: 'tool' },
       DECISION,
     ],
     edges: [
-      { points: [[90, 70], [90, 180], [210, 180]] },
+      { points: [[90, 70], [90, 180], [205, 180]] },
       { points: [[300, 70], [300, 160]] },
-      { points: [[500, 70], [500, 180], [390, 180]] },
-      { points: [[300, 200], [300, 310], [440, 310]], accent: true },
+      { points: [[500, 70], [500, 180], [395, 180]] },
+      { points: [[300, 200], [300, 310], [432, 310]], accent: true },
     ],
   },
   {
     id: 'B',
-    name: 'Integracja',
-    when: 'gdy wystarczy połączyć systemy, które już macie',
-    dimension: 'rewizja B: istniejące systemy połączone, dane płyną bez przepisywania',
+    name: 'Helpdesk zdalny',
+    when: 'gdy chcesz mieć jedną osobę pod ręką do codziennych problemów IT',
+    dimension: 'rewizja B: szybka pomoc zdalna, poczta i automatyczne kopie zapasowe',
     reachesValue: true,
     nodes: [
-      { id: 'erp', label: 'ERP / TMS', x: 30, y: 30, kind: 'source' },
-      { id: 'mail', label: 'E-mail', x: 240, y: 30, kind: 'source' },
-      { id: 'pdf', label: 'PDF', x: 440, y: 30, kind: 'source' },
-      { id: 'report', label: 'statusy w jednym miejscu', x: 200, y: 200, w: 200, kind: 'tool' },
+      { id: 'pc', label: 'Komputery', x: 30, y: 30, kind: 'source' },
+      { id: 'mail', label: 'Poczta / domena', x: 235, y: 30, w: 130, kind: 'source' },
+      { id: 'backup', label: 'Kopie (backup)', x: 440, y: 30, kind: 'source' },
+      { id: 'helpdesk', label: 'helpdesk zdalny + opieka', x: 195, y: 200, w: 210, kind: 'tool' },
       DECISION,
     ],
     edges: [
@@ -107,27 +107,27 @@ const REVISIONS: Revision[] = [
       { points: [[300, 70], [300, 140]] },
       { points: [[500, 70], [500, 140]] },
       { points: [[300, 140], [300, 200]] },
-      { points: [[400, 220], [500, 220], [500, 290]], accent: true },
+      { points: [[405, 220], [496, 220], [496, 290]], accent: true },
     ],
   },
   {
     id: 'C',
-    name: 'Własna aplikacja',
-    when: 'tylko gdy realny proces tego wymaga',
-    dimension: 'rewizja C: lekka aplikacja tylko dla tego procesu',
+    name: 'Narzędzia i www',
+    when: 'gdy poza obsługą IT potrzebujesz strony, integracji albo automatyzacji',
+    dimension: 'rewizja C: sprawne IT + proste narzędzie lub automatyzacja pod firmę',
     reachesValue: true,
     nodes: [
-      { id: 'mail', label: 'E-mail', x: 30, y: 30, kind: 'source' },
-      { id: 'pdf', label: 'PDF', x: 240, y: 30, kind: 'source' },
-      { id: 'ocr', label: 'odczyt + walidacja', x: 30, y: 160, w: 150, kind: 'manual' },
-      { id: 'app', label: 'lekka aplikacja', x: 250, y: 150, w: 170, h: 60, kind: 'app' },
+      { id: 'mail', label: 'Poczta / pliki', x: 30, y: 30, kind: 'source' },
+      { id: 'sheet', label: 'Arkusze', x: 240, y: 30, kind: 'source' },
+      { id: 'auto', label: 'automatyzacja', x: 30, y: 160, w: 150, kind: 'manual' },
+      { id: 'app', label: 'strona / narzędzie', x: 245, y: 150, w: 175, h: 60, kind: 'app' },
       DECISION,
     ],
     edges: [
       { points: [[90, 70], [90, 160]] },
       { points: [[300, 70], [300, 110], [150, 110], [150, 160]] },
-      { points: [[180, 180], [250, 180]] },
-      { points: [[420, 180], [500, 180], [500, 290]], accent: true },
+      { points: [[180, 180], [245, 180]] },
+      { points: [[420, 180], [496, 180], [496, 290]], accent: true },
     ],
   },
 ];
@@ -227,12 +227,12 @@ export function ProcessDrawing() {
         </ol>
         <p className="gv-legend-note">
           <span className="gv-legend-swatch gv-legend-swatch-manual" aria-hidden="true" /> linia kreskowa i kreskowanie:
-          praca ręczna
+          awarie i ręczne poprawki
         </p>
       </div>
 
       <fieldset className="gv-revisions">
-        <legend>Tabela zmian: wybierz rewizję procesu</legend>
+        <legend>Tabela zmian: zobacz, jak porządkuję IT w firmie</legend>
         <div className="gv-revisions-head" aria-hidden="true">
           <span>Rew.</span>
           <span>Rozwiązanie</span>

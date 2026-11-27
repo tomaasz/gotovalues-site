@@ -30,7 +30,7 @@ export function TitleBlockForm() {
       setStatus({
         kind: 'error',
         invalidMessage: true,
-        message: `Opisz proces w co najmniej ${MIN_MESSAGE} znakach: co dziś robicie ręcznie i gdzie to boli.`,
+        message: `Opisz krótko problem w co najmniej ${MIN_MESSAGE} znakach — np. z czym masz kłopot (sieć, komputer, poczta, pomoc zdalna).`,
       });
       return;
     }
@@ -78,7 +78,7 @@ export function TitleBlockForm() {
   return (
     <form className="gv-title-form" onSubmit={handleSubmit} noValidate={false} aria-describedby="gv-title-form-status">
       <div className="gv-tb-cell gv-tb-message">
-        <label htmlFor="gv-tb-message">Opisz jeden proces</label>
+        <label htmlFor="gv-tb-message">W czym mogę pomóc?</label>
         <textarea
           id="gv-tb-message"
           name="message"
@@ -87,7 +87,7 @@ export function TitleBlockForm() {
           minLength={MIN_MESSAGE}
           maxLength={5000}
           aria-invalid={status.invalidMessage ? true : undefined}
-          placeholder="Np. dokumenty przychodzą mailem; statusy prowadzimy w Excelu; wyjątki giną między narzędziami…"
+          placeholder="Np. rwie się Wi-Fi w biurze, komputer wolno działa, trzeba ustawić pocztę i backup albo szukam zdalnego wsparcia IT…"
         />
       </div>
       <div className="gv-tb-cell">
@@ -95,7 +95,7 @@ export function TitleBlockForm() {
         <input id="gv-tb-name" name="name" autoComplete="given-name" required minLength={2} maxLength={100} />
       </div>
       <div className="gv-tb-cell">
-        <label htmlFor="gv-tb-email">E-mail służbowy</label>
+        <label htmlFor="gv-tb-email">E-mail</label>
         <input id="gv-tb-email" name="email" type="email" autoComplete="email" required maxLength={255} />
       </div>
       <div className="gv-tb-cell">
