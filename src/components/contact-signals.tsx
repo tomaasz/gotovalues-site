@@ -1,3 +1,4 @@
+import { PhoneReveal } from "@/components/phone-reveal";
 import { siteContent } from "@/content/site";
 
 export function ContactSignals() {
@@ -5,6 +6,10 @@ export function ContactSignals() {
 
   return (
     <div className="about-points">
+      <div>
+        <strong>Telefon</strong>
+        <PhoneReveal />
+      </div>
       {contactSignals.map((signal) => (
         <div key={signal.label}>
           <strong>{signal.label}</strong>

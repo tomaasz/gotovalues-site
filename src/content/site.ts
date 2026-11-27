@@ -31,7 +31,7 @@ export const siteContent = {
     eyebrow: "Wsparcie IT dla małych firm i JDG.",
     headline: "Sprawne IT dla małej firmy i JDG.",
     intro:
-      "Sieci i Wi-Fi, naprawa i konfiguracja komputerów, zdalny i lokalny helpdesk, poczta oraz kopie zapasowe — a dodatkowo proste narzędzia i automatyzacja.",
+      "Sieci i Wi-Fi, naprawa i konfiguracja komputerów, zdalny i lokalny helpdesk (Zabrodzie, powiat wyszkowski i okolice), poczta oraz kopie zapasowe — a dodatkowo proste narzędzia i automatyzacja.",
     cta: {
       primary: {
         label: "Napisz",
@@ -221,14 +221,14 @@ export const siteContent = {
       },
       {
         label: "Obszar działania",
-        value: "Lokalnie na miejscu oraz zdalnie w całej Polsce.",
+        value: "Zabrodzie, powiat wyszkowski i okolice (na miejscu) oraz zdalnie w całej Polsce.",
       },
     ],
   },
   aiSummary: {
     title: "gotovalues — wsparcie IT dla małych firm i JDG",
     positioning:
-      "gotovalues świadczy usługi IT dla małych firm i JDG: sieci i Wi-Fi, naprawa komputerów, helpdesk zdalny i na miejscu, backup oraz dodatkowo proste narzędzia i automatyzacja AI.",
+      "gotovalues świadczy usługi IT dla małych firm i JDG (Zabrodzie, powiat wyszkowski na miejscu oraz zdalnie w całej Polsce): sieci i Wi-Fi, naprawa komputerów, helpdesk, backup oraz dodatkowo proste narzędzia i automatyzacja AI.",
     sitemap: "https://gotovalues.com/sitemap.xml",
     bestFor: [
       "małe firmy i jednoosobowe działalności (JDG) potrzebujące rzetelnego wsparcia IT bez zatrudniania informatyka na etat",

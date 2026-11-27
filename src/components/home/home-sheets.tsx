@@ -1,6 +1,7 @@
 import { ContactFormLazy } from '@/components/contact-form-lazy';
 import { ProcessDrawing } from '@/components/home/process-drawing';
 import { TitleBlockForm } from '@/components/home/title-block-form';
+import { PhoneReveal } from '@/components/phone-reveal';
 import { ProductCard } from '@/components/product-card';
 import { faqs } from '@/content/faq';
 import { siteContent } from '@/content/site';
@@ -53,7 +54,7 @@ export function DrawingSheet() {
             </div>
             <div>
               <dt>Obszar</dt>
-              <dd>lokalnie na miejscu i zdalnie</dd>
+              <dd>Zabrodzie, pow. wyszkowski + zdalnie</dd>
             </div>
             <div>
               <dt>Firma</dt>
@@ -213,6 +214,12 @@ export function ContactSheet() {
         <h2 id="gv-contact-title">Opisz, z czym potrzebujesz pomocy</h2>
         <p>{contact.intro}</p>
         <dl className="gv-author-table">
+          <div>
+            <dt>Telefon</dt>
+            <dd>
+              <PhoneReveal />
+            </dd>
+          </div>
           {contact.signals.map((signal) => (
             <div key={signal.label}>
               <dt>{signal.label}</dt>

@@ -116,6 +116,9 @@ describe("site content", () => {
     assert.equal("detail" in siteContent.about, false);
     assert.equal(siteContent.contact.signals[0]?.value, "kontakt@gotovalues.com");
     assert.match(siteContent.contact.signals[1]?.value ?? "", /24h/i);
+    assert.match(siteContent.contact.signals[2]?.value ?? "", /Zabrodzie/i);
+    assert.match(siteContent.contact.signals[2]?.value ?? "", /wyszkowski/i);
+    assert.equal(/600\s*468\s*473/.test(JSON.stringify(siteContent)), false);
   });
 
   test("keeps offer anchored in small-business IT services and optional automation", () => {

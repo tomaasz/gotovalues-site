@@ -4,7 +4,7 @@ export const faqs = [
   // KATEGORIA 1: WSPÓŁPRACA I KOSZTY
   {
     q: 'Czy pomagasz zdalnie, czy też na miejscu?',
-    a: 'Jedno i drugie. Większość codziennych problemów z komputerem, pocztą, programami czy uprawnieniami rozwiązuję zdalnie od ręki — na terenie całej Polski. Gdy sprawa wymaga pracy fizycznej (sieć, Wi-Fi, okablowanie, drukarka, serwis sprzętu), przyjeżdżam lokalnie na miejsce.',
+    a: 'Jedno i drugie. Większość codziennych problemów z komputerem, pocztą, programami czy uprawnieniami rozwiązuję zdalnie od ręki — na terenie całej Polski. Gdy sprawa wymaga pracy fizycznej (sieć, Wi-Fi, okablowanie, drukarka, serwis sprzętu), przyjeżdżam na miejsce — działam w Zabrodziu, powiecie wyszkowskim i okolicach.',
     badge: 'Zdalnie i na miejscu',
     category: 'Współpraca i Koszty' as const,
   },

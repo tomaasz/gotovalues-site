@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: `%s | ${brandName}`,
   },
   description:
-    "Wsparcie IT dla małych firm i JDG: sieci i Wi-Fi, naprawa komputerów, zdalny i lokalny helpdesk, poczta, backup oraz proste narzędzia i automatyzacja.",
+    "Wsparcie IT dla małych firm i JDG — Zabrodzie, powiat wyszkowski i zdalnie w całej Polsce: sieci i Wi-Fi, naprawa komputerów, helpdesk, poczta, backup oraz proste narzędzia.",
   metadataBase: new URL("https://gotovalues.com"),
   alternates: {
     canonical: "/",
@@ -105,8 +105,14 @@ const jsonLd = {
       "url": "https://gotovalues.com",
       "image": "https://gotovalues.com/images/og.png",
       "email": "kontakt@gotovalues.com",
-      "description": "Kompleksowe usługi IT dla małych firm i JDG: sieci i Wi-Fi, naprawa komputerów, helpdesk zdalny i na miejscu, poczta, kopie zapasowe oraz automatyzacja.",
-      "areaServed": "PL",
+      "description": "Kompleksowe usługi IT dla małych firm i JDG (Zabrodzie, powiat wyszkowski na miejscu oraz zdalnie w całej Polsce): sieci i Wi-Fi, naprawa komputerów, helpdesk, poczta, kopie zapasowe oraz automatyzacja.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Zabrodzie",
+        "addressRegion": "mazowieckie",
+        "addressCountry": "PL"
+      },
+      "areaServed": ["Zabrodzie", "powiat wyszkowski", "PL"],
       "inLanguage": "pl",
       "sameAs": [
         "https://www.linkedin.com/in/tomasz-golaszewski/",
