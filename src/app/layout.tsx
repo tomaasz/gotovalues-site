@@ -94,7 +94,6 @@ const jsonLd = {
       "inLanguage": "pl",
       "publisher": { "@id": "https://gotovalues.com/#org" },
       "sameAs": [
-        "https://www.linkedin.com/in/tomasz-golaszewski/",
         "https://github.com/gotovalues",
         "https://www.facebook.com/gotovalues"
       ]
@@ -117,7 +116,6 @@ const jsonLd = {
       "areaServed": "PL",
       "inLanguage": "pl",
       "sameAs": [
-        "https://www.linkedin.com/in/tomasz-golaszewski/",
         "https://github.com/gotovalues",
         "https://www.facebook.com/gotovalues"
       ],
@@ -128,12 +126,7 @@ const jsonLd = {
         "praktyczne wdrożenia AI",
         "zdalne wsparcie IT dla małych firm i JDG",
         "poczta firmowa i kopie zapasowe"
-      ],
-      "founder": {
-        "@type": "Person",
-        "name": "Tomasz Gołaszewski",
-        "url": "https://www.linkedin.com/in/tomasz-golaszewski/"
-      }
+      ]
     }
   ]
 };

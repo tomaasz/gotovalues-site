@@ -78,11 +78,10 @@ describe("site content", () => {
     assert.match(siteContent.aiSummary.sitemap, /^https:\/\/gotovalues\.com\/sitemap\.xml$/);
   });
 
-  test("keeps concise trust signals in about and contact without unverified absolutes or raw phone", () => {
-    assert.match(siteContent.about.role, /Tomasz Gołaszewski/i);
-    assert.match(siteContent.about.profileLink.href, /linkedin\.com/i);
+  test("keeps concise trust signals in about and contact without personal surname, unverified absolutes or raw phone", () => {
+    assert.match(siteContent.about.headline, /gotovalues/i);
     assert.ok(siteContent.about.points.length <= 3);
-    assert.equal(/leasing|wycen/i.test(JSON.stringify(siteContent.about)), false);
+    assert.equal(/leasing|wycen|gołaszew|golaszew|linkedin\.com\/in\//i.test(JSON.stringify(siteContent.about)), false);
     assert.equal(siteContent.contact.signals[0]?.value, "kontakt@gotovalues.com");
     assert.match(siteContent.contact.signals[1]?.value ?? "", /dni robocze/i);
     assert.equal(/24h/i.test(siteContent.contact.signals[1]?.value ?? ""), false);

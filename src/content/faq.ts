@@ -15,7 +15,7 @@ export const faqs = [
   },
   {
     q: 'Jak wygląda wycena i rozliczenie?',
-    a: 'Po krótkim opisie problemu przygotowuję propozycję zakresu i wycenę przed startem — za zamknięty etap albo w rozliczeniu godzinowym przy doraźnych pracach zdalnych. Rozliczamy się na fakturę.',
+    a: 'Po krótkim opisie problemu przygotowuję propozycję zakresu i wycenę przed startem — za zamknięty etap albo w rozliczeniu godzinowym przy doraźnych pracach zdalnych. Warunki i formę rozliczenia ustalamy jasno przed rozpoczęciem prac.',
     badge: 'Jasny zakres i wycena',
     category: 'Współpraca i Koszty' as const,
   },

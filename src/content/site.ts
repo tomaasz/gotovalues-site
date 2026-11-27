@@ -158,12 +158,8 @@ export const siteContent = {
   },
   about: {
     title: "O mnie",
-    headline: "Tomasz Gołaszewski. Jeden kontakt od rozmowy po wdrożenie.",
-    role: "Tomasz Gołaszewski — automatyzacja, aplikacje webowe i zdalne wsparcie IT.",
-    profileLink: {
-      label: "Zobacz profil na LinkedIn",
-      href: "https://www.linkedin.com/in/tomasz-golaszewski/",
-    },
+    headline: "gotovalues — jeden bezpośredni kontakt od rozmowy po wdrożenie.",
+    role: "Niezależny specjalista — automatyzacja, aplikacje webowe i zdalne wsparcie IT.",
     summary:
       "Pracuję bezpośrednio z firmami i osobami prywatnymi. Najpierw sprawdzam, gdzie dokładnie leży problem — a potem dobieram najprostsze rozwiązanie: od zdalnego wsparcia IT i konfiguracji narzędzi, przez integracje danych, po lekką aplikację webową.",
     points: [

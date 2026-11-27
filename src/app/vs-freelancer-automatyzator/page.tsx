@@ -28,8 +28,8 @@ const jsonLd = {
   "@type": "Service",
   name: "gotovalues — procesy, dane, aplikacje i zdalne IT dla firm",
   provider: {
-    "@type": "Person",
-    name: "Tomasz Gołaszewski",
+    "@type": "Organization",
+    name: "gotovalues",
     url: "https://gotovalues.com",
   },
   areaServed: "PL",

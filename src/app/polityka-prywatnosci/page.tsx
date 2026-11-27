@@ -2,12 +2,17 @@ import type { Metadata } from "next";
 
 import { SiteHeader } from "@/components/site-header";
 import { CookieSettingsButton } from "@/components/cookie-settings-button";
+import { OwnerReveal } from "@/components/owner-reveal";
 import { brandName } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Polityka prywatności",
   alternates: { canonical: "/polityka-prywatnosci" },
   description: `Polityka prywatności serwisu ${brandName} — informacje o przetwarzaniu danych osobowych zgodnie z RODO.`,
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function PrivacyPolicyPage() {
@@ -18,13 +23,13 @@ export default function PrivacyPolicyPage() {
       <article className="surface legal-page">
         <p className="eyebrow">Dokument prawny</p>
         <h1>Polityka prywatności</h1>
-        <p className="legal-updated">Ostatnia aktualizacja: 10 lipca 2026</p>
+        <p className="legal-updated">Ostatnia aktualizacja: 27 listopada 2026</p>
 
         <section>
           <h2>1. Administrator danych</h2>
           <p>
-            Administratorem danych osobowych jest Tomasz Gołaszewski, prowadzący działalność pod
-            marką {brandName}, adres e-mail:{" "}
+            Administratorem danych osobowych w serwisie {brandName} jest osoba fizyczna prowadząca
+            serwis (<OwnerReveal variant="inline" />), kontakt e-mail:{" "}
             <a href="mailto:kontakt@gotovalues.com">kontakt@gotovalues.com</a>.
           </p>
         </section>

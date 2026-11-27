@@ -39,9 +39,9 @@ export default async function BlogPostPage({
     description: post.description,
     datePublished: post.date,
     author: {
-      "@type": "Person",
-      name: "Tomasz Gołaszewski",
-      url: "https://www.linkedin.com/in/tomasz-golaszewski/",
+      "@type": "Organization",
+      name: "gotovalues",
+      url: "https://gotovalues.com",
     },
     publisher: {
       "@type": "Organization",

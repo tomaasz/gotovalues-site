@@ -1,6 +1,7 @@
 import { ContactFormLazy } from '@/components/contact-form-lazy';
 import { ProcessDrawing } from '@/components/home/process-drawing';
 import { TitleBlockForm } from '@/components/home/title-block-form';
+import { OwnerReveal } from '@/components/owner-reveal';
 import { PhoneReveal } from '@/components/phone-reveal';
 import { ProductCard } from '@/components/product-card';
 import { faqs } from '@/content/faq';
@@ -8,14 +9,6 @@ import { siteContent } from '@/content/site';
 
 const ZONES_X = ['A', 'B', 'C', 'D', 'E', 'F'] as const;
 const ZONES_Y = ['1', '2', '3', '4'] as const;
-
-function ExternalIcon() {
-  return (
-    <svg className="gv-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-      <path d="M6 3h7v7M13 3 4 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" />
-    </svg>
-  );
-}
 
 /** Sheet 1 — first viewport: the process drawing with its title block. */
 export function DrawingSheet() {
@@ -52,15 +45,15 @@ export function DrawingSheet() {
               <dd>procesy, dane, aplikacje, zdalne IT</dd>
             </div>
             <div>
-              <dt>Realizacja</dt>
-              <dd>Tomasz Gołaszewski</dd>
+              <dt>Kontakt</dt>
+              <dd>bezpośrednio, bez pośredników</dd>
             </div>
             <div>
               <dt>Tryb</dt>
               <dd>zdalnie · cała Polska</dd>
             </div>
             <div>
-              <dt>Firma</dt>
+              <dt>Marka</dt>
               <dd>gotovalues</dd>
             </div>
           </dl>
@@ -164,11 +157,7 @@ export function AuthorSheet() {
         <h2 id="gv-author-title">{about.title}</h2>
         <p className="gv-lede">{about.headline}</p>
         <p>{about.summary}</p>
-        <a className="gv-link" href={about.profileLink.href} target="_blank" rel="noopener noreferrer">
-          {about.profileLink.label}
-          <ExternalIcon />
-          <span className="sr-only"> (otwiera się w nowej karcie)</span>
-        </a>
+        <OwnerReveal variant="profile" />
       </div>
       <dl className="gv-author-table">
         <div>

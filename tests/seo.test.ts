@@ -83,15 +83,15 @@ describe("SEO config", () => {
     assert.match(ai, /https:\/\/gotovalues\.com\/llms\.txt/);
   });
 
-  test("layout.tsx includes valid Schema.org JSON-LD with verified sameAs profiles and descriptive title", () => {
+  test("layout.tsx includes valid Schema.org JSON-LD with brand profiles only and descriptive title", () => {
     const layoutPath = new URL("../src/app/layout.tsx", import.meta.url);
     const content = readFileSync(layoutPath, "utf-8");
 
     assert.match(content, /https:\/\/schema\.org/);
     assert.match(content, /sameAs/);
-    assert.match(content, /https:\/\/www\.linkedin\.com\/in\/tomasz-golaszewski\//);
     assert.match(content, /https:\/\/github\.com\/gotovalues/);
     assert.match(content, /https:\/\/www\.facebook\.com\/gotovalues/);
+    assert.equal(/gołaszew|golaszew|linkedin\.com\/in\//i.test(content), false);
     assert.match(content, /automatyzacja, aplikacje i zdalne wsparcie IT/);
   });
 });
