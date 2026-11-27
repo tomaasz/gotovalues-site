@@ -117,6 +117,8 @@ const jsonLd = {
       "knowsAbout": [
         "automatyzacja procesów i integracje systemów",
         "dane, raportowanie i analityka",
+        "Excel, Power Query, Power Pivot i Power BI",
+        "makra VBA i bazy danych MS Access",
         "dedykowane aplikacje webowe i oprogramowanie",
         "infrastruktura, serwery, komputery i wsparcie IT",
         "praktyczne wdrożenia AI i OCR",

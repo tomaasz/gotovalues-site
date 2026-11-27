@@ -64,6 +64,13 @@ describe("site content", () => {
       assert.ok(landing.formPlaceholder.length > 20);
       assert.equal(/gołaszew|golaszew|600\s*468\s*473/i.test(JSON.stringify(landing)), false);
     }
+
+    const dataLandingText = JSON.stringify(siteContent.serviceLandings.dane);
+    assert.match(dataLandingText, /Power Query/);
+    assert.match(dataLandingText, /Power BI/);
+    assert.match(dataLandingText, /Power Pivot/);
+    assert.match(dataLandingText, /MS Access/);
+    assert.match(dataLandingText, /VBA/);
   });
 
   test("keeps /jak-pracuje positioning grounded in process-first methodology", () => {

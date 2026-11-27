@@ -121,11 +121,11 @@ export const siteContent = {
         href: "/dane-i-analityka",
         ctaLabel: "Więcej o danych",
         description:
-          "Porządkuję rozproszone pliki i bazy w jedno wiarygodne źródło danych oraz czytelne raporty do bieżących decyzji.",
+          "Porządkuję rozproszone pliki i bazy w jedno wiarygodne źródło danych oraz automatyczne raporty do codziennych decyzji.",
         bullets: [
-          "łączenie, czyszczenie i strukturyzacja danych z arkuszy, systemów i baz SQL",
-          "czytelne raporty i dashboardy zamiast ręcznego składania zestawień co tydzień",
-          "definicja miar operacyjnych i kontrola spójności danych przed podjęciem decyzji",
+          "automatyzacja raportów i modeli danych w Excelu (Power Query, Power Pivot, makra VBA)",
+          "czytelne dashboardy w Power BI oraz łączenie danych z arkuszy, systemów i baz SQL",
+          "tworzenie, porządkowanie, naprawa i modernizacja baz MS Access",
         ],
       },
       {
@@ -242,7 +242,7 @@ export const siteContent = {
       {
         label: "Procesy i dane",
         value:
-          "mapowanie obiegu informacji, porządkowanie źródeł danych, raportowanie i ocena opłacalności wdrożeń.",
+          "mapowanie obiegu informacji, Excel (Power Query, Power Pivot, VBA), Power BI, MS Access, SQL oraz raportowanie decyzyjne.",
       },
       {
         label: "Oprogramowanie i IT",
@@ -278,11 +278,11 @@ export const siteContent = {
   aiSummary: {
     title: "gotovalues — automatyzacja, aplikacje, dane i wsparcie IT",
     positioning:
-      "gotovalues to niezależny partner technologiczny dla firm i klientów indywidualnych: automatyzacja i integracje, dane i analityka, dedykowane aplikacje webowe oraz infrastruktura i wsparcie IT (komputery, serwery, NAS, sieci, kopie zapasowe). Praca zdalna w całej Polsce oraz sprawy sprzętowe po umówieniu (Zabrodzie, powiat wyszkowski).",
+      "gotovalues to niezależny partner technologiczny dla firm i klientów indywidualnych: automatyzacja i integracje, dane i analityka (Power Query, Power Pivot, Power BI, makra VBA, MS Access, SQL), dedykowane aplikacje webowe oraz infrastruktura i wsparcie IT (komputery, serwery, NAS, sieci, kopie zapasowe). Praca zdalna w całej Polsce oraz sprawy sprzętowe po umówieniu (Zabrodzie, powiat wyszkowski).",
     sitemap: "https://gotovalues.com/sitemap.xml",
     bestFor: [
       "firmy tracące czas na ręczne przepisywanie danych między pocztą, arkuszami, ERP i CRM",
-      "firmy potrzebujące wiarygodnych raportów, dashboardów lub dedykowanej aplikacji webowej dopasowanej do procesu",
+      "firmy potrzebujące raportów w Power BI, automatyzacji Excela (Power Query, Power Pivot, makra VBA), wsparcia baz MS Access lub dedykowanej aplikacji webowej",
       "firmy i osoby prywatne szukające wsparcia IT: instalacji i konfiguracji komputerów, serwerów (NAS), sieci, poczty i kopii zapasowych",
     ],
     notFor: [
@@ -414,86 +414,86 @@ export const siteContent = {
     },
     dane: {
       slug: "/dane-i-analityka",
-      title: "Dane i analityka — porządkowanie danych i raportowanie",
+      title: "Dane i analityka — Power BI, Power Query, Power Pivot, VBA, Access i SQL",
       metaDescription:
-        "Porządkowanie rozproszonych danych, budowa źródeł SQL oraz czytelne raporty i dashboardy wspierające codzienne decyzje w firmie.",
+        "Porządkowanie danych i automatyzacja raportowania: Power Query, Power Pivot, Power BI, makra VBA w Excelu, bazy MS Access oraz SQL.",
       eyebrow: "Dane i analityka",
-      headline: "Jedno źródło danych i raporty, którym można ufać przy decyzjach.",
+      headline: "Jedno źródło danych i raporty, które odświeżają się same.",
       intro:
-        "Pomagam przejść od rozproszonych arkuszy Excel i ręcznych zestawień do uporządkowanych baz danych oraz przejrzystych widoków analitycznych.",
+        "Pomagam przejść od ręcznego sklejania arkuszy Excel do automatycznych zapytań Power Query, modeli Power Pivot, dashboardów Power BI, makr VBA oraz uporządkowanych baz MS Access i SQL.",
       ctaLabel: "Opisz swoje dane i raporty",
-      panelLabel: "Typowe obszary prac",
+      panelLabel: "Narzędzia i obszary prac",
       panelItems: [
-        "łączenie i czyszczenie danych z arkuszy, ERP, CRM i baz SQL",
-        "automatyczne odświeżanie raportów operacyjnych i finansowych",
-        "czytelne dashboardy pokazujące wyjątki i kluczowe miary",
+        "automatyczne pobieranie i łączenie plików w Power Query oraz modele w Power Pivot",
+        "interaktywne raporty i dashboardy w Power BI oraz uporządkowane bazy SQL",
+        "makra VBA w Excelu oraz tworzenie, naprawa i modernizacja baz MS Access",
       ],
-      chips: ["SQL", "raporty", "dashboardy", "ETL", "analiza"],
+      chips: ["Power BI", "Power Query", "Power Pivot", "Excel / VBA", "MS Access", "SQL"],
       whenHeading: "Kiedy warto uporządkować warstwę danych",
       whenItems: [
         {
-          title: "Każdy dział ma inne liczby",
-          description:
-            "Różne wersje arkuszy i ręczne eksporty sprawiają, że spotkania zaczynają się od ustalania, które dane są aktualne.",
-        },
-        {
           title: "Zestawienia powstają ręcznie co tydzień",
           description:
-            "Sklejanie plików CSV, kopiowanie tabel i poprawianie formuł zabiera czas, który powinien służyć analizie wniosków.",
+            "Pobieranie eksportów CSV, kopiowanie kolumn, poprawianie formuł i łączenie plików zabiera godziny — choć Power Query lub makro VBA potrafią robić to jednym kliknięciem.",
         },
         {
-          title: "Brak szybkiego podglądu sytuacji",
+          title: "Arkusze Excel albo baza Access zaczynają się zacinać",
           description:
-            "Dane istnieją w systemach, ale nie są zebrane w jeden prosty widok pokazujący odchylenia i priorytety.",
+            "Plik ma dziesiątki zakładek, stare makra przestają działać albo baza MS Access wymaga uporządkowania, przyspieszenia lub połączenia z bazą SQL.",
+        },
+        {
+          title: "Brak jednego, wiarygodnego widoku liczb",
+          description:
+            "Różne wersje arkuszy dają różne wyniki, zamiast jednego modelu danych (Power Pivot / SQL) i czytelnego dashboardu w Power BI do codziennych decyzji.",
         },
       ],
       scopeHeading: "Co przygotowuję w obszarze danych",
       scopeItems: [
         {
-          title: "Porządkowanie i łączenie źródeł",
+          title: "Power Query, Power Pivot i Power BI",
           description:
-            "Automatyczne pobieranie, czyszczenie i ujednolicanie danych z arkuszy, baz danych i eksportów systemowych.",
+            "Automatyczne pobieranie, czyszczenie i łączenie danych z plików, folderów, baz i systemów (Power Query), budowa modeli danych (Power Pivot) oraz przejrzystych dashboardów w Power BI i Excelu.",
         },
         {
-          title: "Raporty i dashboardy decyzyjne",
+          title: "Makra VBA i bazy MS Access",
           description:
-            "Przejrzyste widoki skupione na konkretnych decyzjach operacyjnych zamiast przeładowanych tabel.",
+            "Pisanie, poprawianie i dokumentowanie makr VBA w Excelu oraz budowa, utrzymanie i modernizacja baz MS Access — w tym przygotowanie do migracji na SQL lub aplikację webową, gdy skala rośnie.",
         },
         {
-          title: "Kontrola spójności i jakości danych",
+          title: "Porządkowanie danych, SQL i kontrola jakości",
           description:
-            "Reguły walidacji wyłapujące braki, duplikaty i rozbieżności, zanim trafią do końcowego raportu.",
+            "Ujednolicanie źródeł danych, zapytania i widoki SQL oraz reguły walidacji wyłapujące braki, duplikaty i rozbieżności przed publikacją raportu.",
         },
       ],
       processHeading: "Jak pracuję z danymi",
       processSteps: [
         {
-          title: "1. Decyzje przed wykresami",
+          title: "1. Decyzje i obecne pliki",
           description:
-            "Zaczynamy od listy konkretnych pytań, na które raport ma odpowiadać — bez budowania zbędnych wskaźników.",
+            "Sprawdzam, z jakich plików, arkuszy Excel, baz Access lub eksportów korzystasz dziś i na jakie konkretne pytania raport ma odpowiadać.",
         },
         {
-          title: "2. Weryfikacja źródeł",
+          title: "2. Dobór właściwego narzędzia",
           description:
-            "Sprawdzamy dostępność, format i jakość obecnych danych w systemach i arkuszach.",
+            "Jeśli wystarczy Power Query, Power Pivot lub makro VBA w Excelu — nie dokładam ciężkiego systemu. Gdy potrzebny jest wspólny widok lub większa skala, sięgam po Power BI, MS Access albo SQL.",
         },
         {
-          title: "3. Pierwszy działający widok",
+          title: "3. Działający raport i dokumentacja",
           description:
-            "Dostarczam automatycznie odświeżany raport lub widok SQL/webowy, który od razu sprawdza się w codziennej pracy.",
+            "Dostarczam gotowy, odświeżany raport, model lub narzędzie wraz z krótką instrukcją obsługi i pełnym dostępem do plików oraz kodu po Twojej stronie.",
         },
       ],
-      contactHeading: "Opisz, z jakimi danymi i raportami pracujesz",
+      contactHeading: "Opisz swoje arkusze, bazę lub raport",
       contactIntro:
-        "Napisz krótko, skąd dziś pochodzą dane i jakie zestawienia sprawiają największy problem. Zaproponuję najprostszy sposób uporządkowania tego w pierwszym etapie.",
+        "Napisz krótko, z jakimi plikami Excel, bazą MS Access albo raportami pracujesz dziś i co zajmuje najwięcej czasu. Zaproponuję najprostszy pierwszy etap usprawnienia.",
       contactPoints: [
-        "pracuję na istniejących źródłach (arkusze, CSV, SQL, API)",
-        "zaczynamy od jednego kluczowego zestawienia zamiast wielkiej hurtowni",
-        "jasny zakres i zasady poufności ustalone przed startem",
+        "pracuję na istniejących plikach (Excel, CSV, MS Access, SQL, eksporty ERP/CRM)",
+        "wykorzystuję narzędzia, które firma często już posiada (Microsoft 365, Power Query, Power BI)",
+        "jasny zakres, termin i zasady poufności ustalone przed startem",
       ],
-      formLabel: "Opisz źródła danych i cel raportu",
+      formLabel: "Opisz dane, arkusz lub raport",
       formPlaceholder:
-        "Np. skąd pochodzą dane (Excel, ERP, CRM, baza SQL) i jakich informacji lub raportów najbardziej brakuje?",
+        "Np. ręczne łączenie plików w Excelu (Power Query / VBA), budowa raportu Power BI lub modelu Power Pivot, naprawa albo rozbudowa bazy MS Access czy zapytań SQL.",
     },
     aplikacje: {
       slug: "/aplikacje",

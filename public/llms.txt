@@ -1,10 +1,10 @@
 # gotovalues — automatyzacja, aplikacje, dane i wsparcie IT
 
-> gotovalues to niezależny partner technologiczny dla firm i klientów indywidualnych: automatyzacja i integracje, dane i analityka, dedykowane aplikacje webowe oraz infrastruktura i wsparcie IT (komputery, serwery, NAS, sieci, kopie zapasowe). Praca zdalna w całej Polsce oraz sprawy sprzętowe po umówieniu (Zabrodzie, powiat wyszkowski).
+> gotovalues to niezależny partner technologiczny dla firm i klientów indywidualnych: automatyzacja i integracje, dane i analityka (Power Query, Power Pivot, Power BI, makra VBA, MS Access, SQL), dedykowane aplikacje webowe oraz infrastruktura i wsparcie IT (komputery, serwery, NAS, sieci, kopie zapasowe). Praca zdalna w całej Polsce oraz sprawy sprzętowe po umówieniu (Zabrodzie, powiat wyszkowski).
 
 ## Scope
 - [Automatyzacja i integracje](https://gotovalues.com/automatyzacja): Eliminuję ręczne przepisywanie informacji między pocztą, arkuszami, ERP, CRM i zewnętrznymi systemami.
-- [Dane i analityka](https://gotovalues.com/dane-i-analityka): Porządkuję rozproszone pliki i bazy w jedno wiarygodne źródło danych oraz czytelne raporty do bieżących decyzji.
+- [Dane i analityka](https://gotovalues.com/dane-i-analityka): Porządkuję rozproszone pliki i bazy w jedno wiarygodne źródło danych oraz automatyczne raporty (Power Query, Power Pivot, Power BI, makra VBA, MS Access, SQL).
 - [Aplikacje i oprogramowanie](https://gotovalues.com/aplikacje): Projektuję i buduję dedykowane aplikacje webowe oraz narzędzia wewnętrzne wtedy, gdy gotowe programy ograniczają sposób pracy.
 - [Infrastruktura i wsparcie IT](https://gotovalues.com/wsparcie-it): Zapewniam uporządkowane środowisko sprzętowe i programowe dla firm oraz klientów indywidualnych — zdalnie i lokalnie po umówieniu.
 
