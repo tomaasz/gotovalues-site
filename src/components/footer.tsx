@@ -13,9 +13,8 @@ export function Footer() {
           &copy; {year} {brandName}
         </span>
         <nav className="footer-nav" aria-label="Stopka">
-          <Link href="/supportflow">SupportFlow AI</Link>
-          <Link href="/triageflow">TriageFlow</Link>
-          <Link href="/kalkulator-roi">Kalkulator ROI</Link>
+          <Link href="/#oferta">Zakres</Link>
+          <Link href="/jak-pracuje">Jak pracuję</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/polityka-prywatnosci">Polityka prywatności</Link>
           <CookieSettingsButton />

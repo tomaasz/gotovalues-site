@@ -28,24 +28,6 @@ export const RAW_CATALOG_ITEMS: Array<
     connected_to_publisher: true,
     relationship_type: "first_party",
   },
-  {
-    id: "triageflow",
-    name: "TriageFlow",
-    url: "https://gotovalues.com/triageflow",
-    description: "Automatyczny triage zgłoszeń z GitHub Issues, e-maila i forów.",
-    category: "first_party_product",
-    connected_to_publisher: true,
-    relationship_type: "first_party",
-  },
-  {
-    id: "supportflow",
-    name: "SupportFlow AI",
-    url: "https://gotovalues.com/supportflow",
-    description: "Automatyzacja obsługi zgłoszeń B2B przez asystentów AI.",
-    category: "first_party_product",
-    connected_to_publisher: true,
-    relationship_type: "first_party",
-  },
   // First-party service offerings
   ...siteContent.offer.pillars.map((pillar, index) => ({
     id: `service_pillar_${index + 1}`,

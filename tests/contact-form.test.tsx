@@ -34,7 +34,7 @@ describe("ContactForm component", () => {
     assert.ok(screen.getByLabelText(/E-mail/i));
     assert.ok(screen.getByLabelText(/Firma/i));
     assert.ok(screen.getByLabelText(/W czym mogę pomóc/i));
-    assert.ok(screen.getByRole('button', { name: 'Napisz' }));
+    assert.ok(screen.getByRole('button', { name: 'Wyślij wiadomość' }));
     assert.equal(screen.queryByLabelText(/System wsparcia/i), null);
     assert.equal(screen.queryByLabelText(/Zgłoszenia tygodniowo/i), null);
     assert.equal(screen.queryByLabelText(/Program pilotażowy/i), null);

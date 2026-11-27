@@ -6,13 +6,16 @@ function list(items: readonly string[]) {
 
 export async function GET() {
   const summary = siteContent.aiSummary;
-  const proof = siteContent.proofOfCompetence.items
-    .map((item) => `- [${item.name}](${item.url}): ${item.summary}`)
+  const services = siteContent.offer.pillars
+    .map((pillar) => `- **${pillar.title}**: ${pillar.description}`)
     .join("\n");
 
   const text = `# ${summary.title}
 
 > ${summary.positioning}
+
+## Scope
+${services}
 
 ## Best fit
 ${list(summary.bestFor)}
@@ -20,17 +23,10 @@ ${list(summary.bestFor)}
 ## Not a fit
 ${list(summary.notFor)}
 
-## Proof of competence
-${proof}
-
 ## Key pages
-- [Homepage](https://gotovalues.com): oferta i pozycjonowanie
-- [Jak pracuję](https://gotovalues.com/jak-pracuje): model współpracy i porównanie z alternatywami
-- [TriageFlow](https://gotovalues.com/triageflow): triage zgłoszeń i dokumentów
-- [SupportFlow AI](https://gotovalues.com/supportflow): pilotaż automatyzacji obsługi zgłoszeń
-- [Workflow dla produkcji](https://gotovalues.com/dla-produkcji): automatyzacja procesów produkcyjnych
-- [Workflow dla logistyki](https://gotovalues.com/dla-logistyki): automatyzacja procesów logistycznych
-- [Blog techniczny](https://gotovalues.com/blog): artykuły o AI i automatyzacji
+- [Homepage](https://gotovalues.com): zakres usług, model pracy i kontakt
+- [Jak pracuję](https://gotovalues.com/jak-pracuje): podejście do doboru rozwiązania (konfiguracja, integracja, aplikacja)
+- [Blog techniczny](https://gotovalues.com/blog): artykuły o automatyzacji procesów, danych i aplikacjach webowych
 - [Sitemap](${summary.sitemap})
 `;
 

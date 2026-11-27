@@ -65,7 +65,7 @@ If missing, the agent must self-correct and provide the missing skill report bef
 ### 3. Tech Stack & Invariants
 
 - **Next.js 16 (App Router):** Keep route handlers in `src/app/api/`, use React Server Components by default, and isolate Client Components (`'use client'`) to interactive leaves.
-- **Brand & Content:** Use `gotovalues` in lowercase for Polish marketing copy. Exactly two public linked products (`Cavi` and `Akta`).
+- **Brand & Content:** Use `gotovalues` in lowercase for Polish marketing copy. Remote-first, planned offer (processes/data/automation, lightweight web apps, planned remote IT support; based in Zabrodzie, powiat wyszkowski — no onsite visits or 24/7 SLA). No public product/implementation examples on the site (`Cavi`/`Akta` hidden per owner decision 2026-11-27). Zero fabricated claims or unverified absolutes.
 - **Ship to main & production (standing approval, 2026-09-27):** Agents merge green PRs themselves, push verified work to `main`, release to production without asking, and keep the repo tidy (clean tree in sync with `origin/main`, delete merged worktrees/branches local and remote). Never force-push, rewrite `main`, or merge red CI. Details: `CLAUDE.md` → "Ship to Main & Production".
 - **Deployment:** The Vercel Git integration deploys each push to `main` to production; manual fallback via 1Password token `op://hosty-debianovh/vercel/token`. See `docs/deployment.md`.
 

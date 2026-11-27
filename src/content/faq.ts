@@ -1,51 +1,34 @@
 // FAQ shared by the homepage ("Uwagi" notes), FAQPage JSON-LD and /ai/faq.json.
-// Voice: first person singular (independent local & remote IT partner for small firms and JDG).
+// Voice: first person singular (remote-first, planned work for small firms, JDG and SMEs).
 export const faqs = [
-  // KATEGORIA 1: WSPÓŁPRACA I KOSZTY
   {
-    q: 'Czy pomagasz zdalnie, czy też na miejscu?',
-    a: 'Jedno i drugie. Większość codziennych problemów z komputerem, pocztą, programami czy uprawnieniami rozwiązuję zdalnie od ręki — na terenie całej Polski. Gdy sprawa wymaga pracy fizycznej (sieć, Wi-Fi, okablowanie, drukarka, serwis sprzętu), przyjeżdżam na miejsce — działam w Zabrodziu, powiecie wyszkowskim i okolicach.',
-    badge: 'Zdalnie i na miejscu',
+    q: 'Czy pracujesz zdalnie, czy przyjeżdżasz na miejsce?',
+    a: 'Pracuję wyłącznie zdalnie na terenie całej Polski — od konfiguracji narzędzi i wsparcia technicznego po integracje danych i budowę aplikacji. Nie prowadzę serwisu z dojazdem ani dyżurów awaryjnych 24/7; zadania planujemy wcześniej na konkretny termin.',
+    badge: 'Zdalnie i planowo',
     category: 'Współpraca i Koszty' as const,
   },
   {
     q: 'Czy muszę podpisywać stałą umowę abonamentową?',
-    a: 'Nie. Możemy współpracować jednorazowo (np. konfiguracja sieci, naprawa komputera, wdrożenie poczty i kopii zapasowych) albo w lekkiej stałej opiece IT dla małej firmy i JDG — zależnie od tego, co ma sens przy Twojej skali.',
-    badge: 'Doraźnie lub stale',
+    a: 'Nie. Możemy zacząć od jednego konkretnego zlecenia — na przykład uporządkowania poczty i kopii zapasowych, integracji arkuszy albo małego narzędzia. Dalszą współpracę ustalamy dopiero wtedy, gdy ma to sens.',
+    badge: 'Etapowo bez abonamentu',
     category: 'Współpraca i Koszty' as const,
   },
   {
-    q: 'Ile kosztuje usługa i jak rozliczamy współpracę?',
-    a: 'Zanim zaczniemy, dostajesz jasną wycenę za konkretną usługę albo stawkę godzinową przy doraźnym wsparciu. Rozliczamy się przejrzyście na fakturę — bez ukrytych kosztów i bez pakietów korporacyjnych.',
-    badge: 'Przejrzysta wycena',
+    q: 'Jak wygląda wycena i rozliczenie?',
+    a: 'Po krótkim opisie problemu przygotowuję propozycję zakresu i wycenę przed startem — za zamknięty etap albo w rozliczeniu godzinowym przy doraźnych pracach zdalnych. Rozliczamy się na fakturę.',
+    badge: 'Jasny zakres i wycena',
     category: 'Współpraca i Koszty' as const,
   },
   {
-    q: 'Nie znam się na technikaliach — czy wystarczy opisać problem swoimi słowami?',
-    a: 'Oczywiście. Wystarczy krótka wiadomość zwykłym językiem: co przestało działać albo co chcesz uporządkować. Dopytam o szczegóły, zaproponuję najprostsze rozwiązanie i wytłumaczę je bez żargonu.',
-    badge: 'Po ludzku',
+    q: 'Nie znam się na sprawach technicznych — jak mam opisać problem?',
+    a: 'Wystarczy kilka zdań zwykłym językiem: co zajmuje za dużo czasu, co sprawia kłopot albo jaki efekt chcesz osiągnąć. Dopytam o potrzebne szczegóły i przedstawię opcje po ludzku.',
+    badge: 'Prostym językiem',
     category: 'Współpraca i Koszty' as const,
   },
-
-  // KATEGORIA 2: BEZPIECZEŃSTWO I DANE
   {
-    q: 'Jak dbasz o bezpieczeństwo danych, haseł i kopii zapasowych?',
-    a: 'Kopie zapasowe (backup) i bezpieczeństwo to podstawa małej firmy. Pomagam ustawić automatyczny backup kluczowych plików, uporządkować dostępy i hasła oraz zabezpieczyć sieć Wi-Fi. Na życzenie podpisuję umowę o poufności (NDA).',
-    badge: 'Bezpieczeństwo i backup',
+    q: 'Kto ma dostęp do kont, danych i kodu po zakończeniu prac?',
+    a: 'Konta, domeny, dostępy oraz zasady poufności i praw do stworzonego rozwiązania ustalamy wprost przed rozpoczęciem prac — tak, żeby firma zachowała kontrolę nad swoimi danymi i narzędziami.',
+    badge: 'Kontrola po stronie firmy',
     category: 'Bezpieczeństwo i RODO' as const,
-  },
-  {
-    q: 'Czy po konfiguracji wszystkie konta, domeny i sprzęty należą do mnie?',
-    a: 'Tak. Domena, poczta, konta w chmurze, konfiguracja sieci i ewentualne stworzone narzędzia są zawsze zarejestrowane na Twoją firmę i masz do nich pełne dostępy.',
-    badge: 'Pełna własność',
-    category: 'Bezpieczeństwo i RODO' as const,
-  },
-
-  // KATEGORIA 3: ZAKRES USŁUG
-  {
-    q: 'Czy oprócz sieci, napraw i helpdesku robisz też strony lub automatyzacje?',
-    a: 'Tak, jako naturalne uzupełnienie codziennej obsługi IT. Gdy sprzęt, sieć i poczta już działają stabilnie, mogę przygotować prostą stronę firmową, połączyć programy albo zautomatyzować powtarzalne zadania.',
-    badge: 'IT + narzędzia',
-    category: 'Technologia i Realizacja' as const,
   },
 ];

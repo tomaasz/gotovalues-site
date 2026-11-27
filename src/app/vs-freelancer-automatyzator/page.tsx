@@ -8,14 +8,14 @@ import { siteContent } from "@/content/site";
 import { escapeMap } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "gotovalues — jak pracuję: AI, web apps, procesy",
+  title: "Jak pracuję — od procesu do rozwiązania",
   alternates: { canonical: "/jak-pracuje" },
   description:
-    "Jak gotovalues prowadzi wdrożenia AI i aplikacji webowych: najpierw proces i gotowe narzędzia, potem integracje, automatyzacja albo dedykowana aplikacja, jeśli ma to sens biznesowy.",
+    "Jak gotovalues prowadzi wdrożenia i prace zdalne: najpierw proces i gotowe narzędzia, potem integracje, automatyzacja albo lekka aplikacja webowa — w małych, planowanych etapach.",
   openGraph: {
-    title: "gotovalues — jak pracuję",
+    title: "Jak pracuję — od procesu do rozwiązania | gotovalues",
     description:
-      "Proces, gotowe narzędzia, automatyzacja i dedykowane aplikacje — bez sztucznego przeciwstawiania freelancerów, low-code i software house'ów.",
+      "Najpierw diagnoza procesu i gotowe narzędzia, potem integracje, automatyzacja albo dedykowana aplikacja webowa.",
     url: "https://gotovalues.com/jak-pracuje",
     siteName: "gotovalues",
     locale: "pl_PL",
@@ -26,14 +26,14 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "gotovalues — AI, automatyzacja i lekkie aplikacje webowe",
+  name: "gotovalues — procesy, dane, aplikacje i zdalne IT dla firm",
   provider: {
     "@type": "Person",
     name: "Tomasz Gołaszewski",
     url: "https://gotovalues.com",
   },
   areaServed: "PL",
-  serviceType: "AI automation and lightweight web applications for SMEs",
+  serviceType: "Process automation, lightweight web applications and planned remote IT support",
   url: "https://gotovalues.com/jak-pracuje",
 };
 
@@ -59,25 +59,25 @@ export default function ComparisonLandingPage() {
           <div className="hero-panel-card">
             <span className="hero-panel-label">Zasada pracy</span>
             <ul>
-              <li>nie zaczynam od kodu, tylko od procesu</li>
-              <li>nie wciskam automatyzacji, gdy wystarczy gotowe narzędzie</li>
-              <li>buduję własny UI i integracje, gdy proces tego wymaga</li>
+              <li>nie zaczynam od kodu, tylko od procesu i realnych danych</li>
+              <li>nie wciskam aplikacji, gdy wystarczy konfiguracja gotowego narzędzia</li>
+              <li>dzielę pracę na małe, planowane etapy z jasną wyceną przed startem</li>
             </ul>
           </div>
           <div className="hero-panel-grid">
             <div className="hero-chip">proces</div>
-            <div className="hero-chip">AI</div>
-            <div className="hero-chip">web app</div>
+            <div className="hero-chip">dane</div>
             <div className="hero-chip">integracje</div>
-            <div className="hero-chip">niski koszt</div>
+            <div className="hero-chip">aplikacja</div>
+            <div className="hero-chip">zdalne IT</div>
           </div>
         </div>
       </section>
 
       <section className="section" id="porownanie">
         <SectionHeading
-          eyebrow="Decyzja"
-          heading="Nie chodzi o etykietę dostawcy — chodzi o dobór właściwego poziomu rozwiązania"
+          eyebrow="Podejście"
+          heading="Dobór właściwego poziomu rozwiązania zamiast jednego schematu"
         />
         <div className="pillar-grid">
           {landing.audiences.map((audience) => (
@@ -96,29 +96,29 @@ export default function ComparisonLandingPage() {
 
       <section className="section" id="faq">
         <SectionHeading
-          eyebrow="FAQ"
-          heading="Jak zdecydować: gotowiec, automatyzacja, dedykowana aplikacja czy większy zespół?"
+          eyebrow="Decyzja"
+          heading="Kiedy wystarczy konfiguracja, kiedy automatyzacja, a kiedy większy zespół?"
         />
         <div className="faq-grid">
           <article className="surface pillar-card">
-            <h3>Kiedy wystarczy sam wykonawca?</h3>
+            <h3>Kiedy wystarczy uporządkowanie narzędzi?</h3>
             <p>
-              Gdy masz gotową specyfikację, niewielki zakres i potrzebujesz tylko wykonania. Jeśli trzeba
-              dopiero ustalić proces, ograniczyć zakres i dobrać narzędzie, zaczynam od tej pracy przed kodem.
+              Gdy problem wynika z rozproszonych arkuszy, poczty, uprawnień albo braku kopii zapasowych.
+              Zamiast pisać nowy system, porządkuję istniejące narzędzia i konfiguruję je zdalnie.
             </p>
           </article>
           <article className="surface pillar-card">
-            <h3>Kiedy wystarczy low-code?</h3>
+            <h3>Kiedy budować integrację lub lekką aplikację?</h3>
             <p>
-              Gdy proces to proste przeniesienie danych między znanymi narzędziami. Jeśli potrzebujesz własnego
-              interfejsu, kontroli kosztów AI, wyjątków i walidacji, dokładam kod tylko tam, gdzie daje przewagę.
+              Gdy zespół ręcznie przepisuje te same dane między programami albo potrzebuje jednego
+              prostego widoku pracy z walidacją wyjątków, którego gotowe narzędzia nie domykają.
             </p>
           </article>
           <article className="surface pillar-card">
             <h3>Kiedy potrzebny jest większy zespół?</h3>
             <p>
-              Przy dużym projekcie, wielu zespołach i budżecie enterprise. gotovalues jest dla firm, które chcą
-              rozwiązać konkretny proces w wąskim zakresie, szybciej i bez nadmiarowej organizacji.
+              Przy dużym projekcie na wiele działów, serwisie z dojazdem na miejsce lub wymaganiu
+              dyżurów 24/7. Jeśli temat wykracza poza mój zakres, mówię to wprost na początku.
             </p>
           </article>
         </div>
@@ -127,19 +127,22 @@ export default function ComparisonLandingPage() {
       <section className="section" id="kontakt">
         <SectionHeading
           eyebrow="Kontakt"
-          heading="Opisz jeden proces — pomogę dobrać najprostsze rozwiązanie, które faktycznie odciąży zespół."
+          heading="Opisz jeden proces albo problem — wrócę z oceną najprostszego kroku."
         />
         <div className="surface contact-card">
           <div className="contact-copy">
             <p>{siteContent.contact.intro}</p>
             <ul className="contact-points">
               <li>wystarczy przykład z codziennej pracy, bez gotowej specyfikacji</li>
-              <li>odpowiem, czy warto budować, integrować, czy użyć gotowego narzędzia</li>
-              <li>jeśli problem nie ma sensu biznesowego — powiem to wprost</li>
+              <li>odpowiem, czy wystarczy konfiguracja, integracja, czy lekkie narzędzie</li>
+              <li>jeśli temat nie wymaga wdrożenia albo wykracza poza mój zakres — powiem to wprost</li>
             </ul>
             <ContactSignals />
           </div>
-          <ContactForm />
+          <ContactForm
+            messageLabel="Opisz proces lub problem"
+            messagePlaceholder="Opisz krótko, co zajmuje za dużo ręcznej pracy albo jakie narzędzia chcesz uporządkować lub połączyć."
+          />
         </div>
       </section>
 

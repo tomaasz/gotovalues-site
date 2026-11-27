@@ -4,12 +4,27 @@ import { startTransition, useState } from 'react';
 
 import { logger } from '@/lib/logger';
 
+export type ContactFormProps = {
+  messageLabel?: string;
+  messagePlaceholder?: string;
+  submitLabel?: string;
+};
+
 const initialState = {
   status: 'idle' as 'idle' | 'success' | 'error',
   message: '',
 };
 
-export function ContactForm() {
+const DEFAULT_MESSAGE_LABEL = 'W czym mogę pomóc';
+const DEFAULT_MESSAGE_PLACEHOLDER =
+  'Opisz krótko problem lub proces, który chcesz uporządkować — np. ręczne przepisywanie danych, raporty, narzędzie webowe albo zdalna konfiguracja poczty i kopii zapasowych.';
+const DEFAULT_SUBMIT_LABEL = 'Wyślij wiadomość';
+
+export function ContactForm({
+  messageLabel = DEFAULT_MESSAGE_LABEL,
+  messagePlaceholder = DEFAULT_MESSAGE_PLACEHOLDER,
+  submitLabel = DEFAULT_SUBMIT_LABEL,
+}: ContactFormProps) {
   const [state, setState] = useState(initialState);
   const [pending, setPending] = useState(false);
 
@@ -63,7 +78,7 @@ export function ContactForm() {
       startTransition(() => {
         setState({
           status: 'success',
-          message: result?.message || 'Dziękuję. Wrócę z oceną i propozycją następnego kroku.',
+          message: result?.message || 'Dziękuję. Przeczytam opis i wrócę z odpowiedzią w dni robocze.',
         });
       });
     } catch (error) {
@@ -126,7 +141,7 @@ export function ContactForm() {
 
       <div className="field">
         <label htmlFor="message-input">
-          W czym mogę pomóc{' '}
+          {messageLabel}{' '}
           <span className="required-indicator" aria-hidden="true">
             *
           </span>
@@ -135,7 +150,7 @@ export function ContactForm() {
           id="message-input"
           name="message"
           rows={6}
-          placeholder="Np. rwie się Wi-Fi w biurze, komputer wymaga serwisu, trzeba ustawić pocztę i backup albo szukam zdalnego wsparcia IT."
+          placeholder={messagePlaceholder}
           required
         />
       </div>
@@ -162,7 +177,7 @@ export function ContactForm() {
               Wysyłanie…
             </>
           ) : (
-            'Napisz'
+            submitLabel
           )}
         </button>
         <p className="helper-text">

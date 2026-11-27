@@ -87,9 +87,8 @@ export const blogPosts: BlogPost[] = [
   zrozumienie nieustrukturyzowanej treści &mdash; maila, dokumentu, zgłoszenia
   klienta. Klasyczna automatyzacja przeniesie dane z pola A do pola B. AI
   potrafi przeczytać wiadomość klienta, zrozumieć, czego dotyczy, sklasyfikować
-  ją i przygotować odpowiedź. To podejście, na którym opieram
-  <a href="/supportflow">SupportFlow AI</a> &mdash; automatyzację obsługi
-  zgłoszeń, gdzie AI rozumie treść maila, a nie tylko go przekłada. AI nie
+  ją i przygotować odpowiedź. To podejście do automatyzacji obsługi
+  zgłoszeń, w którym AI rozumie treść maila i przygotowuje roboczy projekt odpowiedzi, zamiast bezmyślnie przekładać dane. AI nie
   zastępuje workflow; nakłada się na niego jako warstwa &bdquo;rozumienia&rdquo;
   tam, gdzie reguła &bdquo;jeśli&ndash;to&rdquo; nie wystarcza.
 </p>
@@ -153,9 +152,7 @@ export const blogPosts: BlogPost[] = [
 <p>
   Ile razy w miesiącu proces się wykonuje? Ile minut zajmuje za każdym razem?
   Ile kosztuje błąd, gdy się zdarzy? Bez tych liczb nie da się ocenić, czy
-  automatyzacja ma sens &mdash; ani porównać ofert. Jeśli chcesz oszacować to
-  na szybko, przygotowałem <a href="/kalkulator-roi">kalkulator ROI
-  automatyzacji</a>.
+  automatyzacja ma sens &mdash; ani porównać ofert. Jeśli chcesz oszacować to na swoich liczbach, <a href="/#kontakt">opisz krótko proces</a> &mdash; policzymy to razem przed startem.
 </p>
 
 <h3>Krok 3. Wybierz jeden proces na start</h3>
@@ -283,15 +280,13 @@ export const blogPosts: BlogPost[] = [
   <strong>Obsługa zgłoszeń.</strong> Firma dostaje dziesiątki maili dziennie:
   pytania, reklamacje, zamówienia. Zamiast ręcznie sortować, AI czyta treść,
   klasyfikuje, przypisuje do właściwej osoby i podpowiada odpowiedź. Człowiek
-  zatwierdza, nie przepisuje. To dokładnie obszar
-  <a href="/supportflow">SupportFlow AI</a>.
+  zatwierdza, nie przepisuje. To przykład dobrze zaprojektowanej automatyzacji obsługi zgłoszeń.
 </p>
 
 <p>
   <strong>Produkcja.</strong> Zlecenia, statusy maszyn, raporty zmianowe
   rozsiane po arkuszach i kartkach. Dedykowany panel zbiera to w jednym
-  miejscu i automatyzuje przepływ między działami &mdash; więcej o tym piszę
-  przy <a href="/dla-produkcji">rozwiązaniach dla produkcji</a>.
+  miejscu i automatyzuje przepływ między działami &mdash; szerzej opisuję to podejście na stronie <a href="/jak-pracuje">Jak pracuję</a>.
 </p>
 
 <p>
@@ -318,244 +313,220 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "case-study-firma-produkcyjna-120h-automatyzacja",
-    title: "Jak firma produkcyjna zaoszczędziła ~120h miesięcznie dzięki automatyzacji",
-    description: "Case study: średniej wielkości zakład produkcyjny odzyskał ~120h/mc, eliminując ręczne przepisywanie między ERP a dokumentami. Proces, oś czasu i liczby.",
+    title: "Ile godzin może zaoszczędzić automatyzacja w firmie produkcyjnej? Scenariusz modelowy (~120 h/mc)",
+    description: "Przykład obliczeniowy: jak w średniej wielkości firmie produkcyjnej ograniczyć ~120 h/mc ręcznego przepisywania między ERP a dokumentami. Założenia, etapy i kalkulacja.",
     date: "2026-06-10",
-    tags: ["Case study", "Automatyzacja", "Produkcja"],
+    tags: ["Scenariusz modelowy", "Automatyzacja", "Produkcja"],
     body: `<p>
-  Punkt wyjścia był prosty do opisania i bolesny w praktyce: cztery osoby
-  z biura obsługi zleceń spędzały łącznie około <strong>120 godzin
-  miesięcznie</strong> na ręcznym przepisywaniu danych między systemem ERP,
-  Excelami i dokumentami wysyłanymi do klientów. To nie był jeden wielki
-  problem, tylko dwadzieścia małych, które się sumowały. Poniżej opisuję, co
-  zastałem, co odrzuciłem i co ostatecznie zbudowaliśmy.
+  <strong>Uwaga metodologiczna:</strong> poniższy opis to <strong>scenariusz modelowy
+  i przykład obliczeniowy</strong>, a nie raport z konkretnego wdrożenia u klienta.
+  Pokazuje typowy mechanizm powstawania strat czasu w średniej firmie produkcyjnej
+  oraz sposób, w jaki krok po kroku liczy się sens ekonomiczny automatyzacji przed
+  napisaniem pierwszej linijki kodu.
 </p>
 
 <p>
-  Uwaga na wstępie: to case study <strong>reprezentatywny i zanonimizowany</strong>
-  &mdash; średniej wielkości zakład produkcyjny, branża metalowa, na życzenie klienta
-  bez nazwy i bez cytatów imiennych. Liczby i przebieg procesu są jednak
-  prawdziwe, bo to one są tu najważniejsze.
+  Załóżmy punkt wyjścia typowy dla wielu firm produkcyjnych: cztery osoby z biura
+  obsługi zleceń poświęcają łącznie około <strong>120 godzin miesięcznie</strong>
+  (ok. 1,5 godziny dziennie na osobę) na ręczne przepisywanie danych między systemem
+  ERP, arkuszami Excel i dokumentami wysyłanymi do klientów. Rzadko jest to jeden
+  wielki problem &mdash; zwykle kilkanaście powtarzalnych czynności, które sumują się
+  w skali miesiąca.
 </p>
 
-<h2>Wyzwanie: dane były wszędzie i nigdzie</h2>
+<h2>Typowe wąskie gardła w takim procesie</h2>
 
 <p>
-  Firma rosła szybciej niż jej procesy. ERP obsługiwał magazyn i księgowość,
-  ale cała warstwa &bdquo;obsługi zlecenia od zapytania do wysyłki&rdquo; żyła obok niego
-  &mdash; w arkuszach i skrzynkach mailowych. Konkretnie wyglądało to tak:
+  W firmach, które szybko urosły, ERP dobrze obsługuje magazyn i księgowość, ale cała
+  warstwa &bdquo;obsługi zlecenia od zapytania do wysyłki&rdquo; często żyje obok niego
+  &mdash; w arkuszach i skrzynkach mailowych:
 </p>
 
 <ul>
   <li>
-    <strong>Rozproszone Excele</strong> &mdash; każdy handlowiec miał swój arkusz
-    z kalkulacjami, a produkcja swój z harmonogramem. Te dwa światy nie
-    rozmawiały ze sobą inaczej niż przez maile.
+    <strong>Rozproszone Excele</strong> &mdash; dział handlowy trzyma kalkulacje we
+    własnych plikach, a produkcja prowadzi osobny harmonogram. Te dwa światy wymieniają
+    informacje głównie mailowo.
   </li>
   <li>
     <strong>Ręczne przepisywanie z ERP do dokumentów</strong> &mdash; potwierdzenia
-    zamówień, specyfikacje i dokumenty wysyłkowe powstawały przez kopiowanie
-    danych z ERP do szablonów Worda. Te same dane, wpisywane po raz trzeci.
+    zamówień, specyfikacje i dokumenty wysyłkowe powstają przez kopiowanie danych
+    z ERP do szablonów Worda lub PDF.
   </li>
   <li>
-    <strong>Brak widoczności statusów</strong> &mdash; pytanie &bdquo;na jakim etapie jest
-    zlecenie 4412?&rdquo; oznaczało telefon na produkcję albo przeszukiwanie maili.
-    Klienci dzwonili, a obsługa nie miała szybkiej odpowiedzi.
+    <strong>Brak widoczności statusów</strong> &mdash; odpowiedź na pytanie
+    &bdquo;na jakim etapie jest zlecenie 4412?&rdquo; wymaga telefonu na halę albo
+    przeszukiwania skrzynek.
   </li>
   <li>
-    <strong>Błędy przepisywania</strong> &mdash; przy tej ilości ręcznej pracy
-    literówki w ilościach i indeksach były nieuniknione. Część wychodziła
-    dopiero przy wysyłce, część u klienta.
-  </li>
-</ul>
-
-<p>
-  Mierzony koszt: około 120 godzin miesięcznie czystego przepisywania, plus
-  trudniejszy do policzenia koszt korekt i reklamacji wynikających z pomyłek.
-</p>
-
-<h2>Co sprawdziłem najpierw: gotowiec przed kodem</h2>
-
-<p>
-  Moja zasada jest niezmienna: <strong>najpierw gotowiec, dopiero potem
-  dedykowane rozwiązanie</strong>. Pisanie aplikacji ma sens tylko wtedy, gdy
-  rynek nie daje czegoś, co wystarczy. Dlatego zanim zaproponowałem cokolwiek,
-  przeszliśmy przez listę alternatyw.
-</p>
-
-<ul>
-  <li>
-    <strong>Wymiana ERP na większy system</strong> &mdash; odrzucone. Kosztowne,
-    wielomiesięczne, ryzykowne, a problem nie leżał w samym ERP. ERP robił
-    dobrze to, do czego był kupiony.
-  </li>
-  <li>
-    <strong>Moduł CRM/produkcyjny od dostawcy ERP</strong> &mdash; sprawdzony,
-    odrzucony. Drogi w licencji per użytkownik, sztywny w dopasowaniu do
-    specyficznego obiegu dokumentów firmy i wymagał i tak ręcznego mostka do
-    istniejących szablonów.
-  </li>
-  <li>
-    <strong>Platforma low-code / arkusze w chmurze</strong> &mdash; rozważone na
-    serio jako tańsza droga. Padło na dwóch rzeczach: integracja z ERP klienta
-    była nietrywialna, a generowanie dokumentów w wymaganym formacie wychodziło
-    poza to, co platforma robiła wygodnie.
+    <strong>Błędy przepisywania</strong> &mdash; przy dużej skali ręcznego kopiowania
+    literówki w ilościach i indeksach są niemal nieuniknione i generują dodatkowy koszt
+    korekt oraz reklamacji.
   </li>
 </ul>
 
 <p>
-  Wniosek: gotowce nie odpadły z powodu mody na własny software, tylko dlatego,
-  że żaden nie domykał integracji z ERP i generowania dokumentów bez ręcznej
-  pracy. Dopiero to uzasadniło budowę.
+  W przyjętym modelu sam koszt ręcznego przepisywania to około 120 godzin miesięcznie,
+  nie licząc czasu traconego na wyjaśnianie pomyłek.
 </p>
 
-<h2>Rozwiązanie: cienka warstwa nad istniejącym ERP</h2>
+<h2>Krok 1: sprawdzenie gotowców przed budową</h2>
 
 <p>
-  Kluczowa decyzja: <strong>nie ruszamy ERP</strong>. Zamiast tego zbudowaliśmy
-  dedykowaną aplikację webową, która siada nad istniejącym systemem i go
-  uzupełnia, a nie zastępuje. Trzy filary:
+  Podstawowa zasada to <strong>najpierw gotowe narzędzie, dopiero potem dedykowane
+  rozwiązanie</strong>. Pisanie własnej aplikacji ma sens wyłącznie wtedy, gdy tańsze
+  opcje nie domykają realnego procesu. W takim scenariuszu porównuje się najpierw trzy
+  drogi:
 </p>
 
 <ul>
   <li>
-    <strong>Integracja z ERP</strong> &mdash; aplikacja czyta dane o zleceniach,
-    indeksach i stanach magazynowych bezpośrednio z ERP, więc dane wpisuje się
-    raz, w jednym miejscu prawdy. Koniec potrójnego przepisywania.
+    <strong>Wymiana ERP na większy system</strong> &mdash; zwykle najdroższa
+    i najbardziej ryzykowna droga, nieuzasadniona, jeśli sam ERP dobrze realizuje
+    magazyn i księgowość.
+  </li>
+  <li>
+    <strong>Dodatkowy moduł od dostawcy ERP</strong> &mdash; warto sprawdzić cenę
+    licencji na użytkownika oraz to, czy pozwala elastycznie generować firmowe szablony
+    dokumentów bez ręcznych poprawek.
+  </li>
+  <li>
+    <strong>Platforma low-code / arkusze w chmurze</strong> &mdash; dobra pierwsza
+    opcja, jeśli integracja z ERP jest prosta i nie wymaga niestandardowej walidacji
+    wyjątków ani własnego formatowania dokumentów.
+  </li>
+</ul>
+
+<p>
+  Dopiero gdy gotowce nie domykają integracji z ERP albo generowania dokumentów bez
+  ręcznych obejść, uzasadnione staje się lekkie narzędzie dedykowane.
+</p>
+
+<h2>Krok 2: cienka warstwa nad istniejącym ERP</h2>
+
+<p>
+  Kluczowe założenie takiego podejścia brzmi: <strong>nie ruszamy samego ERP</strong>.
+  Zamiast tego projektuje się lekką aplikację webową, która współpracuje z istniejącym
+  systemem w trzech obszarach:
+</p>
+
+<ul>
+  <li>
+    <strong>Integracja z ERP</strong> &mdash; narzędzie pobiera dane o zleceniach,
+    indeksach i stanach bezpośrednio z ERP, dzięki czemu dane wpisuje się raz,
+    w jednym miejscu.
   </li>
   <li>
     <strong>Automatyczne generowanie dokumentów</strong> &mdash; potwierdzenia,
-    specyfikacje i dokumenty wysyłkowe powstają jednym kliknięciem z danych już
-    obecnych w systemie, w firmowych szablonach. Człowiek sprawdza, nie
-    przepisuje.
+    specyfikacje i dokumenty wysyłkowe powstają z danych już obecnych w systemie,
+    w firmowych szablonach. Człowiek weryfikuje wynik zamiast przepisywać pola.
   </li>
   <li>
     <strong>Tablica statusów zleceń</strong> &mdash; wspólny widok &bdquo;od zapytania do
-    wysyłki&rdquo; dla handlu i produkcji. Status zlecenia widać bez telefonu i bez
-    grzebania w mailach.
+    wysyłki&rdquo; dla handlu i produkcji, bez ręcznego dopytywania telefonicznego.
   </li>
 </ul>
 
 <p>
-  Dorzuciliśmy jeden element AI tam, gdzie realnie zarabiał na siebie:
-  automatyczne wstępne odczytywanie zamówień przychodzących mailem (PDF/skan)
-  i mapowanie pozycji na indeksy w ERP. Człowiek tylko potwierdza dopasowanie.
-  To nie był cel sam w sobie &mdash; to było rozwiązanie konkretnego wąskiego gardła.
-  Szerszy kontekst tego podejścia opisałem w sekcji <a href="/dla-produkcji">rozwiązania dla
-  produkcji</a>.
+  Jako opcjonalny krok można dołożyć jeden punktowy moduł AI tam, gdzie skraca realną
+  pracę: wstępny odczyt zamówień z PDF-ów i dopasowanie pozycji do indeksów w ERP
+  z obowiązkowym zatwierdzeniem przez pracownika. Szerzej o kolejności doboru rozwiązań
+  piszę na stronie <a href="/jak-pracuje">Jak pracuję</a>.
 </p>
 
-<h2>Wdrożenie krok po kroku</h2>
+<h2>Przykładowy podział prac na etapy</h2>
 
 <ul>
   <li>
-    <strong>Tydzień 1&ndash;2 &mdash; mapowanie procesu.</strong> Usiadłem z obsługą zleceń
-    i produkcją, rozrysowaliśmy realny obieg (nie ten z procedur, tylko ten
-    rzeczywisty) i zmierzyliśmy, gdzie znikają godziny.
+    <strong>Etap 1 &mdash; mapowanie procesu i pomiar.</strong> Spisanie realnego obiegu
+    dokumentów (nie procedury z papieru) i policzenie czasu traconego na konkretnych
+    czynnościach.
   </li>
   <li>
-    <strong>Tydzień 3&ndash;4 &mdash; integracja z ERP.</strong> Najpierw najtrudniejsze:
-    bezpieczny, tylko-do-odczytu dostęp do danych ERP i potwierdzenie, że
-    czytamy poprawne wartości.
+    <strong>Etap 2 &mdash; bezpieczny odczyt danych z ERP.</strong> Weryfikacja spójności
+    danych i ustanowienie połączenia tylko do odczytu dla pierwszego wybranego procesu.
   </li>
   <li>
-    <strong>Tydzień 5&ndash;7 &mdash; generowanie dokumentów.</strong> Pierwszy realny zysk
-    czasu. Wdrożyliśmy jeden typ dokumentu, zebraliśmy uwagi, potem dołożyliśmy
-    kolejne.
+    <strong>Etap 3 &mdash; generowanie jednego typu dokumentu.</strong> Najpierw wąski
+    zakres dla jednego dokumentu, testy z zespołem i dopiero rozszerzenie o kolejne.
   </li>
   <li>
-    <strong>Tydzień 8&ndash;9 &mdash; tablica statusów.</strong> Wspólny widok dla dwóch
-    działów, najpierw w trybie podglądu obok starych Exceli (świadomy kompromis,
-    żeby zbudować zaufanie do danych).
-  </li>
-  <li>
-    <strong>Tydzień 10&ndash;12 &mdash; AI dla zamówień przychodzących i dopięcie.</strong>
-    Ostatni moduł, drobne poprawki ergonomii i wyłączenie starych arkuszy
-    z obiegu.
+    <strong>Etap 4 &mdash; tablica statusów i opcjonalny odczyt PDF.</strong> Wspólny
+    widok pracujący początkowo równolegle ze starymi arkuszami, dopóki zespół nie nabierze
+    zaufania do danych.
   </li>
 </ul>
 
 <p>
-  Co poszło nie idealnie: integracja z ERP zajęła więcej, niż zakładałem, bo
-  część danych historycznych była niespójna i trzeba je było najpierw
-  uporządkować. To typowe &mdash; warto to założyć w budżecie czasu z góry.
+  Najczęstsze ryzyko w tego typu projektach to niespójne dane historyczne w ERP &mdash;
+  warto uwzględnić czas na ich uporządkowanie już na etapie planowania.
 </p>
 
-<h2>Rezultaty</h2>
+<h2>Modelowe porównanie przed i po (założenia orientacyjne)</h2>
 
 <table>
   <thead>
     <tr>
-      <th>Metryka</th>
-      <th>Przed</th>
-      <th>Po</th>
+      <th>Metryka (wartości modelowe)</th>
+      <th>Przed automatyzacją</th>
+      <th>Cel po wdrożeniu</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Czas na przepisywanie danych (mies.)</td>
+      <td>Czas na ręczne przepisywanie danych (mies.)</td>
       <td>~120 h</td>
-      <td>~12 h</td>
+      <td>~12&ndash;20 h (weryfikacja i wyjątki)</td>
     </tr>
     <tr>
-      <td>Czas wystawienia kompletu dokumentów</td>
+      <td>Czas przygotowania kompletu dokumentów</td>
       <td>~25 min</td>
-      <td>~3 min</td>
+      <td>~3&ndash;5 min</td>
     </tr>
     <tr>
-      <td>Błędy przepisywania wykryte miesięcznie</td>
-      <td>~15&ndash;20</td>
-      <td>2&ndash;3</td>
+      <td>Błędy przepisywania miesięcznie</td>
+      <td>kilkanaście</td>
+      <td>pojedyncze (tylko wyjątki)</td>
     </tr>
     <tr>
-      <td>Czas obsługi wyjątku (nietypowe zlecenie)</td>
-      <td>~40 min</td>
-      <td>~15 min</td>
-    </tr>
-    <tr>
-      <td>Odpowiedź na &bdquo;gdzie jest zlecenie X?&rdquo;</td>
-      <td>minuty + telefon</td>
-      <td>natychmiast</td>
+      <td>Sprawdzenie statusu zlecenia</td>
+      <td>telefon / mail</td>
+      <td>wgląd w jeden widok</td>
     </tr>
   </tbody>
 </table>
 
 <p>
-  Najważniejsza liczba to oczywiście ~120 h &rarr; ~12 h, czyli około
-  <strong>108 godzin miesięcznie</strong> odzyskanego czasu czterech osób. Nie
-  zwolniono nikogo &mdash; ten czas wrócił do pracy, która faktycznie wymaga człowieka:
-  kontaktu z klientem i obsługi naprawdę nietypowych przypadków.
+  W takim modelu różnica między ~120 h a ~12&ndash;20 h weryfikacji oznacza około
+  <strong>100 godzin miesięcznie</strong> odzyskanego czasu zespołu &mdash; do
+  przeznaczenia na kontakt z klientem i obsługę nietypowych zleceń. Realny wynik w każdej
+  firmie zależy jednak od wolumenu zleceń, jakości danych w ERP i skali wyjątków.
 </p>
 
-<h2>Wnioski i co dalej</h2>
+<h2>Kluczowe wnioski przed startem podobnego projektu</h2>
 
 <ul>
   <li>
-    <strong>Nie trzeba wymieniać ERP.</strong> Najdroższy ruch był niepotrzebny.
-    Cienka, dedykowana warstwa nad działającym systemem dała 90% efektu za ułamek
-    kosztu i ryzyka.
+    <strong>Nie trzeba od razu wymieniać ERP.</strong> Cienka, dopasowana warstwa nad
+    działającym systemem jest zwykle tańsza i mniej ryzykowna niż wielomiesięczna migracja.
   </li>
   <li>
-    <strong>Najpierw zmierz, potem buduj.</strong> Te 120 godzin to nie było
-    przeczucie, tylko policzona wartość &mdash; bez niej nie dałoby się obronić
-    projektu przed zarządem.
+    <strong>Najpierw zmierz, potem buduj.</strong> Bez policzenia realnych godzin
+    i kosztu błędów na własnych danych nie da się rzetelnie ocenić sensu inwestycji.
   </li>
   <li>
-    <strong>AI tylko tam, gdzie zarabia.</strong> Jeden moduł AI rozwiązał
-    realne wąskie gardło. Reszta wartości to zwykła, solidna automatyzacja
-    i integracja &mdash; bez magii.
+    <strong>AI tylko jako punktowy dodatek.</strong> Większość oszczędności daje zwykła,
+    deterministyczna integracja danych i automatyzacja szablonów.
   </li>
 </ul>
 
-<h2>Masz podobny proces?</h2>
+<h2>Masz podobny proces w swojej firmie?</h2>
 
 <p>
-  Jeśli u Ciebie też ludzie przepisują te same dane między systemem a
-  dokumentami, a status zlecenia da się ustalić tylko telefonem &mdash; prawdopodobnie
-  da się to policzyć i odzyskać kilkadziesiąt godzin miesięcznie. Możesz to
-  wstępnie oszacować <a href="/kalkulator-roi">kalkulatorem ROI</a>, a potem
-  <a href="/#kontakt">opisać mi swój proces</a> &mdash; powiem szczerze, czy i jak
-  warto się za to zabrać.
+  Jeśli w Twojej firmie zespół przepisuje te same dane między systemem, Excelem
+  i dokumentami, <a href="/#kontakt">opisz mi ten proces w kilku zdaniach</a> &mdash;
+  wspólnie sprawdzimy na Twoich realnych danych, czy wystarczy konfiguracja obecnych
+  narzędzi, czy ma sens mały pierwszy etap automatyzacji.
 </p>`,
   },
   {
@@ -615,8 +586,7 @@ export const blogPosts: BlogPost[] = [
   Zrób prostą listę: wypisz 5&ndash;10 powtarzalnych czynności w firmie i przy
   każdej dopisz, ile godzin tygodniowo zajmuje oraz kto ją robi. Proces
   z największą liczbą godzin, który jednocześnie jest regułowy, to twój
-  pierwszy kandydat. Ile to realnie kosztuje, policzysz
-  <a href="/kalkulator-roi">kalkulatorem ROI</a>.
+  pierwszy kandydat. Ile to realnie kosztuje, najprościej policzyć na własnych danych przed wyborem narzędzia.
 </p>
 
 <h2>Zmapuj proces, zanim cokolwiek zautomatyzujesz</h2>
@@ -655,8 +625,7 @@ export const blogPosts: BlogPost[] = [
 <p>
   AI przygotowuje <strong>szkic</strong> odpowiedzi na powtarzalne pytania
   klientów, a człowiek go zatwierdza lub poprawia. Słowo klucz to
-  &bdquo;roboczy&rdquo; &mdash; odpowiedź nie idzie do klienta automatycznie. Dokładnie na tym
-  zbudowaliśmy <a href="/supportflow">SupportFlow AI</a>.
+  &bdquo;roboczy&rdquo; &mdash; odpowiedź nie idzie do klienta automatycznie. Dokładnie na takiej zasadzie warto budować asystentów obsługi zgłoszeń.
 </p>
 
 <h2>Zacznij od małego pilota, nie od wdrożenia całej firmy</h2>
@@ -930,8 +899,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>
   To są przedziały, nie wyceny &mdash; każdy projekt jest inny. Zanim cokolwiek
-  zaczniemy, najpierw szacujemy, czy w ogóle się to zwróci. Do wstępnej oceny
-  warto użyć <a href="/kalkulator-roi">kalkulatora ROI</a>: jeśli dashboard
+  zaczniemy, najpierw szacujemy, czy w ogóle się to zwróci. Do wstępnej oceny warto policzyć prosty bilans: jeśli dashboard
   oszczędza dwa dni pracy miesięcznie i pozwala wcześniej wyłapać jeden
   kosztowny błąd, zwrot bywa szybki. Jeśli nie &mdash; powiem to wprost i nie
   będę namawiał na budowę.
@@ -954,8 +922,7 @@ export const blogPosts: BlogPost[] = [
   połowę braków albo że przezbrojenia zjadają więcej czasu, niż ktokolwiek
   podejrzewał. Rozwijam ten temat w osobnym wpisie o
   <a href="/blog/dashboardy-analityczne-dla-produkcji">dashboardach analitycznych
-  dla produkcji</a>, a całość podejścia do tej branży opisuję na stronie
-  <a href="/dla-produkcji">rozwiązania dla produkcji</a>.
+  dla produkcji</a>, a podejście do doboru rozwiązań opisuję na stronie <a href="/jak-pracuje">Jak pracuję</a>.
 </p>
 
 <h2>Przykład: jak analityka ujawnia ukryte koszty</h2>
@@ -1245,8 +1212,7 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <p>
-  To samo podejście stosujemy w naszych
-  <a href="/dla-produkcji">rozwiązaniach dla produkcji</a>: zaczynamy od tego,
+  To samo podejście stosuję w pracy z procesami operacyjnymi: zaczynam od tego,
   co da się zmierzyć dziś prostymi środkami, a dedykowany dashboard budujemy
   dopiero tam, gdzie liczby pokazują, że się opłaca.
 </p>
@@ -1340,7 +1306,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Najtrudniejsza rada brzmi banalnie: nie buduj na start kompletnego dashboardu. Wybierz 3&ndash;5 KPI, które realnie zmieniają twoje decyzje, oprzyj je na danych, które już masz, i obserwuj przez miesiąc. Dopiero gdy wiesz, na które liczby naprawdę patrzysz i reagujesz, dokładasz kolejne i automatyzujesz zbieranie. Dashboard, który rośnie z używania, prawie zawsze jest lepszy niż ten zaprojektowany &bdquo;na zapas&rdquo; w jeden weekend.</p>
 
-<p>Jeśli chcesz głębiej wejść w stronę narzędziową i architekturę, zajrzyj do naszego <a href="/blog/dashboardy-analityczne-dla-firm-przewodnik">przewodnika po dashboardach</a>. A zanim cokolwiek zbudujesz, warto policzyć, czy się to spina &ndash; w tym pomoże <a href="/kalkulator-roi">kalkulator ROI</a>.</p>
+<p>Jeśli chcesz głębiej wejść w stronę narzędziową i architekturę, zajrzyj do naszego <a href="/blog/dashboardy-analityczne-dla-firm-przewodnik">przewodnika po dashboardach</a>. A zanim cokolwiek zbudujesz, warto policzyć na własnych liczbach, czy wdrożenie ma sens ekonomiczny.</p>
 
 <p>Jeśli wolisz, żeby ktoś pomógł wybrać właściwe KPI i połączył je z twoimi danymi w jednym miejscu &ndash; <a href="/#kontakt">napisz do mnie</a>. Zaczynamy zwykle od krótkiej rozmowy o tym, które decyzje chcesz podejmować szybciej, a nie od listy wykresów do zbudowania.</p>`,
   },
@@ -1386,7 +1352,7 @@ export const blogPosts: BlogPost[] = [
 <p>To najczęstsze zaskoczenie u moich klientów. Model per-operacja wygląda świetnie na starcie: kilkadziesiąt złotych miesięcznie. Ale jeden przepływ z 6 krokami to 6 operacji na jedno zdarzenie. Przy 5000 zdarzeń miesięcznie to już 30&nbsp;000 operacji &ndash; i nagle jesteś w wyższym, droższym planie.</p>
 <ul>
 <li><strong>Policz operacje, nie zdarzenia.</strong> Pomnóż liczbę kroków przez przewidywany wolumen, zanim wybierzesz plan.</li>
-<li><strong>Sprawdź próg, przy którym custom się zwraca.</strong> Z mojego doświadczenia, gdy rachunek za no-code przekracza ~500&ndash;800&nbsp;zł/mies. i rośnie, warto policzyć alternatywę &mdash; pomoże w tym <a href="/kalkulator-roi">kalkulator ROI</a>.</li>
+<li><strong>Sprawdź próg, przy którym custom się zwraca.</strong> Z mojego doświadczenia, gdy rachunek za no-code przekracza ~500&ndash;800&nbsp;zł/mies. i rośnie, warto policzyć alternatywę na realnym wolumenie operacji.</li>
 <li><strong>Dolicz ukryte koszty.</strong> Czas na obchodzenie ograniczeń narzędzia też kosztuje.</li>
 </ul>
 
@@ -1407,7 +1373,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Kiedy dołożyć AI</h2>
 <p>AI w workflow ma sens tam, gdzie wcześniej potrzebny był człowiek do <strong>oceny lub interpretacji</strong>, a nie do prostego przeklejania danych. Dobre przypadki: klasyfikacja zgłoszeń (do którego działu trafia mail), wyciąganie danych z nieustrukturyzowanych dokumentów, wstępna odpowiedź na powtarzalne pytania, streszczanie długich treści.</p>
-<p>Przestroga: nie wkładaj AI tam, gdzie wystarczy zwykły warunek. To droższe i mniej przewidywalne. AI dokładam świadomie, w jednym&ndash;dwóch punktach przepływu, gdzie realnie zastępuje decyzję człowieka. Dokładnie tak działa <a href="/supportflow">SupportFlow AI</a> &ndash; AI klasyfikuje i wstępnie odpowiada na zgłoszenia, ale całość ma własny panel, w którym zespół zachowuje kontrolę.</p>
+<p>Przestroga: nie wkładaj AI tam, gdzie wystarczy zwykły warunek. To droższe i mniej przewidywalne. AI dokładam świadomie, w jednym&ndash;dwóch punktach przepływu, gdzie realnie zastępuje decyzję człowieka. W dobrze zaprojektowanym workflow obsługi zgłoszeń AI klasyfikuje sprawę i przygotowuje projekt odpowiedzi, ale całość ma prosty panel, w którym zespół zachowuje kontrolę.</p>
 
 <h2>Moje podejście: najpierw gotowiec, custom gdy konieczne</h2>
 <p>Nie zaczynam od pisania kodu. Jeśli Make albo Zapier rozwiązują problem w rozsądnej cenie &ndash; rekomenduję je i koniec. Custom proponuję dopiero, gdy widać konkretny powód: pułapkę cenową przy skali, potrzebę własnego interfejsu dla zespołu, złożoną logikę, której no-code nie udźwignie, albo wymagania wokół danych i bezpieczeństwa.</p>
@@ -1510,7 +1476,7 @@ export const blogPosts: BlogPost[] = [
 <tr><td>Odzyskany czas</td><td>&ndash;</td><td>~40 h/mies.</td></tr>
 </table>
 
-<p>Czterdzieści godzin miesięcznie to równowartość pół etatu &mdash; przesuniętego z przepisywania na pracę, która faktycznie wymaga człowieka. Do tego dochodzi mniej błędów (mniej korekt, mniej nerwowych telefonów) i krótszy czas akceptacji, bo system sam przypomina właściwej osobie. Zaznaczam uczciwie: to model orientacyjny &mdash; Wasze liczby zależą od jakości skanów, liczby dostawców i progów akceptacji. Dlatego zanim cokolwiek policzymy na poważnie, warto przepuścić to przez <a href="/kalkulator-roi">kalkulator ROI</a> na własnych danych.</p>
+<p>Czterdzieści godzin miesięcznie to równowartość pół etatu &mdash; przesuniętego z przepisywania na pracę, która faktycznie wymaga człowieka. Do tego dochodzi mniej błędów (mniej korekt, mniej nerwowych telefonów) i krótszy czas akceptacji, bo system sam przypomina właściwej osobie. Zaznaczam uczciwie: to model orientacyjny &mdash; Wasze liczby zależą od jakości skanów, liczby dostawców i progów akceptacji. Dlatego zanim podejmiesz decyzję o wdrożeniu, warto policzyć taki bilans na własnych danych i realnym wolumenie dokumentów.</p>
 
 <h2>Od czego zacząć</h2>
 
@@ -1573,7 +1539,7 @@ export const blogPosts: BlogPost[] = [
 <p>Nie pytaj &bdquo;gdzie wykorzystam AI&rdquo;. Pytaj &bdquo;co w mojej firmie zjada najwięcej godzin na zadaniach, które się powtarzają&rdquo;. Najlepsi kandydaci to procesy wykonywane codziennie lub kilka razy dziennie, przez kilka osób, na danych z zewnątrz (maile, dokumenty, formularze).</p>
 
 <h3>2. Policz, ile ten proces kosztuje dziś</h3>
-<p>Liczba godzin miesięcznie razy koszt godziny pracownika. To Twoja linia bazowa. Bez niej nie da się ocenić, czy wdrożenie się opłaca &mdash; a większość &bdquo;strategii AI&rdquo; pomija ten krok, bo wtedy trudniej sprzedać drogi projekt. Pomocny jest tu nasz <a href="/kalkulator-roi">kalkulator ROI</a>, który zamienia te godziny na konkretne złotówki.</p>
+<p>Liczba godzin miesięcznie razy koszt godziny pracownika. To Twoja linia bazowa. Bez niej nie da się ocenić, czy wdrożenie się opłaca &mdash; a większość &bdquo;strategii AI&rdquo; pomija ten krok, bo wtedy trudniej sprzedać drogi projekt. Wystarczy prosty arkusz, który zamienia te godziny i koszt błędów na konkretne złotówki.</p>
 
 <h3>3. Zacznij od jednego, wąsko zdefiniowanego pilota</h3>
 <p>Jeden proces, jeden zespół, jasno określony sukces (&bdquo;skrócimy czas obsługi faktury z 8 do 2 minut&rdquo;). Pilot, który trwa tygodnie, nie miesiące. Jeśli ktoś proponuje Ci wielomiesięczny &bdquo;program transformacji AI&rdquo; na start &mdash; to droga przez najgrubszy las.</p>
@@ -1589,7 +1555,7 @@ export const blogPosts: BlogPost[] = [
 <p>To dziś numer jeden pod względem pewności zwrotu. Faktury, zamówienia, listy przewozowe, umowy, protokoły &mdash; wszystko, co przychodzi jako PDF lub skan i musi trafić do systemu. AI czyta dokument, wyciąga pola (numer, kwota, kontrahent, pozycje), a automatyzacja wpisuje je do ERP. W firmie, która ręcznie przepisywała kilkaset dokumentów miesięcznie, to często kilkadziesiąt odzyskanych godzin. Kluczowe: zostawiamy człowiekowi kontrolę przy nietypowych przypadkach.</p>
 
 <h3>Obsługa klienta</h3>
-<p>Nie chodzi o &bdquo;chatbota, który zastąpi konsultanta&rdquo; &mdash; takie rozwiązania częściej irytują klientów niż pomagają. Chodzi o AI, które czyta przychodzące zgłoszenia, rozumie ich treść, klasyfikuje, sugeruje odpowiedź na bazie Twojej dokumentacji i podsuwa ją konsultantowi do akceptacji. Tak działa nasz <a href="/supportflow">SupportFlow AI</a> &mdash; przyspiesza obsługę, ale człowiek wciąż trzyma rękę na pulsie. Tam, gdzie kluczem jest szybkie skierowanie zgłoszenia do właściwej osoby, sprawdza się z kolei <a href="/triageflow">TriageFlow</a>.</p>
+<p>Nie chodzi o &bdquo;chatbota, który zastąpi konsultanta&rdquo; &mdash; takie rozwiązania częściej irytują klientów niż pomagają. Chodzi o AI, które czyta przychodzące zgłoszenia, rozumie ich treść, klasyfikuje, sugeruje odpowiedź na bazie Twojej dokumentacji i podsuwa ją konsultantowi do akceptacji. Taki model przyspiesza obsługę i kierowanie zgłoszeń do właściwych osób, a człowiek wciąż zachowuje pełną kontrolę nad finalną odpowiedzią.</p>
 
 <h3>Prognozowanie i analiza</h3>
 <p>AI potrafi pomóc w prognozie popytu, wykrywaniu anomalii (nietypowe zamówienie, podejrzana faktura) czy w streszczaniu trendów z danych sprzedażowych. Tu uczciwie ostrzegam: prognozowanie jest najtrudniejsze i wymaga dobrych danych historycznych. Jeśli Twoje dane są niekompletne albo rozsiane po Excelach, najpierw uporządkuj dane &mdash; inaczej AI da Ci pewną siebie, ale błędną prognozę.</p>
@@ -1611,7 +1577,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Utrzymanie</strong> &mdash; drobne poprawki, monitoring jakości, aktualizacje.</li>
 </ul>
 
-<p>Moje pozycjonowanie jest tu świadomie inne niż drogich studiów: <strong>oferuję gotowe rozwiązanie dopasowane do firmy, za niższy koszt, bez konieczności budowania własnego zespołu i bez wymiany środowiska</strong>. Nie musisz zmieniać ERP, CRM ani sposobu pracy ludzi &mdash; AI dokłada się do tego, co już masz. Zanim zapłacisz pięciocyfrową kwotę za &bdquo;sprint&rdquo;, policz w <a href="/kalkulator-roi">kalkulatorze ROI</a>, ile czasu i pieniędzy faktycznie odzyskasz &mdash; to zweryfikuje każdą ofertę, także moją.</p>
+<p>Moje pozycjonowanie jest tu świadomie inne niż drogich studiów: <strong>oferuję gotowe rozwiązanie dopasowane do firmy, za niższy koszt, bez konieczności budowania własnego zespołu i bez wymiany środowiska</strong>. Nie musisz zmieniać ERP, CRM ani sposobu pracy ludzi &mdash; AI dokłada się do tego, co już masz. Zanim zapłacisz pięciocyfrową kwotę za &bdquo;sprint&rdquo;, policz na swoich danych, ile czasu i pieniędzy faktycznie odzyskasz &mdash; to zweryfikuje każdą ofertę, także moją.</p>
 
 <h2>Checklist gotowości do wdrożenia AI</h2>
 
@@ -1675,7 +1641,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Druga rzecz, która szybko się zwraca, to porządkowanie tego, co spływa na wspólną skrzynkę albo formularz kontaktowy. W typowej firmie ktoś rano otwiera 40 maili i ręcznie decyduje: to reklamacja, to zapytanie ofertowe, to faktura, to spam. AI robi tę wstępną segregację &ndash; nadaje kategorię, priorytet i przypisuje do właściwej osoby lub kolejki.</p>
 
-<p>To jest dokładnie obszar, w którym zbudowaliśmy <a href="/supportflow">SupportFlow AI</a>: zgłoszenia są automatycznie klasyfikowane, tagowane i wzbogacane o kontekst, zanim trafią do zespołu. Efekt to nie &bdquo;robot odpowiada klientom&rdquo;, tylko krótszy czas reakcji i to, że pilne sprawy nie giną pod stertą rutyny.</p>
+<p>W dobrze ułożonej automatyzacji obsługi zgłoszeń wiadomości są klasyfikowane, tagowane i wzbogacane o kontekst, zanim trafią do zespołu. Efekt to nie &bdquo;robot odpowiada klientom&rdquo;, tylko krótszy czas reakcji i to, że pilne sprawy nie giną pod stertą rutyny.</p>
 
 <ul>
 <li><strong>Kiedy się opłaca:</strong> gdy masz jedną skrzynkę dla wielu typów spraw albo kilka osób, które &bdquo;przerzucają&rdquo; między sobą zgłoszenia.</li>
@@ -1807,8 +1773,7 @@ export const blogPosts: BlogPost[] = [
   rozumie, czego dotyczy, nadaje priorytet, kategoryzuje i kieruje do
   właściwej osoby albo kolejki. U klientów widzę, że samo to skraca czas
   reakcji o kilkadziesiąt procent, bo nikt już ręcznie nie przerzuca maili
-  między działami. Tak działa nasz <a href="/triageflow">TriageFlow</a>
-  &mdash; agent zajmuje się klasyfikacją i routingiem, a człowiek dostaje już
+  między działami. W takim przepływie automat zajmuje się klasyfikacją i kierowaniem spraw, a człowiek dostaje już
   uporządkowaną kolejkę.
 </p>
 
@@ -1820,8 +1785,7 @@ export const blogPosts: BlogPost[] = [
   kiedy nie wie</strong>. Gdy pytanie wykracza poza jego pewność albo dotyczy
   decyzji wymagającej człowieka (zwroty, reklamacje, wyjątki), eskaluje
   sprawę zamiast zmyślać. To różnica między pomocnym asystentem a generatorem
-  problemów. Na tej zasadzie zbudowaliśmy <a href="/supportflow">SupportFlow
-  AI</a>: agent obsługuje powtarzalne pytania, a sprawy nietypowe trafiają do
+  problemów. W takim podejściu automat przygotowuje propozycje odpowiedzi na powtarzalne pytania, a sprawy nietypowe trafiają od razu do
   zespołu z gotowym kontekstem.
 </p>
 
@@ -1964,7 +1928,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Skala.</strong> Arkusz mielił się 2 sekundy, teraz 40, a makra wywalają się losowo.</li>
 </ul>
 
-<p>Jeśli rozpoznajesz dwa, trzy z tych punktów &mdash; warto się zatrzymać i policzyć. Nie żeby od razu zamawiać aplikację, tylko żeby zrozumieć, ile naprawdę kosztuje obecny sposób pracy. Do tego mam <a href="/kalkulator-roi">kalkulator ROI</a>, który liczy oszczędność czasu w przeliczeniu na pieniądze.</p>
+<p>Jeśli rozpoznajesz dwa, trzy z tych punktów &mdash; warto się zatrzymać i policzyć. Nie żeby od razu zamawiać aplikację, tylko żeby zrozumieć, ile naprawdę kosztuje obecny sposób pracy. Wystarczy policzyć godziny spędzane co miesiąc na obejściach i przemnożyć je przez realny koszt czasu zespołu.</p>
 
 <h2>Rodzaje dedykowanych aplikacji webowych</h2>
 
@@ -2119,7 +2083,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Integracje i konektory</strong> często w wyższym pakiecie albo przez płatny pośrednik.</li>
 <li><strong>Lock-in.</strong> Im głębiej wchodzisz, tym drożej i trudniej się wyprowadzić.</li>
 </ul>
-<p>Policz to uczciwie: koszt licencji w skali 3&ndash;5 lat plus czas tracony na obejścia. Czasem dedykowana aplikacja zwraca się szybciej, niż się wydaje. Pomocne będą tu <a href="/blog/ile-kosztuje-aplikacja-webowa-dla-firmy">widełki kosztów aplikacji webowej</a> oraz <a href="/kalkulator-roi">kalkulator ROI</a>, w którym podstawisz własne liczby.</p>
+<p>Policz to uczciwie: koszt licencji w skali 3&ndash;5 lat plus czas tracony na obejścia. Czasem dedykowana aplikacja zwraca się szybciej, niż się wydaje. Pomocne będą tu <a href="/blog/ile-kosztuje-aplikacja-webowa-dla-firmy">widełki kosztów aplikacji webowej</a> oraz własne zestawienie godzin traconych w obecnym procesie.</p>
 
 <h2>Tabela: gotowiec vs custom w skrócie</h2>
 <table>
@@ -2213,7 +2177,7 @@ export const blogPosts: BlogPost[] = [
 <p>Fałszywa oszczędność boli bardziej niż wyższy budżet. Najtańsza oferta zwykle oznacza brak testów, brak dokumentacji i kod, którego nikt potem nie chce dotknąć. Z drugiej strony przepłacanie to płacenie za funkcje, których nigdy nie użyjesz, albo za &bdquo;złożoność na zapas&rdquo;.</p>
 <p>Moja kolejność jest zawsze taka sama:</p>
 <ul>
-<li><strong>Najpierw policz ROI.</strong> Ile godzin albo ile błędów miesięcznie kosztuje Cię obecny proces? Bez tej liczby nie wiesz, czy aplikacja w ogóle się opłaca. Pomoże <a href="/kalkulator-roi">kalkulator ROI</a>.</li>
+<li><strong>Najpierw policz ROI.</strong> Ile godzin albo ile błędów miesięcznie kosztuje Cię obecny proces? Bez tej liczby nie wiesz, czy aplikacja w ogóle się opłaca &mdash; warto policzyć to w prostym arkuszu przed startem.</li>
 <li><strong>Potem sprawdź gotowca.</strong> Jeśli istnieje narzędzie z półki, które robi 80% tego, czego potrzebujesz, często warto z niego skorzystać. Rozkładam to w tekście <a href="/blog/customowa-aplikacja-czy-gotowe-narzedzie">customowa aplikacja czy gotowiec</a>.</li>
 <li><strong>Dopiero na końcu custom.</strong> Dedykowaną aplikację warto budować tam, gdzie Twój proces jest przewagą, a gotowiec by go spłaszczył.</li>
 </ul>

@@ -30,7 +30,7 @@ export function TitleBlockForm() {
       setStatus({
         kind: 'error',
         invalidMessage: true,
-        message: `Opisz krótko problem w co najmniej ${MIN_MESSAGE} znakach — np. z czym masz kłopot (sieć, komputer, poczta, pomoc zdalna).`,
+        message: `Opisz krótko problem w co najmniej ${MIN_MESSAGE} znakach — np. jaki proces chcesz usprawnić albo co uporządkować w firmowym IT.`,
       });
       return;
     }
@@ -61,7 +61,7 @@ export function TitleBlockForm() {
       }
 
       form.reset();
-      setStatus({ kind: 'success', message: 'Dziękuję. Odpowiem w ciągu 24 godzin w dni robocze.' });
+      setStatus({ kind: 'success', message: 'Dziękuję. Przeczytam opis i wrócę z odpowiedzią w dni robocze.' });
     } catch (error) {
       logger.error('Title block form submission failed', {
         error: error instanceof Error ? error.message : String(error),
@@ -87,7 +87,7 @@ export function TitleBlockForm() {
           minLength={MIN_MESSAGE}
           maxLength={5000}
           aria-invalid={status.invalidMessage ? true : undefined}
-          placeholder="Np. rwie się Wi-Fi w biurze, komputer wolno działa, trzeba ustawić pocztę i backup albo szukam zdalnego wsparcia IT…"
+          placeholder="Opisz krótko, co dziś blokuje pracę — np. ręczne przepisywanie danych, raporty, narzędzie webowe albo zdalne uporządkowanie poczty i backupu…"
         />
       </div>
       <div className="gv-tb-cell">
@@ -109,7 +109,7 @@ export function TitleBlockForm() {
         <input id="gv-tb-bot" name="bot_field" tabIndex={-1} autoComplete="off" />
       </div>
       <button className="gv-tb-submit" type="submit" disabled={sending}>
-        {sending ? 'Wysyłanie…' : 'Napisz'}
+        {sending ? 'Wysyłanie…' : 'Wyślij wiadomość'}
       </button>
       <p
         id="gv-title-form-status"

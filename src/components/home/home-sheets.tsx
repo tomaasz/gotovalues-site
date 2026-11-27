@@ -19,6 +19,8 @@ function ExternalIcon() {
 
 /** Sheet 1 — first viewport: the process drawing with its title block. */
 export function DrawingSheet() {
+  const { brand } = siteContent;
+
   return (
     <section className="gv-sheet gv-sheet-main" aria-labelledby="gv-title">
       <div className="gv-zones gv-zones-x" aria-hidden="true">
@@ -34,7 +36,8 @@ export function DrawingSheet() {
 
       <div className="gv-sheet-grid">
         <header className="gv-sheet-title">
-          <h1 id="gv-title">Sprawne IT dla małej firmy i JDG.</h1>
+          <h1 id="gv-title">{brand.headline}</h1>
+          <p className="gv-lede">{brand.intro}</p>
         </header>
 
         <div className="gv-sheet-drawing">
@@ -46,15 +49,15 @@ export function DrawingSheet() {
           <dl className="gv-tb-meta">
             <div>
               <dt>Zakres</dt>
-              <dd>sieci, serwis, helpdesk, narzędzia</dd>
+              <dd>procesy, dane, aplikacje, zdalne IT</dd>
             </div>
             <div>
               <dt>Opracował</dt>
               <dd>Tomasz Gołaszewski</dd>
             </div>
             <div>
-              <dt>Obszar</dt>
-              <dd>Zabrodzie, pow. wyszkowski + zdalnie</dd>
+              <dt>Tryb</dt>
+              <dd>zdalnie · cała Polska</dd>
             </div>
             <div>
               <dt>Firma</dt>
@@ -74,7 +77,7 @@ export function PartsListSheet() {
   return (
     <section className="gv-sheet" id="oferta" aria-labelledby="gv-parts-title">
       <div className="gv-sheet-head">
-        <h2 id="gv-parts-title">Usługi IT dla małych firm i JDG</h2>
+        <h2 id="gv-parts-title">Zakres usług</h2>
       </div>
 
       <div className="gv-table-wrap">
@@ -109,7 +112,7 @@ export function PartsListSheet() {
       </div>
 
       <div className="gv-notes-block">
-        <h3>Jak pracuję na co dzień</h3>
+        <h3>Jak pracuję</h3>
         <ol className="gv-tech-notes">
           {approach.points.map((point) => (
             <li key={point.title}>
@@ -122,7 +125,7 @@ export function PartsListSheet() {
   );
 }
 
-/** Sheet 3 — unified product proof grid: public links and anonymous private deployments. */
+/** Sheet 3 — unified product proof grid (not rendered on homepage per owner decision). */
 export function ProofSheet() {
   const { products } = siteContent;
   const allProducts = [...products.public, ...products.private];
@@ -211,7 +214,7 @@ export function ContactSheet() {
   return (
     <section className="gv-sheet gv-contact" id="kontakt" aria-labelledby="gv-contact-title">
       <div className="gv-contact-copy">
-        <h2 id="gv-contact-title">Opisz, z czym potrzebujesz pomocy</h2>
+        <h2 id="gv-contact-title">Opisz krótko temat lub proces</h2>
         <p>{contact.intro}</p>
         <dl className="gv-author-table">
           <div>

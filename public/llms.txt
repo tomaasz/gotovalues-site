@@ -1,26 +1,23 @@
-# gotovalues — AI, automatyzacja i lekkie aplikacje webowe dla MŚP
+# gotovalues — procesy, dane, aplikacje i zdalne IT dla firm
 
-> gotovalues buduje lekkie aplikacje webowe, automatyzacje procesów i praktyczne wdrożenia AI dla małych i średnich firm. Najpierw sprawdzam gotowe narzędzia i integracje, a dedykowaną aplikację tworzę dopiero wtedy, gdy realny proces tego wymaga.
+> gotovalues pomaga małym firmom i MŚP zdalnie w całej Polsce porządkować powtarzalną pracę, dane i narzędzia IT: integracje i automatyzacja procesów (z praktycznym AI tam, gdzie ma sens), lekkie aplikacje webowe oraz planowane zdalne wsparcie IT (poczta, kopie zapasowe, konfiguracja). Siedziba: Zabrodzie, powiat wyszkowski.
+
+## Scope
+- **Procesy, dane i automatyzacja**: Łączę dane z poczty, arkuszy i programów, żeby zespół nie przepisywał tych samych informacji ręcznie.
+- **Dedykowane narzędzia i aplikacje**: Gdy gotowe programy nie pasują do sposobu pracy firmy, buduję lekkie narzędzie webowe pod konkretny proces.
+- **Uporządkowanie IT i zdalne wsparcie**: Pomagam małym firmom i JDG uporządkować podstawy IT oraz rozwiązuję bieżące sprawy techniczne zdalnie.
 
 ## Best fit
-- firmy, które tracą czas na dokumenty, statusy, wyjątki i ręczne przepisywanie danych
-- zespoły potrzebujące prostego narzędzia webowego zamiast dużego systemu enterprise
-- procesy, w których AI/OCR/LLM skraca pracę operacyjną, ale musi mieć kontrolę jakości i niski koszt utrzymania
+- małe firmy i MŚP tracące czas na ręczne przepisywanie danych między pocztą, arkuszami i systemami
+- firmy potrzebujące prostego, dedykowanego narzędzia webowego zamiast rozbudowanego systemu enterprise
+- małe firmy i JDG szukające planowanego zdalnego uporządkowania poczty, kopii zapasowych, uprawnień i narzędzi IT
 
 ## Not a fit
-- projekty wymagające dużego software house'u lub rozbudowanego zespołu body-leasing
-- wdrożenia AI bez jasnego procesu biznesowego i bez mierzalnego efektu operacyjnego
-
-## Proof of competence
-- [Cavi](https://cavi.gotova.pl/): Produkt webowy pokazujący workflow użytkownika, dane, interfejs i funkcje AI w jednym spójnym procesie.
-- [Akta](https://akta.gotova.pl): System do pracy z dokumentami i danymi pokazujący doświadczenie w OCR, wyszukiwaniu, strukturze danych i operacyjnej pracy na źródłach.
+- firmy wymagające serwisu sprzętowego z dojazdem na miejsce lub dyżurów awaryjnych 24/7
+- rozległe wdrożenia ERP dla setek użytkowników wymagające dużego zespołu wdrożeniowego
 
 ## Key pages
-- [Homepage](https://gotovalues.com): oferta i pozycjonowanie
-- [Jak pracuję](https://gotovalues.com/jak-pracuje): model współpracy i porównanie z alternatywami
-- [TriageFlow](https://gotovalues.com/triageflow): triage zgłoszeń i dokumentów
-- [SupportFlow AI](https://gotovalues.com/supportflow): pilotaż automatyzacji obsługi zgłoszeń
-- [Workflow dla produkcji](https://gotovalues.com/dla-produkcji): automatyzacja procesów produkcyjnych
-- [Workflow dla logistyki](https://gotovalues.com/dla-logistyki): automatyzacja procesów logistycznych
-- [Blog techniczny](https://gotovalues.com/blog): artykuły o AI i automatyzacji
+- [Homepage](https://gotovalues.com): zakres usług, model pracy i kontakt
+- [Jak pracuję](https://gotovalues.com/jak-pracuje): podejście do doboru rozwiązania (konfiguracja, integracja, aplikacja)
+- [Blog techniczny](https://gotovalues.com/blog): artykuły o automatyzacji procesów, danych i aplikacjach webowych
 - [Sitemap](https://gotovalues.com/sitemap.xml)

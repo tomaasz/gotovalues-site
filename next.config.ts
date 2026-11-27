@@ -22,12 +22,37 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/produkty",
-        destination: "/#produkty",
+        destination: "/",
         permanent: true,
       },
       {
         source: "/support-ai",
-        destination: "/supportflow",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/supportflow",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/triageflow",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/kalkulator-roi",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/dla-produkcji",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/dla-logistyki",
+        destination: "/",
         permanent: true,
       },
     ];

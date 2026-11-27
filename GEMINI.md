@@ -2,7 +2,7 @@
 
 ## Przegląd projektu
 
-Serwis firmowy **gotovalues.com** — wizytówka, oferta konsultingowo-inżynieryjna (automatyzacja procesów, aplikacje webowe i systemy AI) oraz katalog produktów technologicznych (`Cavi`, `Akta`).
+Serwis firmowy **gotovalues.com** — oferta zdalnego, planowanego porządkowania procesów, danych i narzędzi IT dla małych firm, JDG i MŚP (automatyzacja procesów, lekkie aplikacje webowe oraz planowane zdalne wsparcie IT; siedziba: Zabrodzie, powiat wyszkowski).
 
 ## Stack technologiczny
 
@@ -56,7 +56,7 @@ pnpm storybook
 
 1. **Język:** Treści dla użytkowników po polsku. Kod, nazwy zmiennych, komentarze techniczne i commity po angielsku.
 2. **Brand:** Nazwa marki w tekstach zawsze pisana małymi literami: `gotovalues`.
-3. **Produkty:** Publicznie linkowane są wyłącznie dwa zatwierdzone produkty: `Cavi` oraz `Akta`. Wdrożenia prywatne pozostają bez zewnętrznych linków.
+3. **Zakres i dowody:** Praca wyłącznie zdalna i planowana (bez obietnic dojazdów, serwisu sprzętowego i dyżurów 24/7). Brak publicznych przykładów wdrożeń (`Cavi`/`Akta` ukryte decyzją właściciela z 2026-11-27). Zakaz zmyślania wyników i niepotwierdzonych absolutów.
 4. **Zero sekretów:** Nigdy nie zapisuj kluczy API, tokenów ani zawartości `.env` do repozytorium ani do Obsidian Vault.
 5. **Deployment:** Produkcja wdrożona na Vercel z poziomu czystego brancha `main`. Token w 1Password: `op://hosty-debianovh/vercel/token`. Szczegóły: [`docs/deployment.md`](docs/deployment.md).
 6. **Wspólna wiedza:** Przed i po pracy sprawdź kontrakt w `~/obsidian-vault/agents/GLOBAL.md` oraz stan przekazania w `~/obsidian-vault/projects/gotovalues.md`.

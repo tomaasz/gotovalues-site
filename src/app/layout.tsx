@@ -31,13 +31,16 @@ const monoFont = JetBrains_Mono({
   preload: false,
 });
 
+const defaultTitle = `${brandName} — procesy, dane, aplikacje i zdalne IT dla firm`;
+const defaultDescription =
+  "Porządkuję powtarzalną pracę, dane i narzędzia IT w małych firmach i MŚP. Automatyzacja procesów, lekkie aplikacje webowe i zdalne wsparcie IT — planowo i etapami.";
+
 export const metadata: Metadata = {
   title: {
-    default: brandName,
+    default: defaultTitle,
     template: `%s | ${brandName}`,
   },
-  description:
-    "Wsparcie IT dla małych firm i JDG — Zabrodzie, powiat wyszkowski i zdalnie w całej Polsce: sieci i Wi-Fi, naprawa komputerów, helpdesk, poczta, backup oraz proste narzędzia.",
+  description: defaultDescription,
   metadataBase: new URL("https://gotovalues.com"),
   alternates: {
     canonical: "/",
@@ -52,9 +55,8 @@ export const metadata: Metadata = {
   },
   manifest: "/favicon/site.webmanifest",
   openGraph: {
-    title: brandName,
-    description:
-      "Wsparcie IT dla małych firm i JDG: sieci i Wi-Fi, naprawa komputerów, zdalny i lokalny helpdesk, poczta, backup oraz proste narzędzia.",
+    title: defaultTitle,
+    description: defaultDescription,
     url: "https://gotovalues.com",
     siteName: brandName,
     locale: "pl_PL",
@@ -64,15 +66,14 @@ export const metadata: Metadata = {
         url: "/images/og.png",
         width: 1200,
         height: 630,
-        alt: "gotovalues — wsparcie IT dla małych firm i JDG",
+        alt: defaultTitle,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: brandName,
-    description:
-      "Wsparcie IT dla małych firm i JDG: sieci, naprawa komputerów, zdalny i lokalny helpdesk, backup oraz proste narzędzia.",
+    title: defaultTitle,
+    description: defaultDescription,
     images: ["/images/og.png"],
   },
   robots: {
@@ -89,7 +90,7 @@ const jsonLd = {
       "@id": "https://gotovalues.com/#website",
       "name": brandName,
       "url": "https://gotovalues.com",
-      "description": "Wsparcie IT dla małych firm i JDG: sieci, naprawa komputerów, zdalny i lokalny helpdesk, backup oraz proste narzędzia i automatyzacja.",
+      "description": defaultDescription,
       "inLanguage": "pl",
       "publisher": { "@id": "https://gotovalues.com/#org" },
       "sameAs": [
@@ -105,14 +106,15 @@ const jsonLd = {
       "url": "https://gotovalues.com",
       "image": "https://gotovalues.com/images/og.png",
       "email": "kontakt@gotovalues.com",
-      "description": "Kompleksowe usługi IT dla małych firm i JDG (Zabrodzie, powiat wyszkowski na miejscu oraz zdalnie w całej Polsce): sieci i Wi-Fi, naprawa komputerów, helpdesk, poczta, kopie zapasowe oraz automatyzacja.",
+      "description":
+        "Zdalne porządkowanie procesów, danych i narzędzi IT dla małych firm i MŚP w całej Polsce: integracje, automatyzacja, lekkie aplikacje webowe oraz planowane zdalne wsparcie IT.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Zabrodzie",
         "addressRegion": "mazowieckie",
         "addressCountry": "PL"
       },
-      "areaServed": ["Zabrodzie", "powiat wyszkowski", "PL"],
+      "areaServed": "PL",
       "inLanguage": "pl",
       "sameAs": [
         "https://www.linkedin.com/in/tomasz-golaszewski/",
@@ -120,12 +122,12 @@ const jsonLd = {
         "https://www.facebook.com/gotovalues"
       ],
       "knowsAbout": [
-        "usługi IT dla małych firm i JDG",
-        "sieci komputerowe i Wi-Fi",
-        "naprawa i konfiguracja komputerów",
-        "zdalny i lokalny helpdesk IT",
-        "kopie zapasowe i poczta firmowa",
-        "automatyzacja i proste narzędzia webowe"
+        "automatyzacja procesów biznesowych",
+        "integracje danych i raportowanie",
+        "dedykowane lekkie aplikacje webowe",
+        "praktyczne wdrożenia AI",
+        "zdalne wsparcie IT dla małych firm i JDG",
+        "poczta firmowa i kopie zapasowe"
       ],
       "founder": {
         "@type": "Person",
@@ -141,8 +143,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-
   return (
     <html lang="pl" className={`${sansFont.variable} ${monoFont.variable}`}>
       <body>

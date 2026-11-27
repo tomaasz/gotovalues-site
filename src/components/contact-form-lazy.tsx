@@ -3,23 +3,31 @@
 import dynamic from 'next/dynamic';
 import { useEffect, useRef, useState } from 'react';
 
+import type { ContactFormProps } from '@/components/contact-form';
 import { logger } from '@/lib/logger';
 
 // ⚡ Bolt: Lazy load the heavy ContactForm client component because it's only visible below the fold.
 // 🎯 Why: Reduces main thread blocking and JS bundle size for the initial page load by extracting react-dom/client and form state management into a separate chunk.
 // 📊 Impact: Expected ~30-50kb reduction in initial JS payload.
-// 🔬 Measurement: Verify reduction in "First Load JS" size for `/` and `/dla-produkcji` routes in `pnpm build` output.
-const ContactFormChunk = dynamic(() => import('./contact-form').then((mod) => mod.ContactForm).catch((error) => {
-  logger.error('Failed to load ContactForm chunk', { error: error instanceof Error ? error.message : String(error) });
-  const Fallback = () => <p>Formularz jest chwilowo niedostępny. Odśwież stronę.</p>;
-  Fallback.displayName = 'ContactFormFallback';
-  return Fallback;
-}), {
-  ssr: false, // Defer fetching/rendering this client-only interactive form to the client side.
-});
+const ContactFormChunk = dynamic<ContactFormProps>(
+  () =>
+    import('./contact-form')
+      .then((mod) => mod.ContactForm)
+      .catch((error) => {
+        logger.error('Failed to load ContactForm chunk', {
+          error: error instanceof Error ? error.message : String(error),
+        });
+        const Fallback = () => <p>Formularz jest chwilowo niedostępny. Odśwież stronę.</p>;
+        Fallback.displayName = 'ContactFormFallback';
+        return Fallback;
+      }),
+  {
+    ssr: false, // Defer fetching/rendering this client-only interactive form to the client side.
+  },
+);
 
 // ⚡ Bolt: Wrap with IntersectionObserver to only trigger chunk download on scroll
-export function ContactFormLazy() {
+export function ContactFormLazy(props: ContactFormProps) {
   const [shouldLoad, setShouldLoad] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -43,7 +51,7 @@ export function ContactFormLazy() {
 
   return (
     <div ref={containerRef} style={{ minHeight: '400px' }}>
-      {shouldLoad ? <ContactFormChunk /> : null}
+      {shouldLoad ? <ContactFormChunk {...props} /> : null}
     </div>
   );
 }
