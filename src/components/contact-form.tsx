@@ -2,6 +2,7 @@
 
 import { startTransition, useState } from 'react';
 
+import { trackEvent } from '@/lib/analytics';
 import { logger } from '@/lib/logger';
 
 export type ContactFormProps = {
@@ -75,6 +76,7 @@ export function ContactForm({
         throw new Error(details ? `${errorMsg} Szczegóły: ${details}` : errorMsg);
       }
 
+      trackEvent('contact_form_submitted', { status: 'success' });
       startTransition(() => {
         setState({
           status: 'success',
@@ -82,6 +84,7 @@ export function ContactForm({
         });
       });
     } catch (error) {
+      trackEvent('contact_form_submitted', { status: 'error' });
       startTransition(() => {
         setState({
           status: 'error',

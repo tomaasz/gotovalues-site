@@ -45,7 +45,7 @@ export const blogPosts: BlogPost[] = [
   &bdquo;AI, które zrobi wszystko&rdquo;. To nie jest też wymiana całego Twojego
   oprogramowania na nowe. Najczęściej dobra automatyzacja jest niewidoczna:
   proces wygląda tak samo jak wcześniej, tylko nikt już nie musi go pchać
-  ręcznie. Widzę u klientów, że największą wartość daje nie spektakularne
+  ręcznie. W praktyce największą wartość daje zwykle nie spektakularne
   wdrożenie, tylko ciche usunięcie dwudziestu drobnych czynności, które
   każdego dnia zjadały po kilka minut i rozpraszały zespół.
 </p>
@@ -294,7 +294,7 @@ export const blogPosts: BlogPost[] = [
   dane wędrują z systemu do Excela, z Excela do maila, z maila do PDF-a. Każdy
   krok to czas i ryzyko błędu. To zwykle moment, w którym arkusz przestaje
   wystarczać &mdash; rozwijam to w tekście o tym,
-  <a href="/blog/dedykowane-aplikacje-webowe-ai-excel">kiedy Excel przestaje
+  <a href="/blog/aplikacje-webowe-dla-firm-przewodnik">kiedy Excel przestaje
   wystarczać</a>.
 </p>
 
@@ -1001,7 +1001,7 @@ export const blogPosts: BlogPost[] = [
   Pierwszy odruch to mierzyć wszystko. To błąd. Dashboard, który pokazuje
   czterdzieści wskaźników, nie pokazuje żadnego &mdash; oko ucieka, nikt go nie
   otwiera. Lepiej zacząć od kilku liczb, które naprawdę zmieniają decyzje na
-  hali. Z mojego doświadczenia w MŚP produkcyjnych ten zestaw wygląda
+  hali. W praktyce w MŚP produkcyjnych ten zestaw wygląda
   podobnie:
 </p>
 
@@ -1352,7 +1352,7 @@ export const blogPosts: BlogPost[] = [
 <p>To najczęstsze zaskoczenie u moich klientów. Model per-operacja wygląda świetnie na starcie: kilkadziesiąt złotych miesięcznie. Ale jeden przepływ z 6 krokami to 6 operacji na jedno zdarzenie. Przy 5000 zdarzeń miesięcznie to już 30&nbsp;000 operacji &ndash; i nagle jesteś w wyższym, droższym planie.</p>
 <ul>
 <li><strong>Policz operacje, nie zdarzenia.</strong> Pomnóż liczbę kroków przez przewidywany wolumen, zanim wybierzesz plan.</li>
-<li><strong>Sprawdź próg, przy którym custom się zwraca.</strong> Z mojego doświadczenia, gdy rachunek za no-code przekracza ~500&ndash;800&nbsp;zł/mies. i rośnie, warto policzyć alternatywę na realnym wolumenie operacji.</li>
+<li><strong>Sprawdź próg, przy którym custom się zwraca.</strong> Gdy miesięczny rachunek za no-code przekracza ok. 500&ndash;800&nbsp;zł i nadal rośnie i rośnie, warto policzyć alternatywę na realnym wolumenie operacji.</li>
 <li><strong>Dolicz ukryte koszty.</strong> Czas na obchodzenie ograniczeń narzędzia też kosztuje.</li>
 </ul>
 
@@ -1386,7 +1386,7 @@ export const blogPosts: BlogPost[] = [
     description: "Jak wygląda automatyzacja obiegu dokumentów w praktyce: etapy, gdzie AI naprawdę pomaga, integracja z ERP bez wymiany systemu i przykład liczbowy.",
     date: "2026-06-08",
     tags: ["Automatyzacja", "Dokumenty", "AI dla firm"],
-    body: `<p>Obieg dokumentów to ten proces, który &bdquo;jakoś działa&rdquo; &mdash; do momentu, w którym ktoś idzie na urlop, a faktura na 18 tys. zł leży trzy tygodnie w czyjejś skrzynce, bo nie było wiadomo, kto ma ją zaakceptować. Pracuję z firmami z sektora MŚP i widzę ten sam wzorzec niemal wszędzie: problem rzadko leży w samych dokumentach. Leży w przekazywaniu ich między ludźmi.</p>
+    body: `<p>Obieg dokumentów to ten proces, który &bdquo;jakoś działa&rdquo; &mdash; do momentu, w którym ktoś idzie na urlop, a faktura na 18 tys. zł leży trzy tygodnie w czyjejś skrzynce, bo nie było wiadomo, kto ma ją zaakceptować. W wielu firmach z sektora MŚP powtarza się ten sam wzorzec: problem rzadko leży w samych dokumentach. Leży w przekazywaniu ich między ludźmi.</p>
 
 <p>W tym wpisie pokażę, gdzie konkretnie obieg dokumentów się zacina, na których etapach AI realnie skraca czas (a na których to tylko marketing), i jak to wdrożyć bez wymiany systemu, którego już używacie. Bez hype&rsquo;u &mdash; z liczbami i z uczciwym wskazaniem, czego automatyzacja nie załatwi.</p>
 
@@ -1442,7 +1442,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Zero wymiany środowiska</strong> &mdash; ludzie pracują dalej w narzędziach, które znają. Automatyzacja działa w tle.</li>
 </ul>
 
-<p>Jeśli dziś cały obieg trzymacie w Excelu i mailach, warto przeczytać, <a href="/blog/dedykowane-aplikacje-webowe-ai-excel">kiedy Excel przestaje wystarczać</a> &mdash; granica jest bardziej konkretna, niż się wydaje.</p>
+<p>Jeśli dziś cały obieg trzymacie w Excelu i mailach, warto przeczytać, <a href="/blog/aplikacje-webowe-dla-firm-przewodnik">kiedy Excel przestaje wystarczać</a> &mdash; granica jest bardziej konkretna, niż się wydaje.</p>
 
 <h2>RODO i bezpieczeństwo dokumentów</h2>
 
@@ -1459,7 +1459,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Przykład liczbowy: ile realnie da się odzyskać</h2>
 
-<p>Konkret, na uśrednionym przykładzie firmy przetwarzającej <strong>400 faktur kosztowych miesięcznie</strong>. Przed automatyzacją:</p>
+<p>Przykładowa kalkulacja modelowa dla firmy przetwarzającej <strong>400 faktur kosztowych miesięcznie</strong> (wartości orientacyjne): Przed automatyzacją:</p>
 
 <ul>
 <li>Ręczne przepisanie i rejestracja jednej faktury: ok. <strong>8 minut</strong>.</li>
@@ -1480,7 +1480,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Od czego zacząć</h2>
 
-<p>Nie trzeba automatyzować całego obiegu naraz &mdash; i nie polecam tego robić. Najlepsze wdrożenia, jakie prowadziłem, zaczynały się od jednego, najbardziej bolesnego typu dokumentu (zwykle faktury kosztowe), domknięcia go end-to-end, a dopiero potem rozszerzania na umowy i zamówienia. Małe zwycięstwo, które widać w liczbach, robi dla wdrożenia więcej niż najlepsza prezentacja.</p>
+<p>Nie trzeba automatyzować całego obiegu naraz &mdash; i nie polecam tego robić. W praktyce najlepiej sprawdza się rozpoczęcie od jednego, najbardziej czasochłonnego typu dokumentu (zwykle faktury kosztowe), domknięcia go end-to-end, a dopiero potem rozszerzania na umowy i zamówienia. Małe zwycięstwo, które widać w liczbach, robi dla wdrożenia więcej niż najlepsza prezentacja.</p>
 
 <p>Jeśli chcesz spojrzeć szerzej na to, jak poukładać procesy zanim dorzucisz do nich AI, zacznij od naszego <a href="/blog/automatyzacja-procesow-w-firmie-przewodnik">przewodnika po automatyzacji procesów</a>. A jeśli już wiesz, który dokument najbardziej Cię boli &mdash; <a href="/#kontakt">napisz do mnie</a>. Wspólnie sprawdzimy, czy wystarczy gotowiec, czy potrzebny jest kawałek czegoś szytego na miarę. Bez wymiany systemu, który już macie.</p>`,
   },
@@ -1549,7 +1549,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Praktyczne zastosowania AI w MŚP</h2>
 
-<p>Przejdźmy do konkretów. To są obszary, w których najczęściej widzę realny zwrot u klientów. Więcej przykładów rozwijam w osobnym tekście o <a href="/blog/zastosowania-ai-w-msp">praktycznych zastosowaniach AI w MŚP</a>, tu pokazuję trzy najsilniejsze.</p>
+<p>Przejdźmy do konkretów. To są obszary, w których w praktyce najczęściej pojawia się mierzalny zwrot. Więcej przykładów rozwijam w osobnym tekście o <a href="/blog/zastosowania-ai-w-msp">praktycznych zastosowaniach AI w MŚP</a>, tu pokazuję trzy najsilniejsze.</p>
 
 <h3>Przetwarzanie dokumentów</h3>
 <p>To dziś numer jeden pod względem pewności zwrotu. Faktury, zamówienia, listy przewozowe, umowy, protokoły &mdash; wszystko, co przychodzi jako PDF lub skan i musi trafić do systemu. AI czyta dokument, wyciąga pola (numer, kwota, kontrahent, pozycje), a automatyzacja wpisuje je do ERP. W firmie, która ręcznie przepisywała kilkaset dokumentów miesięcznie, to często kilkadziesiąt odzyskanych godzin. Kluczowe: zostawiamy człowiekowi kontrolę przy nietypowych przypadkach.</p>
@@ -1620,7 +1620,7 @@ export const blogPosts: BlogPost[] = [
     description: "Praktyczny przegląd zastosowań AI w małych i średnich firmach: faktury, zgłoszenia, maile, baza wiedzy. Z liczbami, kosztami i tym, gdzie AI się nie opłaca.",
     date: "2026-06-06",
     tags: ["AI dla firm", "MŚP", "Automatyzacja"],
-    body: `<p>Pytanie, które najczęściej dostaję od właścicieli małych i średnich firm, brzmi mniej więcej tak: &bdquo;Wszyscy mówią o AI &ndash; co ja z tego realnie mam?&rdquo;. To dobre pytanie, bo wokół tematu jest tyle szumu, że trudno odróżnić demo z konferencji od czegoś, co faktycznie zarabia w piątkowy wieczór, kiedy nikt nie patrzy. W tym wpisie zbieram zastosowania AI w MŚP, które wdrażałem albo widziałem u klientów &ndash; z konkretami, kosztami i uczciwym &bdquo;tu uważaj&rdquo;.</p>
+    body: `<p>Pytanie, które najczęściej dostaję od właścicieli małych i średnich firm, brzmi mniej więcej tak: &bdquo;Wszyscy mówią o AI &ndash; co ja z tego realnie mam?&rdquo;. To dobre pytanie, bo wokół tematu jest tyle szumu, że trudno odróżnić demo z konferencji od czegoś, co faktycznie zarabia w piątkowy wieczór, kiedy nikt nie patrzy. W tym wpisie zbieram konkretne zastosowania AI w MŚP, które mają największy sens praktyczny &ndash; wraz z ograniczeniami i uczciwym &bdquo;tu uważaj&rdquo;.</p>
 
 <p>Z góry zaznaczam moją zasadę przewodnią: <strong>najpierw gotowiec albo prosta automatyzacja, AI dopiero wtedy, gdy realnie zarabia</strong>. AI to nie cel, tylko jedno z narzędzi. Często tańszym i pewniejszym rozwiązaniem jest dobrze ustawiony szablon, integracja albo reguła &bdquo;jeśli&ndash;to&rdquo;. Dlatego przy każdym zastosowaniu piszę nie tylko &bdquo;co potrafi&rdquo;, ale też &bdquo;kiedy to się opłaca&rdquo;.</p>
 
@@ -1628,7 +1628,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>To moim zdaniem najmocniejsze, najbardziej &bdquo;dorosłe&rdquo; zastosowanie AI w MŚP. Problem jest banalny i wszędzie ten sam: faktury, zamówienia, umowy i protokoły przychodzą w PDF-ach, skanach i mailach, a ktoś musi z nich ręcznie przepisać numery, kwoty, daty i pozycje do systemu. To godziny tygodniowo, monotonia i literówki.</p>
 
-<p>Nowoczesne OCR połączone z modelem językowym czyta nie tylko tekst, ale i <strong>strukturę</strong> &ndash; rozpoznaje, że &bdquo;12 300,00&rdquo; to kwota brutto, a nie numer zamówienia, i potrafi wyciągnąć pozycje z tabeli o różnym układzie. W praktyce u klientów schodzimy z kilku minut na fakturę do kilkunastu sekund weryfikacji.</p>
+<p>Nowoczesne OCR połączone z modelem językowym czyta nie tylko tekst, ale i <strong>strukturę</strong> &ndash; rozpoznaje, że &bdquo;12 300,00&rdquo; to kwota brutto, a nie numer zamówienia, i potrafi wyciągnąć pozycje z tabeli o różnym układzie. W dobrze ustawionym przepływie czas obsługi spada z kilku minut ręcznego przepisywania do kilkunastu sekund weryfikacji przez człowieka.</p>
 
 <ul>
 <li><strong>Kiedy się opłaca:</strong> od mniej więcej 100&ndash;150 dokumentów miesięcznie, zwłaszcza gdy formaty są niejednolite (różni dostawcy, różne szablony).</li>
@@ -1650,7 +1650,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Robocze odpowiedzi maili i wsparcie pisania</h2>
 
-<p>Tu AI sprawdza się jako asystent, a nie autopilot. Najlepszy układ, jaki widzę u klientów, to <strong>draft, który człowiek zatwierdza</strong>: model czyta wątek, zna kontekst klienta i historię, i przygotowuje propozycję odpowiedzi. Pracownik czyta, poprawia jedno zdanie i wysyła. Z mojego doświadczenia oszczędza to realnie 30&ndash;50% czasu na rutynowej korespondencji.</p>
+<p>Tu AI sprawdza się jako asystent, a nie autopilot. Najbezpieczniejszy układ to <strong>wersja robocza, którą człowiek zatwierdza</strong>: model czyta wątek oraz dokumentację i przygotowuje projekt odpowiedzi, a pracownik go weryfikuje i wysyła. Przy powtarzalnej korespondencji potrafi to zauważalnie skrócić czas odpowiedzi bez utraty kontroli jakości.</p>
 
 <ul>
 <li><strong>Kiedy się opłaca:</strong> przy powtarzalnej korespondencji &ndash; obsługa klienta, potwierdzenia, dopytania o dokumenty.</li>
@@ -1723,7 +1723,7 @@ export const blogPosts: BlogPost[] = [
   Chcę odkręcić ten szum i pokazać konkretnie: czym agent AI różni się od
   chatbota i od zwykłej automatyzacji, co tacy agenci realnie potrafią dla MŚP
   w 2026 roku, gdzie są ich granice, i jak zacząć tak, żeby nie zrobić sobie
-  krzywdy. Piszę z perspektywy kogoś, kto te rozwiązania wdraża u klientów
+  krzywdy. Piszę z perspektywy praktyka projektującego takie przepływy
   &mdash; nie sprzedaję warsztatu o agentach, tylko działający system z wąskim
   zakresem i mierzalnym efektem.
 </p>
@@ -1771,7 +1771,7 @@ export const blogPosts: BlogPost[] = [
   Pierwszy realny zysk to nie &bdquo;AI odpowiada za nas&rdquo;, tylko
   &bdquo;AI segreguje za nas&rdquo;. Agent czyta przychodzące zgłoszenie,
   rozumie, czego dotyczy, nadaje priorytet, kategoryzuje i kieruje do
-  właściwej osoby albo kolejki. U klientów widzę, że samo to skraca czas
+  właściwej osoby albo kolejki. W praktyce widzę, że samo to skraca czas
   reakcji o kilkadziesiąt procent, bo nikt już ręcznie nie przerzuca maili
   między działami. W takim przepływie automat zajmuje się klasyfikacją i kierowaniem spraw, a człowiek dostaje już
   uporządkowaną kolejkę.
@@ -1856,7 +1856,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>
   Najgorszy start to &bdquo;wdróżmy agenta, który ogarnie nam cały dział&rdquo;.
-  Najlepszy &mdash; nudny, wąski i mierzalny. Tak podchodzę do tego u klientów:
+  Najlepszy &mdash; nudny, wąski i mierzalny. Oto sprawdzona kolejność kroków:
 </p>
 
 <ul>
@@ -1887,11 +1887,11 @@ export const blogPosts: BlogPost[] = [
   <a href="/blog/ai-dla-firm-przewodnik-wdrozeniowy">przewodnik AI dla firm</a>.
 </p>
 
-<h2>Agent z nadzorem &mdash; nasze podejście zamiast warsztatu o agentach</h2>
+<h2>Agent z nadzorem &mdash; konkretny etap zamiast teoretycznych warsztatów</h2>
 
 <p>
   Rynek &bdquo;agentic AI&rdquo; w 2026 jest pełen prezentacji i obietnic.
-  My robimy coś innego: dostarczamy działającego agenta z wąskim zakresem,
+  Zamiast długich prezentacji lepiej zbudować mały, działający przepływ o wąskim zakresie,
   nadzorem człowieka i jasno policzalnym efektem &mdash; dopasowanego do tego,
   jak naprawdę działa Twoja firma. Nie dostajesz slajdów o przyszłości, tylko
   system, który od pierwszego tygodnia segreguje zgłoszenia, odpowiada na
@@ -1918,7 +1918,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Kiedy Excel albo gotowiec przestaje wystarczać</h2>
 
-<p>Excel jest świetny i większość firm dojeżdża na nim dalej, niż się spodziewa. Problem zaczyna się nie wtedy, gdy arkusz jest duży, tylko gdy zaczyna pracować na nim wiele osób jednocześnie i gdy dane z arkusza są podstawą decyzji. Rozpisałem to szerzej w osobnym tekście o tym, <a href="/blog/dedykowane-aplikacje-webowe-ai-excel">kiedy Excel przestaje wystarczać</a>, tutaj podam skrót sygnałów ostrzegawczych.</p>
+<p>Excel jest świetny i większość firm dojeżdża na nim dalej, niż się spodziewa. Problem zaczyna się nie wtedy, gdy arkusz jest duży, tylko gdy zaczyna pracować na nim wiele osób jednocześnie i gdy dane z arkusza są podstawą decyzji. Rozpisałem to szerzej w osobnym tekście o tym, <a href="/blog/aplikacje-webowe-dla-firm-przewodnik">kiedy Excel przestaje wystarczać</a>, tutaj podam skrót sygnałów ostrzegawczych.</p>
 
 <ul>
 <li><strong>Konflikty wersji.</strong> Krąży kilka kopii pliku, ktoś nadpisuje cudze zmiany, pojawia się &bdquo;raport_final_v3_OSTATECZNY.xlsx&rdquo;.</li>
@@ -2271,259 +2271,7 @@ export const blogPosts: BlogPost[] = [
 <h2>Od czego zacząć</h2>
 <p>Nie zaczynam od technologii, tylko od mapy: które dane są przepisywane ręcznie, ile to kosztuje czasu i gdzie najczęściej pojawiają się błędy. Z tej mapy zwykle od razu widać dwa, trzy połączenia, które dają największy zwrot przy najmniejszym nakładzie &ndash; i od nich startujemy, zamiast od razu &bdquo;integrować wszystko ze wszystkim&rdquo;.</p>
 <p>Jeśli masz kilka systemów, które ze sobą nie rozmawiają, i czujesz, że Twój zespół traci czas na przeklejanie danych &ndash; <a href="/#kontakt">napisz do mnie</a>. Spojrzę na to, co już masz, powiem wprost, co da się połączyć gotowcem, a gdzie potrzebna jest dedykowana integracja &ndash; i ile to realnie kosztuje, zanim cokolwiek zaczniemy.</p>`,
-  },
-  {
-    slug: "dedykowane-aplikacje-webowe-ai-excel",
-    title:
-      "Dedykowane aplikacje webowe i AI — kiedy Excel i gotowe systemy przestają wystarczać",
-    description:
-      "W którym momencie warto odejść od arkuszy, maili i gotowych systemów na rzecz dedykowanej aplikacji? Praktyczne sygnały, koszty ukryte i jak ocenić, czy to już czas.",
-    date: "2026-05-12",
-    tags: [
-      "Aplikacje webowe",
-      "AI dla firm",
-      "Automatyzacja",
-    ],
-    body: `<p>
-  Każda firma przechodzi przez ten moment: proces, który działał na Excelu
-  i mailu, przestaje być wystarczający. Rośnie liczba wyjątków, ludzie tracą
-  czas na ręczne przepisywanie, a Ty nie wiesz, gdzie proces się zatyka.
-</p>
-
-<h2>Sygnały, że Excel już nie wystarcza</h2>
-
-<p>
-  Nie chodzi o to, żeby wymieniać narzędzia dla samej wymiany. Oto
-  konkretne sygnały, które widzę u klientów przed rozpoczęciem współpracy:
-</p>
-
-<ul>
-  <li>
-    <strong>Rozproszone źródła prawdy</strong> — dokumenty, statusy i decyzje
-    są w kilku miejscach naraz. Nikt nie wie, która wersja jest aktualna, a
-    znalezienie historii sprawy wymaga przekopywania maili.
-  </li>
-  <li>
-    <strong>Ręczne przepisywanie między systemami</strong> — dane z ERP
-    trafiają do Excela, potem do maila, potem do PDF-a. Każdy krok to
-    miejsce na błąd i czas, który można odzyskać.
-  </li>
-  <li>
-    <strong>Brak widoczności</strong> — nie wiesz, które zadania są w toku,
-    które utknęły i gdzie proces się zatyka. Decyzje podejmujesz na
-    podstawie domysłów, nie danych.
-  </li>
-  <li>
-    <strong>Wyłącznie ręczna obsługa wyjątków</strong> — gdy proces napotyka
-    niestandardową sytuację, wszystko wraca do ręcznego sprawdzania i
-    pilnowania.
-  </li>
-</ul>
-
-<h2>Gotowe narzędzie czy dedykowana aplikacja?</h2>
-
-<p>
-  Zanim zaproponuję budowę czegokolwiek od zera, zawsze sprawdzam trzy
-  ścieżki:
-</p>
-
-<ol>
-  <li>
-    <strong>Czy problem rozwiązuje istniejące narzędzie?</strong> Często
-    wystarczy integracja lub lepsze wykorzystanie tego, co już macie.
-  </li>
-  <li>
-    <strong>Czy wystarczy lekka automatyzacja?</strong> Pipeline AI albo
-    workflow między narzędziami potrafi wyeliminować ręczną pracę bez
-    budowy nowej aplikacji.
-  </li>
-  <li>
-    <strong>Dedykowana aplikacja</strong> — tylko wtedy, gdy dwie pierwsze
-    ścieżki nie wystarczają. Buduję dokładnie to, czego potrzebuje proces,
-    bez przepisywania całego środowiska pracy.
-  </li>
-</ol>
-
-<h2>Ile kosztuje proces, którego nie porządkujesz?</h2>
-
-<p>
-  Firmy często patrzą na koszt budowy aplikacji, ale rzadko liczą koszt
-  braku aplikacji. Kilka przykładów z moich wdrożeń:
-</p>
-
-<ul>
-  <li>
-    <strong>2 godziny dziennie × 3 osoby × 250 dni</strong> = 1500 godzin
-    rocznie na ręczne sprawdzanie i przepisywanie statusów między systemami.
-  </li>
-  <li>
-    <strong>Błędy w danych</strong> — każdy błąd z ręcznego przepisywania
-    kosztuje czas na korektę, a czasem pieniądze klienta.
-  </li>
-  <li>
-    <strong>Utracone okazje</strong> — gdy nie widzisz, gdzie proces się
-    zatyka, nie możesz go usprawnić. A konkurencja już to robi.
-  </li>
-</ul>
-
-<h2>AI jako praktyczne narzędzie, nie osobny projekt</h2>
-
-<p>
-  AI nie musi być oddzielnym wdrożeniem z big-bangowym budżetem. Wdrażam
-  modele AI jako <strong>element narzędzia</strong> — dokładnie tam, gdzie
-  skracają pracę ludzi:
-</p>
-
-<ul>
-  <li>
-    <strong>OCR i ekstrakcja danych</strong> — odczyt dokumentów, faktur,
-    formularzy bez ręcznego przepisywania.
-  </li>
-  <li>
-    <strong>Klasyfikacja i routing</strong> — automatyczne przypisywanie
-    spraw do właściwych osób na podstawie treści.
-  </li>
-  <li>
-    <strong>Inteligentny dobór modeli</strong> — tani model do prostych
-    zadań, precyzyjny do trudnych. Płacisz tylko za to, czego naprawdę
-    potrzebujesz.
-  </li>
-</ul>
-
-<h2>Od czego zacząć?</h2>
-
-<p>
-  Nie potrzebujesz gotowej specyfikacji. Wystarczy jeden konkretny proces,
-  który zabiera czas, wymyka się spod kontroli albo działa nieefektywnie.
-  Ocenię, czy wystarczy gotowe narzędzie, integracja, czy trzeba budować
-  coś dedykowanego — i powiem to wprost.
-</p>
-
-<p>
-  <a href="/#kontakt">Opisz proces do uporządkowania →</a>
-</p>`,
-  },
-  {
-    slug: "konsultant-ai-procesy-operacyjne-automatyzacja",
-    title:
-      "Konsultant AI i procesy operacyjne — co naprawdę daje automatyzacja w firmie",
-    description:
-      "Automatyzacja procesów to nie wymiana ludzi na boty. To odciążenie zespołu z ręcznej, powtarzalnej pracy. Jak wygląda realna automatyzacja procesów z AI w 2026 roku.",
-    date: "2026-05-12",
-    tags: [
-      "AI dla firm",
-      "Automatyzacja",
-      "Procesy operacyjne",
-    ],
-    body: `<p>
-  Automatyzacja procesów to jedno z najbardziej nadużywanych haseł w
-  IT — obok "AI" i "transformacji cyfrowej". Za hasłami kryje się jednak
-  konkretna wartość: odciążenie zespołu z pracy, którą można powierzyć
-  maszynie.
-</p>
-
-<h2>Czym naprawdę jest automatyzacja procesów w 2026?</h2>
-
-<p>
-  W 2026 roku automatyzacja przestała oznaczać "napiszemy skrypt, który
-  raz dziennie scali dwa pliki". Dziś mówimy o:
-</p>
-
-<ul>
-  <li>
-    <strong>Pipeline'ach AI</strong> — wieloetapowym przetwarzaniu:
-    dokument wchodzi, przechodzi przez OCR, klasyfikację, ekstrakcję,
-    walidację i trafia do systemu jako ustrukturyzowana dana.
-  </li>
-  <li>
-    <strong>Inteligentnym routingu</strong> — sprawa nie trafia "do
-    działu", tylko do konkretnej osoby na podstawie treści, priorytetu
-    i obciążenia.
-  </li>
-  <li>
-    <strong>Monitoringu i alertach w czasie rzeczywistym</strong> —
-    wiesz, gdzie proces utknął zanim ktoś to zgłosi.
-  </li>
-</ul>
-
-<h2>Co automatyzacja NIE robi (i nie powinna)</h2>
-
-<p>
-  Zanim zaczniesz automatyzować, warto wiedzieć, czego automatyzacja
-  nie rozwiązuje:
-</p>
-
-<ul>
-  <li>
-    <strong>Nie naprawi zepsutego procesu.</strong> Jeśli proces jest
-    chaotyczny, automatyzacja tylko przyspieszy chaos. Najpierw
-    porządkuję, potem automatyzuję.
-  </li>
-  <li>
-    <strong>Nie zastąpi decyzji.</strong> AI może przygotować
-    rekomendację, ale decyzja — szczególnie przy wyjątkach — zostaje
-    po stronie człowieka.
-  </li>
-  <li>
-    <strong>Nie działa bez danych.</strong> Jeśli dane są niekompletne
-    lub niespójne, automatyzacja wzmocni błędy zamiast je wyeliminować.
-  </li>
-</ul>
-
-<h2>Jak wygląda współpraca z konsultantem AI od strony praktycznej</h2>
-
-<p>
-  Nie przychodzę z gotowym rozwiązaniem i 200-stronicową strategią.
-  Pracuję iteracyjnie:
-</p>
-
-<ol>
-  <li>
-    <strong>Rozpoznanie jednego procesu.</strong> Wybieramy konkretny
-    obszar: dokumenty, reklamacje, statusy, workflow decyzji.
-  </li>
-  <li>
-    <strong>Sprawdzenie, czy wystarczy integracja.</strong> Często
-    problem rozwiązuje połączenie istniejących narzędzi — bez budowy
-    nowej aplikacji.
-  </li>
-  <li>
-    <strong>Pierwsza wersja z jasnym zakresem.</strong> Coś, co można
-    sprawdzić na żywej pracy zespołu w ciągu tygodni, nie miesięcy.
-  </li>
-  <li>
-    <strong>Wdrożenie i pomiar.</strong> Narzędzie działa, zespół
-    odzyskuje czas, Ty widzisz konkretne metryki.
-  </li>
-</ol>
-
-<h2>Ile kosztuje automatyzacja?</h2>
-
-<p>
-  To zależy od procesu — ale zasada jest prosta: nie buduję więcej niż
-  potrzeba. Dla prostych zadań używam tańszych modeli AI. Dla
-  wymagających — precyzyjnych. Zawsze z kontrolą kosztów widoczną od
-  pierwszego dnia.
-</p>
-
-<p>
-  <strong>Zasada:</strong> jeśli problem rozwiązuje darmowe lub tanie
-  narzędzie z rynku — mówię to wprost. Nie buduję aplikacji tam, gdzie
-  wystarczy integracja.
-</p>
-
-<h2>Co dalej?</h2>
-
-<p>
-  Masz proces, który zabiera czas, wymyka się spod kontroli albo
-  działa nieefektywnie? Opisz go — ocenię, czym go uporządkować.
-  Bez zobowiązań, bez strategii na 200 stron.
-</p>
-
-<p>
-  <a href="/#kontakt">Opisz proces →</a>
-</p>`,
-  },
+  }
 ];
 
 export function getPost(slug: string): BlogPost | undefined {

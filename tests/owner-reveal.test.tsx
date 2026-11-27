@@ -47,9 +47,14 @@ describe("OwnerReveal crawler-protected personal details", () => {
     const filesToCheck = [
       "../src/app/layout.tsx",
       "../src/app/blog/[slug]/page.tsx",
-      "../src/app/vs-freelancer-automatyzator/page.tsx",
+      "../src/app/jak-pracuje/page.tsx",
+      "../src/app/automatyzacja/page.tsx",
+      "../src/app/dane-i-analityka/page.tsx",
+      "../src/app/aplikacje/page.tsx",
+      "../src/app/wsparcie-it/page.tsx",
       "../src/app/polityka-prywatnosci/page.tsx",
       "../src/components/home/home-sheets.tsx",
+      "../src/components/service-landing.tsx",
       "../src/content/site.ts",
       "../public/llms.txt",
     ];

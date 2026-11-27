@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import { trackEvent } from '@/lib/analytics';
+
 // Stored as shifted character codes and decoded only after user interaction
 // so personal data and profile URLs never appear in SSR HTML, JSON-LD, or static strings.
 const SHIFT = 19;
@@ -59,7 +61,10 @@ export function OwnerReveal({ variant = 'profile' }: OwnerRevealProps) {
             type="button"
             className="legal-inline-button"
             aria-expanded="false"
-            onClick={() => setOwner(decodeOwner())}
+            onClick={() => {
+              setOwner(decodeOwner());
+              trackEvent('owner_revealed', { variant: 'inline' });
+            }}
           >
             Pokaż dane administratora
           </button>
@@ -89,7 +94,10 @@ export function OwnerReveal({ variant = 'profile' }: OwnerRevealProps) {
           type="button"
           className="gv-link gv-phone-trigger"
           aria-expanded="false"
-          onClick={() => setOwner(decodeOwner())}
+          onClick={() => {
+            setOwner(decodeOwner());
+            trackEvent('owner_revealed', { variant: 'profile' });
+          }}
         >
           Pokaż dane kontaktowe i profil LinkedIn
         </button>

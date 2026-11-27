@@ -12,15 +12,11 @@ import {
   saveCookieConsent,
 } from "@/lib/cookie-consent";
 
-// The banner's visibility is derived from an external store (localStorage +
-// the consent-changed event) rather than effect-driven state — so it hides
-// automatically once the visitor responds, with no hydration mismatch.
 function subscribe(callback: () => void): () => void {
   window.addEventListener(CONSENT_CHANGED_EVENT, callback);
   return () => window.removeEventListener(CONSENT_CHANGED_EVENT, callback);
 }
 
-// true → no decision stored yet → show the banner.
 const getSnapshot = () => getCookieConsent() === null;
 const getServerSnapshot = () => false;
 
@@ -31,8 +27,6 @@ export function CookieConsent() {
     getServerSnapshot,
   );
   const [expanded, setExpanded] = useState(false);
-  // Lets visitors re-open the banner later (from the footer / privacy policy)
-  // to change or withdraw consent, even after a decision is stored.
   const [reopened, setReopened] = useState(false);
 
   useEffect(() => {
@@ -47,8 +41,6 @@ export function CookieConsent() {
       analytics ? { necessary: true, analytics: true } : DEFAULT_CONSENT,
     );
     setReopened(false);
-    // Withdrawing a prior analytics consent: reload so already-initialised
-    // trackers (PostHog / Clarity) stop for the rest of the session.
     if (!analytics && previous?.analytics) window.location.reload();
   }, []);
 
@@ -56,15 +48,15 @@ export function CookieConsent() {
 
   return (
     <section
-      aria-label="Zgoda na pliki cookie"
+      aria-label="Ustawienia prywatności i plików cookie"
       className="fixed inset-x-0 bottom-0 z-50 max-h-[45vh] overflow-y-auto border-t-2 border-foreground bg-background px-4 py-3 text-foreground"
     >
       <div className="mx-auto max-w-[1180px] space-y-2 md:flex md:flex-wrap md:items-center md:gap-x-6 md:gap-y-2 md:space-y-0">
         <p className="text-xs leading-relaxed text-muted-foreground md:flex-1">
           <span className="font-semibold text-foreground">Pliki cookie. </span>
-          Używamy niezbędnych plików cookie, aby strona działała. Za Twoją zgodą
-          korzystamy też z analityki, by rozumieć, jak używasz strony, i ją
-          ulepszać.{" "}
+          Korzystam z niezbędnych plików, aby strona działała poprawnie. Za Twoją zgodą
+          zbieram też proste, anonimowe statystyki odwiedzin, żeby wiedzieć, które
+          informacje są najbardziej przydatne.{" "}
           <Link
             href="/polityka-prywatnosci"
             className="underline underline-offset-2 hover:text-foreground"
@@ -100,19 +92,18 @@ export function CookieConsent() {
             <div>
               <dt className="font-medium">Niezbędne — zawsze aktywne</dt>
               <dd className="text-muted-foreground">
-                Potrzebne do podstawowego działania strony.
+                Zapamiętują Twój wybór dotyczący prywatności i zapewniają poprawne działanie strony.
               </dd>
             </div>
             <div>
-              <dt className="font-medium">Analityczne — za zgodą</dt>
+              <dt className="font-medium">Statystyki odwiedzin — tylko za zgodą</dt>
               <dd className="text-muted-foreground">
-                PostHog i Microsoft Clarity: statystyki oraz nagrania sesji
-                (heatmapy). Uruchamiają się dopiero po akceptacji.
+                Zliczają odwiedziny podstron oraz podstawowe akcje na stronie (np. użycie formularza
+                lub odsłonięcie numeru telefonu), bez reklam i bez profilowania.
               </dd>
             </div>
           </dl>
         )}
-
       </div>
     </section>
   );

@@ -13,7 +13,10 @@ export function Footer() {
           &copy; {year} {brandName}
         </span>
         <nav className="footer-nav" aria-label="Stopka">
-          <Link href="/#oferta">Zakres</Link>
+          <Link href="/automatyzacja">Automatyzacja</Link>
+          <Link href="/dane-i-analityka">Dane i analityka</Link>
+          <Link href="/aplikacje">Aplikacje</Link>
+          <Link href="/wsparcie-it">Wsparcie IT</Link>
           <Link href="/jak-pracuje">Jak pracuję</Link>
           <Link href="/blog">Blog</Link>
           <Link href="/polityka-prywatnosci">Polityka prywatności</Link>

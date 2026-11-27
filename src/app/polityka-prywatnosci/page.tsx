@@ -46,59 +46,40 @@ export default function PrivacyPolicyPage() {
             administratora).
           </p>
 
-          <h3>Analityka i statystyki (tylko za Twoją zgodą)</h3>
+          <h3>Proste statystyki odwiedzin (tylko za Twoją zgodą)</h3>
           <p>
-            Jeśli wyrazisz zgodę na pliki cookie analityczne, serwis korzysta z narzędzi
-            analitycznych, które zbierają informacje o sposobie korzystania ze strony (m.in.
-            odwiedzane podstrony, czas i źródło wizyty, interakcje ze stroną oraz przybliżona
-            lokalizacja na podstawie adresu IP). Dane te służą wyłącznie analizie i ulepszaniu
-            serwisu — nie wykorzystuję ich do reklamy ani profilowania. Bez Twojej zgody narzędzia
-            te w ogóle się nie uruchamiają. Podstawa prawna: art. 6 ust. 1 lit. a RODO (zgoda),
-            którą możesz w każdej chwili wycofać.
+            Jeśli wyrazisz zgodę na statystyki w banerze prywatności, serwis zbiera anonimowe dane o
+            tym, które podstrony są odwiedzane oraz czy użytkownicy korzystają z podstawowych
+            elementów strony (np. formularza kontaktowego lub odsłonięcia numeru telefonu). Dane te
+            służą wyłącznie ulepszaniu treści i działania strony — bez reklam i bez profilowania.
+            Bez Twojej zgody statystyki w ogóle się nie uruchamiają. Podstawa prawna: art. 6 ust. 1
+            lit. a RODO (zgoda), którą możesz w każdej chwili wycofać.
           </p>
-          <ul>
-            <li>
-              <strong>PostHog</strong> (PostHog, Unia Europejska) — statystyki ruchu i zdarzeń na
-              stronie, ładowane przez własną domenę serwisu.
-            </li>
-            <li>
-              <strong>Microsoft Clarity</strong> (Microsoft) — mapy ciepła (heatmapy) oraz nagrania
-              sesji, które mogą rejestrować ruch kursora, kliknięcia i przewijanie strony (treść pól
-              oznaczonych jako wrażliwe jest maskowana).
-            </li>
-            <li>
-              <strong>Google Analytics 4</strong> (Google) — statystyki ruchu i zdarzeń (odsłony,
-              źródła wizyt, urządzenia). Działa w trybie zgody (Consent Mode) — ładuje się dopiero po
-              Twojej akceptacji.
-            </li>
-          </ul>
 
           <h3>Dane techniczne</h3>
           <p>
-            Serwer automatycznie rejestruje adres IP w celu ograniczenia nadużyć (rate limiting).
-            Dane te nie są trwale przechowywane i nie służą identyfikacji użytkownika.
+            Serwer automatycznie rejestruje adres IP w celu ochrony formularza przed spamem
+            (ograniczenie liczby zapytań). Dane te nie są trwale przechowywane i nie służą
+            identyfikacji użytkownika.
           </p>
         </section>
 
         <section>
-          <h2>3. Pliki cookies i zgoda</h2>
-          <p>Serwis wykorzystuje dwie kategorie plików cookie oraz podobnych technologii (np. localStorage):</p>
+          <h2>3. Pliki cookie i zgoda</h2>
+          <p>Serwis wykorzystuje dwie kategorie plików cookie oraz pamięci przeglądarki:</p>
           <ul>
             <li>
-              <strong>Niezbędne</strong> — zawsze aktywne. Konieczne do podstawowego działania
-              strony, m.in. do zapamiętania Twojej decyzji dotyczącej cookies. Nie wymagają zgody.
+              <strong>Niezbędne</strong> — zawsze aktywne. Zapamiętują Twój wybór dotyczący
+              prywatności i zapewniają poprawne działanie strony. Nie wymagają zgody.
             </li>
             <li>
-              <strong>Analityczne</strong> — PostHog, Microsoft Clarity i Google Analytics 4
-              (opisane w pkt 2). Uruchamiają się dopiero po wyrażeniu zgody w banerze cookie. Jeśli
-              nie wyrazisz zgody, narzędzia te w ogóle się nie ładują.
+              <strong>Statystyki odwiedzin</strong> — uruchamiają się dopiero po kliknięciu
+              &bdquo;Akceptuj&rdquo; w banerze prywatności. Jeśli wybierzesz &bdquo;Tylko
+              niezbędne&rdquo;, skrypty statystyczne w ogóle się nie ładują.
             </li>
           </ul>
           <p>
-            Przy pierwszej wizycie wyświetlamy baner, w którym możesz zaakceptować cookies
-            analityczne (&bdquo;Akceptuj&rdquo;) albo z nich zrezygnować (&bdquo;Tylko
-            niezbędne&rdquo;). Swoją decyzję
-            możesz w każdej chwili zmienić lub wycofać —{" "}
+            Swoją decyzję możesz w każdej chwili zmienić lub wycofać —{" "}
             <CookieSettingsButton className="legal-inline-button" />{" "}
             — albo usuwając dane witryny w ustawieniach przeglądarki. Wycofanie zgody nie wpływa na
             zgodność z prawem przetwarzania, którego dokonano przed jej wycofaniem.
@@ -106,28 +87,26 @@ export default function PrivacyPolicyPage() {
         </section>
 
         <section>
-          <h2>4. Odbiorcy danych</h2>
-          <p>Dane osobowe mogą być przekazywane następującym podmiotom:</p>
+          <h2>4. Dostawcy techniczni (odbiorcy danych)</h2>
+          <p>W zakresie niezbędnym do działania serwisu dane mogą być przekazywane następującym dostawcom:</p>
           <ul>
             <li>
-              <strong>Resend</strong> — usługa do wysyłki e-maili (przetwarzanie formularza
-              kontaktowego)
+              <strong>Resend</strong> — obsługa wysyłki wiadomości z formularza kontaktowego
             </li>
             <li>
-              <strong>Vercel</strong> — hosting i dostarczanie treści serwisu
+              <strong>Vercel</strong> — hosting i udostępnianie strony internetowej
             </li>
             <li>
-              <strong>PostHog</strong> — analityka ruchu (za zgodą; serwery w Unii Europejskiej)
+              <strong>PostHog</strong> (serwery w Unii Europejskiej) — anonimowe statystyki odwiedzin
+              i zdarzeń (wyłącznie po wyrażeniu zgody)
             </li>
             <li>
-              <strong>Microsoft</strong> — mapy ciepła i nagrania sesji w Microsoft Clarity (za zgodą)
-            </li>
-            <li>
-              <strong>Google</strong> — statystyki ruchu w Google Analytics 4 (za zgodą)
+              <strong>Google Analytics 4</strong> (Google) — podstawowe statystyki ruchu w trybie
+              zgody Consent Mode, bez funkcji reklamowych (wyłącznie po wyrażeniu zgody)
             </li>
           </ul>
           <p>
-            Wymienione podmioty mogą przetwarzać dane poza Europejskim Obszarem Gospodarczym (EOG),
+            Wybrani dostawcy mogą przetwarzać dane poza Europejskim Obszarem Gospodarczym (EOG),
             zapewniając odpowiedni poziom ochrony zgodnie z decyzjami Komisji Europejskiej lub
             standardowymi klauzulami umownymi.
           </p>
@@ -136,10 +115,10 @@ export default function PrivacyPolicyPage() {
         <section>
           <h2>5. Okres przechowywania danych</h2>
           <p>
-            Dane z formularza kontaktowego przechowuję przez okres niezbędny do realizacji
+            Dane z formularza kontaktowego przechowuję przez okres niezbędny do prowadzenia
             korespondencji i ewentualnej współpracy, nie dłużej niż 2 lata od ostatniego kontaktu.
-            Dane analityczne Google Analytics są przechowywane zgodnie z polityką retencji Google
-            (domyślnie 14 miesięcy).
+            Dane statystyczne przechowywane są zgodnie z ustawieniami retencji narzędzi (do 14
+            miesięcy).
           </p>
         </section>
 
@@ -153,30 +132,12 @@ export default function PrivacyPolicyPage() {
             <li>ograniczenia przetwarzania</li>
             <li>przenoszenia danych</li>
             <li>wniesienia sprzeciwu wobec przetwarzania</li>
-            <li>
-              wniesienia skargi do organu nadzorczego — Prezesa Urzędu Ochrony Danych Osobowych
-              (PUODO)
-            </li>
+            <li>wycofania zgody w dowolnym momencie</li>
+            <li>wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (UODO)</li>
           </ul>
           <p>
-            W celu realizacji swoich praw skontaktuj się ze mną:{" "}
+            Aby skorzystać z powyższych praw, napisz na{" "}
             <a href="mailto:kontakt@gotovalues.com">kontakt@gotovalues.com</a>.
-          </p>
-        </section>
-
-        <section>
-          <h2>7. Dobrowolność podania danych</h2>
-          <p>
-            Podanie danych w formularzu kontaktowym jest dobrowolne, ale niezbędne do przesłania
-            zapytania i otrzymania odpowiedzi.
-          </p>
-        </section>
-
-        <section>
-          <h2>8. Zmiany w polityce prywatności</h2>
-          <p>
-            Zastrzegam sobie prawo do aktualizacji niniejszej polityki. O istotnych zmianach
-            poinformuję poprzez aktualizację daty na górze dokumentu.
           </p>
         </section>
       </article>

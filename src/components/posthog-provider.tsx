@@ -18,23 +18,24 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
     return subscribeAnalyticsConsent(() => {
       if (initialized) return;
       initialized = true;
-      import("posthog-js").then((mod) => {
-        mod.default.init(POSTHOG_KEY, {
-          api_host: POSTHOG_HOST,
-          // ui_host lets PostHog links/toolbar resolve when api_host is a
-          // first-party reverse proxy path (see next.config rewrites).
-          ui_host: "https://eu.posthog.com",
-          person_profiles: "identified_only",
-          capture_pageview: true,
-          capture_pageleave: true,
-          autocapture: true,
+      import("posthog-js")
+        .then((mod) => {
+          mod.default.init(POSTHOG_KEY, {
+            api_host: POSTHOG_HOST,
+            ui_host: "https://eu.posthog.com",
+            person_profiles: "identified_only",
+            capture_pageview: true,
+            capture_pageleave: true,
+            autocapture: false,
+          });
+          window.__gvPosthog = mod.default;
+        })
+        .catch((error) => {
+          initialized = false;
+          logger.warn("Failed to load posthog-js", {
+            error: error instanceof Error ? error.message : String(error),
+          });
         });
-      }).catch((error) => {
-        initialized = false;
-        logger.warn("Failed to load posthog-js", {
-          error: error instanceof Error ? error.message : String(error),
-        });
-      });
     });
   }, []);
 

@@ -12,7 +12,6 @@ declare global {
 
 let initialized = false;
 
-// gtag pushes an Arguments-like array to dataLayer (not a plain object).
 function gtag(...args: unknown[]) {
   globalThis.dataLayer = globalThis.dataLayer || [];
   globalThis.dataLayer.push(args);
@@ -20,11 +19,8 @@ function gtag(...args: unknown[]) {
 
 /**
  * Google Analytics 4 (gtag.js) with Consent Mode v2.
- *
  * Loads only when NEXT_PUBLIC_GA_MEASUREMENT_ID is set AND the visitor has
- * granted analytics consent (now or later, via the cookie banner). Because the
- * gate only fires on consent, analytics_storage is granted on load; ad storage
- * stays denied — this site runs no ad tags.
+ * granted analytics consent via the cookie banner.
  */
 export function GaProvider() {
   useEffect(() => {
@@ -35,6 +31,7 @@ export function GaProvider() {
       initialized = true;
 
       globalThis.dataLayer = globalThis.dataLayer || [];
+      window.gtag = gtag;
       gtag("consent", "default", {
         analytics_storage: "granted",
         ad_storage: "denied",

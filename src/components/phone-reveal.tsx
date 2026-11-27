@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import { trackEvent } from '@/lib/analytics';
+
 // Stored as shifted digit codes and decoded only after user interaction
 // so raw phone patterns never appear in SSR HTML or static bundle strings.
 const SHIFT = 17;
@@ -36,7 +38,10 @@ export function PhoneReveal() {
           type="button"
           className="gv-link gv-phone-trigger"
           aria-expanded="false"
-          onClick={() => setPhone(decodePhone())}
+          onClick={() => {
+            setPhone(decodePhone());
+            trackEvent('phone_revealed');
+          }}
         >
           Pokaż numer telefonu
         </button>

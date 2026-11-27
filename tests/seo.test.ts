@@ -30,41 +30,40 @@ describe("SEO config", () => {
     }
   });
 
-  test("sitemap.xml includes active routes and excludes removed legacy offer pages", () => {
+  test("sitemap.xml includes active HTML routes and excludes non-HTML and retired URLs", () => {
     const config = sitemap();
-    assert.ok(config.length >= 3);
+    const urls = config.map((item) => item.url);
 
-    const root = config.find((item) => item.url === "https://gotovalues.com");
-    assert.ok(root, "Must include root url");
-    assert.equal(root.priority, 1);
+    const requiredUrls = [
+      "https://gotovalues.com",
+      "https://gotovalues.com/automatyzacja",
+      "https://gotovalues.com/dane-i-analityka",
+      "https://gotovalues.com/aplikacje",
+      "https://gotovalues.com/wsparcie-it",
+      "https://gotovalues.com/jak-pracuje",
+      "https://gotovalues.com/blog",
+    ];
+    for (const required of requiredUrls) {
+      assert.ok(urls.includes(required), `Sitemap must include ${required}`);
+    }
 
-    const comparison = config.find((item) => item.url === "https://gotovalues.com/vs-freelancer-automatyzator");
-    assert.ok(comparison, "Must include /vs-freelancer-automatyzator");
-
-    const howIWork = config.find((item) => item.url === "https://gotovalues.com/jak-pracuje");
-    assert.ok(howIWork, "Must include /jak-pracuje");
-    assert.ok((howIWork.priority ?? 0) > (comparison.priority ?? 0));
-
-    const llms = config.find((item) => item.url === "https://gotovalues.com/llms.txt");
-    assert.ok(llms, "Must include llms.txt for AI crawlers");
-
-    const removedUrls = [
+    const excludedUrls = [
+      "https://gotovalues.com/llms.txt",
+      "https://gotovalues.com/ai.txt",
+      "https://gotovalues.com/vs-freelancer-automatyzator",
+      "https://gotovalues.com/polityka-prywatnosci",
       "https://gotovalues.com/supportflow",
       "https://gotovalues.com/triageflow",
       "https://gotovalues.com/kalkulator-roi",
       "https://gotovalues.com/dla-produkcji",
       "https://gotovalues.com/dla-logistyki",
     ];
-    for (const removed of removedUrls) {
-      assert.equal(
-        config.find((item) => item.url === removed),
-        undefined,
-        `Sitemap must not include removed route ${removed}`,
-      );
+    for (const excluded of excludedUrls) {
+      assert.equal(urls.includes(excluded), false, `Sitemap must exclude ${excluded}`);
     }
   });
 
-  test("llms.txt and ai.txt expose consistent crawler-readable positioning without removed routes", async () => {
+  test("llms.txt and ai.txt expose consistent crawler-readable positioning for all four service pillars", async () => {
     const llmsResponse = await llmsTxt();
     const aiResponse = await aiTxt();
     const llms = await llmsResponse.text();
@@ -72,11 +71,13 @@ describe("SEO config", () => {
 
     assert.equal(llmsResponse.headers.get("content-type"), "text/plain; charset=utf-8");
     assert.match(llms, /gotovalues/i);
-    assert.match(llms, /AI|automatyzacja|aplikacje/i);
-    assert.match(llms, /https:\/\/gotovalues\.com\/sitemap\.xml/);
+    assert.match(llms, /https:\/\/gotovalues\.com\/automatyzacja/);
+    assert.match(llms, /https:\/\/gotovalues\.com\/dane-i-analityka/);
+    assert.match(llms, /https:\/\/gotovalues\.com\/aplikacje/);
+    assert.match(llms, /https:\/\/gotovalues\.com\/wsparcie-it/);
     assert.match(llms, /https:\/\/gotovalues\.com\/jak-pracuje/);
+    assert.match(llms, /https:\/\/gotovalues\.com\/sitemap\.xml/);
     assert.match(llms, /^# .+\n\n> .+/, "H1 must be followed by a blockquote description");
-    assert.match(llms, /\[Jak pracuję\]\(https:\/\/gotovalues\.com\/jak-pracuje\)/);
     assert.equal(/supportflow|triageflow|dla-produkcji|dla-logistyki|kalkulator-roi|cavi\.gotova|akta\.gotova/i.test(llms), false);
     assert.match(ai, /AI crawling: allow/);
     assert.match(ai, /AI indexing: allow/);
@@ -92,6 +93,6 @@ describe("SEO config", () => {
     assert.match(content, /https:\/\/github\.com\/gotovalues/);
     assert.match(content, /https:\/\/www\.facebook\.com\/gotovalues/);
     assert.equal(/gołaszew|golaszew|linkedin\.com\/in\//i.test(content), false);
-    assert.match(content, /automatyzacja, aplikacje i wsparcie IT/);
+    assert.match(content, /automatyzacja, aplikacje, dane i wsparcie IT/);
   });
 });

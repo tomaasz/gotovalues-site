@@ -5,13 +5,11 @@ import { siteContent } from "@/content/site";
 
 /**
  * Stała, jednolita nawigacja na wszystkich podstronach.
- * Wszystkie linki prowadzą do tego samego miejsca, niezależnie od bieżącej strony.
  */
 export function SiteHeader() {
   return (
     <header className="site-header">
       <Link className="brand-mark" href="/">
-        {/* Logotype "Trasa do wartości" — sources and guidelines in brand/logo/. */}
         <Image
           className="brand-mark-logo"
           src="/brand/gotovalues-logo.svg"
@@ -23,6 +21,7 @@ export function SiteHeader() {
       </Link>
       <nav className="site-nav" aria-label="Główna nawigacja">
         <Link href="/#oferta">Zakres</Link>
+        <Link href="/wsparcie-it">Wsparcie IT</Link>
         <Link href="/jak-pracuje">Jak pracuję</Link>
         <Link href="/blog">Blog</Link>
         <Link href="/#kontakt">Kontakt</Link>

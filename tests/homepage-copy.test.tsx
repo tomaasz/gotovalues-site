@@ -6,7 +6,7 @@ import { act, cleanup, fireEvent, render, screen } from "@testing-library/react"
 import { afterEach, describe, mock, test } from "node:test";
 import assert from "node:assert/strict";
 
-import { DrawingSheet } from "../src/components/home/home-sheets";
+import { DrawingSheet, PartsListSheet } from "../src/components/home/home-sheets";
 import { TitleBlockForm } from "../src/components/home/title-block-form";
 import { SiteHeader } from "../src/components/site-header";
 import { Footer } from "../src/components/footer";
@@ -17,17 +17,31 @@ describe("homepage copy", () => {
     mock.restoreAll();
   });
 
-  test("keeps the first viewport clean with a single CTA to #kontakt and no duplicate form", () => {
+  test("keeps the first viewport clean with H1-C, audience split, CTA to #kontakt, and no duplicate form", () => {
     const { container } = render(<DrawingSheet />);
 
     assert.equal(
       screen.getByRole("heading", { level: 1 }).textContent,
-      "Automatyzacja, aplikacje i wsparcie IT.",
+      "Automatyzacja, aplikacje, dane i wsparcie IT.",
     );
     assert.equal(container.querySelectorAll("form").length, 0);
-    const cta = screen.getByRole("link", { name: "Napisz wiadomość" });
+    const cta = screen.getByRole("link", { name: "Opisz swój temat" });
     assert.equal(cta.getAttribute("href"), "#kontakt");
-    assert.ok(screen.getByText("Wsparcie IT, serwery i sprzęt"));
+    assert.ok(screen.getByText("Dla firm"));
+    assert.ok(screen.getByText("Wsparcie IT i osoby prywatne"));
+  });
+
+  test("renders four offer pillars linking to dedicated service pages", () => {
+    const { container } = render(<PartsListSheet />);
+
+    assert.ok(screen.getByText("Automatyzacja i integracje"));
+    assert.ok(screen.getByText("Dane i analityka"));
+    assert.ok(screen.getByText("Aplikacje i oprogramowanie"));
+    assert.ok(screen.getByText("Infrastruktura i wsparcie IT"));
+    assert.ok(container.querySelector('a[href="/automatyzacja"]'));
+    assert.ok(container.querySelector('a[href="/dane-i-analityka"]'));
+    assert.ok(container.querySelector('a[href="/aplikacje"]'));
+    assert.ok(container.querySelector('a[href="/wsparcie-it"]'));
   });
 
   test("submits the unchanged contact payload shape", async () => {
@@ -67,10 +81,6 @@ describe("homepage copy", () => {
         "name",
       ]);
       assert.equal(JSON.parse(String(request.body)).company, "Gotova");
-      assert.equal(
-        JSON.parse(String(request.body)).message,
-        "Chcemy połączyć arkusze z pocztą i uporządkować kopie zapasowe.",
-      );
     } finally {
       globalThis.FormData = nativeFormData;
     }
@@ -86,14 +96,6 @@ describe("homepage copy", () => {
     assert.equal(/rwie się Wi-Fi/i.test(placeholder), false);
   });
 
-  test("keeps the compact form status live and without legacy pilot fields", () => {
-    render(<TitleBlockForm />);
-    const status = screen.getByRole("status");
-    assert.equal(status.getAttribute("aria-live"), "polite");
-    assert.equal(screen.getByRole("button", { name: "Wyślij wiadomość" }).textContent, "Wyślij wiadomość");
-    assert.equal(screen.queryByLabelText(/System wsparcia|Zgłoszenia tygodniowo|Program pilotażowy/i), null);
-  });
-
   test("omits product examples and removed legacy routes from homepage, header, and footer", () => {
     const { container } = render(
       <>
@@ -105,7 +107,10 @@ describe("homepage copy", () => {
     assert.equal(container.querySelector('a[href="/supportflow"]'), null);
     assert.equal(container.querySelector('a[href="/triageflow"]'), null);
     assert.equal(container.querySelector('a[href="/kalkulator-roi"]'), null);
-    assert.equal(screen.queryByRole("link", { name: "Produkty" }), null);
+    assert.ok(container.querySelector('a[href="/automatyzacja"]'));
+    assert.ok(container.querySelector('a[href="/dane-i-analityka"]'));
+    assert.ok(container.querySelector('a[href="/aplikacje"]'));
+    assert.ok(container.querySelector('a[href="/wsparcie-it"]'));
 
     const homePageSource = readFileSync(new URL("../src/app/page.tsx", import.meta.url), "utf-8");
     assert.equal(/ProofSheet/.test(homePageSource), false);

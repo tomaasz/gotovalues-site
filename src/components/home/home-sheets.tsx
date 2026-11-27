@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { ContactFormLazy } from '@/components/contact-form-lazy';
 import { ProcessDrawing } from '@/components/home/process-drawing';
 import { OwnerReveal } from '@/components/owner-reveal';
@@ -9,9 +11,9 @@ import { siteContent } from '@/content/site';
 const ZONES_X = ['A', 'B', 'C', 'D', 'E', 'F'] as const;
 const ZONES_Y = ['1', '2', '3', '4'] as const;
 
-/** Sheet 1 — first viewport: the process drawing with its title block. */
+/** Sheet 1 — first viewport: the process drawing with audience split and CTA. */
 export function DrawingSheet() {
-  const { brand, offer } = siteContent;
+  const { brand } = siteContent;
 
   return (
     <section className="gv-sheet gv-sheet-main" aria-labelledby="gv-title">
@@ -38,30 +40,37 @@ export function DrawingSheet() {
 
         <div className="gv-title-block" id="opisz-proces">
           <div className="gv-tb-summary">
-            <ol className="gv-tb-scope">
-              {offer.pillars.map((pillar, index) => (
-                <li key={pillar.title}>
+            <div className="gv-tb-audiences">
+              {brand.audiencePaths.map((path, index) => (
+                <div className="gv-tb-audience" key={path.title}>
                   <span className="gv-pos">{index + 1}</span>
                   <div>
-                    <strong>{pillar.title}</strong>
-                    <p>{pillar.description}</p>
+                    <p className="gv-tb-audience-eyebrow">{path.eyebrow}</p>
+                    <strong>{path.title}</strong>
+                    <p>{path.description}</p>
+                    {path.href.startsWith('/') ? (
+                      <Link className="gv-link gv-tb-audience-link" href={path.href as '/wsparcie-it'}>
+                        {path.linkLabel} →
+                      </Link>
+                    ) : (
+                      <a className="gv-link gv-tb-audience-link" href={path.href}>
+                        {path.linkLabel} →
+                      </a>
+                    )}
                   </div>
-                </li>
+                </div>
               ))}
-            </ol>
+            </div>
             <div className="gv-tb-actions">
               <a className="gv-tb-submit gv-tb-cta" href={brand.cta.primary.href}>
                 {brand.cta.primary.label}
-              </a>
-              <a className="gv-link gv-tb-secondary" href={brand.cta.secondary.href}>
-                {brand.cta.secondary.label}
               </a>
             </div>
           </div>
           <dl className="gv-tb-meta">
             <div>
-              <dt>Zakres</dt>
-              <dd>automatyzacja, aplikacje, serwery, IT</dd>
+              <dt>Obszar</dt>
+              <dd>automatyzacja · dane · aplikacje · IT</dd>
             </div>
             <div>
               <dt>Kontakt</dt>
@@ -82,7 +91,7 @@ export function DrawingSheet() {
   );
 }
 
-/** Sheet 2 — offer as a numbered parts list plus technical notes. */
+/** Sheet 2 — 4 offer pillars as a numbered parts list plus working principles. */
 export function PartsListSheet() {
   const { offer, approach } = siteContent;
 
@@ -90,6 +99,9 @@ export function PartsListSheet() {
     <section className="gv-sheet" id="oferta" aria-labelledby="gv-parts-title">
       <div className="gv-sheet-head">
         <h2 id="gv-parts-title">Zakres usług</h2>
+        <p className="gv-lede">
+          Każdy temat zaczynam od diagnozy — jeśli wystarczy konfiguracja obecnych narzędzi, nie proponuję budowy systemu od zera.
+        </p>
       </div>
 
       <div className="gv-table-wrap">
@@ -97,8 +109,8 @@ export function PartsListSheet() {
           <thead>
             <tr>
               <th scope="col">Poz.</th>
-              <th scope="col">Nazwa</th>
-              <th scope="col">Zakres</th>
+              <th scope="col">Obszar</th>
+              <th scope="col">Wartość</th>
               <th scope="col">Elementy</th>
             </tr>
           </thead>
@@ -108,7 +120,12 @@ export function PartsListSheet() {
                 <td>
                   <span className="gv-pos">{index + 1}</span>
                 </td>
-                <th scope="row">{pillar.title}</th>
+                <th scope="row">
+                  <span>{pillar.title}</span>
+                  <Link className="gv-link gv-pillar-link" href={pillar.href}>
+                    {pillar.ctaLabel} →
+                  </Link>
+                </th>
                 <td>{pillar.description}</td>
                 <td>
                   <ul>
@@ -137,7 +154,7 @@ export function PartsListSheet() {
   );
 }
 
-/** Sheet 3 — unified product proof grid (not rendered on homepage per owner decision). */
+/** Sheet 3 — product proof grid (intentionally not rendered on homepage per PF-2 owner decision). */
 export function ProofSheet() {
   const { products } = siteContent;
   const allProducts = [...products.public, ...products.private];
@@ -146,9 +163,9 @@ export function ProofSheet() {
   return (
     <section className="gv-sheet" id="produkty" aria-labelledby="gv-proof-title">
       <div className="gv-sheet-head gv-proof-head">
-        <h2 id="gv-proof-title">Przykłady produktów i wdrożeń</h2>
+        <h2 id="gv-proof-title">Projekty autorskie i rozwiązania</h2>
         <p className="gv-proof-intro">
-          Dwa publiczne produkty z linkami oraz krótkie, anonimowe przykłady wdrożeń prywatnych bez linków.
+          Własne projekty webowe oraz krótkie, zanonimizowane rozwiązania prywatne bez linków.
         </p>
       </div>
 
@@ -166,7 +183,7 @@ export function ProofSheet() {
   );
 }
 
-/** Sheet 4 — author block ("O mnie"). */
+/** Sheet 4 — concise brand-first "O gotovalues" block with click-to-reveal owner details. */
 export function AuthorSheet() {
   const { about } = siteContent;
 
@@ -194,7 +211,7 @@ export function AuthorSheet() {
   );
 }
 
-/** Sheet 5 — notes (FAQ). Content mirrors the FAQPage JSON-LD. */
+/** Sheet 5 — FAQ. Content mirrors the FAQPage JSON-LD. */
 export function NotesSheet() {
   return (
     <section className="gv-sheet" id="faq" aria-labelledby="gv-notes-title">
@@ -215,14 +232,14 @@ export function NotesSheet() {
   );
 }
 
-/** Sheet 6 — full contact form. */
+/** Sheet 6 — single contact form on the homepage. */
 export function ContactSheet() {
   const { contact } = siteContent;
 
   return (
     <section className="gv-sheet gv-contact" id="kontakt" aria-labelledby="gv-contact-title">
       <div className="gv-contact-copy">
-        <h2 id="gv-contact-title">Opisz krótko temat lub proces</h2>
+        <h2 id="gv-contact-title">Opisz temat lub problem</h2>
         <p>{contact.intro}</p>
         <dl className="gv-author-table">
           <div>

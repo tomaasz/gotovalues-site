@@ -524,41 +524,58 @@
   background: var(--gv-sage-deep);
 }
 
-/* Title block summary & CTA (single contact form lives in ContactSheet) */
+/* Title block audience paths & CTA (single contact form lives in ContactSheet) */
 .gv-tb-summary {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.gv-tb-scope {
+.gv-tb-audiences {
   display: grid;
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
-.gv-tb-scope li {
+.gv-tb-audience {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 12px;
   align-items: start;
-  padding: 14px 16px;
+  padding: 16px;
   border-bottom: var(--gv-line-thin) solid var(--gv-ink);
 }
 
-.gv-tb-scope strong {
+.gv-tb-audience-eyebrow {
+  margin: 0 0 2px;
+  color: var(--gv-ink-soft);
+  font-family: var(--gv-font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: var(--gv-tracking-annot);
+  text-transform: uppercase;
+}
+
+.gv-tb-audience strong {
   display: block;
   margin-bottom: 4px;
-  font-size: 0.98rem;
+  font-size: 1rem;
   line-height: 1.25;
 }
 
-.gv-tb-scope p {
-  margin: 0;
+.gv-tb-audience p:not(.gv-tb-audience-eyebrow) {
+  margin: 0 0 8px;
   color: var(--gv-ink-soft);
   font-size: 0.88rem;
   line-height: 1.45;
+}
+
+.gv-tb-audience-link {
+  font-size: 0.86rem;
+}
+
+.gv-pillar-link {
+  display: inline-flex;
+  margin-top: 8px;
+  font-size: 0.84rem;
 }
 
 .gv-tb-actions {
@@ -571,13 +588,6 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
-}
-
-.gv-tb-secondary {
-  justify-content: center;
-  padding: 12px 16px;
-  border-top: var(--gv-line-thin) solid var(--gv-ink);
-  font-size: 0.9rem;
 }
 
 /* Title block form */

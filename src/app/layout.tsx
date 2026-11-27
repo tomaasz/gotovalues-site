@@ -5,7 +5,6 @@ import { brandName } from "@/content/site";
 
 import { Footer } from "@/components/footer";
 import { PostHogProvider } from "@/components/posthog-provider";
-import { ClarityProvider } from "@/components/clarity-provider";
 import { GaProvider } from "@/components/ga-provider";
 import { CookieConsent } from "@/components/cookie-consent";
 
@@ -13,9 +12,6 @@ import { escapeMap } from "@/lib/utils";
 
 import "./globals.css";
 
-// "Working drawing" world: one industrial grotesque (variable width) for
-// titles and text, one monospace reserved for measurements, positions and
-// revision data. Self-hosted by next/font.
 const sansFont = Archivo({
   subsets: ["latin", "latin-ext"],
   variable: "--font-display",
@@ -31,9 +27,9 @@ const monoFont = JetBrains_Mono({
   preload: false,
 });
 
-const defaultTitle = `${brandName} — automatyzacja, aplikacje i wsparcie IT`;
+const defaultTitle = `${brandName} — automatyzacja, aplikacje, dane i wsparcie IT`;
 const defaultDescription =
-  "Automatyzacja procesów, lekkie aplikacje webowe oraz wsparcie IT (komputery, serwery, instalacje, konfiguracja) dla firm i osób prywatnych.";
+  "Niezależny partner technologiczny dla firm i klientów indywidualnych: automatyzacja i integracje, dane i analityka, aplikacje webowe oraz infrastruktura i wsparcie IT.";
 
 export const metadata: Metadata = {
   title: {
@@ -105,8 +101,7 @@ const jsonLd = {
       "url": "https://gotovalues.com",
       "image": "https://gotovalues.com/images/og.png",
       "email": "kontakt@gotovalues.com",
-      "description":
-        "Automatyzacja powtarzalnej pracy, lekkie aplikacje webowe oraz wsparcie IT (komputery, serwery, instalacje i konfiguracja) dla firm i osób prywatnych.",
+      "description": defaultDescription,
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Zabrodzie",
@@ -120,12 +115,11 @@ const jsonLd = {
         "https://www.facebook.com/gotovalues"
       ],
       "knowsAbout": [
-        "automatyzacja procesów biznesowych",
-        "integracje danych i raportowanie",
-        "dedykowane lekkie aplikacje webowe",
-        "praktyczne wdrożenia AI",
-        "wsparcie IT dla firm i osób prywatnych",
-        "instalacja i konfiguracja komputerów, serwerów i sieci",
+        "automatyzacja procesów i integracje systemów",
+        "dane, raportowanie i analityka",
+        "dedykowane aplikacje webowe i oprogramowanie",
+        "infrastruktura, serwery, komputery i wsparcie IT",
+        "praktyczne wdrożenia AI i OCR",
         "poczta firmowa i kopie zapasowe"
       ]
     }
@@ -144,7 +138,6 @@ export default function RootLayout({
         <PostHogProvider>
           {children}
         </PostHogProvider>
-        <ClarityProvider />
         <GaProvider />
         <CookieConsent />
         <Footer />

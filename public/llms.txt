@@ -1,23 +1,28 @@
-# gotovalues — automatyzacja, aplikacje i wsparcie IT
+# gotovalues — automatyzacja, aplikacje, dane i wsparcie IT
 
-> gotovalues pomaga firmom i osobom prywatnym w automatyzacji powtarzalnej pracy, porządkowaniu danych, budowie lekkich aplikacji webowych oraz wsparciu IT (komputery, serwery, NAS, instalacje, poczta, kopie zapasowe). Praca zdalna w całej Polsce oraz sprawy sprzętowe po umówieniu (Zabrodzie, powiat wyszkowski).
+> gotovalues to niezależny partner technologiczny dla firm i klientów indywidualnych: automatyzacja i integracje, dane i analityka, dedykowane aplikacje webowe oraz infrastruktura i wsparcie IT (komputery, serwery, NAS, sieci, kopie zapasowe). Praca zdalna w całej Polsce oraz sprawy sprzętowe po umówieniu (Zabrodzie, powiat wyszkowski).
 
 ## Scope
-- **Procesy, dane i automatyzacja**: Łączę dane z poczty, arkuszy i programów, żeby nie przepisywać tych samych informacji ręcznie.
-- **Dedykowane narzędzia i aplikacje**: Gdy gotowe programy nie pasują do sposobu pracy, buduję lekkie narzędzie webowe pod konkretny proces.
-- **Wsparcie IT, serwery i sprzęt**: Pomagam firmom i osobom prywatnym w sprawach sprzętowych, instalacjach, konfiguracji serwerów i bieżącym wsparciu IT.
+- [Automatyzacja i integracje](https://gotovalues.com/automatyzacja): Eliminuję ręczne przepisywanie informacji między pocztą, arkuszami, ERP, CRM i zewnętrznymi systemami.
+- [Dane i analityka](https://gotovalues.com/dane-i-analityka): Porządkuję rozproszone pliki i bazy w jedno wiarygodne źródło danych oraz czytelne raporty do bieżących decyzji.
+- [Aplikacje i oprogramowanie](https://gotovalues.com/aplikacje): Projektuję i buduję dedykowane aplikacje webowe oraz narzędzia wewnętrzne wtedy, gdy gotowe programy ograniczają sposób pracy.
+- [Infrastruktura i wsparcie IT](https://gotovalues.com/wsparcie-it): Zapewniam uporządkowane środowisko sprzętowe i programowe dla firm oraz klientów indywidualnych — zdalnie i lokalnie po umówieniu.
 
 ## Best fit
-- firmy i osoby tracące czas na ręczne przepisywanie danych między pocztą, arkuszami i programami
-- firmy potrzebujące prostego, dedykowanego narzędzia webowego zamiast rozbudowanego systemu enterprise
+- firmy tracące czas na ręczne przepisywanie danych między pocztą, arkuszami, ERP i CRM
+- firmy potrzebujące wiarygodnych raportów, dashboardów lub dedykowanej aplikacji webowej dopasowanej do procesu
 - firmy i osoby prywatne szukające wsparcia IT: instalacji i konfiguracji komputerów, serwerów (NAS), sieci, poczty i kopii zapasowych
 
 ## Not a fit
-- firmy wymagające całodobowych dyżurów awaryjnych 24/7 i natychmiastowego serwisu SLA
+- organizacje wymagające całodobowych dyżurów awaryjnych 24/7 i natychmiastowego serwisu SLA
 - rozległe wdrożenia ERP dla setek użytkowników wymagające dużego zespołu wdrożeniowego
 
 ## Key pages
-- [Homepage](https://gotovalues.com): zakres usług, model pracy i kontakt
-- [Jak pracuję](https://gotovalues.com/jak-pracuje): podejście do doboru rozwiązania (konfiguracja, integracja, aplikacja)
-- [Blog techniczny](https://gotovalues.com/blog): artykuły o automatyzacji procesów, danych i aplikacjach webowych
+- [Homepage](https://gotovalues.com): zakres usług, podział ścieżek i kontakt
+- [Automatyzacja i integracje](https://gotovalues.com/automatyzacja): integracje systemów, obieg dokumentów, OCR i AI
+- [Dane i analityka](https://gotovalues.com/dane-i-analityka): porządkowanie danych, SQL, raporty i dashboardy
+- [Aplikacje i oprogramowanie](https://gotovalues.com/aplikacje): dedykowane aplikacje webowe i narzędzia wewnętrzne
+- [Infrastruktura i wsparcie IT](https://gotovalues.com/wsparcie-it): komputery, serwery (NAS), sieci, poczta i kopie zapasowe
+- [Jak pracuję](https://gotovalues.com/jak-pracuje): podejście do doboru rozwiązania
+- [Blog techniczny](https://gotovalues.com/blog): artykuły o automatyzacji, danych i aplikacjach
 - [Sitemap](https://gotovalues.com/sitemap.xml)

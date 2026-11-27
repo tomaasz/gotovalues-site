@@ -6,14 +6,14 @@ import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
-  title: "Blog — dedykowane aplikacje webowe, AI i automatyzacja procesów",
+  title: "Blog — automatyzacja, dane, aplikacje i IT",
   alternates: { canonical: "/blog" },
   description:
-    "Praktyczne artykuły o budowie dedykowanych aplikacji webowych, automatyzacji procesów z AI, pipeline'ach przetwarzania dokumentów i porządkowaniu pracy operacyjnej w firmach.",
+    "Praktyczne artykuły o automatyzacji procesów, danych i raportowaniu, dedykowanych aplikacjach webowych oraz porządkowaniu środowiska IT.",
   openGraph: {
-    title: "Blog — dedykowane aplikacje webowe, AI i automatyzacja",
+    title: "Blog — automatyzacja, dane, aplikacje i IT | gotovalues",
     description:
-      "Praktyczne artykuły o budowie dedykowanych aplikacji webowych, automatyzacji procesów z AI i porządkowaniu pracy operacyjnej.",
+      "Praktyczne artykuły o automatyzacji procesów, danych i raportowaniu, dedykowanych aplikacjach webowych oraz porządkowaniu środowiska IT.",
     type: "website",
   },
 };
@@ -26,11 +26,10 @@ export default function BlogPage() {
       <section className="hero surface">
         <div className="hero-copy">
           <p className="eyebrow">Blog</p>
-          <h1>Praktycznie o aplikacjach, AI i procesach.</h1>
+          <h1>Praktycznie o automatyzacji, danych i aplikacjach.</h1>
           <p className="lede">
-            Artykuły pisane z perspektywy kogoś, kto codziennie buduje narzędzia
-            do porządkowania procesów — bez marketingowych obietnic i
-            buzzwordów.
+            Konkretne przewodniki, przykłady obliczeniowe i kryteria wyboru narzędzi — bez
+            marketingowych obietnic i zbędnego żargonu.
           </p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/#kontakt">

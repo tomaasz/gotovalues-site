@@ -2,6 +2,8 @@
 
 import { useId, useState } from 'react';
 
+import { trackEvent } from '@/lib/analytics';
+
 /**
  * Homepage signature: the visitor's process drawn as a working drawing.
  * Selecting a revision (0 → A → B → C) redraws the process stroke by stroke.
@@ -232,7 +234,7 @@ export function ProcessDrawing() {
       </div>
 
       <fieldset className="gv-revisions">
-        <legend>Tabela zmian: od problemu do rozwiązania</legend>
+        <legend>Tabela zmian — kliknij wiersz, aby przełączyć schemat</legend>
         <div className="gv-revisions-head" aria-hidden="true">
           <span>Rew.</span>
           <span>Rozwiązanie</span>
@@ -248,6 +250,7 @@ export function ProcessDrawing() {
               onChange={() => {
                 setHasInteracted(true);
                 setRevisionId(item.id);
+                trackEvent('drawing_revision_selected', { revision_id: item.id });
               }}
             />
             <span className="gv-revision-id">{item.id}</span>
