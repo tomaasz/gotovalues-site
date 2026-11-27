@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 import { ContactFormLazy as ContactForm } from "@/components/contact-form-lazy";
 import { ContactSignals } from "@/components/contact-signals";
@@ -40,7 +39,6 @@ const jsonLd = {
 
 export default function ComparisonLandingPage() {
   const landing = siteContent.comparisonLanding;
-  const proof = siteContent.proofOfCompetence;
 
   return (
     <main id="main" className="page-shell" tabIndex={-1}>
@@ -55,9 +53,6 @@ export default function ComparisonLandingPage() {
             <a className="button button-primary" href={landing.cta.href}>
               {landing.cta.label}
             </a>
-            <Link className="button button-secondary" href="/#produkty">
-              Zobacz przykłady
-            </Link>
           </div>
         </div>
         <div className="hero-panel">
@@ -92,27 +87,6 @@ export default function ComparisonLandingPage() {
               <ul>
                 {audience.gotovaluesAdvantage.map((advantage) => (
                   <li key={advantage}>{advantage}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section" id="dowody">
-        <SectionHeading eyebrow={proof.eyebrow} heading={proof.headline} />
-        <div className="pillar-grid">
-          {proof.items.map((item) => (
-            <article className="surface pillar-card" key={item.name}>
-              <h3>
-                <a className="text-link" href={item.url} target="_blank" rel="noopener noreferrer">
-                  {item.name}
-                </a>
-              </h3>
-              <p>{item.summary}</p>
-              <ul>
-                {item.evidence.map((evidence) => (
-                  <li key={evidence}>{evidence}</li>
                 ))}
               </ul>
             </article>

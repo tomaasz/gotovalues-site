@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import { ContactFormLazy as ContactForm } from "@/components/contact-form-lazy";
 import { ContactSignals } from "@/components/contact-signals";
-import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
 import { siteContent } from "@/content/site";
@@ -15,7 +14,6 @@ export const metadata: Metadata = {
 
 export default function ProductionLandingPage() {
   const content = siteContent.productionLanding;
-  const allProducts = [...siteContent.products.public, ...siteContent.products.private];
 
   return (
     <main id="main" className="page-shell" tabIndex={-1}>
@@ -78,20 +76,6 @@ export default function ProductionLandingPage() {
               <h3>{item.title}</h3>
               <p>{item.description}</p>
             </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section" id="proof">
-        <SectionHeading
-          eyebrow={content.sections.proof.eyebrow}
-          heading={content.proofHeading}
-        >
-          <p className="lede">{content.sections.proof.intro}</p>
-        </SectionHeading>
-        <div className="product-grid" data-proof-grid="production">
-          {allProducts.map((product) => (
-            <ProductCard compact key={product.name} product={product} />
           ))}
         </div>
       </section>

@@ -36,9 +36,6 @@ export default function BlogPage() {
             <Link className="button button-primary" href="/#kontakt">
               Opisz proces do uporządkowania
             </Link>
-            <Link className="button button-secondary" href="/#produkty">
-              Zobacz działające przykłady
-            </Link>
           </div>
         </div>
         <div className="hero-panel">

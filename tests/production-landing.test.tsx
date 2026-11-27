@@ -63,41 +63,13 @@ describe("/dla-produkcji production landing page", () => {
     }
   });
 
-  test("renders honest proof with exactly two public links and unlinked anonymous private items", () => {
+  test("omits product examples section and links to #produkty", () => {
     const { container } = render(<ProductionLandingPage />);
-    const proofSection = container.querySelector("section#proof");
-    assert.ok(proofSection);
-
-    const grid = proofSection.querySelector('[data-proof-grid="production"]');
-    assert.ok(grid);
-
-    const allProducts = [...siteContent.products.public, ...siteContent.products.private];
-    assert.equal(grid.children.length, allProducts.length);
-
-    const links = Array.from(grid.querySelectorAll("a"));
-    assert.equal(links.length, 2);
-    assert.deepEqual(
-      links.map((link) => link.getAttribute("href")),
-      ["https://cavi.gotova.pl/", "https://akta.gotova.pl"],
-    );
-    for (const link of links) {
-      assert.equal(link.getAttribute("target"), "_blank");
-      assert.equal(link.getAttribute("rel"), "noopener noreferrer");
-      assert.match(link.textContent ?? "", /otwiera się w nowej karcie/i);
-    }
-
-    const articles = Array.from(grid.querySelectorAll("article"));
-    assert.equal(articles.length, siteContent.products.private.length);
-    for (const article of articles) {
-      assert.equal(article.getAttribute("href"), null);
-      assert.equal(article.querySelector("a"), null);
-      assert.match(article.textContent ?? "", /Prywatne wdrożenie/);
-    }
-
-    for (const product of allProducts) {
-      assert.ok(screen.getByRole("heading", { level: 3, name: product.name }));
-      assert.ok(screen.getByRole("img", { name: product.screenshot.alt }));
-    }
+    assert.equal(container.querySelector("section#proof"), null);
+    assert.equal(container.querySelector('[data-proof-grid="production"]'), null);
+    assert.equal(container.querySelector('a[href="/#produkty"]'), null);
+    assert.equal(container.querySelector('a[href="https://cavi.gotova.pl/"]'), null);
+    assert.equal(container.querySelector('a[href="https://akta.gotova.pl"]'), null);
   });
 
   test("explains a small first step, keeps one primary #kontakt CTA, and omits SupportFlow detours", () => {
@@ -124,6 +96,6 @@ describe("/dla-produkcji production landing page", () => {
     assert.ok(contactSection);
     assert.match(contactSection.textContent ?? "", /kontakt@gotovalues\.com/);
     assert.equal(screen.getAllByRole("heading", { level: 1 }).length, 1);
-    assert.equal(screen.getAllByRole("heading", { level: 2 }).length, 5);
+    assert.equal(screen.getAllByRole("heading", { level: 2 }).length, 4);
   });
 });

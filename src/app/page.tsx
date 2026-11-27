@@ -4,7 +4,6 @@ import {
   DrawingSheet,
   NotesSheet,
   PartsListSheet,
-  ProofSheet,
 } from '@/components/home/home-sheets';
 import { SiteHeader } from '@/components/site-header';
 import { faqs } from '@/content/faq';
@@ -27,7 +26,6 @@ export default function HomePage() {
       <SiteHeader />
       <DrawingSheet />
       <PartsListSheet />
-      <ProofSheet />
       <AuthorSheet />
       <NotesSheet />
       <ContactSheet />

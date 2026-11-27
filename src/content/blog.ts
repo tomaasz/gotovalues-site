@@ -441,8 +441,7 @@ export const blogPosts: BlogPost[] = [
   automatyczne wstępne odczytywanie zamówień przychodzących mailem (PDF/skan)
   i mapowanie pozycji na indeksy w ERP. Człowiek tylko potwierdza dopasowanie.
   To nie był cel sam w sobie &mdash; to było rozwiązanie konkretnego wąskiego gardła.
-  Podobne <a href="/#produkty">działające przykłady</a> pokazuję na stronie, a
-  szerszy kontekst opisałem w sekcji <a href="/dla-produkcji">rozwiązania dla
+  Szerszy kontekst tego podejścia opisałem w sekcji <a href="/dla-produkcji">rozwiązania dla
   produkcji</a>.
 </p>
 

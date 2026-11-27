@@ -3,7 +3,6 @@ import Link from "next/link";
 
 import { ContactFormLazy as ContactForm } from "@/components/contact-form-lazy";
 import { ContactSignals } from "@/components/contact-signals";
-import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
 import { siteContent } from "@/content/site";
@@ -40,9 +39,6 @@ export default function LogisticsLandingPage() {
             <a className="button button-primary" href={content.cta.href}>
               {content.cta.label}
             </a>
-            <Link className="button button-secondary" href="/#produkty">
-              Zobacz przykłady wdrożeń
-            </Link>
           </div>
         </div>
 
@@ -90,15 +86,6 @@ export default function LogisticsLandingPage() {
               <h3>{item.title}</h3>
               <p>{item.description}</p>
             </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section">
-        <SectionHeading eyebrow="Proof" heading={content.proofHeading} />
-        <div className="product-grid">
-          {siteContent.products.public.map((product) => (
-            <ProductCard compact key={product.name} product={product} />
           ))}
         </div>
       </section>
